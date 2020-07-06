@@ -219,12 +219,12 @@ body {
     background-color: #fff;
 }
 
-.linkedInButton {
+.linkButton {
     position: relative;
     font-size: 50px;
     left: 50%;
     margin-left: -25px;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: rgba(52, 152, 219, 1);
     color: #fff;
     display: table;
