@@ -90,7 +90,7 @@ body {
 
 .skillsSection,
 .contactSection {
-    background-color: rgba(52, 152, 219, 1);
+    background-color: rgba(37, 116, 169, 1);
     color: #fff;
 }
 
@@ -225,10 +225,14 @@ body {
     left: 50%;
     margin-left: -25px;
     margin-top: 10px;
-    background-color: rgba(52, 152, 219, 1);
+    background-color: rgba(37, 116, 169, 1);
     color: #fff;
     display: table;
     z-index: 100;
+}
+.linkButton:hover {
+    text-decoration: none;
+    color: rgba(108, 122, 137, 1);
 }
 
 .filter a {
@@ -251,16 +255,16 @@ body {
 }
 
 .filter .current {
-    background-color: rgba(52, 152, 219, 1);
-    border-color: rgba(52, 152, 219, 1);
+    background-color: rgba(37, 116, 169, 1);
+    border-color: rgba(37, 116, 169, 1);
     color: #fff;
 }
 
 .filter .current:hover {
     text-decoration: none;
-    color: rgba(52, 152, 219, 1);
+    color: rgba(37, 116, 169, 1);
     background-color: #fff;
-    border: 1px solid rgba(52, 152, 219, 1);
+    border: 1px solid rgba(37, 116, 169, 1);
 }
 
 .filter {
@@ -313,7 +317,7 @@ body {
 .items .icons a {
     width: 40px;
     height: 40px;
-    background-color: rgba(52, 152, 219, 1);
+    background-color: rgba(37, 116, 169, 1);
     position: relative;
     display: inline-block;
 
@@ -390,7 +394,7 @@ body {
 }
 
 #navigation {
-    background-color: rgba(52, 152, 219, 1);
+    background-color: rgba(1, 50, 67, 1);
     padding: 20px 10px;
     z-index: 100;
     width: 100%;
