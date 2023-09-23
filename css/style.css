@@ -88,6 +88,21 @@ body {
     max-width: 100%;
 }
 
+.downloadButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(37, 116, 169, 1);
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.downloadButton:hover {
+    background-color: rgba(108, 122, 137, 1);
+}
+
 .skillsSection,
 .contactSection {
     background-color: rgba(37, 116, 169, 1);
@@ -230,6 +245,7 @@ body {
     display: table;
     z-index: 100;
 }
+
 .linkButton:hover {
     text-decoration: none;
     color: rgba(108, 122, 137, 1);
