@@ -105,17 +105,13 @@ $(window).on("load", function () {
     var body = $("body");
 
     // Check system preference to set INITIAL state
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // But this is now handled in inline script in index.html to avoid flicker.
+    // We just need to sync the checkbox if the inline script set the class.
 
-    // If system is dark (or default), we want Unchecked (Dark).
-    // If system is light, we wait Checked (Light).
-
-    if (prefersDark) {
-        body.addClass("dark-mode");
-        toggle.prop("checked", false); // Left = Dark
+    if (body.hasClass("dark-mode")) {
+        toggle.prop("checked", false);
     } else {
-        body.removeClass("dark-mode");
-        toggle.prop("checked", true); // Right = Light
+        toggle.prop("checked", true);
     }
 
     // Toggle Listener

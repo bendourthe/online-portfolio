@@ -58,7 +58,13 @@ body.dark-mode {
     font-weight: 700;
     letter-spacing: 2px;
     font-size: 24px;
+    font-size: 24px;
     /* Increased Size */
+}
+
+.navbar-toggler-icon {
+    background: url(../content/icons/menu.png);
+    background-size: 100%;
 }
 
 .navbar-nav .nav-link {
@@ -148,7 +154,24 @@ body.dark-mode {
     left: 4px;
     position: absolute;
     transition: .4s;
+    transition: .4s;
     width: 16px;
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+.loader .inner {
+    width: 100%;
+    height: 100%;
+    background: url(../content/assets/loader.gif) center center no-repeat;
 }
 
 input:checked+.slider {
