@@ -1,0 +1,283 @@
+BENJAMIN DOURTHE, PhD 
+AI Strategist & Machine Learning Leader | Digital Health & MedTech | Team & Program Builder 
+Palo Alto, CA, USA | +1 (650) 609 7072 | benjamin.dourthe@gmail.com | Bilingual: English & French 
+LinkedIn: linkedin.com/in/benjamin-dourthe | GitHub: github.com/bendourthe | Portfolio: dourthe-technologies.com 
+ 
+SUMMARY 
+AI and data science leader with 10+ years across digital health, MedTech R&D, and regulated environments. Built and 
+scaled machine learning, computer vision, and signal-processing systems from prototype to product, including first-in-
+class wearable, implantable and imaging solutions. Known for fast, robust iteration, strong engineering discipline 
+(automation, testing, reproducibility), and cross-functional leadership across software, engineering, clinical, and 
+research teams. 
+CORE COMPETENCIES 
+Digital health & MedTech AI: biomedical sensing, medical imaging, digital biomarkers, wearables, implantables. 
+Agentic AI: platform rollout, prompt engineering, governance, security/compliance reviews. 
+Machine learning & deep learning: classification/regression, CNNs/RNNs, generative models, segmentation. 
+Computer vision & imaging: reconstruction, super-resolution (SRGAN), 2D/3D pipelines, quality optimization. 
+Time-series & signal processing: feature engineering, denoising, model robustness, generalization. 
+Production-grade Python: data pipelines, experiment tracking, code quality, automation, Git. 
+Leadership: hiring/interviewing, mentoring, roadmap delivery, stakeholder communication. 
+TECHNICAL SKILLS 
+Programming Languages: Python (primary), MATLAB, R, SQL, C, C++, Java, JavaScript, HTML/CSS. 
+Machine Learning & Deep Learning: scikit-learn, PyTorch, TensorFlow, hyperparameter optimization, model 
+evaluation/validation, robustness testing, explainability. 
+Generative AI & Agentic Systems: Prompt and context engineering (advanced system prompts, reusable prompt 
+frameworks), RAG design/build, org/team/project-specific skills; tools: Claude Code, OpenAI Codex, Gemini Enterprise, 
+Cursor, Windsurf, GitHub Copilot, Deep Research. 
+Data, Signals & Imaging: NumPy, Pandas, SciPy, OpenCV, time-series analysis, feature engineering, multimodal data 
+fusion, clinical-grade analytics. 
+DevOps, CI/CD & Engineering Practices: Git, testing, automation, documentation, reproducible research; CI/CD; 
+project architecture strategies; data management for security/privacy/compliance; data & AI policy development. 
+Backend/Frontend & Full-Stack Foundations: APIs, backend and frontend frameworks, internal tooling and workflow 
+automation for ops-heavy teams. 
+Domains: Digital health, MedTech, medical imaging, biomechanics, cardiac/pulmonary monitoring, wearables and 
+sensor analytics; startup and early-stage product development. 
+PROFESSIONAL EXPERIENCE 
+STAFF MACHINE LEARNING ENGINEER, Shifamed / Adona Medical - Los Gatos, CA (2024 - Present) 
+MedTech company developing implantable cardiac monitoring systems. 
+• Lead enterprise rollout of Generative and Agentic AI platforms (strategy, enablement, and governance), including 
+security/compliance reviews and internal controls to protect sensitive data and meet regulatory requirements. 
+• Design and deliver cross-functional Generative and Agentic AI training, handbooks, and office hours; internal survey 
+measured ~20% average productivity lift across engineering and non-engineering teams, increasing throughput, 
+creativity, and work quality while driving meaningful cost savings. 
+• Develop automated and agentic data-processing and analytics pipelines, as well as custom project- and team-
+specific agentic applications across Software, EE, and R&D to accelerate iteration, improve robustness, and provide 
+near real-time operational insights. 
+• Engineer and validate signal processing and machine learning algorithms for complex cardiac pressure data to 
+support next-generation clinical tools and data infrastructure. 
+• Founded and leading the AI & Data Science operating model across algorithm development/review, data standardization & 
+governance, AI tool enablement/optimization, and custom agentic tools tailored to internal workflows. 
+• Built and maintained an internal agentic AI engineering toolkit with 277 production-ready prompt and context engineering 
+templates across 7 languages, enabling consistent, high-quality AI-assisted development across teams. 
+• Authored compliance-oriented templates spanning SOC 2, ISO 27001, GDPR/CCPA, NIST AI RMF and agent governance 
+patterns (lifecycle/risk/security/observability) to support regulated development practices. 
+SENIOR MACHINE LEARNING ENGINEER, Nuralogix Corporation - Toronto, Canada (2022 - 2023) 
+Digital health company using computer vision for video-based physiological monitoring. 
+• Led end-to-end design and optimization of signal-processing + ML pipelines, improving video data quality by 25% and 
+biometric prediction performance by 12% (internal benchmark). 
+• Engineered 100+ high-value features for high-dimensional data representation, enabling stronger predictive performance 
+and faster hypothesis testing. 
+• Introduced robustness-focused evaluation and model generalization strategies for multi-modal health data. 
+CHIEF DATA OFFICER, Tidal Medical - Toronto, Canada (2020 - 2022) 
+Startup developing first-in-class non-invasive wearable for real-time cardiopulmonary monitoring. 
+• Defined the data/AI architecture for a first-in-class non-invasive wearable for real-time pulmonary artery pressure 
+monitoring, achieving 97% accuracy and enabling heart-failure management use cases. 
+• Pioneered deep learning approaches for medical imaging enhancement, including SRGAN-based super-resolution to 
+improve diagnostic image quality. 
+• Improved software/algorithm efficiency by ~90% via redesign of signal-processing and computer-vision pipelines, enabling 
+faster prototyping and more robust deployments. 
+• Built and led multidisciplinary teams; drove IP strategy and execution (1 PCT + 4 US provisional filings) and secured >$2M in 
+non-dilutive funding across national programs and grants. 
+• Established partnerships across academia and industry (e.g., Stanford, University of Toronto/Waterloo, Canadian Space 
+Agency, Sciospec), accelerating translation from concept to prototype and product. 
+MACHINE LEARNING ENGINEER (Postdoctoral), University of British Columbia - Vancouver, Canada (2020 - 2022) 
+• Designed and deployed deep learning models for medical image segmentation (e.g., multi-scale architectures) improving 
+accuracy and workflow efficiency for clinical research teams. 
+• Collaborated with corporate partners (Medtronic) and clinical stakeholders to deliver solutions suitable for real-world 
+medical environments. 
+• Published peer-reviewed work in Spine (2022) on automated segmentation of spinal muscles from upright open MRI. 
+COMPUTER VISION ENGINEER (Postdoctoral), Sunnybrook Research Institute - Toronto, Canada (2018 - 2020) 
+• Developed marker-less human motion analysis using RNN/LSTM and computer-vision pipelines, improving tracking 
+accuracy by 35% for non-invasive monitoring and rehabilitation applications. 
+• Integrated multiple sensing modalities to advance real-time biomechanical data analysis in clinical settings. 
+DATA SCIENTIST (Postdoctoral), University of Calgary - Calgary, Canada (2017 - 2018) 
+• Delivered data analytics and experimentation platforms bridging academia and industry (Adidas, Dr. Scholl’s, CCM 
+Hockey, Orpyx) for human performance and product development. 
+• Designed multi-sensor data collection and analysis strategies supporting multi-modal insights and decision-making. 
+RESEARCH ENGINEER (PhD), KU Leuven - Leuven, Belgium (2014 - 2017) 
+• Developed patient-specific computational models combining medical imaging and biomechanical simulation to predict 
+degenerative musculoskeletal conditions (precision-medicine applications). 
+• Built proprietary image-processing algorithms to extract morphological features and map mechanical stress distributions, 
+enabling risk stratification and clinically relevant visualization. 
+• Led high-fidelity data collection across cohorts; created novel 3D mapping workflows from CT imaging. 
+EDUCATION 
+• PhD, Biomedical Engineering - KU Leuven, Belgium (2014 - 2017) 
+Thesis: Computational modeling of biological systems; developed patient-specific predictive models combining imaging and 
+biomechanical simulation. 
+• MSc, Science, Technology and Health - University of Lorraine, France (2012 - 2013) 
+• MSc, Mechanical Engineering - National Engineering School of Metz (ENIM), France (2008 - 2013) 
+• Visiting Scholar - University of British Columbia, Canada (Fall 2016); University of Southern California, USA (Fall 2015) 
+HONORS & AWARDS 
+• Secured 3rd prize at the Dreamscape hackathon organized by AGI House, sponsored by Coatue and Mantis (Oct 2023) 
+• Toronto Health Stream Graduate, Creative Destruction Lab (CDL) (Jul 2022) 
+• Deep Space Healthcare Challenge, Canadian Space Agency (Jun 2022) ($30,000) 
+• Research and Development Award, National Research Council of Canada IRAP (Apr 2022) ($250,000) 
+• INOVAIT Strategic Innovation Fund, Sunnybrook Research Institute (Mar 2022) ($125,000) 
+• Novel applications of AI and image reconstruction for respiratory and cardiac monitoring (VIP Program), ENCQOR (Dec 
+2021) ($150,000) 
+• Demonstration Program, ENCQOR 5G (Nov 2021) ($50,000) 
+• Project Grant, Canadian Institutes of Health Research (Sep 2021) ($795,600) 
+• Collaborative Research and Development Grant, NSERC (Jan 2018) ($100,920) 
+• European Research Foundation Conference Grant, Research Foundation Flanders - FWO (Jan 2017) (EUR 1,300) 
+• European Research Foundation Visiting Scholar Grant, Research Foundation Flanders - FWO (Jan 2016) (EUR 5,000) 
+• Conference Grant, Academische Stichting Leuven (Jan 2015) (EUR 500) 
+• European Research Foundation Visiting Scholar Grant, YouReCa Junior Mobility Programme (Jan 2015) (EUR 4,000) 
+• Ouvertud Scholarship, Region Lorraine (Jan 2011) (EUR 800) 
+• Government Scholarship, French Ministry of Higher Education and Research (2009-2013) (EUR 19,500) 
+• Corporate Scholarships, Group IRP Auto (2009-2013) (EUR 4,000) 
+PATENTS & PATENT APPLICATIONS 
+• System and method for respiratory monitoring - US Provisional 63/213,194 (2021) 
+• Method and system for electrical impedance tomography - PCT CA2021050649 (2021) 
+• Increasing effective sampling rate of EIT recordings to improve accuracy of pulse transit time measurements - US 
+Provisional 63/303,963 (2022) 
+• Wearable radar sensing system - US Provisional 63/303,882 (2022) 
+PUBLICATIONS, INDUSTRY REPORTS & INDEPENDENT RESEARCH 
+• Dourthe, B. (2025). The Future of Intelligence: The Embodiment Gap and the Path to World Models. Zenodo. 
+https://doi.org/10.5281/zenodo.18177869 
+• Dourthe B, Ashjaee N, Fels S, Oxland TR. Automated detection of vertebral body centroids from CT-based reconstructed X-
+ray images using deep convolutional neural network. Unpublished (2023). 
+• Dourthe B, Stowe S, Sawyer A. Pulmonary artery pressure estimation using electrical impedance tomography. Tidal Medical 
+(2022). 
+• Toma J, Sawyer A, Pelletier S, Pallopson C, Dourthe B, Stowe S, Adler A, Grychtol B. Upsampling technique for generating 
+electrical impedance tomography frames with increased temporal resolution. Tidal Medical (2022). 
+• Dourthe B, Shaikh N, Pai SA, Fels S, Brown SHN, Wilson DR, Street J, Oxland TR. Automated segmentation of spinal muscles 
+from upright open MRI using a multiscale pyramid 2D convolutional neural network. Spine. 47(16) (2022) 1179-1186. 
+• Dourthe B, Pelletier S. Deep learning super resolution approaches for medical imaging enhancement. Tidal Medical (2021). 
+• Toma J, Adler A, Sung A, Dourthe B, Sawyer A, Pelletier S, Ardeshiri R, Pallopson C. Method and system for electrical 
+impedance tomography. Tidal Medical (2021). 
+• Dourthe B, Burns D, Wasserstein D, Whyne C, Hardisty M. Using recurrent neural network for time series regression: 
+towards the enhancement of computer vision-based 3D motion sensing technologies for injury risk assessment. 
+Unpublished (2020). 
+• Dourthe B, Brenkel M, Ziegler T, Wu LY, Wasserstein D, Zabjek K, Beach T, Saumur T, Hirsch SM, Whyne C, Hardisty M. 
+Comparing marker-based 3D motion capture to computer vision-based motion sensing technologies to assess 
+biomechanical variables associated with anterior cruciate ligament injury risk. Unpublished (2020). 
+• Dourthe B, Osterloh J, von Tscharner V, Nigg S, Nigg B. Impact of self-selected customized orthotics on lower limbs 
+biomechanics. Prosthetics and Orthotics, Open-Access Peer-Reviewed Chapter (2020). 
+• Dourthe B, Nigg S, Nigg BM. Highlights of the Fourteenth Footwear Biomechanics Symposium. Dr. Scholl’s, Biomechanigg 
+Sport & Health Research (2019). 
+• Dourthe B, Osterloh J, von Tscharner V, Nigg S, Nigg B. Impact of self-selected customized orthotics on lower limbs 
+biomechanics and fatigue. Footwear Sci. 11 (2019) S22–S23. 
+• Manz S, Dourthe B, Nigg S, Nigg B. The influence of preference grouping methods on characteristics of recreational runners. 
+Footwear Sci. 11 (2019) S40–S42. 
+• Dourthe B, Nickmanesh R, Wilson DR, D'Agostino P, Patwa AN, Grinstaff MW, Snyder BD, Vereecke E. Assessment of 
+healthy trapeziometacarpal cartilage properties using indentation testing and contrast-enhanced computed tomography. 
+Clinical Biomechanics. 61 (2019) 181–189. 
+• Osterloh J, Dourthe B, Nigg S, Nigg BM. Measuring fatigue-induced changes in walking kinematics: impact of different insole 
+configurations. Master Thesis Chapter, Unpublished (2019). 
+• Dourthe B, Osterloh J, von Tscharner V, Nigg S, Nigg B. Quantifying the effects of different insole configurations on fatigue 
+and comfort - Phase 3: Results following a sub-hour inclined power walking intervention. Dr. Scholl’s, Biomechanigg Sport 
+& Health Research (2018). 
+• Dourthe B, Osterloh J, von Tscharner V, Nigg S, Nigg BM. Quantifying the effects of different insole configurations on fatigue 
+and comfort - Phase 2: Results following a 45-minute power walking intervention. Dr. Scholl’s, Biomechanigg Sport & 
+Health Research (2018). 
+• Meixner A, Dourthe B, Kerkhof F, Nigg S, Nigg BM. Comparison of a newly introduced pressure insole to existing foot 
+pressure measurement technologies. Orpyx Medical Technologies Inc., Biomechanigg Sport & Health Research (2018). 
+• Meixner A, von Tscharner V, Dourthe B, Nigg S, Nigg BM. Advanced analysis of the EMG data of the vastii muscles during 
+treadmill running. Biomechanigg Sport & Health Research (2018). 
+• Dourthe B, Nigg S, Meixner A, Osterloh J, Hoitz F, Nigg BM. Quantifying the effects of different insole configurations on 
+fatigue and comfort - Phase 1: Results following a single working shift intervention. Dr. Scholl’s, Biomechanigg Sport & 
+Health Research (2018). 
+• Dourthe B, Nigg S, Lam C, Fletcher JR, Martinez A, Omu O, Nigg BM. Effect of compression apparel on variables associated 
+with performance, posture, comfort and fatigue. Per4ma Sports Technology LTD, Biomechanigg Sport & Health Research 
+(2018). 
+• D’Agostino P, Dourthe B, Kerkhof F, Stockmans F, Vereecke E. Impact of osteoarthritis and total joint arthroplasty on the 
+kinematics of the trapeziometacarpal joint: a pilot study. Journal of Hand Surgery. 43 (2018) 382.e1–382.e10. 
+• D’Agostino P, Dourthe B, Kerkhof F, van Lenthe GH, Stockmans F, Vereecke E. In vivo biomechanical behavior of the 
+trapeziometacarpal joint in healthy and osteoarthritic subjects. Clinical Biomechanics. 49 (2017) 119–127. 
+• D’Agostino P, Dourthe B, Kerkhof F, Stockmans F, Vereecke E. In vivo kinematics of the thumb during flexion and adduction 
+motion: Evidence for a screw-home mechanism. Journal of Orthopaedic Research. 35 (2017) 1556–1564. 
+• Dourthe B, Valero-Cuevas FJ, D’Agostino P, Kerkhof F, Vereecke E. Towards a forward simulation of transverse loading of 
+the trapeziometacarpal joint. Dissertation Chapter, Unpublished (2016). 
+• Stockmans F, Dourthe B, Vanovermeire O, Deillie M, Vanhaecke J, D’Agostino P, Vereecke E, Kerkhof F. Influence de la 
+reconstruction du ligament radio-dorsal sur la stabilite de l’articulation trapeziometacarpien. Hand Surgery & 
+Rehabilitation. 35 (2016) 453–454. 
+• Kerkhof F, Brugman E, D’Agostino P, Dourthe B, van Lenthe GH, Stockmans F, Jonkers I, Vereecke E. Quantifying thumb 
+opposition kinematics using dynamic computed tomography. Journal of Biomechanics. 49 (2016) 1994–1999. 
+• Dourthe B, D’Agostino P, Stockmans F, Kerkhof F, Vereecke E. In vivo contact biomechanics in the trapeziometacarpal joint 
+using finite deformation biphasic theory and mathematical modelling. Medical Engineering & Physics. 38 (2016) 108–114. 
+CONFERENCE PRESENTATIONS & INVITED TALKS 
+• Using computer vision sensing technologies for anterior cruciate ligament injury screening, 18th annual Imaging Network 
+Ontario Symposium, Toronto, ON, Canada (poster presentation, Mar 2020). 
+• Impact of self-selected customized orthotics on lower limbs biomechanics and fatigue, 14th biennial Footwear 
+Biomechanics Symposium, Kananaskis, AB, Canada (oral presentation, Jul 2019). 
+• The influence of preference grouping methods on characteristics of recreational runners, 14th biennial Footwear 
+Biomechanics Symposium, Kananaskis, AB, Canada (oral presentation, Jul 2019). 
+• Correlation between thumb cartilage properties and medical imaging, 8th World Congress of Biomechanics, Dublin, Ireland 
+(poster presentation, Jul 2018). 
+• First steps towards the forward modeling of the thumb joint, 8th World Congress of Biomechanics, Dublin, Ireland (poster 
+presentation, Jul 2018). 
+• Electromyography (EMG): technique, applications in Sports and Exercise Sciences, Shad Valley Workshop, Human 
+Performance Laboratory, University of Calgary, Canada (Jul 2018). 
+• Osteoarthritis of the thumb joint: occurrence mechanism and understanding via medical imaging and computer modeling 
+techniques, Human Performance Laboratory Musculoskeletal Biomechanics Seminar, University of Calgary, Calgary, 
+Canada (Mar 2018). 
+• Mechanical properties of healthy trapeziometacarpal cartilage using indentation testing and contrast-enhanced computed 
+tomography, 11th Symposium of the Hand and Wrist Biomechanics International, Brisbane, Australia (oral presentation, 
+Jul 2017). 
+• Comparison between intra-articular contact patterns in the trapeziometacarpal joint of healthy and arthritic subjects, 
+OARSI World Congress on Osteoarthritis, Las Vegas, NV, USA (poster presentation, Apr 2017). 
+• Validating thumb kinematics using dynamic CT & in vivo analysis of pathological joint function, Annual Meeting of the 
+Nederlandse Anatomenvereniging, Lunteren, Netherlands (poster presentation, Jan 2016). 
+• In vivo contact stress evaluation in the trapeziometacarpal joint using finite deformation biphasic theory and mathematical 
+modeling, 25th Congress of the International Society of Biomechanics, Glasgow, UK (poster presentation, Jul 2015). 
+• Contact patterns in the trapeziometacarpal joint during isometric tasks obtained via mathematical modeling, 21st 
+Congress of the European Society of Biomechanics, Prague, Czech Republic (oral presentation, Jul 2015). 
+• Analysing thumb kinematics using dynamic CT: the native and pathological joint, 21st Congress of the European Society of 
+Biomechanics, Prague, Czech Republic (poster presentation, Jul 2015). 
+• Mathematical modeling of the trapeziometacarpal joint for in vivo stress distribution analysis, 9th Symposium of the Hand 
+and Wrist Biomechanics International, Milan, Italy (oral presentation, Jun 2015). 
+• The trapeziometacarpal joint: form and function of the native and diseased joint, Annual Meeting of the Nederlandse 
+Anatomenvereniging, Lunteren, Netherlands (poster presentation, Jan 2015). 
+MENTORSHIP & TEACHING 
+• PhD student advisor, University of British Columbia (Jun 2020 - Dec 2022) 
+• Intern advisor, Tidal Medical (Aug 2020 - Nov 2022) 
+• Medical student mentor, University of Toronto (Dec 2018 - Jun 2020) 
+• Master student mentor, University of Calgary (Jan 2018 - Sep 2018) 
+• Undergraduate student supervisor, University of Calgary (Oct 2017 - Dec 2017) 
+• Teaching assistant, KU Leuven (Sep 2015 - Dec 2016) 
+• Project advisor, University of Southern California (Sep 2015 - Dec 2015) 
+• Student panel representative, National Engineering School of Metz (Sep 2009 - Jun 2012) 
+SIDE PROJECTS 
+• Prototyped an Android accessibility app for visually impaired users: voice-controlled photo capture with real-time scene 
+descriptions from a generative AI model to support navigation and daily tasks (2023). 
+• Created a notebook for running Llama 2 locally for text generation (2023). 
+• Built a computer vision pipeline using YOLO + transfer learning for object detection and tracking (2021). 
+• Applied dense optical flow (Gunnar Farneback) to quantify motion from video (2020). 
+• Implemented face detection and tracking for images/videos using Haar cascades and tracking APIs (2019). 
+• Developed an SVM model to predict coronary heart disease risk; used SMOTE to address class imbalance and reduced type 
+II error by 84% (2018). 
+• Built an NLP model (Naive Bayes) to classify news articles; achieved 94% accuracy (2017). 
+CONTINUOUS LEARNING & PROFESSIONAL DEVELOPMENT 
+• Governing AI Agents, DeepLearning.AI (2025) 
+• Building Coding Agents with Tool Execution, DeepLearning.AI (2025) 
+• Agentic AI, DeepLearning.AI (2025) 
+• Claude Code: A Highly Agentic Coding Assistant, DeepLearning.AI (2025) 
+• Retrieval Augmented Generation (RAG), DeepLearning.AI (2025) 
+• Build Apps with Windsurf’s AI Coding Agents, DeepLearning.AI (2025) 
+• Building Generative AI Applications with Gradio, DeepLearning.AI (2023) 
+• How Diffusion Models Work, DeepLearning.AI (2023) 
+• LangChain for LLM Application Development, DeepLearning.AI (2023) 
+• Building Systems with the ChatGPT API, DeepLearning.AI (2023) 
+• ChatGPT Prompt Engineering for Developers, DeepLearning.AI (2023) 
+• Fundamentals of Machine Learning for Healthcare, Stanford University (2022) 
+• Master the Coding Interview: Big Tech (FAANG) Interviews, Zero To Mastery Academy (2022) 
+• An Entire MBA in 1 Course, Chris Haroun (2021) 
+• Probability and Statistics for Business and Data Science, Pierian Data Inc. (2020) 
+• Python for Financial Analysis and Algorithmic Trading, Pierian Data Inc. (2020) 
+• 101 Crucial Lessons They Don't Teach You In Business School, Chris Haroun (2019) 
+• Python 3 Deep Dive - Object Oriented Programming, Fred Baptiste (2018) 
+• Spark and Python for Big Data with PySpark, Pierian Data Inc. (2018) 
+• Signal Processing Problems, Solved in MATLAB and in Python, Mike X Cohen (2018) 
+• Data Science Career Guide - Interview Preparation, Pierian Data Inc. (2017) 
+• Sequence Modeling, DeepLearning.AI (2017) 
+• Deep Learning: Advanced Computer Vision, Lazy Programmer Inc. (2017) 
+• Python for Computer Vision with OpenCV and Deep Learning, Pierian Data Inc. (2017) 
+• Convolutional Neural Networks in TensorFlow, DeepLearning.AI (2017) 
+• TensorFlow Specialization, DeepLearning.AI (2017) 
+• Complete TensorFlow 2 and Keras Deep Learning Bootcamp, Pierian Data Inc. (2017) 
+• PyTorch for Deep Learning with Python Bootcamp, Pierian Data Inc. (2017) 
+• Introduction to TensorFlow for AI, Machine Learning, and Deep Learning, DeepLearning.AI (2017) 
+• Cluster Analysis and Unsupervised Machine Learning in Python, Lazy Programmer Inc. (2017) 
+• Python for Time Series Data Analysis, Pierian Data Inc. (2016) 
+• Python for Data Science and Machine Learning Bootcamp, Pierian Data Inc. (2016) 
+• Python and Flask Bootcamp: Create Websites using Flask, Pierian Data Inc. (2016) 
+• Git & GitHub - The Complete Git & GitHub Course, Code and Create (2016) 
+• The Complete SQL Bootcamp, Pierian Data Inc. (2016) 
+• Complete Python Bootcamp, Pierian Data Inc. (2016) 
+• Machine Learning, Stanford University (2016) 
+• OpenSim International Workshop, Stanford University (2015) 
+• Successful Negotiation: Essential Strategies and Skills, University of Michigan (2015) 
+• Data Analysis Tools, Wesleyan University (2014) 
+ 
+ 
+ 

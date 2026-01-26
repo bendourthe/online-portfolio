@@ -1,75 +1,62 @@
-$(window).on("load", function() {
+$(window).on("load", function () {
 
+    // Loader
     $(".loader .inner").fadeOut(500, function () {
         $(".loader").fadeOut(750)
     });
 
-    $(".items").isotope({
-        filter: '*',
-        animationOptions: {
-            duration: 1500,
-            easing: 'linear',
-            queue: false
-        }
-    });
-
-})
-
-$(document).ready(function() {
-
+    // Superslides (Hero)
     $('#slides').superslides({
         animation: 'fade',
         play: 5700,
         pagination: false
     });
 
+    // Typed.js
     var typed = new Typed(".typed", {
-        strings: ["Data Science ^1500", "Biomechanical Engineering ^1200", "Artificial Intelligence ^500", "Research and Innovation^500", "Algorithm Development ^1300", "Signal Processing ^1500", "Deep Learning ^2500", "Wearable Technologies ^1000"],
-        typeSpeed: 120,
+        strings: ["AI Strategy ^1000", "Digital Health ^1000", "Machine Learning Leadership ^1000", "MedTech Innovation ^1000", "Computer Vision ^1000", "Agentic AI Systems ^1000"],
+        typeSpeed: 70,
+        backSpeed: 40,
         loop: true,
         startDelay: 1000,
         showCursor: false
     });
 
-    $('.owl-carousel').owlCarousel({
-        nav:true,
-        loop:true,
-        items: 4,
-        responsive:{
-            0:{
-                items:1
-            },
-            480:{
-                items:2
-            },
-            768:{
-                items:3
-            },
-            938:{
-                items:4
-            }
+    // Simple Filtering for CSS Grid Portfolio
+    $(".filters a").click(function (e) {
+        e.preventDefault();
+
+        $(".filters .current").removeClass("current");
+        $(this).addClass("current");
+
+        var selector = $(this).attr("data-filter");
+        var $itemsContainer = $(".items");
+
+        // Lock the height to prevent scroll jumping
+        $itemsContainer.css("min-height", $itemsContainer.height());
+
+        if (selector === '*') {
+            $itemsContainer.children("li").show(300);
+        } else {
+            $itemsContainer.children("li").not(selector).hide(300);
+            $itemsContainer.children("li").filter(selector).show(300);
         }
+
+        // Release the height lock after animation
+        setTimeout(function () {
+            $itemsContainer.css("min-height", "0");
+        }, 350);
+
+        return false;
     });
 
-    var skillsTopOffset = $(".skillsSection").offset().top;
+    // Stats Counter
     var statsTopOffset = $(".statsSection").offset().top;
     var countUpFinished = false;
 
-    $(window).scroll(function() {
-        if(window.pageYOffset > skillsTopOffset - $(window).height() + 200) {
-            $('.chart').easyPieChart({
-            easing: 'easInOut',
-            barColor: '#fff',
-            trackColor: false,
-            scaleColor: false,
-            lineWidth: 4,
-            size: 152,
-
-            })
-        };
-
-        if(!countUpFinished && window.pageYOffset > statsTopOffset - $(window).height() + 200) {
-            $(".counter").each(function() {
+    $(window).scroll(function () {
+        if (!countUpFinished && window.pageYOffset > statsTopOffset - $(window).height() + 200) {
+            $(".counter").each(function () {
                 var element = $(this);
                 var endVal = parseInt(element.text());
                 element.countup(endVal);
@@ -80,29 +67,12 @@ $(document).ready(function() {
 
     $("[data-fancybox]").fancybox();
 
-    $("#filters a").click(function () {
-
-        $("#filters .current").removeClass("current");
-        $(this).addClass("current");
-
-        var selector = $(this).attr("data-filter");
-
-        $(".items").isotope({
-            filter: selector,
-            animationOptions: {
-                duration: 1500,
-                easing: 'linear',
-                queue: false
-            }
-        })
-        return false;
-    });
-
-    $("navigation li a").click(function(e) {
+    // Smooth Scroll
+    $("#navigation li a").click(function (e) {
         e.preventDefault();
         var targetElement = $(this).attr("href");
         var targetPosition = $(targetElement).offset().top;
-        $("html, body").animate({scrollTop: targetPosition - 50}, "slow")
+        $("html, body").animate({ scrollTop: targetPosition - 50 }, "slow")
     });
 
     const nav = $("#navigation");
@@ -112,7 +82,7 @@ $(document).ready(function() {
 
     function stickyNavigation() {
         var body = $("body");
-        if($(window).scrollTop() >= navTop) {
+        if ($(window).scrollTop() >= navTop) {
             body.css("padding-top", nav.outerHeight() + "px");
             body.addClass("fixedNav");
         }
@@ -121,4 +91,42 @@ $(document).ready(function() {
             body.removeClass("fixedNav")
         }
     }
+
+    // Dark Mode Toggle Switch
+    // Logic: Unchecked (Left/Default) = Dark Mode
+    //        Checked (Right) = Light Mode
+    // OR: let's align with the text in HTML.
+    // HTML: DARK [Switch] LIGHT
+    // Slider Left (Unchecked) is closer to DARK. Correct? Yes.
+    // Slider Right (Checked) is closer to LIGHT. Correct? Yes.
+    // So: Unchecked = Dark Mode, Checked = Light Mode.
+
+    var toggle = $("#theme-toggle-checkbox");
+    var body = $("body");
+
+    // Check system preference to set INITIAL state
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // If system is dark (or default), we want Unchecked (Dark).
+    // If system is light, we wait Checked (Light).
+
+    if (prefersDark) {
+        body.addClass("dark-mode");
+        toggle.prop("checked", false); // Left = Dark
+    } else {
+        body.removeClass("dark-mode");
+        toggle.prop("checked", true); // Right = Light
+    }
+
+    // Toggle Listener
+    toggle.change(function () {
+        if ($(this).is(":checked")) {
+            // Moved to Right -> Light Mode
+            body.removeClass("dark-mode");
+        } else {
+            // Moved to Left -> Dark Mode
+            body.addClass("dark-mode");
+        }
+    });
+
 });

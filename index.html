@@ -27,13 +27,22 @@
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@100;400;500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/superslides.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style_light.css">
+
+    <!-- Using Modern Styles with Variables & Dark Mode -->
+    <link rel="stylesheet" type="text/css" href="css/style_modern.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -53,19 +62,19 @@
         <div class="overlay"></div>
 
         <div class="slides-container">
-            <img src="img/slide1.jpg" alt="">
-            <img src="img/slide2.jpg" alt="">
-            <img src="img/slide3.jpg" alt="">
-            <img src="img/slide4.jpg" alt="">
-            <img src="img/slide5.jpg" alt="">
-            <img src="img/slide6.jpg" alt="">
-            <img src="img/slide7.jpg" alt="">
-            <img src="img/slide8.jpg" alt="">
+            <img src="content/slides/slide1.jpg" alt="">
+            <img src="content/slides/slide2.jpg" alt="">
+            <img src="content/slides/slide3.jpg" alt="">
+            <img src="content/slides/slide4.jpg" alt="">
+            <img src="content/slides/slide5.jpg" alt="">
+            <img src="content/slides/slide6.jpg" alt="">
+            <img src="content/slides/slide7.jpg" alt="">
+            <img src="content/slides/slide8.jpg" alt="">
         </div>
 
         <div class="titleMessage">
             <div class="heading">
-                <p class="main">DOURTHE TECHNOLOGIES</p>
+                <p class="main">BENJAMIN DOURTHE</p>
                 <p class="sub typed"></p>
             </div>
         </div>
@@ -79,7 +88,7 @@
 
     <nav id="navigation" class="navbar navbar-expand-lg">
 
-        <a class="navbar-brand" href="#">DOURTHE TECHNOLOGIES</a>
+        <a class="navbar-brand" href="#">BENJAMIN DOURTHE</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +104,7 @@
                     <a class="nav-link" href="#skills">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#stats">Stats</a>
+                    <a class="nav-link" href="#career">Career</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -104,6 +113,14 @@
                     <a class="nav-link" href="#portfolio">Portfolio</a>
                 </li>
             </ul>
+            <div class="theme-switch-wrapper ml-auto d-flex align-items-center">
+                <span class="theme-label text-white mr-2 small font-weight-bold">DARK</span>
+                <label class="theme-switch mb-0" for="theme-toggle-checkbox">
+                    <input type="checkbox" id="theme-toggle-checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <span class="theme-label text-white ml-2 small font-weight-bold">LIGHT</span>
+            </div>
         </div>
 
     </nav>
@@ -115,46 +132,47 @@
             <div class="row">
 
                 <div class="col-md-5">
-                    <img class="aboutImage" src="img/about.jpg">
+                    <img class="aboutImage" src="content/about/about.jpg">
                 </div>
 
                 <div class="col-md-7">
+
                     <h4>About me</h4>
 
-                    <p>My name is Benjamin Dourthe. I am a passionate Researcher, Data Scientist and Machine Learning
-                        Engineer with over 10 years of multidisciplinary experience. I am passionate about learning,
-                        technology, entrepreneurship, puzzle-solving and using science and out-of-the-box thinking to
-                        make a difference in the world.</p>
-                    <p>I grew up in France, where I graduated from a Master's in Mechanical Engineering and a Master of
-                        Science, Technology and Health back in 2013. Then, I studied and worked in Belgium for 3 years
-                        as a Research Engineer and graduated from a PhD in Biomedical Engineering and Data Science in
-                        2017. Since then, I have been living and working in Canada.</p>
-                    <p>My life-long objective is to constantly expand and diversify my skillset to build innovative and
-                        accessible technologies that will help push the bounderies of human knowledge and enhance our
-                        ability to use data to solve global and impactful challenges.</p>
-                    <p>Over the years, I have acquired a solid programming knowledge by working with a wide variety of
-                        machine learning models and techniques, and developed an excellent command of Python and its
-                        data science and deep learning frameworks (e.g., NumPy, SciPy, Pandas, Sklearn, PyTorch,
-                        Tensorflow). As an experienced data scientist and machine learning engineer, I have an extended
-                        knowledge of how to extract/generate meaningful features from complex datasets, as well as
-                        optimizing their content using various dimensionality reduction techniques (e.g., clustering,
-                        feature engineering, principal component analysis). My international and multidisciplinary
-                        experiences in Europe, Canada, and the United States have also given me the ability to easily
-                        exchange knowledge and connect with people with different backgrounds, which consistently helped
-                        me improve my aptitude to think out-of-the box and resolve unseen challenges.
-                        I believe to be a creative thinker who is strongly committed to his passion and objectives. I
-                        also have demonstrated my ability to quickly learn and adapt to new fields of knowledge, teams
-                        and work environments.</p>
-                    <p>In summary, I am a big dreamer who never walks away from a challenge and has the best intentions
-                        to contribute to the betterment of society.</p>
+                    <p>I am an AI Strategist and Machine Learning Leader with over 10 years of expertise navigating the
+                        complexities of digital health, MedTech, and regulated environments. I specialize in building
+                        and scaling intelligent systems, from first-in-class wearables and implantables to advanced
+                        imaging solutions, guiding them from initial prototype to clinical-grade product.</p>
+
+                    <p>My technical foundation combines deep expertise in Algorithm Development, Signal Processing, Data
+                        Science, Computer Vision and Machine Learning, with a strong focus on engineering discipline. I
+                        am currently pioneering the rollout of
+                        Agentic and Generative AI platforms, establishing training, governance and security frameworks
+                        that enable team-wide access to AI tools, while ensuring compliance with regulatory standards
+                        and data privacy regulations.</p>
+
+                    <p>I define myself by fast, robust iteration and cross-functional leadership. Whether aligning
+                        software engineering with clinical goals or automating complex data pipelines, I am passionate
+                        about bridging the gap between cutting-edge research and accessible, life-saving technologies.
+                    </p>
+
+                    <p>At my core, I am a big dreamer who never walks away from a challenge, committed to leveraging
+                        innovation for the betterment of society.</p>
+
                     <p><b>CURRENT LOCATION:</b> Palo Alto, CA, USA</p>
 
-                    <div class="downloadButtonContainer">
-                        <a href="portfolio/Benjamin Dourthe Resume.pdf" class="downloadButton" download>Download
-                            Resume</a>
-                    </div>
-                    <div class="downloadButtonContainer">
-                        <a href="portfolio/Benjamin Dourthe CV.pdf" class="downloadButton" download>Download CV</a>
+                    <div class="d-flex flex-wrap mt-4">
+                        <div class="downloadButtonContainer">
+                            <a href="content/about/Benjamin Dourthe Resume.pdf" class="downloadButton" download>
+                                <i class="fas fa-file-alt"></i> Resume
+                            </a>
+                        </div>
+
+                        <div class="downloadButtonContainer">
+                            <a href="content/about/Benjamin Dourthe CV.pdf" class="downloadButton" download>
+                                <i class="fas fa-file-pdf"></i> Curriculum Vitae
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -166,213 +184,179 @@
     </div>
 
     <div id="skills" class="skillsSection section">
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col-md-12 text-center">
-                    <h2>TECHNICAL SKILLS</h2>
-                    <p>Proficiency levels for different skills</p>
+                    <h2>SKILL SET & EXPERTISE</h2>
+                    <p>A comprehensive overview of my leadership & technical expertise, domain knowledge, and management
+                        capabilities
+                        across artificial intelligence, engineering, and product development.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <!-- Engineering & Domains -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category-card">
+                        <h4>Engineering & Domains</h4>
+                        <p class="skill-expertise-text">Extensive background in regulated MedTech environments with a
+                            focus on digital health, medical imaging, biomechanical engineering, and patient-specific
+                            modeling.</p>
+                        <ul>
+                            <li>MedTech</li>
+                            <li>Digital Health</li>
+                            <li>Biomechanics</li>
+                            <li>Medical Imaging</li>
+                            <li>Orthopedics</li>
+                            <li>Heart Failure</li>
+                            <li>Patient Specific Modeling</li>
+                            <li>Remote Monitoring</li>
+                            <li>Sensing</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="owl-carousel owl-theme">
-
-                    <div class="skill">
-                        <span class="chart" data-percent="95">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Python programming</h4>
-                        <p>Strong knowledge of Python programming language for data processing and analysis (numpy,
-                            pandas, scipy, statsmodels), visualization (matplotlib, seaborn), machine and deep learning
-                            (scikit-learn, tensorflow, keras) and computer vision (opencv)</p>
+                <!-- AI & Machine Learning -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category-card">
+                        <h4>AI & Machine Learning</h4>
+                        <p class="skill-expertise-text">Extensive research and implementation expertise ranging from
+                            traditional machine & deep learning to cutting-edge agentic AI systems.</p>
+                        <ul>
+                            <li>Deep Learning</li>
+                            <li>Computer Vision</li>
+                            <li>Signal Processing</li>
+                            <li>Generative AI</li>
+                            <li>LLMs & RAG</li>
+                            <li>Autonomous Agents</li>
+                            <li>Prompt & Context Engineering</li>
+                            <li>Customized Agentic Skills Development</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="skill">
-                        <span class="chart" data-percent="90">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Data science</h4>
-                        <p>Manage, process and analyse large data sets to extract meaningful, relevant and interpretable
-                            features</p>
+                <!-- Data Science -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category-card">
+                        <h4>Data Science</h4>
+                        <p class="skill-expertise-text">Specialized in robust data management, processing & analysis,
+                            statistical modeling, and handling complex multimodal datasets.</p>
+                        <ul>
+                            <li>Feature Engineering</li>
+                            <li>Statistical Analysis</li>
+                            <li>Data Interpolation</li>
+                            <li>Database Management</li>
+                            <li>Semantic Search</li>
+                            <li>Big Data Analytics</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="skill">
-                        <span class="chart" data-percent="85">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Machine learning</h4>
-                        <p>Ability to develop and implement supervised and unsupervised learning algorithms for
-                            classification and regression applications (linear and logistic regression, decision trees,
-                            random forest, support vector machines, k-means clustering, principal component analysis,
-                            recommender systems, natural language processing)</p>
+                <!-- Programming Languages -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category-card">
+                        <h4>Programming Languages</h4>
+                        <p class="skill-expertise-text">Expert-level proficiency in core coding languages, with
+                            extensive production deployment experience.</p>
+                        <ul>
+                            <li>Python</li>
+                            <li>Javascript</li>
+                            <li>Java</li>
+                            <li>C++</li>
+                            <li>MATLAB</li>
+                            <li>SQL</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="skill">
-                        <span class="chart" data-percent="82">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Deep learning</h4>
-                        <p>Ability to develop and implement neural network architectures for classification and
-                            regression on image and time series data (convolutional and recurrent neural network,
-                            autoencoders, generative adversarial network)</p>
+                <!-- Tools & DevOps -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category-card">
+                        <h4>Tools & DevOps</h4>
+                        <p class="skill-expertise-text">Mastery of modern development stacks, cloud infrastructure, and
+                            advanced AI-assisted development workflows.</p>
+                        <ul>
+                            <li>Linux</li>
+                            <li>Git</li>
+                            <li>Claude Code & Claude Skills</li>
+                            <li>Google Antigravity</li>
+                            <li>GitHub Copilot</li>
+                            <li>Cursor & Windsurf</li>
+                            <li>Docker</li>
+                            <li>Cloud (AWS/GCP)</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="skill">
-                        <span class="chart" data-percent="85">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Computer vision</h4>
-                        <p>Apply image processing and transfer learning techniques to build computer vision applications
-                            (face detection, object tracking, flow mapping)</p>
+                <!-- Communication & Writing -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category-card">
+                        <h4>Writing & Communication</h4>
+                        <p class="skill-expertise-text">Proven ability to translate complex technical concepts into
+                            clear documentation, presentations, and training for diverse audiences.</p>
+                        <ul>
+                            <li>Technical Documentation</li>
+                            <li>Scientific Reports & Articles</li>
+                            <li>Presentations (General to Technical)</li>
+                            <li>Training Programs</li>
+                            <li>Public Speaking</li>
+                            <li>Workshop Development</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="skill">
-                        <span class="chart" data-percent="88">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Signal processing</h4>
-                        <p>Extract features from time series signals (e.g. patterns and event detection, time and
-                            frequency analysis, forecasting)</p>
+                <!-- Leadership & Management Skills -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category-card">
+                        <h4>Leadership & Management Skills</h4>
+                        <p class="skill-expertise-text">Experienced leader capable of driving R&D strategy, mentoring
+                            engineering teams, and fostering cross-functional collaboration.</p>
+                        <ul>
+                            <li>Team Leading</li>
+                            <li>Project Management</li>
+                            <li>Product Development</li>
+                            <li>R&D Strategy</li>
+                            <li>Technical Mentoring</li>
+                            <li>Cross-functional Collaboration</li>
+                        </ul>
                     </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="95">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Data visualization</h4>
-                        <p>Excelling in transforming complex information into clear and compelling visuals that
-                            facilitate understanding and drive data-driven decision-making</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="90">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Biomedical engineering</h4>
-                        <p>Knowledge of human physiology, biomechanical behaviors, biosignals and image processing,
-                            computer modeling and advanced data analysis and interpretation</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="85">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Feature engineering</h4>
-                        <p>Explore and build potential new features from datasets for advanced analytics and machine
-                            learning</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="75">
-                            <span class="percent">Advanced</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Natural language processing</h4>
-                        <p>Process text data for classification and text generation applications (tokenization,
-                            vectorization, TD-IDF)</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="75">
-                            <span class="percent">Advanced</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Matlab programming</h4>
-                        <p>Strong knowledge of Matlab programming language for computer modeling, data analysis and
-                            signal processing</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="65">
-                            <span class="percent">Intermediate</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>R programming</h4>
-                        <p>Good knowledge of R programming language for statistical analysis</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="60">
-                            <span class="percent">Intermediate</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>SQL</h4>
-                        <p>Practical experience performing basic SQL queries using PostgreSQL</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="80">
-                            <span class="percent">Advanced</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Knowledge translation</h4>
-                        <p>Find and design intuitive and practical applications from complex paradigms</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="95">
-                            <span class="percent">Expert</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Writing and reporting</h4>
-                        <p>Write scientific publications, grants and ethics applications, industry reports, user
-                            operating manuals, abstracts for general audience</p>
-                    </div>
-
-                    <div class="skill">
-                        <span class="chart" data-percent="55">
-                            <span class="percent">Intermediate</span>
-                            <canvas height="152" width="152"></canvas>
-                        </span>
-                        <h4>Web and App Development</h4>
-                        <p>Ability to write HTML and JavaScript for Web Development (e.g. this website) and develop
-                            simple Mobile Apps in Java using Android Studio</p>
-                    </div>
-
                 </div>
 
             </div>
-
         </div>
-
     </div>
 
-    <div id="stats" class="statsSection section">
+    <div id="career" class="statsSection section">
 
         <div class="container">
 
             <div class="row">
-
-                <div class="heading">
-                    <h2>STATS</h2>
+                <div class="col-md-12 text-center">
+                    <h2>CAREER HIGHLIGHTS</h2>
+                    <p>A quantitative look at my professional journey, highlighting key milestones in research,
+                        collaboration, and recognition.</p>
                 </div>
+            </div>
 
-                <div class="col-md-3 col-sm-6">
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="squareItem">
                         <div class="squareInnerContainer">
                             <div class="squareIcon">
                                 <i class="fas fa-history"></i>
                             </div>
                             <div class="squareContent">
-                                <h2 class="counter">10</h2>
-                                <h3>Years of experience as a Researcher, Data Scientist and Machine Learning Engineer
-                                </h3>
+                                <h2 class="counter">13</h2>
+                                <h3>Years of Experience</h3>
+                                <p class="stats-subtext">Research, Engineering, Data Science, Machine Learning, Digital
+                                    Health, Medical Technologies</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="squareItem">
                         <div class="squareInnerContainer">
                             <div class="squareIcon">
@@ -380,59 +364,68 @@
                             </div>
                             <div class="squareContent">
                                 <h2 class="counter">20</h2>
-                                <h3>Collaborations with Major Academic and Industry Partners</h3>
+                                <h3>Industry & Academic Collaborations</h3>
+                                <p class="stats-subtext">Stanford, Medtronic, Canadian Space Agency, Adidas, & more</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="squareItem">
                         <div class="squareInnerContainer">
                             <div class="squareIcon">
                                 <i class="fas fa-scroll"></i>
                             </div>
                             <div class="squareContent">
-                                <h2 class="counter">33</h2>
-                                <h3>Publications, Industry reports and Conference presentations</h3>
+                                <h2 class="counter">40</h2>
+                                <h3>Publications & Presentations</h3>
+                                <p class="stats-subtext">Peer-Reviewed Papers, Industry Reports, Conference Talks</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="squareItem">
                         <div class="squareInnerContainer">
                             <div class="squareIcon">
                                 <i class="fas fa-hand-holding-usd"></i>
                             </div>
                             <div class="squareContent">
-                                <h2 class="counter">25</h2>
-                                <h3>Awards, Grants and Scholarships</h3>
+                                <h2 class="counter">30</h2>
+                                <h3>Awards & Scholarships</h3>
+                                <p class="stats-subtext">$2M+ in Non-Dilutive Funding</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
 
     </div>
 
+    </div>
+
     <div id="contact" class="contactSection section">
-
         <div class="col-md-12 text-center">
-            <p class="contactHeading">Interested in collaborating?</p>
-            <h2>Feel free to reach out!</h2>
-            <h4>I'd be happy to contribute to the development of your project.</h4>
-            <a href="mailTo:benjamin.dourthe@gmail.com" class="contactButton">GET IN TOUCH HERE</a>
-            <a href="https://www.linkedin.com/in/benjamin-dourthe/" title="LinkedIn" target="_black" class="linkButton">
-                <i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/bendourthe" title="GitHub" target="_black" class="linkButton">
-                <i class="fab fa-github"></i></a>
-        </div>
+            <h2 class="contactHeading">LET'S BUILD SOMETHING EXTRAORDINARY TOGETHER</h2>
+            <p class="contact-subtext">I am always open to discussing new projects, creative ideas, or opportunities to
+                be part of your vision.</p>
 
+            <div class="d-flex justify-content-center flex-wrap mt-4" style="gap: 20px;">
+                <a href="mailTo:benjamin.dourthe@gmail.com" class="modern-pill-btn">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+                <a href="https://www.linkedin.com/in/benjamin-dourthe/" target="_blank" class="modern-pill-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/bendourthe" target="_blank" class="modern-pill-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
     </div>
 
 
@@ -442,528 +435,502 @@
 
             <div class="row">
 
-                <div class="heading">
+                <div class="heading text-center col-12 mb-5">
                     <h2>PORTFOLIO</h2>
-                    <p>&nbsp;</p>
-                    <p>The collection below represents a non-exhaustive summary of past projects.</p>
-                    <p>Click/Tap on each thumbnail to preview the corresponding content, or follow the corresponding
-                        link for more details (e.g. Abstract, PubMed, GitHub)</p>
+                    <p class="mt-3" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                        A curated collection of projects illustrating my expertise in Generative AI, Machine Learning,
+                        Data Science, Software Engineering, Computer Vision & Biomechanical Engineering.
+                    </p>
+                    <p class="mt-3" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                        Filter by domain to explore specific expertise.
+                    </p>
                 </div>
-                <div class="filter">
-                    <ul id="filters">
+
+                <div class="filter col-12">
+                    <ul class="filters">
                         <li><a href="#" data-filter="*" class="current">ALL PROJECTS</a></li>
-                        <li><a href="#" data-filter=".dsml">Data Science & Machine Learning</a></li>
-                        <li><a href="#" data-filter=".cv">Computer Vision</a></li>
-                        <li><a href="#" data-filter=".med-im">Medical Imaging</a></li>
-                        <li><a href="#" data-filter=".sports">Sports Biomechanics</a></li>
+                    </ul>
+                    <ul class="filters">
+                        <li><a href="#" data-filter=".gen-ai">GENERATIVE AI</a></li>
+                        <li><a href="#" data-filter=".dl">DEEP LEARNING</a></li>
+                        <li><a href="#" data-filter=".ml">MACHINE LEARNING</a></li>
+                        <li><a href="#" data-filter=".cv">COMPUTER VISION</a></li>
+                        <li><a href="#" data-filter=".ds">DATA SCIENCE</a></li>
+                        <li><a href="#" data-filter=".se">SOFTWARE ENGINEERING</a></li>
+                    </ul>
+                    <ul class="filters">
+                        <li><a href="#" data-filter=".bio-eng">BIOMECHANICAL ENGINEERING</a></li>
+                        <li><a href="#" data-filter=".pubs">PUBLICATIONS</a></li>
                     </ul>
                 </div>
 
-                <div class="itemsContainer">
+                <div class="itemsContainer col-12">
                     <ul class="items">
 
-                        <li onclick="" class="med-im cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/med-im-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/med-im-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://www.ncbi.nlm.nih.gov/pubmed/26654104" title="Link to publication"
-                                        target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2025: The Future of Intelligence -->
+                        <li class="gen-ai pubs ml dl content-card">
+                            <a href="https://doi.org/10.5281/zenodo.18177869" target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/future-of-intelligence.png"
+                                        alt="The Future of Intelligence">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">The Future of Intelligence</h5>
+                                    <p class="card-text">Essay illustrating the need for physically grounded systems to
+                                        overcome the limits of statistical scaling laws (2025).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="med-im cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/med-im-2.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/med-im-2.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://www.ncbi.nlm.nih.gov/pubmed/27198890" title="Link to publication"
-                                        target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2023: Accessibility App -->
+                        <li class="gen-ai cv se ml dl content-card">
+                            <a href="https://github.com/bendourthe/emvi-android" target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/accessibility-app.png"
+                                        alt="AI Accessibility App">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">AI Accessibility App</h5>
+                                    <p class="card-text">Voice-controlled app tailored for visually impaired users using
+                                        Generative AI scene descriptions (2023).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="med-im cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/med-im-3.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/med-im-3.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://www.ncbi.nlm.nih.gov/pubmed/27606961" title="Link to publication"
-                                        target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2023: Llama 2 Local -->
+                        <li class="gen-ai dl se ml content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/large-language-models/llama2-jupyter"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/llama-local.png" alt="Local LLM Deployment">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Local LLM Deployment</h5>
+                                    <p class="card-text">Implementation of Llama 2 for secure, local text generation and
+                                        analysis (2023).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="med-im cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/med-im-4.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/med-im-4.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://www.ncbi.nlm.nih.gov/pubmed/28934632" title="Link to publication"
-                                        target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2023: Vertebral Segmentation -->
+                        <li class="bio-eng cv dl ml content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/medical-landmark-detection"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/vertebral-segmentation.png"
+                                        alt="Vertebral Segmentation">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Vertebral Segmentation</h5>
+                                    <p class="card-text">Deep learning for vertebral segmentation in CT scans (2023).
+                                    </p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="med-im col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/med-im-5.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/med-im-5.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://www.ncbi.nlm.nih.gov/pubmed/29146507" title="Link to publication"
-                                        target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2022: Medical Auto-Segmentation -->
+                        <li class="bio-eng dl ml cv content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/medical-autosegmentation-cnn"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/medical-autosegmentation.png"
+                                        alt="Medical Auto-Segmentation">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Medical Auto-Segmentation</h5>
+                                    <p class="card-text">CNN-based auto-segmentation for medical imaging (2022).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="med-im cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/med-im-6.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/med-im-6.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://www.sciencedirect.com/science/article/pii/S0268003318310325"
-                                        title="Link to publication" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2022: Multi-Organ Segmentation -->
+                        <li class="bio-eng dl cv ml content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/multi-organ-image-segmentation"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/multi-organ-segmentation.png"
+                                        alt="Multi-Organ Segmentation">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Multi-Organ Segmentation</h5>
+                                    <p class="card-text">Deep learning for segmenting multiple organs in medical scans
+                                        (2022).
+                                    </p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-3D.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-3D.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/3d-transformations-toolbox/tree/master/Python"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2022: Spinal Muscle Segmentation -->
+                        <li class="bio-eng dl cv ml pubs content-card">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34919072/" target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/spinal-muscle-segmentation.png"
+                                        alt="Spinal Muscle Segmentation">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Spinal Muscle Segmentation</h5>
+                                    <p class="card-text">Automated segmentation from upright open MRI using multiscale
+                                        pyramid 2D CNNs (Spine, 2022).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-signal.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-signal.jpg" title="Preview"
-                                        class="openButton" data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/signal-processing-toolbox"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2021: Medical Image Enhancement -->
+                        <li class="bio-eng dl cv ml content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/medical-images-super-resolution"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/super-resolution.png"
+                                        alt="Medical Imaging Enhancement">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Medical Imaging Enhancement</h5>
+                                    <p class="card-text">Super-resolution approach for enhancing medical imaging (2021).
+                                    </p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="sports col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/sports-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/sports-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a title="No link to show" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2020: YOLO Object Detection -->
+                        <li class="cv dl ml content-card">
+                            <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/yolo-object-tracking"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/yolo-object-detection.png"
+                                        alt="YOLO Object Detection">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">YOLO Object Detection</h5>
+                                    <p class="card-text">Transfer learning pipeline for real-time object detection and
+                                        tracking (2020).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="sports col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/sports-2.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/sports-2.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a title="No link to show" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2020: Motion Detection -->
+                        <li class="cv ml content-card">
+                            <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/dense-optical-flow"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/optical-flow.png" alt="Motion Detection">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Motion Detection</h5>
+                                    <p class="card-text">Dense optical flow for motion detection and analysis (2020).
+                                    </p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="sports col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/sports-3.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/sports-3.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://www.intechopen.com/chapters/73928" title="Link to publication"
-                                        target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2020: Market Forecasting -->
+                        <li class="dl ml ds content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/sequence-modeling/stock-market-forecasting"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/market-forecasting.png"
+                                        alt="Market Forecasting">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Market Forecasting</h5>
+                                    <p class="card-text">Deep learning sequence modeling for stock market forecasting
+                                        (2020).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="sports cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/sports-4.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/sports-4.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/computer-vision/tree/master/Python"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2020: Marker-less Motion Capture -->
+                        <li class="cv bio-eng dl ml content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/sequence-modeling/motion-capture-enhancement"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/motion-capture.png"
+                                        alt="Marker-less Motion Capture">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Marker-less Motion Capture</h5>
+                                    <p class="card-text">Deep learning computer vision pipelines to enhance marker-less
+                                        motion capture (2020).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-dl-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-dl-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/sequence-modeling/motion-capture-enhancement"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2019: Cartilage Properties using Medical Imaging -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0268003318310325"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/cartilage-properties.png"
+                                        alt="Cartilage Properties">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Cartilage Properties</h5>
+                                    <p class="card-text">Assessment of cartilage properties using medical imaging
+                                        (2019).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-nlp-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-nlp-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/classification/real-vs-fake-news"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2019: Image Annotation -->
+                        <li class="cv se content-card">
+                            <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/curv-motion-capture"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/image-annotation.png" alt="Image Annotation">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Image Annotation</h5>
+                                    <p class="card-text">Tools for image annotation and curation for motion capture
+                                        datasets (2019).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-lr-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-lr-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/regression/ocean-water-temperature"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2019: Face Detection -->
+                        <li class="cv ml content-card">
+                            <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/face-detection"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/face-detection.png" alt="Face Detection">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Face Detection & Tracking</h5>
+                                    <p class="card-text">Haar cascades and tracking API implementations for video
+                                        analysis (2019).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-svm-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-svm-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/classification/heart-disease-prediction"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2018: Heart Disease Prediction -->
+                        <li class="ml ds content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/classification/heart-disease-prediction"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/heart-disease-risk.png"
+                                        alt="Heart Disease Risk">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Heart Disease Risk</h5>
+                                    <p class="card-text">SVM Classification with SMOTE optimization (Reduced Type II
+                                        error by 84%) (2018).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-logr-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-logr-1.jpg" title="Preview"
-                                        class="openButton" data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/classification/credit-card-fraud-detection"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2018: Watershed -->
+                        <li class="cv ml content-card">
+                            <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/watershed-image-segmentation"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/watershed.png" alt="Watershed Segmentation">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Watershed Segmentation</h5>
+                                    <p class="card-text">Implementation of the watershed algorithm for image
+                                        segmentation (2018).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/cv-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/cv-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/watershed-image-segmentation"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2018: Impact of Thumb Replacement on Mobility -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="https://www.ncbi.nlm.nih.gov/pubmed/29146507" target="_blank"
+                                class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/thumb-implant-mobility.png"
+                                        alt="Thumb Implant Mobility">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Thumb Implant & Mobility</h5>
+                                    <p class="card-text">Impact of thumb replacement on hand mobility and function
+                                        (2018).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/cv-2.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/cv-2.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/face-detection"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2018: Impact of Custom Orthotics on Fatigue -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="https://www.intechopen.com/chapters/73928" target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/orthotics.png" alt="Orthotics">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Custom Orthotics</h5>
+                                    <p class="card-text">Study on the impact of custom orthotics on muscle fatigue
+                                        (2018).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/cv-3.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/cv-3.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/dense-optical-flow"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2018: Pressure Mapping Technologies -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="content/portfolio/unlinked-publications/2018-09 - Orpyx - Final Report.pdf"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/pressure-mapping.png" alt="Pressure Mapping">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Pressure Mapping Technologies</h5>
+                                    <p class="card-text">Analysis of pressure mapping technologies for diabetic foot
+                                        ulcer prevention (2018).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="cv col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/cv-4.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/cv-4.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/computer-vision/tree/master/Python/yolo-object-tracking"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2018: Impact of Compression Garments on Performance -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="content/portfolio/unlinked-publications/2018-06 - Per4ma - Final Report.pdf"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/garment-biomechanics.png"
+                                        alt="Compression Garments">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Compression Garments</h5>
+                                    <p class="card-text">Impact of compression garments on athletic performance and
+                                        biomechanics (2018).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-dl-2.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-dl-2.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/sequence-modeling/stock-market-forecasting"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2017: Credit Card Fraud -->
+                        <li class="ml ds content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/classification/credit-card-fraud-detection"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/credit-card-fraud.png"
+                                        alt="Credit Card Fraud">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Credit Card Fraud</h5>
+                                    <p class="card-text">Classification models for detecting fraudulent credit card
+                                        transactions (2017).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml cv med-im col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-dl-3.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-dl-3.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/multi-organ-image-segmentation"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2017: Ocean Water Temperature -->
+                        <li class="ml ds content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/regression/ocean-water-temperature"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/ocean-temperature.png" alt="Ocean Temp">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Ocean Temperature Prediction</h5>
+                                    <p class="card-text">Machine learning regression models to predict ocean water
+                                        temperatures (2017).
+                                    </p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml cv med-im col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-dl-4.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-dl-4.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/medical-autosegmentation-cnn"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2017: Fake News -->
+                        <li class="ml ds content-card">
+                            <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/classification/real-vs-fake-news"
+                                target="_blank" class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/fake-news.png" alt="Fake News">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Fake News Classification</h5>
+                                    <p class="card-text">Implementing a NLP Naive Bayes model achieving 94% accuracy on
+                                        fake news detection
+                                        (2017).
+                                    </p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml cv med-im col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-dl-5.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-dl-5.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/medical-images-super-resolution"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2017: OA Impact on Morphology -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="https://www.ncbi.nlm.nih.gov/pubmed/28934632" target="_blank"
+                                class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/oa-impact.png" alt="OA Impact">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">OA Impact on Morphology</h5>
+                                    <p class="card-text">Osteoarthritis impact on the morphology of the
+                                        trapeziometacarpal joint (2017).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml cv med-im col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-dl-6.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-dl-6.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/image-processing/medical-landmark-detection"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2016: Thumb Kinematics -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="https://www.ncbi.nlm.nih.gov/pubmed/27606961" target="_blank"
+                                class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/thumb-kinematics.png" alt="Thumb Kinematics">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Thumb Kinematics</h5>
+                                    <p class="card-text">Quantifying in vivo kinematics and Screw-Home mechanism of the
+                                        TMC joint (2016).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-llm-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-llm-1.jpg" title="Preview" class="openButton"
-                                        data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://github.com/bendourthe/artificial-intelligence/tree/master/deep-learning/large-language-models/llama2-jupyter"
-                                        title="Link to GitHub" target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2016: Dynamic Imaging Mobility Assessment -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="https://www.ncbi.nlm.nih.gov/pubmed/27198890" target="_blank"
+                                class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/imaging-mobility.png"
+                                        alt="Dynamic Imaging Mobility Assessment">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">Dynamic Imaging Mobility</h5>
+                                    <p class="card-text">Quantification of 3D thumb opposition kinematics using dynamic
+                                        CT (2016).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
-                        <li onclick="" class="dsml col-xs-6-col-sm-4 col-md-3 col-lg-4">
-                            <div class="item">
-                                <img src="portfolio/thumbnails/light/dsml-essay-1.jpg">
-                                <div class="icons">
-                                    <a href="portfolio/previews/light/dsml-essay-1.jpg" title="Preview"
-                                        class="openButton" data-fancybox data-caption="Preview">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                    <a href="https://zenodo.org/records/18177869" title="Link to publication"
-                                        target="_black" class="projectLink">
-                                        <i class="fas fa-link"></i>
-                                    </a>
+                        <!-- 2015: TMC Biomechanics -->
+                        <li class="bio-eng pubs content-card">
+                            <a href="https://www.ncbi.nlm.nih.gov/pubmed/26654104" target="_blank"
+                                class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="content/portfolio/thumbnails/tmc-biomechanics.png" alt="TMC Biomechanics">
                                 </div>
-                                <div class=imageOverlay>
+                                <div class="card-body">
+                                    <h5 class="card-title">TMC Contact Biomechanics</h5>
+                                    <p class="card-text">In vivo contact biomechanics in the trapeziometacarpal joint
+                                        using mathematical modelling (2015).</p>
                                 </div>
-                            </div>
+                            </a>
                         </li>
 
+                        <!-- 2015: 3D Transformations Toolbox -->
+                        <li class="se content-card">
+                            <a href="https://github.com/bendourthe/3d-transformations-toolbox" target="_blank"
+                                class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="portfolio/thumbnails/3d-toolbox.png" alt="3D Transforms">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">3D Transformations Toolbox</h5>
+                                    <p class="card-text">Toolbox for Motion Capture and 3D Image Processing (2015).</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- 2015: Signal Processing Toolbox -->
+                        <li class="se content-card">
+                            <a href="https://github.com/bendourthe/signal-processing-toolbox" target="_blank"
+                                class="portfolio-card">
+                                <div class="card-image-container">
+                                    <img src="portfolio/thumbnails/signal-toolbox.png" alt="Signal Processing">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Signal Processing Toolbox</h5>
+                                    <p class="card-text">Python toolbox for advanced time-series analysis and denoising
+                                        (2015).
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -976,7 +943,7 @@
     <div class="copyrightSection">
 
         <div class="col-md-12 text-center">
-            <p>&copy; Copyright &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOURTHE TECHNOLOGIES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2023
+            <p>&copy; Copyright &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BENJAMIN DOURTHE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026
             </p>
         </div>
 
@@ -986,7 +953,7 @@
     <script src="js/countUp.js"></script>
     <script src="js/countUp-jquery.js"></script>
     <script src="js/jquery.superslides.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
+    <!-- <script src="js/owl.carousel.min.js"></script> -->
     <script src="js/jquery.easypiechart.min.js"></script>
     <script src="js/typed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -995,7 +962,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <!-- <script type="text/javascript" src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
     <script src="js/script.js"></script>

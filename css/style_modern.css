@@ -1,0 +1,691 @@
+:root {
+    --primary-color: #2574A9;
+    --accent-color: #3498DB;
+    --hover-color: #6C7A89;
+    --bg-color: #FFFFFF;
+    --text-color: #333333;
+    --card-bg: #F8F9FA;
+    --border-color: #444444;
+    --overlay-color: rgba(0, 0, 0, 0.4);
+    --nav-bg: #013243;
+    /* Always dark blueish */
+    --nav-text: #FFFFFF;
+    --section-accent-bg: #2574A9;
+    /* Blue for Skills/Contact */
+    --section-accent-text: #FFFFFF;
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Dark Mode Variables --- */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #E0E0E0;
+    --card-bg: #1E1E1E;
+    --primary-color: #3498DB;
+    --nav-bg: #001f2b;
+    --section-accent-bg: #1F2933;
+    --section-accent-text: #E0E0E0;
+}
+
+/* --- Navigation --- */
+#navigation {
+    background-color: var(--nav-bg);
+    padding: 20px 10px;
+    z-index: 1000;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.fixedNav #navigation {
+    position: fixed;
+    top: 0;
+    padding: 10px 10px;
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 24px;
+    /* Increased Size */
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-size: 16px;
+    /* Increased from 13px */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* --- Hero Overlay --- */
+.titleMessage {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    top: 50%;
+    z-index: 5;
+    text-align: center;
+    margin-top: -125px;
+}
+
+.titleMessage .heading {
+    color: #fff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+    font-weight: 100;
+    letter-spacing: 7px;
+}
+
+.titleMessage .main {
+    font-size: 50px;
+}
+
+.titleMessage .sub {
+    font-size: 23px;
+}
+
+/* Theme Switch Toggle */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    /* Margin Left Auto is handled in HTML class 'ml-auto' */
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+    margin: 0;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+}
+
+input:checked+.slider {
+    background-color: #95a5a6;
+    /* Neutral Grey for Light Mode */
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #95a5a6;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.theme-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- Section Styling --- */
+.section {
+    padding: 80px 0;
+}
+
+/* Skills & Contact (Accent BG) */
+.skillsSection,
+.contactSection {
+    background-color: var(--section-accent-bg);
+    color: var(--section-accent-text);
+}
+
+.skillsSection h2,
+.skillsSection p,
+.contactSection h2,
+.contactSection p,
+.contactSection h4 {
+    color: var(--section-accent-text);
+}
+
+/* Stats (Standard BG) */
+.statsSection {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.statsSection h2.counter {
+    color: var(--accent-color);
+}
+
+/* Profile Image */
+.aboutImage {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#about {
+    padding-top: 100px;
+}
+
+/* --- Portfolio --- */
+.filter a {
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 10px 18px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.filter a:hover,
+.filter .current {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+body.dark-mode .filter a {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Grid & Cards */
+/* Grid & Cards */
+.itemsContainer {
+    width: 100%;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.portfolio-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none !important;
+    /* Ensure link doesn't underline text */
+    color: inherit;
+    /* Inherit text color */
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image-container {
+    width: 100%;
+    padding-top: 100%;
+    /* 1:1 Aspect Ratio (Square) */
+    position: relative;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+.card-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card-image-container.placeholder-gradient {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    /* Subtle gradient */
+}
+
+.portfolio-card:hover .card-image-container img {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.card-text {
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Dark Mode Overrides for Cards */
+body.dark-mode .portfolio-card {
+    background-color: #1E1E1E;
+    border: 1px solid #333;
+    color: var(--text-color);
+}
+
+body.dark-mode .card-image-container {
+    background: #2b2b2b;
+}
+
+/* Filters Modernization */
+.filter {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#filters {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filters li {
+    display: inline-block;
+}
+
+.filters a {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    border: 1px solid var(--hover-color);
+    transition: all 0.3s ease;
+}
+
+.filters a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.filters a.current {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .filters a {
+    color: var(--text-color);
+    border-color: #555;
+}
+
+body.dark-mode .filters a:hover,
+body.dark-mode .filters a.current {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(37, 116, 169, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.portfolio-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-overlay a {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 10px;
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.card-overlay a:hover {
+    background: #fff;
+    color: var(--primary-color);
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 13px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* --- Skills Categories --- */
+.skill-category-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 5px;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-category-card h4 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.skill-expertise-text {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: normal;
+    /* Normal style for description */
+    margin-bottom: 15px;
+}
+
+.skill-category-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.skill-category-card li {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    font-size: 14px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.5;
+    font-style: italic;
+    /* Italic for bullets */
+}
+
+/* ... existing styles ... */
+
+.stats-subtext {
+    font-size: 15px;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-top: 0;
+    line-height: 1.5;
+    font-style: italic;
+    /* Italic for subtext */
+}
+
+.skill-category-card li:before {
+    content: "\2022";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    /* Lower the bullet to align with text center (approx 5px down for 1.5 line-height) */
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    line-height: 14px;
+    /* Keep tight line-height to prevent it from pushing down */
+}
+
+/* --- Stats Icons --- */
+.squareItem {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    border-radius: 8px;
+    background: #fff;
+    /* Card background in light mode */
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.squareItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .squareItem {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    /* Subtle dark card bg */
+}
+
+.squareIcon {
+    font-size: 40px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+body.dark-mode .squareIcon {
+    color: var(--text-color);
+}
+
+body.dark-mode .statsSection h2.counter {
+    color: var(--text-color);
+}
+
+.squareContent h2 {
+    font-size: 50px;
+    font-weight: 300;
+    color: var(--text-color);
+}
+
+.squareContent h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.stats-subtext {
+    font-size: 15px;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-top: 0;
+    line-height: 1.5;
+
+    font-style: italic;
+}
+
+/* --- About Me Buttons --- */
+.downloadButtonContainer {
+    margin-top: 20px;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.downloadButton {
+    color: #fff;
+    background-color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--primary-color);
+}
+
+.downloadButton i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.downloadButton:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .downloadButton {
+    background-color: transparent;
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .downloadButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* --- Contact Section Modern --- */
+.contactHeading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-subtext {
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 40px;
+    font-style: italic;
+    /* Consistency with other subtexts */
+}
+
+.modern-pill-btn {
+    color: var(--primary-color);
+    background-color: #fff;
+    /* White Background for contrast */
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #fff;
+    margin: 5px;
+}
+
+.modern-pill-btn i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.modern-pill-btn:hover {
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .modern-pill-btn {
+    background-color: transparent;
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .modern-pill-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+}
