@@ -510,6 +510,173 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
 .copy-btn .cb-label { font-weight: 600; letter-spacing: .02em; }
 .copyable { position: relative; }
 .copyable > .copy-btn { position: absolute; top: 8px; right: 8px; margin-left: 0; }
+
+  /* ============================================================
+     Guided tour: embedded slide-show. All rules scoped under .nht
+     and all classes prefixed ts- so nothing collides with the guide.
+     Reuses the guide's existing CSS custom properties for the palette.
+     ============================================================ */
+  .nht { position: relative; color: var(--ink); font-family: var(--sans); }
+  .nht .ts-intro { max-width: 70ch; margin: 0 0 22px; }
+  .nht .ts-intro p { color: var(--ink-dim); font-size: 1.05rem; line-height: 1.55; }
+
+  .nht .ts-frame {
+    position: relative; width: 100%; max-width: 1040px; margin: 0 auto;
+    aspect-ratio: 16 / 9; border: 1px solid var(--border-bright); border-radius: 16px; overflow: hidden;
+    background:
+      radial-gradient(900px 560px at 78% -10%, rgba(45,212,191,.16), transparent 60%),
+      radial-gradient(700px 560px at 12% 112%, rgba(56,189,248,.12), transparent 60%),
+      linear-gradient(180deg, #04141a 0%, #02090c 70%);
+    box-shadow: 0 24px 60px -30px rgba(0,0,0,.8);
+  }
+  .nht .ts-frame:fullscreen { max-width: none; width: 100vw; height: 100vh; border: 0; border-radius: 0; }
+  .nht .ts-stage { position: absolute; top: 0; left: 0; width: 1280px; height: 720px; transform-origin: top left; }
+
+  .nht .ts-slide { position: absolute; inset: 0; padding: 52px 60px 56px; display: flex; flex-direction: column; justify-content: center; opacity: 0; visibility: hidden; transition: opacity .38s ease; }
+  .nht .ts-slide.on { opacity: 1; visibility: visible; }
+  @media (prefers-reduced-motion: reduce) { .nht .ts-slide { transition: none; } }
+
+  .nht .ts-eyebrow { font: 700 17px/1 var(--mono); letter-spacing: 3px; text-transform: uppercase; color: var(--teal-soft); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 10px; }
+  .nht .ts-pip { width: 22px; height: 2px; background: var(--grad); border-radius: 2px; }
+  .nht .ts-title { font-size: 54px; line-height: 1.08; margin: 0 0 18px; letter-spacing: -.6px; font-weight: 800; max-width: 1150px; }
+  .nht .ts-title.ts-h1 { font-size: 72px; letter-spacing: -1.2px; }
+  .nht .ts-grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nht .ts-lead { font-size: 28px; line-height: 1.35; color: var(--ink-dim); max-width: 1150px; margin: 0 0 16px; text-wrap: pretty; }
+  .nht .ts-lead.ts-wide { max-width: 1150px; }
+  .nht .ts-lead b { color: var(--ink); font-weight: 700; }
+  .nht .ts-pull { font-size: 38px; font-weight: 800; letter-spacing: -.3px; line-height: 1.22; margin: 8px 0 0; max-width: 1150px; text-wrap: balance; }
+  .nht .ts-muted { color: var(--ink-faint); }
+  .nht .ts-small { font-size: 25px; line-height: 1.5; color: var(--ink-dim); max-width: 1150px; text-wrap: pretty; }
+  .nht .ts-inl { font-family: var(--mono); color: var(--cyan-soft); }
+
+  .nht .ts-tagrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+  .nht .ts-tag { font: 700 16px/1 var(--mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-soft); background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 9px 15px; }
+
+  .nht .ts-loop { display: flex; align-items: stretch; gap: 0; }
+  .nht .ts-node { flex: 1 1 0; min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 15px 9px; text-align: center; display: flex; flex-direction: column; gap: 6px; align-items: center; justify-content: center; }
+  .nht .ts-node.is-on { border-color: var(--border-bright); background: var(--grad-soft); }
+  .nht .ts-node .ts-ncmd { font: 700 22px/1 var(--mono); color: var(--teal-soft); }
+  .nht .ts-node.is-on .ts-ncmd { color: var(--ink); }
+  .nht .ts-node .ts-nlbl { font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-faint); }
+  .nht .ts-node .ts-nnum { font: 700 10px/1 var(--mono); color: var(--ink-faint); opacity: .7; }
+  .nht .ts-arrow { display: flex; align-items: center; color: var(--ink-faint); font-size: 17px; padding: 0 6px; }
+
+  .nht .ts-grid { display: grid; gap: 15px; }
+  .nht .ts-c5 { grid-template-columns: repeat(5, 1fr); }
+  .nht .ts-c3 { grid-template-columns: repeat(3, 1fr); }
+  .nht .ts-c2 { grid-template-columns: repeat(2, 1fr); }
+  .nht .ts-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 16px; }
+  .nht .ts-card.ts-good { border-color: var(--border-bright); background: var(--grad-soft); }
+  .nht .ts-card .ts-ct { font: 700 15px/1.2 var(--mono); color: var(--teal-soft); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .nht .ts-card.ts-bad .ts-ct { color: var(--ink-faint); }
+  .nht .ts-card .ts-cd { font-size: 25px; line-height: 1.35; color: var(--ink-dim); }
+  .nht .ts-card .ts-cd b { color: var(--ink); }
+
+  .nht .ts-icon { width: 26px; height: 26px; display: inline-block; vertical-align: middle; }
+  .nht .ts-amber { color: var(--amber); }
+  .nht .ts-red { color: var(--red); }
+  .nht .ts-green { color: var(--green); }
+  .nht .ts-tealc { color: var(--teal-soft); }
+
+  .nht .ts-flow { display: flex; align-items: stretch; gap: 0; }
+  .nht .ts-flow .ts-step { flex: 1 1 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 18px; display: flex; flex-direction: column; gap: 11px; }
+  .nht .ts-flow .ts-stepico { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--border); }
+  .nht .ts-flow .ts-sl { font: 700 25px/1.25 var(--sans); color: var(--ink); }
+  .nht .ts-flow .ts-sd { font-size: 25px; line-height: 1.3; color: var(--ink-dim); }
+
+  .nht .ts-need { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 25px; line-height: 1.35; color: var(--ink-dim); }
+  .nht .ts-need:last-child { border-bottom: 0; }
+  .nht .ts-need b { color: var(--ink); }
+  .nht .ts-need .ts-icon { flex: 0 0 auto; margin-top: 1px; }
+
+  .nht .ts-fsteps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .nht .ts-fstep { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 16px; }
+  .nht .ts-fstep .ts-fn { font: 800 13px/1 var(--mono); color: var(--bg-deep); background: var(--grad); border-radius: 7px; padding: 6px 9px; display: inline-block; margin-bottom: 11px; }
+  .nht .ts-fstep .ts-ft { font-size: 25px; line-height: 1.45; color: var(--ink-dim); }
+  .nht .ts-fstep .ts-ft b { color: var(--ink); }
+
+  .nht .ts-cmdbox { background: var(--term-bg); border: 1px solid var(--border); border-radius: 12px; padding: 15px 16px 15px 20px; display: flex; align-items: center; gap: 13px; box-shadow: 0 24px 60px -30px rgba(0,0,0,.8); max-width: 1150px; }
+  .nht .ts-cmdbox .ts-pr { color: var(--teal-soft); font: 700 30px/1 var(--mono); }
+  .nht .ts-cmdbox .ts-cmdtext { font: 600 30px/1.25 var(--mono); color: var(--ink); flex: 1 1 auto; word-break: break-word; }
+  .nht .ts-copy { flex: 0 0 auto; font: 700 12px/1 var(--mono); letter-spacing: 1px; text-transform: uppercase; color: var(--teal-soft); background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 9px 13px; cursor: pointer; }
+  .nht .ts-copy:hover { background: var(--surface-3); color: var(--ink); border-color: var(--border-bright); }
+  .nht .ts-promptnote { margin-top: 13px; max-width: 1150px; background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; padding: 12px 15px; display: flex; align-items: center; gap: 13px; }
+  .nht .ts-promptnote .ts-pntext { flex: 1 1 auto; font-size: 25px; line-height: 1.45; color: var(--ink-dim); }
+  .nht .ts-promptnote .ts-pntext b { color: var(--ink); }
+
+  .nht .ts-badge { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+  .nht .ts-badge .ts-bn { font: 800 17px/1 var(--mono); color: var(--bg-deep); background: var(--grad); border-radius: 8px; padding: 8px 11px; }
+  .nht .ts-badge .ts-bv { font: 700 17px/1 var(--mono); letter-spacing: 3px; text-transform: uppercase; color: var(--teal-soft); }
+  .nht .ts-row { display: flex; gap: 16px; align-items: baseline; margin-top: 18px; font-size: 25px; line-height: 1.5; max-width: 1150px; }
+  .nht .ts-row .ts-k { font: 700 18px/1.4 var(--mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-faint); flex: 0 0 112px; padding-top: 5px; }
+  .nht .ts-row .ts-val { color: var(--ink-dim); }
+  .nht .ts-row .ts-val b { color: var(--ink); }
+
+  .nht .ts-cover .ts-big { font-size: 84px; line-height: 1.05; font-weight: 800; letter-spacing: -1.5px; margin: 0 0 14px; }
+  .nht ul.ts-list { list-style: none; margin: 12px 0 0; padding: 0; max-width: 66ch; }
+  .nht ul.ts-list li { position: relative; padding: 11px 0 11px 32px; font-size: 26px; line-height: 1.45; color: var(--ink-dim); border-bottom: 1px solid var(--border); }
+  .nht ul.ts-list li:last-child { border-bottom: 0; }
+  .nht ul.ts-list li::before { content: ""; position: absolute; left: 3px; top: 17px; width: 9px; height: 9px; border-radius: 50%; background: var(--grad); }
+  .nht ul.ts-list li b { color: var(--ink); }
+
+  .nht .ts-toprow { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .nht .ts-zip { display: inline-flex; align-items: center; gap: 10px; margin-top: 6px; text-decoration: none; font: 700 15px/1 var(--sans); color: var(--bg-deep); background: var(--grad); border-radius: 10px; padding: 12px 19px; }
+  .nht .ts-zip .ts-icon { width: 18px; height: 18px; color: var(--bg-deep); }
+
+  /* Quiz mockup (light card on the dark slide) */
+  .nht .ts-qz { width: 410px; background: #fff; border-radius: 18px; box-shadow: 0 30px 70px -30px rgba(0,0,0,.85); padding: 24px 26px 26px; color: #16232b; }
+  .nht .ts-qz h3 { margin: 0 0 3px; font-size: 21px; color: #16232b; }
+  .nht .ts-qz .ts-qtag { margin: 0 0 15px; color: #5a6b73; font-size: 13px; }
+  .nht .ts-qz .ts-qmeta { font-size: 12.5px; color: #5a6b73; margin-bottom: 7px; }
+  .nht .ts-qz .ts-qbar { height: 6px; background: #e2e8ea; border-radius: 6px; overflow: hidden; margin-bottom: 17px; }
+  .nht .ts-qz .ts-qbar i { display: block; height: 100%; width: 33%; background: #0d9488; }
+  .nht .ts-qz .ts-qq { font-size: 16.5px; font-weight: 600; margin: 0 0 15px; color: #16232b; }
+  .nht .ts-qz .ts-qc { border: 1.5px solid #e2e8ea; border-radius: 10px; padding: 10px 13px; font-size: 14px; margin-bottom: 9px; }
+  .nht .ts-qz .ts-qc.ts-sel { border-color: #0d9488; background: #d7f0ec; font-weight: 600; }
+  .nht .ts-qz .ts-qnext { margin-top: 5px; background: #0d9488; color: #fff; border-radius: 10px; padding: 10px 19px; font-size: 14px; font-weight: 600; display: inline-block; }
+
+  /* Controls bar + outline */
+  .nht .ts-controls { max-width: 1040px; margin: 14px auto 0; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .nht .ts-cleft, .nht .ts-cright { display: inline-flex; align-items: center; gap: 10px; }
+  .nht .ts-btn { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 13px; border-radius: 9px; cursor: pointer; background: var(--surface-2); border: 1px solid var(--border); color: var(--ink-dim); font: 600 13px/1 var(--sans); }
+  .nht .ts-btn:hover { background: var(--surface-3); color: var(--ink); border-color: var(--border-bright); }
+  .nht .ts-btn .ts-icon { width: 15px; height: 15px; }
+  .nht .ts-count { font: 700 13px/1 var(--mono); color: var(--ink-dim); min-width: 64px; text-align: center; }
+  .nht .ts-sectionlabel { font: 600 12px/1 var(--mono); letter-spacing: 2px; text-transform: uppercase; color: var(--ink-faint); }
+  .nht .ts-prog { max-width: 1040px; margin: 10px auto 0; height: 3px; background: rgba(255,255,255,.06); border-radius: 3px; overflow: hidden; }
+  .nht .ts-prog i { display: block; height: 100%; width: 0; background: var(--grad); transition: width .35s ease; }
+
+  .nht .ts-outline { position: absolute; top: 0; left: 0; width: 320px; max-height: 100%; overflow-y: auto; background: #03121a; border: 1px solid var(--border-bright); border-radius: 14px; padding: 8px 0 14px; z-index: 5; transform: translateX(-8px); opacity: 0; visibility: hidden; transition: opacity .2s ease; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+  .nht .ts-outline.on { opacity: 1; visibility: visible; transform: none; }
+  .nht .ts-ol-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px 10px; border-bottom: 1px solid var(--border); }
+  .nht .ts-ol-head span { font: 700 11px/1 var(--mono); letter-spacing: 2px; text-transform: uppercase; color: var(--teal-soft); }
+  .nht .ts-ol-head button { background: none; border: 0; color: var(--ink-faint); font-size: 18px; cursor: pointer; line-height: 1; }
+  .nht .ts-ol-sec { font: 700 10.5px/1 var(--mono); letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-faint); padding: 14px 18px 6px; }
+  .nht .ts-ol-item { display: flex; gap: 10px; align-items: baseline; padding: 7px 18px; cursor: pointer; color: var(--ink-dim); font-size: 14px; line-height: 1.35; border-left: 3px solid transparent; }
+  .nht .ts-ol-item:hover { background: var(--surface); color: var(--ink); }
+  .nht .ts-ol-item.cur { border-left-color: var(--teal); background: var(--grad-soft); color: var(--ink); }
+  .nht .ts-ol-item .ts-oln { font: 700 11px/1.4 var(--mono); color: var(--ink-faint); flex: 0 0 22px; }
+
+  /* Workflow subtabs (secondary nav on the workflow pages) */
+  .wf-subtabs { display: flex; gap: 4px; flex-wrap: wrap; margin: 0 0 24px; border-bottom: 1px solid var(--border); }
+  .wf-subtab { padding: 10px 16px; font-size: 14px; font-weight: 600; color: var(--ink-dim); border-bottom: 2px solid transparent; cursor: pointer; text-decoration: none; margin-bottom: -1px; }
+  .wf-subtab:hover { color: var(--ink); }
+  .wf-subtab.cur { color: var(--teal-soft); border-bottom-color: var(--teal); }
+
+  /* Output slides: a terminal-style result panel after each command */
+  .nht .ts-outbadge { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .nht .ts-outbadge .ob { font: 800 14px/1 var(--mono); letter-spacing: 1px; color: var(--bg-deep); background: var(--cyan-soft); border-radius: 7px; padding: 7px 10px; }
+  .nht .ts-outbadge .oc { font: 700 18px/1 var(--mono); color: var(--ink-dim); }
+  .nht .ts-term { background: var(--term-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px 22px; font: 25px/1.4 var(--mono); color: var(--ink-dim); box-shadow: 0 24px 60px -30px rgba(0,0,0,.8); max-width: 1150px; overflow: hidden; }
+  .nht .ts-term .tl { white-space: pre-wrap; word-break: break-word; }
+  .nht .ts-term .tdim { color: var(--ink-faint); }
+  .nht .ts-term .tadd { color: var(--green); }
+  .nht .ts-term .tdel { color: var(--red); }
+  .nht .ts-term .tkey { color: var(--teal-soft); }
+  .nht .ts-term .tcyan { color: var(--cyan-soft); }
+  .nht .ts-term .tamber { color: var(--amber); }
+  .nht .ts-outcap { font-size: 25px; line-height: 1.4; color: var(--ink-faint); margin-top: 16px; max-width: 1150px; }
+  .nht .ts-outcap b { color: var(--ink-dim); }
 </style>
 </head>
 <body>
@@ -537,14 +704,10 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
       <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">&#9776;</button>
       <div class="nav-links" id="navLinks">
         <a data-go="home">Home</a>
-        <a data-go="setup">Setup</a>
-        <a data-go="foundations">How&nbsp;it&nbsp;works</a>
-        <a data-go="onboard">Onboard</a>
-        <a data-go="plan">Plan</a>
-        <a data-go="build">Build</a>
-        <a data-go="harden">Harden</a>
-        <a data-go="ship">Ship</a>
-        <a data-go="reference">Reference</a>
+        <a data-go="setup">Installation</a>
+        <a data-go="training">Training</a>
+        <a data-go="explore" data-group="workflow">Workflows</a>
+        <a data-go="reference">Cheatsheets</a>
         <a class="nav-gh" href="https://github.com/bendourthe/Nexus-Hub" target="_blank" rel="noopener" title="View Nexus-Hub on GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
       </div>
     </nav>
@@ -564,7 +727,8 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
         <p class="lead">Nexus-Hub is a production-grade skill harness for AI coding assistants. It replaces ad-hoc prompting with governed, repeatable workflows that cover the whole software lifecycle - from inheriting an unfamiliar codebase to shipping a reviewed, tested release.</p>
         <div class="btn-row">
           <a class="btn btn--primary" data-go="setup">Get started <span class="arr">&rarr;</span></a>
-          <a class="btn" data-go="onboard">Jump to the workflow</a>
+          <a class="btn" data-go="training">Get trained</a>
+          <a class="btn" data-go="explore">Explore workflows</a>
         </div>
         <div class="stat-row">
           <span class="stat"><b>252</b> skills</span>
@@ -722,9 +886,9 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
         <h2>The Nexus-Hub loop</h2>
         <p class="lead">Each command produces a durable artifact that becomes the next command's input. That chaining is the whole idea - the workflow compounds.</p>
         <div class="flow">
-          <div class="flow-node" data-go="onboard"><div class="cmd">/describe</div><div class="lbl">understand</div></div>
+          <div class="flow-node" data-go="explore"><div class="cmd">/describe</div><div class="lbl">understand</div></div>
           <div class="flow-arrow">&rarr;</div>
-          <div class="flow-node" data-go="onboard"><div class="cmd">/review</div><div class="lbl">evaluate</div></div>
+          <div class="flow-node" data-go="explore"><div class="cmd">/review</div><div class="lbl">evaluate</div></div>
           <div class="flow-arrow">&rarr;</div>
           <div class="flow-node" data-go="plan"><div class="cmd">/plan</div><div class="lbl">decompose</div></div>
           <div class="flow-arrow">&rarr;</div>
@@ -741,26 +905,44 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
         </div>
       </section>
 
+      <!-- How it works (folded in from the former Foundations page) -->
+      <section class="section">
+        <span class="eyebrow">How it works</span>
+        <h2>Three things make this more than a prompt library</h2>
+        <p class="muted" style="max-width:78ch; font-size:14.5px">Skills that load themselves, hooks the model cannot talk its way past, and governance that holds AI output to your written rules. Understand these three and the whole workflow makes sense.</p>
+        <div class="grid grid-3" style="margin-top:18px">
+          <div class="card" style="border-left:3px solid var(--teal)">
+            <div class="step-no" style="font:700 11px/1 var(--mono); color:var(--teal-soft); letter-spacing:1px; margin-bottom:8px">SKILLS</div>
+            <h3 style="font-size:1.05rem">Procedures that auto-load</h3>
+            <p>256 senior-level procedures (how to run a security review, how to write idiomatic Go, and more). The agent triggers the right one from your task. Three-tier loading keeps only a short summary in context until a skill is actually needed, so a large catalog stays affordable.</p>
+          </div>
+          <div class="card" style="border-left:3px solid var(--cyan)">
+            <div class="step-no" style="font:700 11px/1 var(--mono); color:var(--cyan-soft); letter-spacing:1px; margin-bottom:8px">HOOKS</div>
+            <h3 style="font-size:1.05rem">Guardrails it cannot bypass</h3>
+            <p>Where skills are advice, hooks are enforced. 23 scripts fire on tool events and block the action outright: secret scanning, destructive-git confirmation, large-file guards. The safety net does not depend on the model remembering to be careful.</p>
+          </div>
+          <div class="card" style="border-left:3px solid var(--blue)">
+            <div class="step-no" style="font:700 11px/1 var(--mono); color:var(--blue); letter-spacing:1px; margin-bottom:8px">GOVERNANCE</div>
+            <h3 style="font-size:1.05rem">Aligned to your rules</h3>
+            <p>Write your team's MUST and SHOULD norms with <code>/constitution</code>. Every <code>/plan</code> checks against them, and <code>/spec</code> clarifies a vague request before code is written. AI output answers to the same rules as the team.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- Use case nav -->
       <section class="section">
         <span class="eyebrow">Where to go</span>
-        <h2>Get started, learn the pieces, then walk the workflows</h2>
+        <h2>Get started, then walk the workflows</h2>
         <div class="grid grid-3">
           <div class="card navcard" data-go="setup">
             <div class="step-no">START HERE</div>
-            <h3>Setup &amp; platforms</h3>
+            <h3>Installation</h3>
             <p>Install Nexus-Hub on your machine, and see how the same workflows reach Claude Code, Codex, Antigravity, Cursor, and more.</p>
             <span class="go">Open <span class="arr">&rarr;</span></span>
-          </div>
-          <div class="card navcard" data-go="foundations">
-            <div class="step-no">FOUNDATIONS</div>
-            <h3>How it works</h3>
-            <p>Skills that load themselves, hooks that block mistakes, and governance that keeps AI aligned to your rules.</p>
-            <span class="go">Open <span class="arr">&rarr;</span></span>
-          </div>
-          <div class="card navcard" data-go="onboard">
+          </div>
+          <div class="card navcard" data-go="explore">
             <div class="step-no">WORKFLOW 01</div>
-            <h3>Onboard &amp; evaluate</h3>
+            <h3>Explore &amp; evaluate</h3>
             <p>Inherit TaskFlow. Map it with <code>/describe</code>, then get a brutally honest health check with <code>/review</code>.</p>
             <span class="go">Open <span class="arr">&rarr;</span></span>
           </div>
@@ -805,6 +987,417 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
   <!-- =====================================================================
        PAGE: SETUP & PLATFORMS
        ===================================================================== -->
+  <section class="page" id="page-training" data-page="training">
+    <div class="container">
+      <span class="eyebrow">Training</span>
+      <h2>Nexus-Hub, end to end, on a real example</h2>
+      <div class="ts-intro"><p>A self-paced walkthrough: what Nexus-Hub is, then the workflow applied to a real project from first contact to a finished, verified result. Use the arrows or the outline to move through it.</p></div>
+
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+        <symbol id="icon-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L21 19 H3 Z"/><line x1="12" y1="10" x2="12" y2="14"/><line x1="12" y1="16.6" x2="12" y2="16.7"/></g></symbol>
+        <symbol id="icon-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L19 6 V11 C19 16 16 19 12 21 C8 19 5 16 5 11 V6 Z"/><line x1="9.2" y1="9.2" x2="14.8" y2="14.8"/></g></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5 L11 15.5 L16.2 9"/></g></symbol>
+        <symbol id="icon-plus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></g></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 V14"/><path d="M8 11 L12 15 L16 11"/><path d="M5 19 H19"/></g></symbol>
+      </defs></svg>
+
+      <div class="nht" id="nhTour">
+        <div class="ts-frame" id="tsFrame">
+          <div class="ts-stage" id="tsStage">
+
+            <div class="ts-slide on" data-sec="What Nexus-Hub is" data-tt="Nexus-Hub">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> Open source &middot; Any project &middot; Any field</div>
+              <h2 class="ts-title ts-h1">Nexus-Hub</h2>
+              <p class="ts-lead ts-wide">Your AI model with the structure and guardrails of a <span class="ts-grad">world-class expert team</span>.</p>
+              <p class="ts-small ts-muted">An open-source workflow that takes any project to a finished, verified result.</p>
+              <div class="ts-tagrow"><span class="ts-tag">Free and open source</span><span class="ts-tag">Any platform</span><span class="ts-tag">Any field</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="What Nexus-Hub is" data-tt="What it is">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> What it is</div>
+              <h2 class="ts-title">More than a single expert</h2>
+              <p class="ts-lead ts-wide">Nexus-Hub does not replace your AI model. It wraps the <b>same model</b> in the discipline of a <b>world-class expert team</b>.</p>
+              <p class="ts-pull"><span class="ts-grad">Same model. The output of an expert team.</span></p>
+              <p class="ts-small ts-muted" style="margin-top:16px">Software is its first home. The same method applies to any project, in any field.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="What Nexus-Hub is" data-tt="Why it matters">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> Why it matters</div>
+              <h2 class="ts-title">Why not simply prompt the model?</h2>
+              <p class="ts-lead ts-wide" style="margin-bottom:22px">A single prompt can produce good work. It cannot produce it reliably.</p>
+              <div class="ts-grid ts-c2">
+                <div class="ts-card ts-bad"><div class="ts-ct">A single prompt</div><div class="ts-cd">No stated goal, no agreed standard, no automatic checks. The result depends on who asks and how carefully. Hard to review, hard to repeat.</div></div>
+                <div class="ts-card ts-good"><div class="ts-ct">A governed workflow</div><div class="ts-cd">A written goal and definition of done, expert review at each step, guardrails that run automatically, and a result anyone can reproduce.</div></div>
+              </div>
+            </div>
+
+            <div class="ts-slide" data-sec="How it works" data-tt="Building blocks">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> How it works</div>
+              <h2 class="ts-title">Five building blocks</h2>
+              <div class="ts-grid ts-c5" style="margin-top:6px">
+                <div class="ts-card"><div class="ts-ct">Skills</div><div class="ts-cd">Expert knowledge, loaded only when needed</div></div>
+                <div class="ts-card"><div class="ts-ct">Commands</div><div class="ts-cd">Repeatable workflows from one instruction</div></div>
+                <div class="ts-card"><div class="ts-ct">Hooks</div><div class="ts-cd">Automatic guardrails on every action</div></div>
+                <div class="ts-card"><div class="ts-ct">Agents</div><div class="ts-cd">Focused specialists for scoped work</div></div>
+                <div class="ts-card"><div class="ts-ct">Rules</div><div class="ts-cd">The standards every result is held to</div></div>
+              </div>
+            </div>
+
+            <div class="ts-slide" data-sec="How it works" data-tt="Guardrails">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> How it works</div>
+              <h2 class="ts-title">Guardrails that run automatically</h2>
+              <div class="ts-flow" style="margin:6px 0 20px">
+                <div class="ts-step"><div class="ts-stepico"><svg class="ts-icon ts-amber"><use href="#icon-alert"/></svg></div><div class="ts-sl">A risky action is requested</div><div class="ts-sd">Saving a file that contains a password.</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-step"><div class="ts-stepico"><svg class="ts-icon ts-red"><use href="#icon-shield"/></svg></div><div class="ts-sl">A guardrail blocks it</div><div class="ts-sd">Caught automatically, before it can happen.</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-step"><div class="ts-stepico"><svg class="ts-icon ts-green"><use href="#icon-check"/></svg></div><div class="ts-sl">A safe path is taken</div><div class="ts-sd">The password loads from a secure setting instead.</div></div>
+              </div>
+              <p class="ts-small ts-muted">Fixed rules run on every action, so mistakes are caught, not left to memory.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="How it works" data-tt="The workflow">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> How it works</div>
+              <h2 class="ts-title">One repeatable workflow</h2>
+              <p class="ts-lead ts-wide" style="margin-bottom:26px">Six steps carry any project from first contact to a finished, verified result.</p>
+              <div class="ts-loop">
+                <div class="ts-node is-on"><div class="ts-nnum">01</div><div class="ts-ncmd">/describe</div><div class="ts-nlbl">understand</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-nnum">02</div><div class="ts-ncmd">/review</div><div class="ts-nlbl">evaluate</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-nnum">03</div><div class="ts-ncmd">/plan</div><div class="ts-nlbl">decompose</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-nnum">04</div><div class="ts-ncmd">/implement</div><div class="ts-nlbl">build</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-nnum">05</div><div class="ts-ncmd">/test</div><div class="ts-nlbl">harden</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-nnum">06</div><div class="ts-ncmd">/update</div><div class="ts-nlbl">ship</div></div>
+              </div>
+              <p class="ts-small ts-muted" style="margin-top:22px">The commands are how Nexus-Hub performs these steps on software. The steps themselves apply to any field.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="A real example" data-tt="Meet the example">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> A real example</div>
+              <div class="ts-toprow">
+                <div style="flex:1 1 0">
+                  <h2 class="ts-title" style="font-size:40px">A real example:<br>a Trivia Quiz</h2>
+                  <p class="ts-lead">A real, working web app: a small trivia quiz that runs in any browser.</p>
+                  <p class="ts-small ts-muted">It works, it is fun, and small enough to read in minutes.</p>
+                </div>
+                <div class="ts-qz">
+                  <h3>Trivia Quiz</h3>
+                  <p class="ts-qtag">Answer the deck, see your score.</p>
+                  <div class="ts-qmeta">Question 2 / 6</div>
+                  <div class="ts-qbar"><i></i></div>
+                  <p class="ts-qq">Which planet is known as the Red Planet?</p>
+                  <div class="ts-qc">Venus</div>
+                  <div class="ts-qc ts-sel">Mars</div>
+                  <div class="ts-qc">Jupiter</div>
+                  <div class="ts-qnext">Next</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ts-slide" data-sec="A real example" data-tt="What it needs">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> A real example</div>
+              <h2 class="ts-title">What this example needs</h2>
+              <p class="ts-lead ts-wide" style="margin-bottom:20px">The app ships imperfect on purpose. Resolving these is the tour.</p>
+              <div class="ts-grid ts-c2">
+                <div class="ts-card">
+                  <div class="ts-ct"><svg class="ts-icon ts-red" style="width:18px;height:18px"><use href="#icon-alert"/></svg> Two bugs to fix</div>
+                  <div class="ts-need"><svg class="ts-icon ts-red" style="width:20px;height:20px"><use href="#icon-alert"/></svg><div>A perfect run <b>scores one short</b> of the total.</div></div>
+                  <div class="ts-need"><svg class="ts-icon ts-red" style="width:20px;height:20px"><use href="#icon-alert"/></svg><div>Restart <b>keeps the previous answers</b> instead of clearing them.</div></div>
+                </div>
+                <div class="ts-card ts-good">
+                  <div class="ts-ct"><svg class="ts-icon ts-tealc" style="width:18px;height:18px"><use href="#icon-plus"/></svg> One feature to add</div>
+                  <div class="ts-need"><svg class="ts-icon ts-tealc" style="width:20px;height:20px"><use href="#icon-plus"/></svg><div><b>Shuffle the deck</b> on every run, so answer positions cannot be memorized.</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ts-slide" data-sec="A real example" data-tt="Follow along">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> A real example</div>
+              <h2 class="ts-title">Follow along on your platform</h2>
+              <div class="ts-fsteps" style="margin:6px 0 22px">
+                <div class="ts-fstep"><span class="ts-fn">1</span><div class="ts-ft">Download the example project and unpack it.</div></div>
+                <div class="ts-fstep"><span class="ts-fn">2</span><div class="ts-ft">Open it in your platform of choice: <b>Claude Code, Codex, Cursor</b>, or any IDE with Nexus-Hub installed.</div></div>
+                <div class="ts-fstep"><span class="ts-fn">3</span><div class="ts-ft">Run the commands on the following slides, copying each prompt as you go.</div></div>
+              </div>
+              <a class="ts-zip" href="trivia-quiz.zip" download><svg class="ts-icon"><use href="#icon-download"/></svg> Download the example project</a>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Understand: /describe">
+              <div class="ts-badge"><span class="ts-bn">STEP 01 / 09</span><span class="ts-bv">Understand</span></div>
+              <h2 class="ts-title">/describe</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/describe full</span><button class="ts-copy" type="button" data-ts-copy="/describe full">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">A clear map of the project: its files, how they fit, and how to run it.</span></div>
+              <div class="ts-row"><span class="ts-k">Scope</span><span class="ts-val"><b>full</b> suits a small project. A larger one can scope to a single folder.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/describe result">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/describe full</span></div>
+              <div class="ts-term">
+                <div class="tl tkey">Project: Trivia Quiz</div>
+                <div class="tl">Purpose: a small browser quiz. Shows questions, scores them.</div>
+                <div class="tl">Stack:   vanilla HTML, CSS, JavaScript. No build step.</div>
+                <div class="tl">Run:     open index.html. Vitest is set up, but no tests yet.</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tdim">Structure</div>
+                <div class="tl">  logic.js      pure scoring and state, no DOM (the core)</div>
+                <div class="tl">  app.js        renders questions, handles clicks</div>
+                <div class="tl">  questions.js  the six-question deck</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tamber">No tests found. Coverage 0%.</div>
+              </div>
+              <p class="ts-outcap">A structured map you can act on. It already flags that there are no tests.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Evaluate: /review">
+              <div class="ts-badge"><span class="ts-bn">STEP 02 / 09</span><span class="ts-bv">Evaluate</span></div>
+              <h2 class="ts-title">/review</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/review</span><button class="ts-copy" type="button" data-ts-copy="/review">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">A read-only assessment of the bugs and missing tests, found unprompted.</span></div>
+              <div class="ts-row"><span class="ts-k">Note</span><span class="ts-val">Review reports; it never changes code, and finds more than one pass will fix.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/review result">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/review</span></div>
+              <div class="ts-term">
+                <div class="tl tkey">Findings</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl"><span class="tdel">HIGH</span>  logic.js:24  computeScore() loops to selections.length - 1,</div>
+                <div class="tl tdim">                   so the final answer is never counted.</div>
+                <div class="tl"><span class="tdel">HIGH</span>  logic.js:44  restartState() reuses prev.selections, so</div>
+                <div class="tl tdim">                   Restart keeps the previous answers.</div>
+                <div class="tl"><span class="tamber">MED</span>   app.js       renders via innerHTML (inputs are escaped).</div>
+                <div class="tl"><span class="tdim">NOTE</span>  repo         no test files; coverage 0%.</div>
+              </div>
+              <p class="ts-outcap">Two real bugs, found without us pointing at them. The plan covers exactly those two.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Decompose: /plan">
+              <div class="ts-badge"><span class="ts-bn">STEP 03 / 09</span><span class="ts-bv">Decompose</span></div>
+              <h2 class="ts-title">/plan</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/plan feature</span><button class="ts-copy" type="button" data-ts-copy="/plan feature">Copy</button></div>
+              <div class="ts-promptnote"><div class="ts-pntext"><b>Goal to provide:</b> Fix the two issues from the review: the final score is one short, and Restart keeps the previous answers. One phase, no new features.</div><button class="ts-copy" type="button" data-ts-copy="Fix the two issues from the review: the final score is one short, and Restart keeps the previous answers. One phase, no new features.">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">A single-phase plan with a written definition of done.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/plan result">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/plan feature</span></div>
+              <div class="ts-term">
+                <div class="tl tcyan">docs/v0.1.0/plans/fix-scoring-and-restart.md</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl">Goal: scoring and restart behave correctly.</div>
+                <div class="tl">Definition of done:</div>
+                <div class="tl">  a fully-correct run scores N / N</div>
+                <div class="tl">  Restart clears all previous answers</div>
+                <div class="tl">  covered by tests; existing behavior unchanged</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tkey">Phase 1</div>
+                <div class="tl">  T001  count the final answer in computeScore</div>
+                <div class="tl">  T002  reset selections in restartState</div>
+              </div>
+              <p class="ts-outcap">A small, written plan with a definition of done. One phase, two tasks.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Build: /implement">
+              <div class="ts-badge"><span class="ts-bn">STEP 04 / 09</span><span class="ts-bv">Build</span></div>
+              <h2 class="ts-title">/implement</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/implement fix-scoring-and-restart phase-1</span><button class="ts-copy" type="button" data-ts-copy="/implement fix-scoring-and-restart phase-1">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">Both fixes on a dedicated branch, checked, paused at a review gate.</span></div>
+              <div class="ts-row"><span class="ts-k">Verify</span><span class="ts-val">In the browser, a perfect run scores <b>full marks</b>; Restart <b>clears the board</b>.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/implement result (bugs)">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/implement (bug fixes)</span></div>
+              <div class="ts-term">
+                <div class="tl tdim">branch: fix/scoring-and-restart &middot; logic.js</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tdel">- for (var i = 0; i &lt; selections.length - 1; i++) {</div>
+                <div class="tl tadd">+ for (var i = 0; i &lt; selections.length; i++) {</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tdel">- return { index: 0, selections: prev.selections, finished: false };</div>
+                <div class="tl tadd">+ return { index: 0, selections: [], finished: false };</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tdim">1 file changed &middot; lint clean &middot; paused at review gate</div>
+              </div>
+              <p class="ts-outcap">The real diff: two one-line fixes. A perfect run scores full marks; Restart clears.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Evaluate: /compare">
+              <div class="ts-badge"><span class="ts-bn">STEP 05 / 09</span><span class="ts-bv">Compare</span></div>
+              <h2 class="ts-title">/compare</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/compare ../quiz-shuffle-reference</span><button class="ts-copy" type="button" data-ts-copy="/compare ../quiz-shuffle-reference">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">Flags the missing shuffle feature; build it locally, no new dependency.</span></div>
+              <div class="ts-row"><span class="ts-k">Note</span><span class="ts-val">The reference is included for offline use. A public URL works the same.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/compare result">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/compare ../quiz-shuffle-reference</span></div>
+              <div class="ts-term">
+                <div class="tl tkey">Comparing trivia-quiz vs ../quiz-shuffle-reference</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl">Adoption candidate         Security   Decision</div>
+                <div class="tl tdim">---------------------------------------------------</div>
+                <div class="tl">shuffle the deck each run   <span class="tadd">LOW</span>        reverse-engineer locally</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl">Verdict: build a local Fisher-Yates shuffle.</div>
+                <div class="tl tdim">No dependency added; only the logic is adopted.</div>
+              </div>
+              <p class="ts-outcap">/compare studies the reference and recommends building it locally, no new dependency.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Decompose: /plan from-comparison">
+              <div class="ts-badge"><span class="ts-bn">STEP 06 / 09</span><span class="ts-bv">Decompose</span></div>
+              <h2 class="ts-title">/plan from-comparison</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/plan from-comparison docs/v0.1.0/compare-quizkit.md</span><button class="ts-copy" type="button" data-ts-copy="/plan from-comparison docs/v0.1.0/compare-quizkit.md">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">A plan from the comparison: add a local shuffle, keep scoring intact.</span></div>
+              <div class="ts-row"><span class="ts-k">Note</span><span class="ts-val">The report path is produced by the previous step.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/plan from-comparison result">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/plan from-comparison</span></div>
+              <div class="ts-term">
+                <div class="tl tcyan">docs/v0.1.0/plans/shuffle-the-deck.md</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tdim">Seeded from the comparison report.</div>
+                <div class="tl tkey">Phase 1</div>
+                <div class="tl">  T001  add a pure shuffle(items) helper (Fisher-Yates)</div>
+                <div class="tl">  T002  shuffle the deck at the start of each run</div>
+                <div class="tl">  T003  keep scoring unchanged</div>
+              </div>
+              <p class="ts-outcap">The comparison becomes a plan directly. This is the second on-ramp into /plan.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Build: /implement">
+              <div class="ts-badge"><span class="ts-bn">STEP 07 / 09</span><span class="ts-bv">Build</span></div>
+              <h2 class="ts-title">/implement</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/implement shuffle-the-deck phase-1</span><button class="ts-copy" type="button" data-ts-copy="/implement shuffle-the-deck phase-1">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">The shuffle is added and applied at the start of each run, on its own branch.</span></div>
+              <div class="ts-row"><span class="ts-k">Verify</span><span class="ts-val">On reload, the deck <b>order changes</b> each run.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/implement result (shuffle)">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/implement (shuffle)</span></div>
+              <div class="ts-term">
+                <div class="tl tdim">branch: feat/shuffle-deck &middot; logic.js</div>
+                <div class="tl tadd">+ function shuffle(items) {</div>
+                <div class="tl tadd">+   var a = items.slice();</div>
+                <div class="tl tadd">+   for (var i = a.length - 1; i &gt; 0; i--) {</div>
+                <div class="tl tadd">+     var j = Math.floor(Math.random() * (i + 1));</div>
+                <div class="tl tadd">+     var tmp = a[i]; a[i] = a[j]; a[j] = tmp;</div>
+                <div class="tl tadd">+   }</div>
+                <div class="tl tadd">+   return a;</div>
+                <div class="tl tadd">+ }</div>
+                <div class="tl tdim">app.js</div>
+                <div class="tl tdel">- var questions = window.QUIZ_QUESTIONS;</div>
+                <div class="tl tadd">+ var questions = window.QuizLogic.shuffle(window.QUIZ_QUESTIONS);</div>
+              </div>
+              <p class="ts-outcap">The real diff: a local shuffle, applied each run. Reload and the deck order changes.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Harden: /test">
+              <div class="ts-badge"><span class="ts-bn">STEP 08 / 09</span><span class="ts-bv">Harden</span></div>
+              <h2 class="ts-title">/test</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/test unit</span><button class="ts-copy" type="button" data-ts-copy="/test unit">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">Automated tests for the core logic, run until coverage reaches the standard.</span></div>
+              <div class="ts-row"><span class="ts-k">Standard</span><span class="ts-val">80% line coverage by default, adjustable per project.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/test result">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/test unit</span></div>
+              <div class="ts-term">
+                <div class="tl tdim">RUN  v2.1.9</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl"><span class="tadd">&#10003;</span> logic.test.js  (8 tests)  4ms</div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl">Test Files  <span class="tadd">1 passed (1)</span></div>
+                <div class="tl">     Tests  <span class="tadd">8 passed (8)</span></div>
+                <div class="tl">&nbsp;</div>
+                <div class="tl tdim">Coverage (v8)</div>
+                <div class="tl">File        % Stmts  % Funcs  % Lines</div>
+                <div class="tl">logic.js     <span class="tadd">97.22    100      97.22</span></div>
+              </div>
+              <p class="ts-outcap">A real Vitest run: 8 tests pass; core logic covered to <b>97%</b>. DOM and deck stay manual.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="Ship: /update">
+              <div class="ts-badge"><span class="ts-bn">STEP 09 / 09</span><span class="ts-bv">Ship</span></div>
+              <h2 class="ts-title">/update</h2>
+              <div class="ts-cmdbox"><span class="ts-pr">&gt;</span><span class="ts-cmdtext">/commit</span><button class="ts-copy" type="button" data-ts-copy="/commit">Copy</button></div>
+              <div class="ts-row"><span class="ts-k">Outcome</span><span class="ts-val">A clean, well-described commit covering the fixes and the feature.</span></div>
+              <div class="ts-row"><span class="ts-k">Release</span><span class="ts-val"><b>/update release</b> runs the full release: version, changelog, tag, notes.</span></div>
+            </div>
+
+            <div class="ts-slide" data-sec="The loop, step by step" data-tt="/update result">
+              <div class="ts-outbadge"><span class="ob">OUTPUT</span><span class="oc">/commit</span></div>
+              <div class="ts-term">
+                <div class="tl tdim">$ git log --oneline</div>
+                <div class="tl"><span class="tamber">382f181</span>  test: cover scoring, restart, and shuffle</div>
+                <div class="tl"><span class="tamber">d8887c8</span>  feat: shuffle the deck on every run</div>
+                <div class="tl"><span class="tamber">35f2a47</span>  fix: count the final answer; clear answers on restart</div>
+                <div class="tl"><span class="tamber">51da821</span>  chore: seed Trivia Quiz</div>
+              </div>
+              <p class="ts-outcap">Clean, conventional commits, one per step. The increment is shipped.</p>
+            </div>
+
+            <div class="ts-slide" data-sec="In practice" data-tt="Summary">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> In practice</div>
+              <h2 class="ts-title">Summary</h2>
+              <div class="ts-loop" style="margin-bottom:24px">
+                <div class="ts-node is-on"><div class="ts-ncmd">/describe</div><div class="ts-nlbl">mapped it</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-ncmd">/review</div><div class="ts-nlbl">found 2 bugs</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-ncmd">/plan</div><div class="ts-nlbl">scoped</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-ncmd">/implement</div><div class="ts-nlbl">fixed + built</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-ncmd">/test</div><div class="ts-nlbl">verified</div></div>
+                <div class="ts-arrow">&rarr;</div>
+                <div class="ts-node is-on"><div class="ts-ncmd">/update</div><div class="ts-nlbl">shipped</div></div>
+              </div>
+              <ul class="ts-list" style="margin-top:6px; max-width:82ch">
+                <li>Mapped an unfamiliar app, then found <b>two real bugs</b> and the missing tests.</li>
+                <li>Fixed both bugs, and adopted a <b>shuffle</b> feature with <b>/compare</b>.</li>
+                <li>Covered the logic with tests, then <b>shipped</b> clean, conventional commits.</li>
+              </ul>
+            </div>
+
+            <div class="ts-slide ts-cover" data-sec="In practice" data-tt="Apply it">
+              <div class="ts-eyebrow"><span class="ts-pip"></span> In practice</div>
+              <h2 class="ts-big">Apply it to <span class="ts-grad">your own work</span></h2>
+              <p class="ts-lead ts-wide">The same six steps carry any project, in any field, on any platform, from first contact to a finished, verified result.</p>
+              <ul class="ts-list">
+                <li><b>Understand</b> the work, then <b>evaluate</b> it honestly.</li>
+                <li><b>Decompose</b> it into a plan with a clear definition of done.</li>
+                <li><b>Build</b>, <b>harden</b> to a standard, and <b>ship</b>.</li>
+              </ul>
+              <p class="ts-small ts-muted" style="margin-top:16px">Begin with the guide, install Nexus-Hub, and run the loop on something real.</p>
+            </div>
+
+          </div>
+          <div class="ts-outline" id="tsOutline"><div class="ts-ol-head"><span>Outline</span><button type="button" id="tsOutlineClose" aria-label="Close outline">&times;</button></div><div id="tsOutlineList"></div></div>
+        </div>
+
+        <div class="ts-prog"><i id="tsBar"></i></div>
+        <div class="ts-controls">
+          <span class="ts-cleft">
+            <button class="ts-btn" id="tsMenu" type="button">Outline</button>
+            <span class="ts-sectionlabel" id="tsSection"></span>
+          </span>
+          <span class="ts-cright">
+            <button class="ts-btn" id="tsPrev" type="button" aria-label="Previous slide">&larr;</button>
+            <span class="ts-count" id="tsCount">1 / 20</span>
+            <button class="ts-btn" id="tsNext" type="button" aria-label="Next slide">&rarr;</button>
+            <button class="ts-btn" id="tsFull" type="button">Fullscreen</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="page" id="page-setup" data-page="setup">
     <div class="container">
       <span class="eyebrow">Step zero</span>
@@ -1067,322 +1660,11 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
   </section>
 
   <!-- =====================================================================
-       PAGE: FOUNDATIONS (How it works)
+       PAGE: EXPLORE
        ===================================================================== -->
-  <section class="page" id="page-foundations" data-page="foundations">
+  <section class="page" id="page-explore" data-page="explore">
     <div class="container">
-      <span class="eyebrow">Foundations</span>
-      <h1>How Nexus-Hub actually works</h1>
-      <p class="lead">Three things make this more than a prompt library: <strong>skills</strong> that load themselves, <strong>hooks</strong> that stop mistakes the model can't talk its way past, and <strong>governance</strong> that holds AI output to your written rules. Understand these and every command makes sense.</p>
-
-      <!-- SKILLS -->
-      <div class="step">
-        <div class="step-head">
-          <div class="step-badge">&#9733;</div>
-          <div>
-            <h3>Skills that load themselves</h3>
-            <div class="sub">252 skills &middot; three-tier progressive disclosure</div>
-          </div>
-        </div>
-        <p>A skill is a senior-level procedure - "how to run a security review", "how to write idiomatic Go". You rarely invoke one by name; the agent <strong>auto-triggers</strong> the right skill from your task. The trick that makes 252 skills affordable is <strong>three-tier loading</strong>: only a tiny summary of every skill is always in context; the full procedure loads only when a skill is actually relevant.</p>
-
-        <div class="grid grid-3" style="margin:14px 0">
-          <div class="card" style="border-left:3px solid var(--teal)">
-            <div class="step-no" style="font:700 11px/1 var(--mono); color:var(--teal-soft); letter-spacing:1px; margin-bottom:8px">TIER 1 &middot; ALWAYS LOADED</div>
-            <h3 style="font-size:1rem">Name + summary</h3>
-            <p>~150-300 tokens per skill. Just enough for the agent to decide whether the skill is relevant. This is the only tier under token pressure.</p>
-          </div>
-          <div class="card" style="border-left:3px solid var(--cyan)">
-            <div class="step-no" style="font:700 11px/1 var(--mono); color:var(--cyan-soft); letter-spacing:1px; margin-bottom:8px">TIER 2 &middot; ON TRIGGER</div>
-            <h3 style="font-size:1rem">The SKILL.md body</h3>
-            <p>The working manual - step-by-step instructions, verification checklist, and rebuttals to shortcuts. Loaded only once the skill triggers.</p>
-          </div>
-          <div class="card" style="border-left:3px solid var(--blue)">
-            <div class="step-no" style="font:700 11px/1 var(--mono); color:var(--blue); letter-spacing:1px; margin-bottom:8px">TIER 3 &middot; ON DEMAND</div>
-            <h3 style="font-size:1rem">References + scripts</h3>
-            <p>Long runbooks the agent reads only when needed, and scripts it <em>executes without loading the source</em> - heavy capability, zero context cost.</p>
-          </div>
-        </div>
-
-        <div class="term term--standalone" data-anim data-speed="28">
-          <div class="term-bar">
-            <div class="tdots"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
-            <span class="label"><b>claude</b> &mdash; taskflow</span>
-            <button class="term-replay" type="button">&#8635; replay</button>
-          </div>
-          <div class="term-body">
-            <div class="term-cmd"><span class="prompt">&gt; </span><span class="typed" data-type="add a FastAPI endpoint to export tasks as CSV">add a FastAPI endpoint to export tasks as CSV</span></div>
-            <div class="term-out">
-              <div class="t-tool">&bull; matched skill <span class="t-teal">fastapi-expert</span> (tier-1 summary) &rarr; loading body</div>
-              <div class="t-tool">&bull; matched skill <span class="t-teal">api-design</span> for pagination + error shape</div>
-              <div class="t-dim">  (you didn't name either skill - the task did)</div>
-              <div class="spacer"></div>
-              <div class="t-ok">&#10003; applied async route, Pydantic response model, streaming CSV, 422 on bad filter</div>
-            </div>
-          </div>
-        </div>
-        <p class="muted" style="font-size:13.5px">Manage the catalog with <code>/skills</code>: <code>search &lt;topic&gt;</code>, <code>list</code>, <code>create</code>, and <code>import</code> (which scans a skill for safety before installing - see Harden &rarr; Supply chain).</p>
-      </div>
-
-      <!-- HOOKS -->
-      <div class="step">
-        <div class="step-head">
-          <div class="step-badge">&#128274;</div>
-          <div>
-            <h3>Hooks that stop mistakes</h3>
-            <div class="sub">deterministic guardrails, enforced by the harness</div>
-          </div>
-        </div>
-        <p>Where skills are <em>advice</em> the model chooses to follow, hooks are <strong>enforced</strong>. A hook is a script that fires on a tool event (before or after the agent reads, writes, or runs something). The agent cannot rationalize past it - the harness simply blocks the action. This is the safety net that doesn't depend on the model remembering to be careful.</p>
-
-        <div class="term term--standalone" data-anim data-speed="26">
-          <div class="term-bar">
-            <div class="tdots"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
-            <span class="label"><b>claude</b> &mdash; taskflow</span>
-            <button class="term-replay" type="button">&#8635; replay</button>
-          </div>
-          <div class="term-body">
-            <div class="term-cmd"><span class="prompt">&gt; </span><span class="typed" data-type="(agent tries to hard-code the payment key back into config.py)">(agent tries to hard-code the payment key back into config.py)</span></div>
-            <div class="term-out">
-              <div class="t-tool">&bull; Write <span class="t-file">config.py</span> ...</div>
-              <div class="t-bad t-bold">&#9940; secret-scan (PreToolUse hook) BLOCKED the write</div>
-              <div class="t-dim">  line 12: hard-coded credential detected ( PAYMENT_KEY = "...&lt;redacted&gt;..." )</div>
-              <div class="t-dim">  fix: load from an environment variable; never commit secrets</div>
-              <div class="spacer"></div>
-              <div class="t-tool">&bull; agent reworks to <span class="t-cyan">os.environ["PAYMENT_KEY"]</span> and retries</div>
-              <div class="t-ok">&#10003; Write config.py - clean, no secrets</div>
-              <div class="spacer"></div>
-              <div class="t-cmd"><span class="prompt">&gt; </span>git reset --hard origin/main</div>
-              <div class="t-warn t-bold">&#9940; git-guardrails (PreToolUse hook): destructive command</div>
-              <div class="t-dim">  this discards all local changes. Confirm to proceed? [y/N]</div>
-            </div>
-          </div>
-        </div>
-        <p class="muted" style="font-size:13.5px">Nexus-Hub ships 22 hooks - secret scanning, destructive-git confirmation, large-file guards, and consistency checks among them - registered in a single <code>settings.json</code>.</p>
-      </div>
-
-      <!-- GOVERNANCE -->
-      <div class="step">
-        <div class="step-head">
-          <div class="step-badge">&#167;</div>
-          <div>
-            <h3>Governance that keeps AI aligned</h3>
-            <div class="sub">/constitution &middot; /spec</div>
-          </div>
-        </div>
-        <p>The biggest risk with AI coding isn't a typo - it's the agent confidently doing something that violates a team norm nobody wrote down. Nexus-Hub fixes that by letting you <strong>write the norms down</strong> and check work against them.</p>
-        <div class="grid grid-2" style="align-items:start">
-          <div>
-            <h3 style="font-size:1.05rem"><code>/constitution</code></h3>
-            <p style="font-size:14.5px">Author a versioned governance document of MUST / SHOULD principles your team agrees on. Every <code>/plan</code> runs a <strong>Constitution Check</strong> against it - so plans that would violate a principle are caught before code is written (you saw this gate pass on the Plan page).</p>
-          </div>
-          <div>
-            <h3 style="font-size:1.05rem"><code>/spec</code></h3>
-            <p style="font-size:14.5px">Clarify an underspecified request before coding (drive out the ambiguities), or analyze a feature directory for cross-artifact consistency and coverage. Stops the "we built the wrong thing because the spec was vague" failure.</p>
-          </div>
-        </div>
-
-        <div class="artifact">
-          <div class="artifact-bar"><span class="doc">&#9783;</span> .specify/memory/constitution.md <span class="tag">authored by /constitution</span></div>
-          <div class="artifact-body">
-            <h1 style="font-size:1.2rem">TaskFlow Constitution - v1.0</h1>
-            <h3 style="color:var(--green)">MUST</h3>
-            <ul>
-              <li>All SQL uses parameterized queries - never string interpolation</li>
-              <li>No secret is ever committed to source</li>
-              <li>Every merge to <code>develop</code> passes CI with coverage &ge; 80%</li>
-            </ul>
-            <h3 style="color:var(--cyan-soft)">SHOULD</h3>
-            <ul>
-              <li>Prefer reverse-engineering a capability over adding a dependency</li>
-              <li>Keep functions under 40 lines; extract a service layer where routes touch the DB directly</li>
-            </ul>
-            <p class="muted">Plans, specs, and reviews all align to this document. Amendments are versioned.</p>
-          </div>
-        </div>
-        <div class="callout tip">
-          <span class="ci">&#9733;</span>
-          <p><strong>This is how "the AI did something weird" becomes reviewable.</strong> When work is held to written MUST/SHOULD principles, a deviation is a concrete, catchable violation - not a judgment call. The constitution makes AI output accountable to the same rules as the humans on the team.</p>
-        </div>
-      </div>
-
-      <div class="progress" data-progress></div>
-      <div class="page-nav" data-pagenav></div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       PAGE: PLAN
-       ===================================================================== -->
-  <section class="page" id="page-plan" data-page="plan">
-    <div class="container">
-      <span class="eyebrow">Workflow 02 &middot; Planning the work</span>
-      <h1>Turn findings into a phased plan</h1>
-      <p class="lead">You know what TaskFlow is and where it hurts. Now decide what to do - and capture it as a robust, gated plan instead of a vague intent. There are two on-ramps to <code>/plan</code>: start from your own findings, or mine an external project for ideas first with <code>/compare</code>.</p>
-
-      <div class="tabs" data-tabs>
-        <div class="tab-btns">
-          <button class="tab-btn active" data-tab="planA">Path A &middot; /plan from your findings</button>
-          <button class="tab-btn" data-tab="planB">Path B &middot; /compare an external repo</button>
-        </div>
-
-        <!-- PATH A -->
-        <div class="tab-panel active" data-panel="planA">
-          <div class="scenario">
-            <div class="pin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-            <div>
-              <h3>You have the review report. Plan the remediation.</h3>
-              <p>Point <code>/plan</code> at <code>docs/0.4.0/review-full.md</code> and it ingests the findings as the raw material for a phased plan - security-first ordering, a definition-of-done, and gates baked in.</p>
-            </div>
-          </div>
-
-          <p><code>/plan</code> always runs a <strong>goals-first step</strong> before decomposing: it fixes the target problem, the persona, and an observable definition-of-done. A detailed plan for the wrong objective is the most common planning failure, and this step prevents it. It then runs a <strong>Constitution Check</strong> and <strong>Complexity Tracking</strong> gate, and emits tasks in a strict <code>T###</code> format.</p>
-
-          <div class="term term--standalone" data-anim data-speed="30">
-            <div class="term-bar">
-              <div class="tdots"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
-              <span class="label"><b>claude</b> &mdash; taskflow</span>
-              <button class="term-replay" type="button">&#8635; replay</button>
-            </div>
-            <div class="term-body">
-              <div class="term-cmd"><span class="prompt">&gt; </span><span class="typed" data-type="/plan feature  (using docs/0.4.0/review-full.md)">/plan feature  <span class="t-dim">(using docs/0.4.0/review-full.md)</span></span></div>
-              <div class="term-out">
-                <div class="t-tool">&bull; <b>Goals-first.</b> Ingested 6 findings from the review report.</div>
-                <div class="spacer"></div>
-                <div class="t-bold">Goal</div>
-                <div>Make TaskFlow safe and CI-gated, then complete billing - reach a</div>
-                <div>production-taggable state.</div>
-                <div class="spacer"></div>
-                <div class="t-bold">Definition of done</div>
-                <div>&nbsp;&bull; 0 critical/high security findings &nbsp; &bull; CI runs tests+lint on push</div>
-                <div>&nbsp;&bull; 80% coverage gate &nbsp; &bull; billing endpoints return real responses</div>
-                <div class="spacer"></div>
-                <div class="t-tool">&bull; <b>Constitution Check</b> .... <span class="t-ok">pass</span> (no principle violated)</div>
-                <div class="t-tool">&bull; <b>Complexity Tracking</b> ... <span class="t-ok">pass</span> (4 phases, no scope creep)</div>
-                <div class="spacer"></div>
-                <div class="t-ok">&#10003; Wrote <span class="t-file">docs/0.4.0/plans/harden-and-complete.md</span> &mdash; 4 phases, 14 tasks</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="artifact">
-            <div class="artifact-bar"><span class="doc">&#9783;</span> docs/0.4.0/plans/harden-and-complete.md <span class="tag">generated</span></div>
-            <div class="artifact-body">
-              <h1>Plan - Harden &amp; Complete TaskFlow</h1>
-              <div class="md-meta">/plan feature &middot; goal-gated &middot; T### task format</div>
-              <h2>Phase 1 - Security fixes (release-blocking)</h2>
-              <ul>
-                <li><code>T001</code> Parameterize the search query; remove the f-string SQL in <code>search.py:48</code></li>
-                <li><code>T002</code> Move the payment secret to an env var; rotate the leaked key; purge from history</li>
-                <li><code>T003</code> Add a regression test proving the search endpoint rejects injection payloads</li>
-              </ul>
-              <h2>Phase 2 - CI/CD pipeline</h2>
-              <ul>
-                <li><code>T004</code> Add <code>.github/workflows/ci.yml</code> - lint, test, coverage on push + PR</li>
-                <li><code>T005</code> Gate merges on 80% coverage and a green suite</li>
-              </ul>
-              <h2>Phase 3 - Test coverage to 80%</h2>
-              <ul>
-                <li><code>T006</code>-<code>T009</code> Unit + integration tests for <code>auth</code> and <code>billing</code></li>
-              </ul>
-              <h2>Phase 4 - Complete the billing feature</h2>
-              <ul>
-                <li><code>T010</code>-<code>T014</code> Implement the 3 stubbed endpoints, wire the Redis reconcile job, add e2e coverage</li>
-              </ul>
-              <p class="muted">Each phase has an explicit exit gate. <code>/implement</code> will pick these up one at a time.</p>
-            </div>
-          </div>
-
-          <div class="callout tip">
-            <span class="ci">&#9733;</span>
-            <p><strong>Phases are the unit of work.</strong> The plan is deliberately decomposed so each phase is small enough to implement, test, and commit on its own branch. That's what keeps diffs reviewable and the git history clean when you reach <code>/implement</code>.</p>
-          </div>
-        </div>
-
-        <!-- PATH B -->
-        <div class="tab-panel" data-panel="planB">
-          <div class="scenario">
-            <div class="pin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h7v7H4zM13 13h7v7h-7z"/><path d="M11 7h6M7 11v6"/></svg></div>
-            <div>
-              <h3>You found an open-source repo worth learning from.</h3>
-              <p>An OSS task manager, <em>TaskMaster</em>, has excellent recurring-task and reminder logic. Rather than guess what's worth adopting, <code>/compare</code> does a deep, structured comparison and writes a gap analysis with a prioritized adoption plan.</p>
-            </div>
-          </div>
-
-          <p><code>/compare</code> detects the source type automatically (a Git repo, a web article, or a local path), then for every adoption candidate it produces a mandatory <strong>Security assessment</strong> and <strong>Reverse-Engineering assessment</strong>. That second one is the heart of Nexus-Hub's philosophy: prefer to <strong>reverse-engineer logic into your own code</strong> over taking on a new dependency.</p>
-
-          <div class="term term--standalone" data-anim data-speed="26">
-            <div class="term-bar">
-              <div class="tdots"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
-              <span class="label"><b>claude</b> &mdash; taskflow</span>
-              <button class="term-replay" type="button">&#8635; replay</button>
-            </div>
-            <div class="term-body">
-              <div class="term-cmd"><span class="prompt">&gt; </span><span class="typed" data-type="/compare https://github.com/acme/taskmaster">/compare <span class="t-cyan">https://github.com/acme/taskmaster</span></span></div>
-              <div class="term-out">
-                <div class="t-tool">&bull; Source type inferred: <b>repo</b>. Cloning + indexing acme/taskmaster ...</div>
-                <div class="t-tool">&bull; Comparing structure, dependencies, and patterns against TaskFlow ...</div>
-                <div class="t-tool">&bull; Running <b>Security</b> + <b>Reverse-Engineering</b> assessment per adoption candidate ...</div>
-                <div class="spacer"></div>
-                <div class="t-ok">&#10003; Wrote <span class="t-file">docs/0.4.0/comparison-taskmaster.md</span></div>
-                <div class="spacer"></div>
-                <div class="t-bold">3 high-value gaps found</div>
-                <div>&nbsp;1. Recurring-task scheduler (RRULE-based)</div>
-                <div>&nbsp;2. Smart reminder/notification engine</div>
-                <div>&nbsp;3. Bulk CSV import/export</div>
-                <div class="spacer"></div>
-                <div class="t-tool">&bull; All 3 classified <b>reverse-engineer into local code</b> (no new runtime deps).</div>
-                <div class="spacer"></div>
-                <div><span class="t-teal">&rsaquo;</span> Generate a plan to adopt these? <span class="t-cyan">/plan from-comparison</span> &nbsp;<span class="t-dim">[Y/n]</span> <span class="t-cyan">Y</span></div>
-                <div class="t-ok">&#10003; Wrote <span class="t-file">docs/0.4.0/plans/adopt-recurring-tasks.md</span> (RE-first ordering)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="artifact">
-            <div class="artifact-bar"><span class="doc">&#9783;</span> docs/0.4.0/comparison-taskmaster.md <span class="tag">generated</span></div>
-            <div class="artifact-body">
-              <h1>Comparison - TaskFlow vs acme/taskmaster</h1>
-              <div class="md-meta">/compare repo &middot; gap analysis + adoption plan</div>
-              <h2>Adoption candidates</h2>
-              <table class="tbl">
-                <thead><tr><th>Capability</th><th>Value</th><th>Classification</th></tr></thead>
-                <tbody>
-                  <tr><td>Recurring tasks (RRULE)</td><td><span class="sev high">HIGH</span></td><td>Reverse-engineer locally</td></tr>
-                  <tr><td>Reminder engine</td><td><span class="sev med">MED</span></td><td>Reverse-engineer locally</td></tr>
-                  <tr><td>CSV import/export</td><td><span class="sev low">LOW</span></td><td>Reverse-engineer locally</td></tr>
-                </tbody>
-              </table>
-              <h2>Reverse-Engineering assessment (excerpt)</h2>
-              <p>The recurring-task logic is a pure scheduling algorithm over the <code>dateutil.rrule</code> standard - it carries no external service and no proprietary code. <strong>Recommendation:</strong> reimplement the algorithm in <code>backend/app/recurring.py</code> rather than depending on TaskMaster. This keeps TaskFlow's dependency surface flat and avoids licensing/attribution coupling.</p>
-              <h2>Security assessment (excerpt)</h2>
-              <p>No adoption candidate introduces an outbound call, a credential, or a new third-party runtime dependency. All three are local algorithms. <strong>Verdict: safe to reverse-engineer.</strong></p>
-            </div>
-          </div>
-
-          <div class="callout">
-            <span class="ci">&#9733;</span>
-            <p><strong>Reverse-engineer-first is a policy, not a vibe.</strong> Nexus-Hub's MCP &amp; adoption policy walks a decision tree - local-only &rarr; LLM-native skill &rarr; reverse-engineer into local code &rarr; trusted-vendor wrapper &rarr; drop. <code>/compare</code> applies that tree to every candidate, so "what can we learn from this repo" never silently becomes "add five dependencies and ship our source to a vendor".</p>
-          </div>
-
-          <div class="callout tip">
-            <span class="ci">&rarr;</span>
-            <p><strong>It chains straight into a plan.</strong> When the comparison finishes, <code>/compare</code> offers <code>/plan from-comparison</code>, which seeds a phased plan directly from the adoption table - with reverse-engineer-first ordering. Same destination as Path A: a gated plan ready for <code>/implement</code>.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="progress" data-progress></div>
-      <div class="page-nav" data-pagenav></div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       PAGE: ONBOARD
-       ===================================================================== -->
-  <section class="page" id="page-onboard" data-page="onboard">
-    <div class="container">
-      <span class="eyebrow">Workflow 01 &middot; Onboarding &amp; evaluation</span>
+      <span class="eyebrow">Explore &amp; evaluate</span>
       <h1>You just inherited a codebase</h1>
       <p class="lead">Day one on <strong>TaskFlow</strong>. Nobody is left who wrote it. Before touching a single line, you need two things: a map of what it is, and an honest verdict on what shape it's in. Two commands give you both.</p>
 
@@ -1400,7 +1682,7 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
           <div class="step-badge">1</div>
           <div>
             <h3>Map it with <span class="gtext">/describe</span></h3>
-            <div class="sub">understand &middot; writes docs/&lt;version&gt;/analysis.md</div>
+            <div class="sub">understand &middot; writes docs/v0.1.0/analysis.md</div>
           </div>
         </div>
         <p><code>/describe</code> produces a clear, structured description of any directory. It auto-detects whether the target is a software project, picks the sections that apply, and writes a durable report you'll feed into every later command. You can scope it (<code>structure</code>, <code>deps</code>, <code>architecture</code>, <code>onboarding</code>) or run <code>full</code>.</p>
@@ -1600,7 +1882,7 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
        ===================================================================== -->
   <section class="page" id="page-build" data-page="build">
     <div class="container">
-      <span class="eyebrow">Workflow 03 &middot; Implementation</span>
+      <span class="eyebrow">Implementation</span>
       <h1>Build the plan, one phase at a time</h1>
       <p class="lead">A plan is only as good as the discipline used to execute it. <code>/implement</code> takes a single phase from end to end - review, code, lint, test, troubleshoot, gate, document, commit - and refuses to advance until the quality gate passes. The result is a clean git history where every commit is a complete, tested unit of work.</p>
 
@@ -1683,7 +1965,7 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
 
       <div class="callout">
         <span class="ci">&#9873;</span>
-        <p><strong>The final phase ships itself.</strong> When the phase you implement is the <em>last</em> phase of the plan, <code>/implement</code> auto-detects it and runs release readiness, handing off to <code>/update release</code> (covered in Workflow 05). The plan literally drives the project from "inherited" to "tagged release".</p>
+        <p><strong>The final phase ships itself.</strong> When the phase you implement is the <em>last</em> phase of the plan, <code>/implement</code> auto-detects it and runs release readiness, handing off to <code>/update release</code> (covered in the Ship stage). The plan literally drives the project from "inherited" to "tagged release".</p>
       </div>
 
       <div class="progress" data-progress></div>
@@ -1696,7 +1978,7 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
        ===================================================================== -->
   <section class="page" id="page-harden" data-page="harden">
     <div class="container">
-      <span class="eyebrow">Workflow 04 &middot; Hardening</span>
+      <span class="eyebrow">Hardening</span>
       <h1>Make it secure and well-tested</h1>
       <p class="lead">Two pillars of production-readiness, two commands. <code>/review</code> finds the problems (read-only); <code>/test</code> closes the coverage gap and wires the CI gate that keeps it closed. This is where TaskFlow's CRITICAL SQLi and its 34% coverage get dealt with for good.</p>
 
@@ -1929,7 +2211,7 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
        ===================================================================== -->
   <section class="page" id="page-ship" data-page="ship">
     <div class="container">
-      <span class="eyebrow">Workflow 05 &middot; Ship &amp; maintain</span>
+      <span class="eyebrow">Ship &amp; maintain</span>
       <h1>Sync everything, then ship it</h1>
       <p class="lead">All four findings resolved, coverage at 82%, CI green. The last mile is making sure documentation reflects reality and cutting a clean release. <code>/update</code> owns every "bring the repo up to date" action - and at <code>release</code> scope, runs the whole ship flow as one gated sequence.</p>
 
@@ -2040,16 +2322,16 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
   <section class="page" id="page-reference" data-page="reference">
     <div class="container">
       <span class="eyebrow">Appendix</span>
-      <h1>Reference &amp; getting started</h1>
+      <h1>Cheatsheet</h1>
       <p class="lead">Keep this page open while you work. The full command set, how it's installed, and the golden path you just walked - condensed to a single screen.</p>
 
       <!-- Golden path recap -->
       <section class="section--tight">
         <h2>The golden path, end to end</h2>
         <div class="flow">
-          <div class="flow-node" data-go="onboard"><div class="cmd">/describe</div><div class="lbl">map it</div></div>
+          <div class="flow-node" data-go="explore"><div class="cmd">/describe</div><div class="lbl">map it</div></div>
           <div class="flow-arrow">&rarr;</div>
-          <div class="flow-node" data-go="onboard"><div class="cmd">/review</div><div class="lbl">verdict</div></div>
+          <div class="flow-node" data-go="explore"><div class="cmd">/review</div><div class="lbl">verdict</div></div>
           <div class="flow-arrow">&rarr;</div>
           <div class="flow-node" data-go="plan"><div class="cmd">/plan</div><div class="lbl">+/compare</div></div>
           <div class="flow-arrow">&rarr;</div>
@@ -2155,7 +2437,7 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
         <p class="lead" style="margin:0 auto 20px">You've seen TaskFlow go from inherited mystery to a shipped, tested, documented v0.5.0 - without a single ad-hoc prompt. That's Nexus-Hub.</p>
         <div class="btn-row">
           <a class="btn btn--primary" data-go="home">Back to the top <span class="arr">&rarr;</span></a>
-          <a class="btn" data-go="onboard">Replay the walkthrough</a>
+          <a class="btn" data-go="explore">Replay the walkthrough</a>
         </div>
       </div>
 
@@ -2166,17 +2448,6 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#nexus-mark"/></svg>
-      <strong style="color:var(--ink-dim)">Nexus Hub</strong> &mdash; interactive team guide.
-      A self-contained file: no server, no network, no tracking. Share it freely.
-      <div style="margin-top:16px">
-        <a class="btn" href="https://github.com/bendourthe/Nexus-Hub" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true" style="flex:none"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> View the project on GitHub <span class="arr">&#8599;</span></a>
-      </div>
-      <div style="margin-top:14px; color:var(--ink-faint)">Use <span class="kbd">&larr;</span> <span class="kbd">&rarr;</span> to move between pages.</div>
-    </div>
-  </footer>
 
   </div><!-- /.shell -->
 
@@ -2192,14 +2463,14 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
 
     var PAGES = [
       { id: "home",        title: "Home" },
-      { id: "setup",       title: "Setup & platforms" },
-      { id: "foundations", title: "How it works" },
-      { id: "onboard",     title: "Onboard & evaluate" },
+      { id: "setup",       title: "Installation" },
+      { id: "training",    title: "Training" },
+      { id: "explore",     title: "Explore & evaluate" },
       { id: "plan",        title: "Plan the work" },
       { id: "build",       title: "Implement" },
       { id: "harden",      title: "Harden" },
-      { id: "ship",        title: "Ship & maintain" },
-      { id: "reference",   title: "Reference" }
+      { id: "ship",        title: "Ship & maintain" },
+      { id: "reference",   title: "Cheatsheets" }
     ];
     var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var current = "home";
@@ -2244,6 +2515,10 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
       var links = document.querySelectorAll(".nav-links a[data-go]");
       for (var j = 0; j < links.length; j++) {
         links[j].classList.toggle("active", links[j].getAttribute("data-go") === id);
+      }
+      if (["explore", "plan", "build", "harden", "ship"].indexOf(id) >= 0) {
+        var wfNav = document.querySelector('.nav-links a[data-group="workflow"]');
+        if (wfNav) wfNav.classList.add("active");
       }
       renderPageNav(idx);
       renderProgress(idx);
@@ -2295,6 +2570,7 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
       if (e.altKey || e.ctrlKey || e.metaKey) return;
       var tag = (e.target.tagName || "").toLowerCase();
       if (tag === "input" || tag === "textarea") return;
+      if (current === "training") return;
       var idx = pageIndex(current);
       if (e.key === "ArrowRight" && idx < PAGES.length - 1) { location.hash = PAGES[idx + 1].id; }
       else if (e.key === "ArrowLeft" && idx > 0) { location.hash = PAGES[idx - 1].id; }
@@ -2552,5 +2828,127 @@ p { margin: 0 0 1em; color: var(--ink-dim); }
     initCopyButtons();
   })();
   </script>
+<script>
+/* Guided tour: embedded slide-show controller. Scoped to #page-training. */
+(function () {
+  "use strict";
+  var root = document.getElementById("nhTour");
+  if (!root) return;
+  var stage = document.getElementById("tsStage");
+  var frame = document.getElementById("tsFrame");
+  var slides = Array.prototype.slice.call(root.querySelectorAll(".ts-slide"));
+  var bar = document.getElementById("tsBar");
+  var countEl = document.getElementById("tsCount");
+  var sectionEl = document.getElementById("tsSection");
+  var outline = document.getElementById("tsOutline");
+  var outlineList = document.getElementById("tsOutlineList");
+  var total = slides.length;
+  var idx = 0;
+
+  function scale() {
+    var w = frame.clientWidth;
+    if (!w) return;
+    stage.style.transform = "scale(" + (w / 1280) + ")";
+  }
+
+  var itemEls = [];
+  (function buildOutline() {
+    var lastSec = null;
+    slides.forEach(function (s, i) {
+      var sec = s.getAttribute("data-sec") || "";
+      var tt = s.getAttribute("data-tt") || ("Slide " + (i + 1));
+      if (sec !== lastSec) {
+        var h = document.createElement("div");
+        h.className = "ts-ol-sec";
+        h.textContent = sec;
+        outlineList.appendChild(h);
+        lastSec = sec;
+      }
+      var item = document.createElement("div");
+      item.className = "ts-ol-item";
+      item.setAttribute("role", "button");
+      item.innerHTML = '<span class="ts-oln">' + (i + 1) + '</span><span>' + tt + '</span>';
+      item.addEventListener("click", function () { go(i); closeOutline(); });
+      outlineList.appendChild(item);
+      itemEls.push(item);
+    });
+  })();
+
+  function render() {
+    slides.forEach(function (s, i) { s.classList.toggle("on", i === idx); });
+    bar.style.width = ((idx + 1) / total * 100) + "%";
+    countEl.textContent = (idx + 1) + " / " + total;
+    sectionEl.textContent = slides[idx].getAttribute("data-sec") || "";
+    itemEls.forEach(function (el, i) { el.classList.toggle("cur", i === idx); });
+    if (itemEls[idx]) itemEls[idx].scrollIntoView({ block: "nearest" });
+  }
+  function go(n) { idx = Math.max(0, Math.min(total - 1, n)); render(); }
+  function openOutline() { outline.classList.add("on"); }
+  function closeOutline() { outline.classList.remove("on"); }
+  function toggleOutline() { outline.classList.toggle("on"); }
+
+  document.getElementById("tsNext").addEventListener("click", function () { go(idx + 1); });
+  document.getElementById("tsPrev").addEventListener("click", function () { go(idx - 1); });
+  document.getElementById("tsMenu").addEventListener("click", toggleOutline);
+  document.getElementById("tsOutlineClose").addEventListener("click", closeOutline);
+  document.getElementById("tsFull").addEventListener("click", function () {
+    if (!document.fullscreenElement) { if (frame.requestFullscreen) frame.requestFullscreen(); }
+    else { if (document.exitFullscreen) document.exitFullscreen(); }
+  });
+
+  /* copy buttons */
+  function legacyCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  root.addEventListener("click", function (e) {
+    var btn = e.target && e.target.closest ? e.target.closest(".ts-copy") : null;
+    if (!btn) return;
+    var text = btn.getAttribute("data-ts-copy");
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).catch(function () { legacyCopy(text); }); }
+    else { legacyCopy(text); }
+    var o = btn.textContent; btn.textContent = "Copied";
+    setTimeout(function () { btn.textContent = o; }, 1200);
+  });
+
+  /* arrow keys, only while the Training page is active */
+  document.addEventListener("keydown", function (e) {
+    if (document.body.getAttribute("data-page") !== "training") return;
+    var tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea") return;
+    if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); go(idx + 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(idx - 1); }
+    else if (e.key === "Escape") { closeOutline(); }
+  });
+
+  if (window.ResizeObserver) { new ResizeObserver(scale).observe(frame); }
+  else { window.addEventListener("resize", scale); }
+  document.addEventListener("fullscreenchange", scale);
+  scale();
+  render();
+})();
+</script>
+<script>
+/* Workflow subtabs: inject a secondary tab bar into each workflow page. */
+(function () {
+  "use strict";
+  var WF = [["explore", "Explore"], ["plan", "Plan"], ["build", "Build"], ["harden", "Harden"], ["ship", "Ship"]];
+  WF.forEach(function (pair) {
+    var page = document.getElementById("page-" + pair[0]);
+    if (!page) return;
+    var container = page.querySelector(".container");
+    if (!container) return;
+    var bar = document.createElement("div");
+    bar.className = "wf-subtabs";
+    bar.innerHTML = WF.map(function (p) {
+      return '<a data-go="' + p[0] + '" class="wf-subtab' + (p[0] === pair[0] ? " cur" : "") + '">' + p[1] + "</a>";
+    }).join("");
+    container.insertBefore(bar, container.firstChild);
+  });
+})();
+</script>
 </body>
 </html>
