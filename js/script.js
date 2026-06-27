@@ -69,9 +69,20 @@ $(window).on("load", function () {
 
     // Smooth Scroll
     $("#navigation li a").click(function (e) {
-        e.preventDefault();
         var targetElement = $(this).attr("href");
-        var targetPosition = $(targetElement).offset().top;
+
+        if (!targetElement || targetElement.charAt(0) !== "#") {
+            return;
+        }
+
+        var $target = $(targetElement);
+
+        if (!$target.length) {
+            return;
+        }
+
+        e.preventDefault();
+        var targetPosition = $target.offset().top;
         $("html, body").animate({ scrollTop: targetPosition - 50 }, "slow")
     });
 

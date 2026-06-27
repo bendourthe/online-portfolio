@@ -84,8 +84,77 @@ body.dark-mode {
     letter-spacing: 1px;
 }
 
-.navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
     color: var(--accent-color) !important;
+}
+
+.nav-projects {
+    position: relative;
+}
+
+.projects-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 180px;
+    padding: 8px 0;
+    background: var(--nav-bg);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 4px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+    z-index: 1001;
+}
+
+.projects-dropdown a {
+    display: block;
+    padding: 10px 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.projects-dropdown a:hover,
+.projects-dropdown a:focus {
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+}
+
+.nav-projects:hover .projects-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 991px) {
+    .nav-projects {
+        width: 100%;
+    }
+
+    .projects-dropdown {
+        display: none;
+        position: static;
+        min-width: 0;
+        margin: 4px 0 8px 12px;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .nav-projects:hover .projects-dropdown {
+        display: block;
+        transform: none;
+    }
 }
 
 /* --- Hero Overlay --- */
@@ -214,6 +283,26 @@ input:checked+.slider:before {
     padding: 80px 0;
 }
 
+.section .heading {
+    text-align: center;
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+.section .heading p,
+.section .col-md-12.text-center > h2 + p {
+    color: var(--text-color);
+    font-size: 20px;
+    line-height: 1.55;
+    opacity: 0.9;
+}
+
+.section-intro-text {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Skills & Contact (Accent BG) */
 .skillsSection,
 .contactSection {
@@ -251,6 +340,253 @@ input:checked+.slider:before {
     padding-top: 100px;
 }
 
+/* --- Featured Projects / Nexus-Hub Feature --- */
+.nexusFeatureSection {
+    background: linear-gradient(135deg, rgba(37, 116, 169, 0.08), rgba(217, 164, 65, 0.12));
+    border-top: 1px solid rgba(37, 116, 169, 0.15);
+    border-bottom: 1px solid rgba(37, 116, 169, 0.15);
+    color: var(--text-color);
+}
+
+
+body.dark-mode .nexusFeatureSection {
+    background: linear-gradient(135deg, rgba(4, 20, 26, 0.96), rgba(9, 46, 50, 0.92));
+    border-color: rgba(45, 212, 191, 0.16);
+}
+
+.nexus-eyebrow,
+.nexus-guide-kicker {
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.nexus-main-header h2 {
+    color: var(--text-color);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.18;
+    margin-bottom: 18px;
+}
+
+.nexus-lede,
+.nexus-copy {
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 16px;
+    opacity: 0.92;
+}
+
+.nexus-lede {
+    font-size: 17px;
+}
+
+.nexus-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.nexus-cta {
+    align-items: center;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 700;
+    justify-content: center;
+    letter-spacing: 0;
+    min-height: 46px;
+    padding: 11px 24px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.nexus-cta:hover,
+.nexus-cta:focus-visible {
+    transform: translateY(-2px);
+}
+
+.nexus-cta:focus-visible {
+    outline: 3px solid rgba(217, 164, 65, 0.75);
+    outline-offset: 3px;
+}
+
+.nexus-cta-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.nexus-cta-primary:hover,
+.nexus-cta-primary:focus-visible {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.nexus-cta-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.nexus-cta-secondary:hover,
+.nexus-cta-secondary:focus-visible {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark-mode .nexus-cta-primary {
+    color: #04141a;
+}
+
+body.dark-mode .nexus-cta-primary:hover,
+body.dark-mode .nexus-cta-primary:focus-visible {
+    color: var(--text-color);
+}
+
+body.dark-mode .nexus-cta-secondary {
+    color: var(--text-color);
+}
+
+body.dark-mode .nexus-cta-secondary:hover,
+body.dark-mode .nexus-cta-secondary:focus-visible {
+    color: #04141a;
+}
+
+.nexusGuideCard {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(37, 116, 169, 0.18);
+    border-radius: 8px;
+    box-shadow: 0 18px 38px rgba(4, 20, 26, 0.1);
+    padding: 24px;
+}
+
+body.dark-mode .nexusGuideCard {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+
+.nexus-main-header {
+    align-items: center;
+    display: flex;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.nexus-main-logo {
+    border-radius: 8px;
+    box-shadow: 0 12px 26px rgba(4, 20, 26, 0.16);
+    flex: 0 0 auto;
+    height: 96px;
+    object-fit: cover;
+    width: 96px;
+}
+
+.nexus-main-header h2 {
+    margin-bottom: 0;
+}
+
+.nexus-guide-header {
+    margin-bottom: 18px;
+}
+
+.nexusGuideCard h3 {
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.nexus-path {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nexus-path li {
+    border-top: 1px solid rgba(37, 116, 169, 0.16);
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 34px 1fr;
+    padding: 15px 0;
+}
+
+body.dark-mode .nexus-path li {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.nexus-path li:last-child {
+    padding-bottom: 0;
+}
+
+.nexus-step {
+    align-items: center;
+    background-color: #d9a441;
+    border-radius: 50%;
+    color: #04141a;
+    display: inline-flex;
+    font-weight: 700;
+    height: 34px;
+    justify-content: center;
+    width: 34px;
+}
+
+.nexus-path strong {
+    color: var(--text-color);
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.nexus-path small {
+    color: var(--text-color);
+    display: block;
+    font-size: 13px;
+    line-height: 1.55;
+    opacity: 0.76;
+}
+
+@media (max-width: 991px) {
+    .nexusGuideCard {
+        margin-top: 36px;
+    }
+}
+
+@media (max-width: 575px) {
+    .nexusFeatureSection {
+        padding: 60px 0;
+    }
+
+    .nexus-main-header h2 {
+        font-size: 30px;
+    }
+
+    .nexus-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .nexus-cta {
+        width: 100%;
+    }
+
+    .nexus-main-header {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .nexus-main-logo {
+        height: 68px;
+        width: 68px;
+    }
+}
 /* --- Portfolio --- */
 .filter a {
     color: var(--text-color);
@@ -266,9 +602,9 @@ input:checked+.slider:before {
 
 .filter a:hover,
 .filter .current {
-    background-color: var(--primary-color);
-    color: #fff;
-    border-color: var(--primary-color);
+    background-color: rgba(37, 116, 169, 0.14);
+    color: var(--text-color);
+    border-color: rgba(37, 116, 169, 0.55);
 }
 
 body.dark-mode .filter a {
@@ -404,15 +740,15 @@ body.dark-mode .card-image-container {
 }
 
 .filters a:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-    border-color: var(--primary-color);
+    background-color: rgba(37, 116, 169, 0.14);
+    color: var(--text-color);
+    border-color: rgba(37, 116, 169, 0.55);
 }
 
 .filters a.current {
-    background-color: var(--primary-color);
-    color: #fff;
-    border-color: var(--primary-color);
+    background-color: rgba(37, 116, 169, 0.14);
+    color: var(--text-color);
+    border-color: rgba(37, 116, 169, 0.55);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -423,9 +759,9 @@ body.dark-mode .filters a {
 
 body.dark-mode .filters a:hover,
 body.dark-mode .filters a.current {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: #fff;
+    background-color: rgba(45, 212, 191, 0.14);
+    border-color: rgba(45, 212, 191, 0.68);
+    color: var(--text-color);
 }
 
 
