@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI & Machine Learning</title>
+<style>
+:root{
+  --bg0:#010811;--bg1:#06131f;--panel:#071827;--panel2:#0a2237;
+  --line:#5b97c3;--lineSoft:#315b7a;--text:#f7fbff;--muted:#c3d4e7;
+  --cyan:#35bdff;--cyan2:#55e6ff;--blue:#8fbaff;--teal:#31e8df;
+  --violet:#9c88ff;--green:#8ee737;--yellow:#ffd85b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#000814;font-family:"Segoe UI",Arial,sans-serif;color:var(--text)}
+body{
+  overflow-x:hidden;overflow-y:auto;
+  background:radial-gradient(circle at 50% 5%,rgba(12,38,61,.98) 0,rgba(7,20,33,.96) 35%,rgba(2,8,18,.99) 80%),#000814;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.52;
+  background-image:linear-gradient(rgba(91,160,219,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(91,160,219,.045) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 50% 48%,transparent 0 55%,rgba(0,0,0,.38) 100%);
+}
+img,svg{display:block;max-width:100%}
+.page-content{width:min(1920px,calc(100% - 28px));margin:0 auto;padding:16px 0 38px}
+.hero{text-align:center;padding:4px 24px 26px;margin-bottom:5px}
+.hero h1{margin:0;font-size:96px;letter-spacing:3.6px;line-height:.96;font-weight:900;text-transform:uppercase;text-shadow:0 2px 0 #0b1118,0 0 24px rgba(255,255,255,.30)}
+.hero h2{margin:16px 0 12px;color:#36bfff;font-size:58px;letter-spacing:.45px;font-weight:650;line-height:1.08;text-shadow:0 0 16px rgba(54,191,255,.30)}
+.hero p{max-width:1180px;margin:0 auto;color:#eef7ff;font-size:34px;line-height:1.34;text-shadow:0 1px 2px rgba(0,0,0,.76)}
+.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px auto 0;max-width:1420px}
+.principle{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:14px 12px;
+  border:1px solid rgba(114,178,226,.38);border-radius:12px;background:rgba(3,13,22,.44);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 0 12px rgba(30,145,230,.09);
+}
+.principle svg{width:64px;height:64px;color:#39d8ff;filter:drop-shadow(0 0 12px rgba(30,145,230,.3))}
+.principle strong{display:block;color:#fff;margin-top:10px;font-size:clamp(21px,1.45vw,28px);line-height:1.12;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.74);text-align:center}
+.principle span{display:block;margin-top:8px;text-align:center;color:#c8d9eb;font-size:14.5px;line-height:1.4}
+
+.page-section{margin-top:18px}
+.panel{min-width:0;height:auto;border:1.5px solid rgba(114,178,226,.82);border-radius:9px;
+  background:linear-gradient(180deg,rgba(8,24,39,.89),rgba(3,10,18,.81));
+  box-shadow:0 0 0 1px rgba(0,14,25,.9) inset,0 0 20px rgba(30,145,230,.14);overflow:hidden;
+}
+.panel-title{
+  margin:0;min-height:64px;padding:12px 18px;display:flex;align-items:center;justify-content:center;text-align:center;
+  text-transform:uppercase;letter-spacing:1px;font-weight:900;font-size:var(--skill-box-title-responsive, 40px);line-height:1.04;
+  background:linear-gradient(180deg,rgba(10,34,57,.95),rgba(5,18,30,.95));border-bottom:1px solid rgba(114,178,226,.48);
+  text-shadow:0 1px 0 #001,0 0 10px rgba(255,255,255,.24);
+}
+.panel-body{padding:18px;min-width:0;overflow:visible}
+.architecture-content{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 48% 42%,rgba(10,37,58,.58),rgba(1,7,13,.25) 70%);border:1px solid rgba(83,128,162,.48);border-radius:10px;overflow:hidden}
+.architecture-content img{width:100%;height:auto;object-fit:contain;filter:saturate(1.03) contrast(1.02)}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+.content-card{min-width:0;height:100%;display:flex;flex-direction:column;padding:14px;border:1px solid rgba(86,135,169,.82);border-radius:9px;background:radial-gradient(circle at 50% 0,rgba(18,58,88,.32),rgba(1,13,22,.76) 54%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 0 12px rgba(30,145,230,.07);overflow:visible}
+.card-title{
+  margin:-14px -14px 12px -14px;
+  min-height:52px;padding:10px 14px;display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#f7fbff;text-transform:uppercase;font-size:clamp(21px,1.42vw,29px);font-weight:900;letter-spacing:.62px;line-height:1.08;
+  background:linear-gradient(180deg,rgba(9,31,51,.82),rgba(4,18,30,.76));border-bottom:1px solid rgba(97,157,200,.36);
+  border-radius:8px 8px 0 0;text-shadow:0 1px 0 #001,0 0 8px rgba(255,255,255,.18);
+  text-wrap:balance;white-space:normal;
+}
+.card-media{width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#02080d;border:1px solid rgba(83,128,162,.56);border-radius:7px;min-width:0;flex-grow:1}
+.card-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.card-copy{padding:16px 2px 2px;overflow:visible;min-width:0;text-align:center}
+.card-copy h4{margin:0 0 9px;color:#36bfff;text-transform:uppercase;font-size:32px;line-height:1.18;font-weight:900;letter-spacing:.25px;text-shadow:0 1px 2px rgba(0,0,0,.65)}
+.card-copy p{margin:0;color:#e8f4ff;font-size:26px;line-height:1.38;white-space:normal;overflow:visible;overflow-wrap:break-word;text-shadow:0 1px 2px rgba(0,0,0,.66)}
+.grid-cols-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:100%}
+.grid-cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;height:100%}
+.grid-cols-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;height:100%}
+.img-stack{display:flex;flex-direction:column;gap:12px;height:100%}
+.img-label{color:#fff;text-align:center;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:0.5px;margin-bottom:6px}
+.workflow-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;margin-top:15px;align-items:stretch}
+.workflow-step{
+  position:relative;min-height:140px;padding:16px 12px;border:1px solid rgba(82,140,180,.62);border-radius:9px;
+  background:rgba(3,17,29,.66);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.workflow-step:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;transform:translateY(-50%);z-index:3;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:18px solid var(--cyan);filter:drop-shadow(0 0 7px rgba(53,189,255,.48))}
+.workflow-step svg{width:52px;height:52px;color:#8fbaff;filter:drop-shadow(0 0 6px rgba(75,184,255,.3))}
+.workflow-step strong{display:block;margin-top:12px;color:#7fc0ff;text-transform:uppercase;font-size:21px;letter-spacing:.25px;line-height:1.05}
+.workflow-step span{display:block;margin-top:6px;font-size:15px;line-height:1.34;color:#e2eefc}
+@media (max-width:1450px){.hero-principles{grid-template-columns:repeat(2,1fr)}.card-copy h4{font-size:27px}.card-copy p{font-size:23px}}
+@media (max-width:800px){.page-content{width:min(100% - 24px,1600px)}.hero-principles{grid-template-columns:1fr;gap:12px}.card-copy p{font-size:17px}.card-copy h4{font-size:20px}.workflow-grid{grid-template-columns:1fr}.workflow-step:not(:last-child)::after{display:none}}
+</style>
+</head>
+<body>
+<div class="page-content">
+  <div class="hero">
+    <h1>AI &amp; Machine Learning</h1>
+    <h2>Advancing Capabilities through Intelligent Algorithms</h2>
+    <p>Designing, training, and deploying deep neural networks and machine learning models for complex prediction and automation tasks.</p>
+  </div>
+  
+  <div class="hero-principles">
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      <strong>Deep Architectures</strong>
+      <span>CNNs, Transformers, and custom network topologies.</span>
+    </div>
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+      <strong>Medical Imaging</strong>
+      <span>Automated landmark detection and volumetric segmentation.</span>
+    </div>
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      <strong>Computer Vision</strong>
+      <span>Object detection, classification, and directional optical tracking.</span>
+    </div>
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+      <strong>Predictive Analytics</strong>
+      <span>Time series forecasting and multi-dimensional regressions.</span>
+    </div>
+  </div>
+
+  <section class="page-section">
+    <div class="panel">
+      <h2 class="panel-title">Diversified Applications</h2>
+      <div class="panel-body">
+        <div class="content-card" style="padding: 0; background: transparent; border: none; box-shadow: none">
+          <div class="card-media" style="border: none; background: transparent; padding: 0"><img src="../../images/deep-learning/deep-learning-workflow.png" alt="Deep learning architecture" style="object-fit: contain"></div>
+          <div class="card-copy"><h4>End-to-End AI Ecosystems</h4><p>Comprehensive machine learning workflows from data ingestion and model training to robust deployment and continuous evaluation.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="panel">
+      <h2 class="panel-title">Computer Vision & Sensing</h2>
+      <div class="panel-body grid-2">
+        <div class="content-card">
+          <h3 class="card-title">Automated Landmark Detection</h3>
+          <div class="grid-cols-3">
+            <div class="img-stack">
+              <div class="img-label">Ground Truth</div>
+              <div class="card-media"><img src="assets/crops/spine_1.png" alt="Ground-truth spine landmarks on a radiograph"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">Predictions</div>
+              <div class="card-media"><img src="assets/crops/spine_2.png" alt="Predicted spine landmarks on a radiograph"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">Coordinates</div>
+              <div class="card-media"><img src="assets/crops/spine_3.png" alt="Detected spine landmark coordinates"></div>
+            </div>
+          </div>
+          <div class="card-copy"><h4>Anatomical Recognition</h4><p>High-precision extraction of structural coordinates from complex radiographic scans.</p></div>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Medical Images Auto-Segmentation</h3>
+          <div class="grid-cols-3">
+            <div class="img-stack">
+              <div class="img-label">Raw Images</div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/med_raw.png" alt="Raw medical image before segmentation"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">Labels</div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/med_label.png" alt="Reference segmentation label"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">Segmented</div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/med_seg.png" alt="Model-generated medical image segmentation"></div>
+            </div>
+          </div>
+          <div class="card-copy"><h4>Volumetric Separation</h4><p>Accurate partitioning of anatomical regions to assist in automated diagnostic procedures.</p></div>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Predictive Sales Analytics</h3>
+          <div class="card-media">
+            <img src="assets/crops/predictive_sales.png" alt="Sales forecasting dashboard with predictive trends">
+          </div>
+          <div class="card-copy"><h4>Trend Forecasting</h4><p>Time-series models that anticipate market shifts to optimize strategic decision-making.</p></div>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Object Detection &amp; Classification</h3>
+          <div class="card-media">
+            <img src="assets/object_detection.png" alt="Object detection and classification results with labeled bounding boxes">
+          </div>
+          <div class="card-copy"><h4>Real-Time Localization</h4><p>Identifying and tracking distinct elements within diverse dynamic visual environments.</p></div>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Depth Perception & Image Segmentation</h3>
+          <div class="grid-cols-2">
+            <div class="img-stack">
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/sem_bird_img.png" alt="Original bird image"></div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/sem_bird_seg.png" alt="Depth perception segmentation"></div>
+            </div>
+            <div class="img-stack">
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/inst_valley_img.png" alt="Original valley image"></div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/inst_valley_seg.png" alt="Instance segmentation"></div>
+            </div>
+          </div>
+          <div class="card-copy"><h4>Semantic Mapping</h4><p>Pixel-level spatial understanding for depth approximation and scene recreation.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="panel">
+      <h2 class="panel-title">Processing & Analytics</h2>
+      <div class="panel-body grid-2">
+        <div class="content-card">
+          <h3 class="card-title">Super-Resolution Image Enhancement</h3>
+          <div class="grid-cols-4">
+            <div class="img-stack">
+              <div class="img-label">LR</div>
+              <div class="card-media"><img src="assets/crops/sr_1.png" alt="Low-resolution source image"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">SRResNet</div>
+              <div class="card-media"><img src="assets/crops/sr_2.png" alt="Image enhanced with SRResNet"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">SRGANesNet</div>
+              <div class="card-media"><img src="assets/crops/sr_3.png" alt="Image enhanced with SRGANesNet"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">HR</div>
+              <div class="card-media"><img src="assets/crops/sr_4.png" alt="High-resolution reference image"></div>
+            </div>
+          </div>
+          <div class="card-copy"><h4>Detail Restoration</h4><p>Generative upscaling networks to reconstruct high-fidelity imagery from degraded inputs.</p></div>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Directional Optical Tracking</h3>
+          <div class="grid-cols-2">
+            <div class="img-stack">
+              <div class="img-label">Original</div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_1.png" alt="Original video frame"></div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_2.png" alt="Dense optical flow map"></div>
+            </div>
+            <div class="img-stack">
+              <div class="img-label">Dense Optical Flow</div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_3.png" alt="Second video frame"></div>
+              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_4.png" alt="Dense optical flow map"></div>
+            </div>
+          </div>
+          <div class="card-copy"><h4>Motion Estimation</h4><p>Calculating dense pixel displacements for video analysis and tracking systems.</p></div>
+        </div>
+        <div class="content-card" style="grid-column: 1 / -1">
+          <h3 class="card-title">Time Series Forecasting</h3>
+          <div class="card-media no-pad" style="height: 300px">
+            <img src="assets/stock_prediction.png" style="object-fit: cover" alt="Stock price time-series forecast">
+          </div>
+          <div class="card-copy"><h4>Financial Modeling</h4><p>Advanced recurrent architectures for predicting volatile market movements with quantifiable confidence.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="panel">
+      <h2 class="panel-title">Machine Learning Workflow</h2>
+      <div class="panel-body">
+        <div class="workflow-grid">
+          <div class="workflow-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            <strong>Data Collection</strong>
+            <span>Images, Videos,<br>Time Series</span>
+          </div>
+          <div class="workflow-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <strong>Processing</strong>
+            <span>Cleaning, Labeling,<br>Feature Engineering</span>
+          </div>
+          <div class="workflow-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            <strong>Model Design</strong>
+            <span>Architecture, Hyperparams,<br>Loss Functions</span>
+          </div>
+          <div class="workflow-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <strong>Training</strong>
+            <span>Gradient Descent,<br>Backpropagation</span>
+          </div>
+          <div class="workflow-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <strong>Deployment</strong>
+            <span>API, Inference,<br>Monitoring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
+
+The above content shows the entire, complete file contents of the requested file.

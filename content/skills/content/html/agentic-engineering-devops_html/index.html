@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agentic Engineering & DevOps</title>
+<style>
+:root{
+  --bg0:#010811;--bg1:#06131f;--panel:#071827;--panel2:#0a2237;
+  --line:#5b97c3;--lineSoft:#315b7a;--text:#f7fbff;--muted:#c3d4e7;
+  --cyan:#35bdff;--cyan2:#55e6ff;--blue:#8fbaff;--teal:#31e8df;
+  --violet:#9c88ff;--green:#8ee737;--yellow:#ffd85b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#000814;font-family:"Segoe UI",Arial,sans-serif;color:var(--text)}
+body{
+  overflow-x:hidden;overflow-y:auto;
+  background:radial-gradient(circle at 50% 5%,rgba(12,38,61,.98) 0,rgba(7,20,33,.96) 35%,rgba(2,8,18,.99) 80%),#000814;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.52;
+  background-image:linear-gradient(rgba(91,160,219,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(91,160,219,.045) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 50% 48%,transparent 0 55%,rgba(0,0,0,.38) 100%);
+}
+img,svg{display:block;max-width:100%}
+.page-content{width:min(1920px,calc(100% - 28px));margin:0 auto;padding:16px 0 38px}
+.hero{text-align:center;padding:4px 24px 26px;margin-bottom:5px}
+.hero h1{margin:0;font-size:96px;letter-spacing:3.6px;line-height:.96;font-weight:900;text-transform:uppercase;text-shadow:0 2px 0 #0b1118,0 0 24px rgba(255,255,255,.30)}
+.hero h2{margin:16px 0 12px;color:#36bfff;font-size:58px;letter-spacing:.45px;font-weight:650;line-height:1.08;text-shadow:0 0 16px rgba(54,191,255,.30)}
+.hero p{max-width:1180px;margin:0 auto;color:#eef7ff;font-size:34px;line-height:1.34;text-shadow:0 1px 2px rgba(0,0,0,.76)}
+.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px auto 0;max-width:1420px}
+.principle{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:14px 12px;
+  border:1px solid rgba(114,178,226,.38);border-radius:12px;background:rgba(3,13,22,.44);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 0 12px rgba(30,145,230,.09);
+}
+.principle svg{width:64px;height:64px;color:#39d8ff;filter:drop-shadow(0 0 12px rgba(30,145,230,.3))}
+.principle strong{display:block;color:#fff;margin-top:10px;font-size:clamp(21px,1.45vw,28px);line-height:1.12;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.74);text-align:center}
+.principle span{display:block;margin-top:8px;text-align:center;color:#c8d9eb;font-size:14.5px;line-height:1.4}
+
+.page-section{margin-top:18px}
+.panel{min-width:0;height:auto;border:1.5px solid rgba(114,178,226,.82);border-radius:9px;
+  background:linear-gradient(180deg,rgba(8,24,39,.89),rgba(3,10,18,.81));
+  box-shadow:0 0 0 1px rgba(0,14,25,.9) inset,0 0 20px rgba(30,145,230,.14);overflow:hidden;
+}
+.panel-title{
+  margin:0;min-height:64px;padding:12px 18px;display:flex;align-items:center;justify-content:center;text-align:center;
+  text-transform:uppercase;letter-spacing:1px;font-weight:900;font-size:var(--skill-box-title-responsive, 40px);line-height:1.04;
+  background:linear-gradient(180deg,rgba(10,34,57,.95),rgba(5,18,30,.95));border-bottom:1px solid rgba(114,178,226,.48);
+  text-shadow:0 1px 0 #001,0 0 10px rgba(255,255,255,.24);
+}
+.panel-body{padding:18px;min-width:0;overflow:visible}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+.content-card{min-width:0;height:100%;display:flex;flex-direction:column;padding:14px;border:1px solid rgba(86,135,169,.82);border-radius:9px;background:radial-gradient(circle at 50% 0,rgba(18,58,88,.32),rgba(1,13,22,.76) 54%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 0 12px rgba(30,145,230,.07);overflow:visible}
+.card-title{
+  margin:-14px -14px 12px -14px;
+  min-height:52px;padding:10px 14px;display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#f7fbff;text-transform:uppercase;font-size:clamp(21px,1.42vw,29px);font-weight:900;letter-spacing:.62px;line-height:1.08;
+  background:linear-gradient(180deg,rgba(9,31,51,.82),rgba(4,18,30,.76));border-bottom:1px solid rgba(97,157,200,.36);
+  border-radius:8px 8px 0 0;text-shadow:0 1px 0 #001,0 0 8px rgba(255,255,255,.18);
+  text-wrap:balance;white-space:normal;
+}
+.card-copy{padding:16px 2px 2px;overflow:visible;min-width:0;text-align:center}
+.card-copy h4{margin:0 0 9px;color:#36bfff;text-transform:uppercase;font-size:32px;line-height:1.18;font-weight:900;letter-spacing:.25px;text-shadow:0 1px 2px rgba(0,0,0,.65)}
+.card-copy p{margin:0;color:#e8f4ff;font-size:26px;line-height:1.38;white-space:normal;overflow:visible;overflow-wrap:break-word;text-shadow:0 1px 2px rgba(0,0,0,.66)}
+.logo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.logo-tile{
+  min-height:125px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(84,132,166,.58);
+  border-radius:9px;background:rgba(2,14,24,.6);padding:10px;text-align:center;
+}
+.logo-tile img{width:74px;height:70px;object-fit:contain;filter:drop-shadow(0 0 7px rgba(70,170,255,.16))}
+.logo-tile.invert img{filter:invert(1) drop-shadow(0 0 8px rgba(255,255,255,.20))}
+.logo-tile.bright img{filter:brightness(1.5) drop-shadow(0 0 6px rgba(255,170,30,.13))}
+.logo-tile svg{width:55px;height:55px;color:#8fbaff}
+.logo-tile span{margin-top:10px;color:#f3f8ff;font-size:var(--skill-body-responsive, 18px);line-height:1.1}
+.agentic-tools-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.agentic-tool{
+  min-height:115px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(84,132,166,.48);
+  border-radius:9px;background:rgba(2,12,21,.5);padding:10px;text-align:center;
+}
+.agentic-tool img{width:65px;height:57px;object-fit:contain;filter:drop-shadow(0 0 7px rgba(80,178,255,.14))}
+.agentic-tool.invert img{filter:invert(1) drop-shadow(0 0 8px rgba(255,255,255,.20))}
+.agentic-tool span{margin-top:8px;color:#f3f8ff;font-size:var(--skill-label-responsive, 14px);line-height:1.1;font-weight:600}
+.text-box{color:#dce8f5;font-size:var(--skill-body-responsive, 18px);line-height:1.45;padding:12px;background:rgba(0,0,0,.2);border-radius:8px;border:1px solid rgba(83,128,162,.3)}
+.text-box strong{color:#42cbff}
+.agentic-workflow-img{width:100%;height:auto;object-fit:contain;border:1px solid rgba(83,128,162,.48);border-radius:10px;background:radial-gradient(circle at 50% 50%,rgba(13,58,93,.18),rgba(1,8,14,.62));padding:10px}
+@media (max-width:1450px){.hero h1{font-size:72px}.hero h2{font-size:42px}.hero p{font-size:26px}.card-copy h4{font-size:27px}.card-copy p{font-size:23px}.logo-tile span{font-size:16px}.text-box{font-size:16px}}
+@media (max-width:800px){.page-content{width:min(100% - 24px,1600px)}.hero h1{font-size:44px}.hero h2{font-size:28px}.hero p{font-size:20px}.hero-principles{grid-template-columns:1fr;gap:12px}.card-copy p{font-size:17px}.card-copy h4{font-size:20px}.panel-title{font-size:24px}.logo-grid{grid-template-columns:repeat(2,1fr)}.agentic-tools-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="page-content">
+  <div class="hero">
+    <h1>Agentic Engineering &amp; DevOps</h1>
+    <h2>Orchestrating Autonomous and Scalable Infrastructure</h2>
+    <p>Empowering software delivery through robust CI/CD, containerization, cloud-native deployments, and AI-driven automation.</p>
+  </div>
+  
+  <div class="hero-principles">
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12 2.1 7.1"/><path d="M12 12l9.9 4.9"/></svg>
+      <strong>Agentic Platforms</strong>
+      <span>Enterprise orchestration of AI-driven coding environments.</span>
+    </div>
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+      <strong>Core DevOps</strong>
+      <span>Infrastructure as Code, CI/CD, and robust access governance.</span>
+    </div>
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      <strong>Containerization</strong>
+      <span>Reproducible, isolated runtime environments spanning the lifecycle.</span>
+    </div>
+    <div class="principle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+      <strong>Cloud Infrastructure</strong>
+      <span>Scalable deployment architectures on AWS and Google Cloud Platform.</span>
+    </div>
+  </div>
+
+  <section class="page-section">
+    <div class="panel">
+      <h2 class="panel-title">Agentic Engineering Development</h2>
+      <div class="panel-body grid-2">
+        <div class="content-card">
+          <h3 class="card-title">AI Stack &amp; Tooling</h3>
+          <div class="agentic-tools-grid" style="margin-top: auto;">
+            <div class="agentic-tool">
+              <img src="assets/claudecode-color.png" alt="Claude Code & Skills">
+              <span>Claude Code</span>
+            </div>
+            <div class="agentic-tool">
+              <img src="assets/codex-2048x2048.png" alt="OpenAI Codex">
+              <span>OpenAI Codex</span>
+            </div>
+            <div class="agentic-tool invert">
+              <img src="assets/cursor-ai.png" alt="Cursor">
+              <span>Cursor</span>
+            </div>
+            <div class="agentic-tool invert">
+              <img src="assets/github-copilot-icon.webp" alt="GitHub Copilot">
+              <span>GitHub Copilot</span>
+            </div>
+            <div class="agentic-tool">
+              <img src="assets/google_antigravity-logo_brandlogos.net_qu4jc-512x472.png" alt="Google Antigravity">
+              <span>Google Antigravity</span>
+            </div>
+          </div>
+          <div class="card-copy"><h4>Enterprise Rollout</h4><p>Agentic-platform deployment, secure access governance, RAG, reusable skills, and Nexus-Hub quality harnesses.</p></div>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Agentic Workflow Loop</h3>
+          <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <img class="agentic-workflow-img" src="assets/agentic-workflow.png" alt="Agentic workflow loop: Context, Plan, Act, Observe, Reflect">
+          </div>
+          <div class="card-copy"><h4>Governed Execution</h4><p>Translating ambiguous engineering requirements into verified outputs with measurable reliability.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="panel">
+      <h2 class="panel-title">Core Development Tools</h2>
+      <div class="panel-body">
+        <div class="card-copy" style="max-width: 1200px; margin: 0 auto 24px; padding: 0;"><h4>Cross-Platform Foundations</h4><p>Production-grade Python, Git, command-line automation, cloud services, and internal tooling ecosystems.</p></div>
+        <div class="logo-grid">
+          <div class="logo-tile">
+            <img src="assets/Linux-Logo.png" alt="Linux">
+            <span>Linux</span>
+          </div>
+          <div class="logo-tile">
+            <img src="assets/git-icon-logo-png-transparent.png" alt="Git">
+            <span>Git</span>
+          </div>
+          <div class="logo-tile">
+            <img src="assets/docker-logo-png-transparent.png" alt="Docker">
+            <span>Docker</span>
+          </div>
+          <div class="logo-tile invert">
+            <img src="assets/github-icon-9.png" alt="GitHub">
+            <span>GitHub</span>
+          </div>
+          <div class="logo-tile bright">
+            <img src="assets/Amazon_Web_Services_Logo.svg.webp" alt="AWS">
+            <span>AWS</span>
+          </div>
+          <div class="logo-tile">
+            <img src="assets/GCP.png" alt="Google Cloud">
+            <span>Google Cloud</span>
+          </div>
+          <div class="logo-tile">
+            <img src="assets/atlassian.png" alt="Atlassian">
+            <span>Atlassian</span>
+          </div>
+          <div class="logo-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            <span>CLI & Scripting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
+
+The above content shows the entire, complete file contents of the requested file.

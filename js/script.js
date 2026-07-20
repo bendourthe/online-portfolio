@@ -130,12 +130,320 @@ $(window).on("load", function () {
         if ($(this).is(":checked")) {
             // Moved to Right -> Light Mode
             body.removeClass("dark-mode");
+            window.localStorage.setItem("portfolio-theme", "light");
         } else {
             // Moved to Left -> Dark Mode
             body.addClass("dark-mode");
+            window.localStorage.setItem("portfolio-theme", "dark");
         }
     });
 
+    var skillsExplorer = document.querySelector("[data-skills-explorer]");
+
+    if (skillsExplorer) {
+        var skillTabs = Array.prototype.slice.call(skillsExplorer.querySelectorAll('[role="tab"]'));
+        var skillPanels = Array.prototype.slice.call(skillsExplorer.querySelectorAll("[data-skill-panel]"));
+        var skillTabList = skillsExplorer.querySelector('[role="tablist"]');
+        var skillStatus = skillsExplorer.querySelector("[data-skills-status]");
+        var skillPrevious = skillsExplorer.querySelector("[data-skills-previous]");
+        var skillNext = skillsExplorer.querySelector("[data-skills-next]");
+        var skillCurrentIndex = 0;
+        var skillNavQuery = window.matchMedia("(max-width: 991px)");
+
+        function skillLabel(index) {
+            return skillTabs[index].querySelector("strong").textContent;
+        }
+
+        function updateSkillStep(button, targetIndex, direction) {
+            var isAvailable = targetIndex >= 0 && targetIndex < skillTabs.length;
+            var strong = button.querySelector("strong");
+
+            button.disabled = !isAvailable;
+            button.setAttribute("data-target-index", isAvailable ? String(targetIndex) : "");
+            strong.textContent = isAvailable ? skillLabel(targetIndex) : (direction === "previous" ? "Start of list" : "End of list");
+            button.setAttribute("aria-label", isAvailable ? (direction === "previous" ? "View previous category: " : "View next category: ") + skillLabel(targetIndex) : (direction === "previous" ? "No previous category" : "No next category"));
+        }
+
+        function activateSkillTab(tab, updateHash) {
+            var nextIndex = skillTabs.indexOf(tab);
+            var id = tab.getAttribute("data-skill-id");
+
+            if (nextIndex < 0) {
+                return;
+            }
+
+            var title = skillLabel(nextIndex);
+
+            skillCurrentIndex = nextIndex;
+
+            skillTabs.forEach(function (item) {
+                var isActive = item === tab;
+                item.classList.toggle("is-active", isActive);
+                item.setAttribute("aria-selected", isActive ? "true" : "false");
+                item.setAttribute("tabindex", isActive ? "0" : "-1");
+            });
+
+            skillPanels.forEach(function (panel) {
+                panel.hidden = panel.getAttribute("data-skill-panel") !== id;
+            });
+
+            skillStatus.textContent = title + " summary selected";
+
+            updateSkillStep(skillPrevious, nextIndex - 1, "previous");
+            updateSkillStep(skillNext, nextIndex + 1, "next");
+
+            if (skillNavQuery.matches) {
+                tab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            }
+
+            if (updateHash && window.history && window.history.replaceState) {
+                window.history.replaceState(null, "", "#skills/" + id);
+            }
+        }
+
+        function activateSkillFromHash(scrollToSection) {
+            var match = window.location.hash.match(/^#skills\/([^/]+)$/);
+
+            if (!match) {
+                return;
+            }
+
+            var requestedId = decodeURIComponent(match[1]);
+            var requestedTab = skillTabs.find(function (tab) {
+                return tab.getAttribute("data-skill-id") === requestedId;
+            });
+
+            if (requestedTab) {
+                activateSkillTab(requestedTab, false);
+
+                if (scrollToSection) {
+                    var skillsSection = document.getElementById("skills");
+                    var navigationHeight = document.getElementById("navigation").offsetHeight;
+                    window.scrollTo(0, Math.max(0, skillsSection.offsetTop - navigationHeight));
+                }
+            }
+        }
+
+        function updateSkillOrientation() {
+            skillTabList.setAttribute("aria-orientation", skillNavQuery.matches ? "horizontal" : "vertical");
+        }
+
+        skillTabs.forEach(function (tab, index) {
+            tab.addEventListener("click", function () {
+                activateSkillTab(tab, true);
+            });
+
+            tab.addEventListener("keydown", function (event) {
+                var nextIndex = index;
+                var isHorizontal = skillNavQuery.matches;
+
+                if (event.key === "Home") {
+                    nextIndex = 0;
+                } else if (event.key === "End") {
+                    nextIndex = skillTabs.length - 1;
+                } else if ((isHorizontal && event.key === "ArrowRight") || (!isHorizontal && event.key === "ArrowDown")) {
+                    nextIndex = (index + 1) % skillTabs.length;
+                } else if ((isHorizontal && event.key === "ArrowLeft") || (!isHorizontal && event.key === "ArrowUp")) {
+                    nextIndex = (index - 1 + skillTabs.length) % skillTabs.length;
+                } else {
+                    return;
+                }
+
+                event.preventDefault();
+                skillTabs[nextIndex].focus();
+                activateSkillTab(skillTabs[nextIndex], true);
+            });
+        });
+
+        [skillPrevious, skillNext].forEach(function (button) {
+            button.addEventListener("click", function () {
+                var targetIndex = parseInt(button.getAttribute("data-target-index"), 10);
+
+                if (!Number.isNaN(targetIndex) && skillTabs[targetIndex]) {
+                    skillTabs[targetIndex].focus();
+                    activateSkillTab(skillTabs[targetIndex], true);
+                }
+            });
+        });
+
+        updateSkillOrientation();
+
+        if (skillNavQuery.addEventListener) {
+            skillNavQuery.addEventListener("change", updateSkillOrientation);
+        } else {
+            skillNavQuery.addListener(updateSkillOrientation);
+        }
+
+        window.addEventListener("hashchange", function () {
+            activateSkillFromHash(true);
+        });
+        activateSkillFromHash(true);
+        updateSkillStep(skillPrevious, skillCurrentIndex - 1, "previous");
+        updateSkillStep(skillNext, skillCurrentIndex + 1, "next");
+    }
+
+});
+
+/* -------------------------------------------------- original skill artwork */
+document.addEventListener("DOMContentLoaded", function () {
+    var svgMounts = Array.prototype.slice.call(document.querySelectorAll("[data-skills-svg-source]"));
+    var sourceGroups = {};
+
+    function decodeEmbeddedSource(encodedSource) {
+        var binarySource = window.atob(encodedSource);
+        var sourceBytes = new Uint8Array(binarySource.length);
+
+        for (var byteIndex = 0; byteIndex < binarySource.length; byteIndex += 1) {
+            sourceBytes[byteIndex] = binarySource.charCodeAt(byteIndex);
+        }
+
+        return new TextDecoder("utf-8").decode(sourceBytes);
+    }
+
+    function loadSourceHtml(source) {
+        var embeddedSources = window.SKILLS_SOURCE_ARTWORK || {};
+
+        if (Object.prototype.hasOwnProperty.call(embeddedSources, source)) {
+            return Promise.resolve(decodeEmbeddedSource(embeddedSources[source]));
+        }
+
+        if (window.location.protocol === "file:") {
+            return Promise.reject(new Error("Embedded skill artwork is missing for " + source));
+        }
+
+        return fetch(source).then(function (response) {
+            if (!response.ok) {
+                throw new Error("Unable to load " + source + ": " + response.status);
+            }
+
+            return response.text();
+        });
+    }
+
+    function namespaceSvgIds(svg, prefix) {
+        var idMap = {};
+
+        svg.querySelectorAll("[id]").forEach(function (element) {
+            var originalId = element.id;
+            var namespacedId = prefix + originalId;
+            idMap[originalId] = namespacedId;
+            element.id = namespacedId;
+        });
+
+        svg.querySelectorAll("*").forEach(function (element) {
+            Array.prototype.slice.call(element.attributes || []).forEach(function (attribute) {
+                var nextValue = attribute.value;
+
+                Object.keys(idMap).forEach(function (originalId) {
+                    nextValue = nextValue.replace(new RegExp("#" + originalId + "\\b", "g"), "#" + idMap[originalId]);
+                });
+
+                if (nextValue !== attribute.value) {
+                    element.setAttribute(attribute.name, nextValue);
+                }
+            });
+        });
+
+        svg.querySelectorAll("style").forEach(function (styleElement) {
+            var cssText = styleElement.textContent;
+
+            Object.keys(idMap).forEach(function (originalId) {
+                cssText = cssText.replace(new RegExp("#" + originalId + "\\b", "g"), "#" + idMap[originalId]);
+            });
+
+            styleElement.textContent = cssText;
+        });
+    }
+
+    function scopeSourceStyles(cssText, scopeSelector) {
+        var wrapperSelectors = ["html", "body", ".artboard", ".frame"];
+
+        cssText = cssText.replace(/<!\[CDATA\[|\]\]>/g, "");
+
+        return cssText.replace(/([^{}]+)\{([^{}]*)\}/g, function (rule, selectorList, declarations) {
+            var scopedSelectors = selectorList.split(",").map(function (selector) {
+                selector = selector.trim();
+
+                if (!selector || wrapperSelectors.indexOf(selector) !== -1) {
+                    return "";
+                }
+
+                if (selector === ":root") {
+                    return scopeSelector;
+                }
+
+                if (selector === "*") {
+                    return scopeSelector + " *";
+                }
+
+                if (selector === "svg" || selector === ".frame > svg") {
+                    return scopeSelector;
+                }
+
+                return scopeSelector + " " + selector;
+            }).filter(Boolean);
+
+            if (!scopedSelectors.length) {
+                return "";
+            }
+
+            return scopedSelectors.join(", ") + " {" + declarations + "}";
+        });
+    }
+
+    function mountSvg(sourceDocument, mount, mountIndex) {
+        var sourceSvg = sourceDocument.querySelector("svg");
+
+        if (!sourceSvg) {
+            throw new Error("No SVG element found in " + mount.getAttribute("data-skills-svg-source"));
+        }
+
+        var svg = sourceSvg.cloneNode(true);
+        var svgRootId = "skills-source-root-" + mountIndex;
+        var sourceStyles = Array.prototype.map.call(sourceDocument.querySelectorAll("head style"), function (styleElement) {
+            return styleElement.textContent;
+        }).join("\n");
+
+        if (sourceStyles) {
+            var svgStyle = document.createElementNS("http://www.w3.org/2000/svg", "style");
+            svgStyle.textContent = scopeSourceStyles(sourceStyles, "#" + svgRootId);
+            svg.insertBefore(svgStyle, svg.firstChild);
+        }
+
+        svg.setAttribute("id", svgRootId);
+        svg.removeAttribute("width");
+        svg.removeAttribute("height");
+        svg.removeAttribute("aria-labelledby");
+        svg.setAttribute("viewBox", mount.getAttribute("data-skills-svg-view-box"));
+        svg.setAttribute("role", "img");
+        svg.setAttribute("aria-label", mount.getAttribute("data-skills-svg-label"));
+        svg.setAttribute("focusable", "false");
+        namespaceSvgIds(svg, "skills-source-" + mountIndex + "-");
+        mount.replaceChildren(svg);
+        mount.setAttribute("data-skills-svg-state", "ready");
+    }
+
+    svgMounts.forEach(function (mount) {
+        var source = mount.getAttribute("data-skills-svg-source");
+        sourceGroups[source] = sourceGroups[source] || [];
+        sourceGroups[source].push(mount);
+    });
+
+    Object.keys(sourceGroups).forEach(function (source, sourceIndex) {
+        loadSourceHtml(source)
+            .then(function (sourceHtml) {
+                var sourceDocument = new DOMParser().parseFromString(sourceHtml, "text/html");
+                sourceGroups[source].forEach(function (mount, mountIndex) {
+                    mountSvg(sourceDocument, mount, sourceIndex + "-" + mountIndex);
+                });
+            })
+            .catch(function (error) {
+                sourceGroups[source].forEach(function (mount) {
+                    mount.setAttribute("data-skills-svg-state", "error");
+                });
+                console.error(error);
+            });
+    });
 });
 
 /* -------------------------------------------------- constellation background */

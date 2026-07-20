@@ -1,0 +1,167 @@
+:root {
+    --skill-font-heading: "Roboto", Arial, sans-serif;
+    --skill-font-body: "Open Sans", Arial, sans-serif;
+    --skill-size-page-title: clamp(42px, 4.2vw, 68px);
+    --skill-size-subtitle: clamp(22px, 2.05vw, 32px);
+    --skill-size-box-title: clamp(28px, 2.35vw, 38px);
+    --skill-size-subbox-title: clamp(21px, 1.65vw, 27px);
+    --skill-size-text-header: clamp(24px, 2.1vw, 36px);
+    --skill-size-body: clamp(15px, 1.05vw, 18px);
+    --skill-size-label: clamp(12px, 0.9vw, 15px);
+    --skill-role-title: #12313b;
+    --skill-role-subtitle: #087f8b;
+    --skill-role-body: #294650;
+    --skill-role-box-title: #075d69;
+    --skill-role-box-surface: #d8eff1;
+    --skill-role-subbox-title: #075d69;
+    --skill-role-subbox-surface: #e8f6f7;
+    --skill-role-text-header: #087f8b;
+    --skill-role-border: #9ccfd3;
+}
+
+body.dark-mode {
+    --skill-role-title: #eef8fa;
+    --skill-role-subtitle: #2dd4bf;
+    --skill-role-body: #c5d5da;
+    --skill-role-box-title: #f1fbfc;
+    --skill-role-box-surface: #0d626b;
+    --skill-role-subbox-title: #eaf8fa;
+    --skill-role-subbox-surface: #0a3440;
+    --skill-role-text-header: #41d9e6;
+    --skill-role-border: rgba(45, 212, 191, 0.52);
+}
+
+[data-skill-text-role="pageTitle"] {
+    color: var(--skill-role-title) !important;
+    font-family: var(--skill-font-heading) !important;
+    font-size: var(--skill-size-page-title) !important;
+    font-weight: 800 !important;
+    line-height: 1.02 !important;
+    letter-spacing: 0.035em !important;
+}
+
+[data-skill-text-role="subtitle"] {
+    color: var(--skill-role-subtitle) !important;
+    font-family: var(--skill-font-heading) !important;
+    font-size: var(--skill-size-subtitle) !important;
+    font-weight: 700 !important;
+    line-height: 1.16 !important;
+    max-width: 1050px !important;
+    margin-inline: auto !important;
+}
+
+.skill-document-subtitle-two-line span {
+    display: block;
+}
+
+[data-skill-text-role="boxTitle"] {
+    color: var(--skill-role-box-title) !important;
+    background: var(--skill-role-box-surface) !important;
+    border-color: var(--skill-role-border) !important;
+    font-family: var(--skill-font-heading) !important;
+    font-size: var(--skill-size-box-title) !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    padding: 14px 20px !important;
+}
+
+[data-skill-text-role="subBoxTitle"] {
+    display: block !important;
+    width: 100% !important;
+    color: var(--skill-role-subbox-title) !important;
+    background: var(--skill-role-subbox-surface) !important;
+    border: 1px solid var(--skill-role-border) !important;
+    border-radius: 5px !important;
+    font-family: var(--skill-font-heading) !important;
+    font-size: var(--skill-size-subbox-title) !important;
+    font-weight: 750 !important;
+    line-height: 1.18 !important;
+    padding: 10px 12px !important;
+    margin: 0 0 10px !important;
+}
+
+[data-skill-text-role="textHeader"] {
+    color: var(--skill-role-text-header) !important;
+    font-family: var(--skill-font-heading) !important;
+    font-size: var(--skill-size-text-header) !important;
+    font-weight: 750 !important;
+    line-height: 1.14 !important;
+    letter-spacing: 0.025em !important;
+}
+
+[data-skill-text-role="body"] {
+    color: var(--skill-role-body) !important;
+    font-family: var(--skill-font-body) !important;
+    font-size: var(--skill-size-body) !important;
+    line-height: 1.55 !important;
+}
+
+[data-skill-text-role="label"] {
+    color: var(--skill-role-body) !important;
+    font-family: var(--skill-font-heading) !important;
+    font-size: var(--skill-size-label) !important;
+}
+
+[data-skill-section-role="subBox"] {
+    overflow: hidden;
+}
+
+.agentic-top-grid,
+.agent-cycle-panel,
+.leadership-dashboard,
+.leadership-middle {
+    grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.agentic-top-grid > div + div,
+.agent-cycle-panel > div + div,
+.leadership-dashboard > * + *,
+.leadership-middle > * + * {
+    border-left: 0 !important;
+    border-top: 1px solid var(--skill-role-border) !important;
+    padding-left: 0 !important;
+    padding-top: 22px !important;
+}
+
+.process-flow li:not(:last-child)::after,
+.mini-flow li:not(:last-child)::after,
+.agent-cycle div:not(:last-child)::after,
+.icon-process li:not(:last-child)::after {
+    content: "" !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-top: 7px solid transparent !important;
+    border-bottom: 7px solid transparent !important;
+    border-left: 11px solid var(--skill-accent) !important;
+    background: transparent !important;
+}
+
+@media (max-width: 900px) {
+    :root {
+        --skill-size-page-title: clamp(34px, 8vw, 52px);
+        --skill-size-subtitle: clamp(20px, 4.8vw, 27px);
+        --skill-size-box-title: clamp(24px, 5.5vw, 32px);
+        --skill-size-subbox-title: clamp(19px, 4.5vw, 24px);
+        --skill-size-text-header: clamp(21px, 5vw, 29px);
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --skill-size-page-title: clamp(30px, 9vw, 40px);
+        --skill-size-subtitle: clamp(18px, 5.8vw, 24px);
+        --skill-size-box-title: clamp(22px, 6.8vw, 29px);
+        --skill-size-subbox-title: clamp(18px, 5.6vw, 22px);
+        --skill-size-text-header: clamp(20px, 6.2vw, 26px);
+        --skill-size-body: clamp(14px, 4.1vw, 17px);
+        --skill-size-label: clamp(11px, 3.4vw, 14px);
+    }
+
+    .skill-document-subtitle-two-line span {
+        display: inline;
+    }
+
+    .skill-document-subtitle-two-line span + span::before {
+        content: " ";
+    }
+}

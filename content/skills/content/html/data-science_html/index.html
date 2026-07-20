@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data Science Dashboard</title>
+<style>
+:root{
+  --bg0:#010811; --bg1:#06131f; --panel:#071827; --panel2:#0a2237;
+  --line:#5b97c3; --lineSoft:#315b7a; --text:#f7fbff; --muted:#b9cbe2;
+  --cyan:#35bdff; --blue:#8fbaff; --glow:#1e91e6; --cyan2:#60e7ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#000814;font-family:"Segoe UI",Arial,sans-serif;color:var(--text)}
+body{
+  overflow-x:hidden; overflow-y:auto;
+  background:
+    radial-gradient(circle at 50% 7%, rgba(12,38,61,.98) 0, rgba(7,20,33,.92) 34%, rgba(2,8,18,.98) 78%),
+    #000814;
+}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(rgba(91,160,219,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(91,160,219,.045) 1px,transparent 1px);background-size:48px 48px;opacity:.55}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 47%,transparent 0 54%,rgba(0,0,0,.36) 100%)}
+img,svg{display:block;max-width:100%}
+.page-content{width:min(1920px,calc(100% - 28px));margin:0 auto;padding:14px 0 38px}
+.hero{text-align:center;padding:4px 24px 30px;margin-bottom:8px}
+.hero h1{margin:0;font-size:96px;letter-spacing:3.6px;line-height:.96;font-weight:900;text-transform:uppercase;text-shadow:0 2px 0 #0b1118,0 0 24px rgba(255,255,255,.30)}
+.hero h2{margin:16px 0 12px;color:#36bfff;font-size:58px;letter-spacing:.45px;font-weight:650;line-height:1.08;text-shadow:0 0 16px rgba(54,191,255,.30)}
+.hero p{max-width:1180px;margin:0 auto;color:#eef7ff;font-size:34px;line-height:1.34;text-shadow:0 1px 2px rgba(0,0,0,.76)}
+.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px auto 0;max-width:1420px}
+.principle{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:14px 12px;
+  border:1px solid rgba(114,178,226,.38);border-radius:12px;background:rgba(3,13,22,.44);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 0 12px rgba(30,145,230,.09);
+}
+.principle svg{width:64px;height:64px;color:#39d8ff;filter:drop-shadow(0 0 12px rgba(30,145,230,.3))}
+.principle strong{display:block;color:#fff;margin-top:10px;font-size:clamp(21px,1.45vw,28px);line-height:1.12;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.74);text-align:center}
+.principle span{display:block;margin-top:8px;text-align:center;color:#c8d9eb;font-size:14.5px;line-height:1.4}
+main{margin-top:0}.page-section{margin-top:18px}
+.panel{min-width:0;height:auto;border:1.5px solid rgba(114,178,226,.82);border-radius:9px;background:linear-gradient(180deg,rgba(8,24,39,.88),rgba(3,10,18,.80));box-shadow:0 0 0 1px rgba(0,14,25,.9) inset,0 0 20px rgba(30,145,230,.14);overflow:hidden}
+.panel-title{margin:0;min-height:66px;padding:12px 18px;display:flex;align-items:center;justify-content:center;text-align:center;text-transform:uppercase;letter-spacing:1px;font-weight:900;font-size:44px;line-height:1.04;background:linear-gradient(180deg,rgba(10,34,57,.94),rgba(5,18,30,.94));border-bottom:1px solid rgba(114,178,226,.48);text-shadow:0 1px 0 #001,0 0 10px rgba(255,255,255,.25)}
+.panel-body{padding:16px;min-width:0;overflow:visible}
+.source-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch}
+.analysis-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;align-items:stretch}
+.engineering-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.content-card{min-width:0;height:100%;display:flex;flex-direction:column;padding:14px;border:1px solid rgba(86,135,169,.82);border-radius:9px;background:radial-gradient(circle at 50% 0,rgba(18,58,88,.32),rgba(1,13,22,.76) 54%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 0 12px rgba(30,145,230,.07);overflow:visible}
+.card-title{
+  margin:-14px -14px 12px -14px;
+  min-height:52px;padding:10px 14px;display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#f7fbff;text-transform:uppercase;font-size:clamp(21px,1.42vw,29px);font-weight:900;letter-spacing:.62px;line-height:1.08;
+  background:linear-gradient(180deg,rgba(9,31,51,.82),rgba(4,18,30,.76));border-bottom:1px solid rgba(97,157,200,.36);
+  border-radius:8px 8px 0 0;text-shadow:0 1px 0 #001,0 0 8px rgba(255,255,255,.18);
+  text-wrap:balance;white-space:normal;
+}
+
+.source-grid>.content-card,.analysis-grid>.content-card,.engineering-grid>.content-card{align-self:stretch}
+.card-media{width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#02080d;border:1px solid rgba(83,128,162,.56);border-radius:7px;min-width:0}
+.card-media img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.card-copy{padding:16px 2px 2px;overflow:visible;min-width:0}
+.card-copy h4{margin:0 0 9px;color:#36bfff;text-transform:uppercase;font-size:36px;line-height:1.18;font-weight:900;letter-spacing:.25px;text-shadow:0 1px 2px rgba(0,0,0,.65)}
+.card-copy p{margin:0;color:#e8f4ff;font-size:31px;line-height:1.38;white-space:normal;overflow:visible;overflow-wrap:break-word;text-shadow:0 1px 2px rgba(0,0,0,.66)}
+.source-card .card-media{aspect-ratio:16/7.2}.source-card.text .card-media{aspect-ratio:16/8.9}.source-card .card-copy p{font-size:31px}
+.analysis-card{grid-column:span 2}.analysis-card.half{grid-column:span 3}.analysis-card .card-copy p{font-size:30px}.analysis-card .card-copy h4{font-size:33px}.classification .card-media{aspect-ratio:1/1}.labels .card-media{aspect-ratio:auto}.labels .card-media img{height:auto}.density .card-media{aspect-ratio:1/1}.clinical .card-media{aspect-ratio:16/8.75}.matrix .card-media{aspect-ratio:auto}.matrix .card-media img{height:auto}
+.engineering-card{padding-bottom:18px}.engineering-card .card-media{height:auto;aspect-ratio:auto;background:#01080f}.engineering-card .card-media img{width:100%;height:auto;object-fit:contain}.engineering-card .card-copy h4{font-size:35px}.engineering-card .card-copy p{font-size:30px}.engineering-card.pipeline .card-media{margin-top:0}.engineering-card.database .card-media{margin-top:0}
+.platform-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;padding:24px 24px 26px}.platform-item{display:grid;grid-template-columns:118px 1fr;align-items:center;gap:18px;min-height:148px;min-width:0;border:1px solid rgba(86,135,169,.40);border-radius:8px;background:rgba(2,12,22,.42);padding:16px}.platform-icon{width:108px;height:108px;color:#8bbaff;filter:drop-shadow(0 0 7px rgba(74,184,255,.44))}.platform-item strong{display:block;color:#dff2ff;font-size:39px;line-height:1.12;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,.75)}
+@media (max-width:1450px){.hero h1{font-size:72px}.hero h2{font-size:42px}.hero p{font-size:26px}.card-copy h4{font-size:27px}.card-copy p{font-size:23px}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.analysis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.analysis-card,.analysis-card.half{grid-column:auto}.engineering-grid{grid-template-columns:1fr}.platform-grid{grid-template-columns:repeat(2,1fr)}.platform-icon{width:82px;height:82px}.platform-item{grid-template-columns:92px 1fr}.platform-item strong{font-size:29px}}
+@media (max-width:800px){.page-content{width:min(100% - 24px,1600px)}.hero h1{font-size:44px}.hero h2{font-size:28px}.hero p{font-size:20px}.hero-principles{grid-template-columns:1fr;gap:12px}.source-grid,.analysis-grid,.engineering-grid{grid-template-columns:1fr}.platform-grid{grid-template-columns:1fr}.platform-item strong{font-size:22px}.platform-icon{width:60px;height:60px}.platform-item{grid-template-columns:70px 1fr}.card-copy p{font-size:17px}.card-copy h4{font-size:20px}.panel-title{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="page-content">
+  <header class="hero" aria-label="Data Science overview">
+    <h1>Data Science</h1>
+    <h2>Turning Complex Data into Actionable Insights</h2>
+    <p>Specialized in robust data management, processing &amp; analysis, statistical modeling, and handling complex multimodal datasets.</p>
+    <div class="hero-principles" aria-label="Core data science principles">
+      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg><strong>Rigor</strong><span>Statistically sound methods and reproducible experiments.</span></div>
+      <div class="principle"><svg viewBox="-2 -2 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h8"></path><path d="M14 12h8"></path><path d="M12 2v8"></path><path d="M12 14v8"></path><circle cx="12" cy="12" r="2"></circle><circle cx="2" cy="12" r="2"></circle><circle cx="22" cy="12" r="2"></circle><circle cx="12" cy="2" r="2"></circle><circle cx="12" cy="22" r="2"></circle></svg><strong>Scalability</strong><span>Architectures that handle complex and massive datasets.</span></div>
+      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg><strong>Accuracy</strong><span>High-precision models optimized for critical outcomes.</span></div>
+      <div class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg><strong>Impact</strong><span>Transforming raw data into actionable clinical insights.</span></div>
+    </div>
+  </header>
+  <main>
+    <section class="panel page-section sources-panel">
+      <h2 class="panel-title">Multimodal Data Sources</h2>
+      <div class="panel-body source-grid">
+        <article class="content-card source-card">
+          <h3 class="card-title">Multidisciplinary Imaging</h3>
+          <div class="card-media"><img src="assets/med_images.png" alt="Medical imaging examples with microstructure and perfusion overlays"></div>
+          <div class="card-copy"><h4>Spatial Biomedical Measurements</h4><p>Imaging data provides anatomical, structural, and quantitative visual evidence that can be combined with clinical variables.</p></div>
+        </article>
+        <article class="content-card source-card">
+          <h3 class="card-title">Time Series &amp; Biosignals</h3>
+          <div class="card-media"><img src="assets/biosignal.png" alt="Biosignal time-series traces with event markers"></div>
+          <div class="card-copy"><h4>Temporal Signal Streams</h4><p>Physiological waveforms and sensor traces capture dynamic behavior, periodic events, and changing state over time.</p></div>
+        </article>
+        <article class="content-card source-card">
+          <h3 class="card-title">High-Dimensional Tabular Data</h3>
+          <div class="card-media"><img src="assets/tabular_data.png" alt="High-dimensional clinical tabular dataset"></div>
+          <div class="card-copy"><h4>Structured Clinical Records</h4><p>Rows, features, labels, and covariates enable statistical analysis, cohort definition, and predictive model development.</p></div>
+        </article>
+        <article class="content-card source-card text">
+          <h3 class="card-title">Unstructured Text Data</h3>
+          <div class="card-media"><img src="assets/text_knowledge.png" alt="Knowledge document and text-based intelligence source"></div>
+          <div class="card-copy"><h4>Narrative and Expert Knowledge</h4><p>Documents, reports, and contextual knowledge assets support retrieval, summarization, and human-readable interpretation.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel page-section analysis-panel">
+      <h2 class="panel-title">Data Interpretation &amp; Predictions</h2>
+      <div class="panel-body analysis-grid">
+        <article class="content-card analysis-card half clinical">
+          <h3 class="card-title">Multivariate Group Analysis</h3>
+          <div class="card-media"><img src="assets/clinical_group_analysis_cropped.png" alt="Clinical group distribution comparison for blood pressure variables"></div>
+          <div class="card-copy"><h4>Comparative Risk Distributions</h4><p>Overlapping group profiles compare healthy and disease cohorts, helping quantify separation, overlap, and shifts across clinical measurements.</p></div>
+        </article>
+        <article class="content-card analysis-card half labels">
+          <h3 class="card-title">Labels &amp; Distribution Profiles</h3>
+          <div class="card-media"><img src="../../images/data-science/classification-plot.png" alt="Outcome label distribution bar chart"></div>
+          <div class="card-copy"><h4>Outcome Distribution Analysis</h4><p>Class prevalence and category imbalance highlight sampling patterns, baseline risks, and where model evaluation requires care.</p></div>
+        </article>
+        <article class="content-card analysis-card density">
+          <h3 class="card-title">Density &amp; Correlation Maps</h3>
+          <div class="card-media"><img src="assets/density_correlation_cropped.png" alt="Density map with marginal histograms showing temperature and SVA relationship"></div>
+          <div class="card-copy"><h4>Joint Structure Exploration</h4><p>Density maps and marginal histograms expose nonlinear associations, clusters, outliers, and interaction patterns between variables.</p></div>
+        </article>
+        <article class="content-card analysis-card matrix">
+          <h3 class="card-title">Cross-Correlation Heat Maps</h3>
+          <div class="card-media"><img src="../../images/data-science/big-data.png" alt="Cross-correlation heat map among clinical variables"></div>
+          <div class="card-copy"><h4>Multivariate Dependency Structure</h4><p>Correlation maps summarize how clinical features move together, revealing redundancy, coupled predictors, and interpretable variable groups.</p></div>
+        </article>
+        <article class="content-card analysis-card classification">
+          <h3 class="card-title">Classification Report</h3>
+          <div class="card-media"><img src="assets/confusion_report_cropped.png" alt="Classification report and confusion-matrix statistics"></div>
+          <div class="card-copy"><h4>Model Performance Summary</h4><p>Confusion metrics, class-level precision, recall, and f1-score reveal error modes and tradeoffs between sensitivity and specificity.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel page-section engineering-panel">
+      <h2 class="panel-title">Data Engineering</h2>
+      <div class="panel-body engineering-grid">
+        <article class="content-card engineering-card">
+          <h3 class="card-title">Feature Engineering</h3>
+          <div class="card-media"><img src="assets/feature_engineering.png" alt="Feature engineering concepts: transformations, aggregations, encodings, and domain knowledge"></div>
+          <div class="card-copy"><h4>From Raw Signals to Predictors</h4><p>Transformations, aggregations, encodings, and domain knowledge convert raw measurements into robust model-ready features.</p></div>
+        </article>
+        <article class="content-card engineering-card pipeline">
+          <h3 class="card-title">Data Pipeline</h3>
+          <div class="card-media"><img src="assets/data_pipeline.png" alt="End-to-end data pipeline from raw device data to visualization and insights"></div>
+          <div class="card-copy"><h4>Reliable Analytical Workflow</h4><p>Data flows from acquisition and signal extraction through feature processing, storage, modeling, visualization, and actionable insights.</p></div>
+        </article>
+        <article class="content-card engineering-card database">
+          <h3 class="card-title">Database Management</h3>
+          <div class="card-media"><img src="assets/database_management.png" alt="Database management architecture with raw data, warehouse, analytics, and data lake"></div>
+          <div class="card-copy"><h4>Governed Storage Foundation</h4><p>Structured and unstructured data are organized for efficient queries, indexing, data integrity, backup, recovery, and cloud scalability.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel page-section platform-panel">
+      <h2 class="panel-title">Data Platform Development &amp; Maintenance</h2>
+      <div class="platform-grid">
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 39c-9-4-6-18 3-18 3-10 19-13 27-3 8 0 13 9 9 16-3 5-7 7-13 7H14Z"/><path d="M18 41v8M29 41v8M40 41v8M18 49h-6M29 49h-6M40 49h6"/></svg><strong>Scalable<br>Architecture</strong></div>
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="10" width="38" height="38" rx="4"/><path d="m23 21-9 8 9 8M35 21l9 8-9 8M31 18l-5 22"/></svg><strong>Real-time<br>Processing</strong></div>
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><path d="M29 8c-8 0-13 6-13 14v8l-5 9h36l-5-9v-8c0-8-5-14-13-14Z"/><path d="M23 39c0 4 3 7 6 7s6-3 6-7"/><path d="M29 4v6"/></svg><strong>Monitoring<br>&amp; Alerting</strong></div>
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="29" r="21"/><path d="M29 29 41 19M29 8v7M50 29h-7M29 50v-7M8 29h7"/><path d="M18 42h22" opacity=".6"/></svg><strong>Performance<br>Optimization</strong></div>
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 29c8-14 16-14 25 0s17 14 25 0"/><path d="M8 29c8 14 16 14 25 0s17-14 25 0"/></svg><strong>CI/CD<br>&amp; Automation</strong></div>
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><path d="M29 5c8 7 16 8 21 10v13c0 14-9 22-21 27C17 50 8 42 8 28V15c5-2 13-3 21-10Z"/><path d="m20 30 6 6 13-15"/></svg><strong>Security<br>&amp; Compliance</strong></div>
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6h22l10 10v36H15Z"/><path d="M37 6v11h10M21 28h20M21 36h20M21 44h13"/></svg><strong>Documentation<br>&amp; Governance</strong></div>
+        <div class="platform-item"><svg class="platform-icon" viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="29" r="22"/><path d="m18 30 8 8 15-19"/></svg><strong>Reliability<br>&amp; Uptime</strong></div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
+
+The above content shows the entire, complete file contents of the requested file.
