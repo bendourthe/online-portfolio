@@ -395,6 +395,7 @@ sourceIntegrationCss = [
         host.dataset.layout = source.vertical ? "vertical" : source.layout;
         host.dataset.theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
         applySourceDesignTokens(host);
+        var defaultPageTitleSize = host.style.getPropertyValue("--skill-page-title-size");
         host.setAttribute("aria-label", source.label + " detailed portfolio");
         var shadow = host.attachShadow({ mode: "open" });
         var style = document.createElement("style");
@@ -433,6 +434,9 @@ sourceIntegrationCss = [
                 var availableWidth = host.clientWidth;
                 if (!availableWidth) {
                     return;
+                }
+                if (host.dataset.skillSource === "deep-learning") {
+                    host.style.setProperty("--skill-page-title-size", availableWidth <= 520 ? "34px" : defaultPageTitleSize);
                 }
                 var documentHeight = measureSourceHeight();
                 if (source.responsive && source.mobileFluid !== false && availableWidth <= 800) {

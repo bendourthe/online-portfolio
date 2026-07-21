@@ -1,313 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI & Machine Learning</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Machine Learning</title>
 <style>
-:root{
-  --bg0:#010811;--bg1:#06131f;--panel:#071827;--panel2:#0a2237;
-  --line:#5b97c3;--lineSoft:#315b7a;--text:#f7fbff;--muted:#c3d4e7;
-  --cyan:#35bdff;--cyan2:#55e6ff;--blue:#8fbaff;--teal:#31e8df;
-  --violet:#9c88ff;--green:#8ee737;--yellow:#ffd85b;
-}
+:root{color-scheme:dark;--page-bg:#04171d;--surface:#07242c;--surface-soft:#0b3038;--line:rgba(52,221,208,.38);--line-strong:rgba(64,201,255,.64);--title:#f2fbfc;--accent:#34ddd0;--accent-2:#40c9ff;--text:#dcecef;--muted:#a9c2c8;--title-bg:linear-gradient(180deg,rgba(12,98,107,.98),rgba(5,52,62,.98));--subtitle-bg:linear-gradient(180deg,rgba(8,44,53,.98),rgba(4,29,38,.98));--shadow:0 12px 30px rgba(0,0,0,.18)}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#000814;font-family:"Segoe UI",Arial,sans-serif;color:var(--text)}
-body{
-  overflow-x:hidden;overflow-y:auto;
-  background:radial-gradient(circle at 50% 5%,rgba(12,38,61,.98) 0,rgba(7,20,33,.96) 35%,rgba(2,8,18,.99) 80%),#000814;
-}
-body::before{
-  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.52;
-  background-image:linear-gradient(rgba(91,160,219,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(91,160,219,.045) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-body::after{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(circle at 50% 48%,transparent 0 55%,rgba(0,0,0,.38) 100%);
-}
+html,body{margin:0;min-height:100%}
+body{overflow-x:hidden;background:var(--bg,var(--page-bg));color:var(--source-text,var(--text));font-family:"Open Sans","Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 img,svg{display:block;max-width:100%}
-.page-content{width:min(1920px,calc(100% - 28px));margin:0 auto;padding:16px 0 38px}
-.hero{text-align:center;padding:4px 24px 26px;margin-bottom:5px}
-.hero h1{margin:0;font-size:96px;letter-spacing:3.6px;line-height:.96;font-weight:900;text-transform:uppercase;text-shadow:0 2px 0 #0b1118,0 0 24px rgba(255,255,255,.30)}
-.hero h2{margin:16px 0 12px;color:#36bfff;font-size:58px;letter-spacing:.45px;font-weight:650;line-height:1.08;text-shadow:0 0 16px rgba(54,191,255,.30)}
-.hero p{max-width:1180px;margin:0 auto;color:#eef7ff;font-size:34px;line-height:1.34;text-shadow:0 1px 2px rgba(0,0,0,.76)}
-.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px auto 0;max-width:1420px}
-.principle{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:14px 12px;
-  border:1px solid rgba(114,178,226,.38);border-radius:12px;background:rgba(3,13,22,.44);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 0 12px rgba(30,145,230,.09);
-}
-.principle svg{width:64px;height:64px;color:#39d8ff;filter:drop-shadow(0 0 12px rgba(30,145,230,.3))}
-.principle strong{display:block;color:#fff;margin-top:10px;font-size:clamp(21px,1.45vw,28px);line-height:1.12;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.74);text-align:center}
-.principle span{display:block;margin-top:8px;text-align:center;color:#c8d9eb;font-size:14.5px;line-height:1.4}
-
-.page-section{margin-top:18px}
-.panel{min-width:0;height:auto;border:1.5px solid rgba(114,178,226,.82);border-radius:9px;
-  background:linear-gradient(180deg,rgba(8,24,39,.89),rgba(3,10,18,.81));
-  box-shadow:0 0 0 1px rgba(0,14,25,.9) inset,0 0 20px rgba(30,145,230,.14);overflow:hidden;
-}
-.panel-title{
-  margin:0;min-height:64px;padding:12px 18px;display:flex;align-items:center;justify-content:center;text-align:center;
-  text-transform:uppercase;letter-spacing:1px;font-weight:900;font-size:var(--skill-box-title-responsive, 40px);line-height:1.04;
-  background:linear-gradient(180deg,rgba(10,34,57,.95),rgba(5,18,30,.95));border-bottom:1px solid rgba(114,178,226,.48);
-  text-shadow:0 1px 0 #001,0 0 10px rgba(255,255,255,.24);
-}
-.panel-body{padding:18px;min-width:0;overflow:visible}
-.architecture-content{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 48% 42%,rgba(10,37,58,.58),rgba(1,7,13,.25) 70%);border:1px solid rgba(83,128,162,.48);border-radius:10px;overflow:hidden}
-.architecture-content img{width:100%;height:auto;object-fit:contain;filter:saturate(1.03) contrast(1.02)}
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
-.content-card{min-width:0;height:100%;display:flex;flex-direction:column;padding:14px;border:1px solid rgba(86,135,169,.82);border-radius:9px;background:radial-gradient(circle at 50% 0,rgba(18,58,88,.32),rgba(1,13,22,.76) 54%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 0 12px rgba(30,145,230,.07);overflow:visible}
-.card-title{
-  margin:-14px -14px 12px -14px;
-  min-height:52px;padding:10px 14px;display:flex;align-items:center;justify-content:center;text-align:center;
-  color:#f7fbff;text-transform:uppercase;font-size:clamp(21px,1.42vw,29px);font-weight:900;letter-spacing:.62px;line-height:1.08;
-  background:linear-gradient(180deg,rgba(9,31,51,.82),rgba(4,18,30,.76));border-bottom:1px solid rgba(97,157,200,.36);
-  border-radius:8px 8px 0 0;text-shadow:0 1px 0 #001,0 0 8px rgba(255,255,255,.18);
-  text-wrap:balance;white-space:normal;
-}
-.card-media{width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#02080d;border:1px solid rgba(83,128,162,.56);border-radius:7px;min-width:0;flex-grow:1}
-.card-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.card-copy{padding:16px 2px 2px;overflow:visible;min-width:0;text-align:center}
-.card-copy h4{margin:0 0 9px;color:#36bfff;text-transform:uppercase;font-size:32px;line-height:1.18;font-weight:900;letter-spacing:.25px;text-shadow:0 1px 2px rgba(0,0,0,.65)}
-.card-copy p{margin:0;color:#e8f4ff;font-size:26px;line-height:1.38;white-space:normal;overflow:visible;overflow-wrap:break-word;text-shadow:0 1px 2px rgba(0,0,0,.66)}
-.grid-cols-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:100%}
-.grid-cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;height:100%}
-.grid-cols-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;height:100%}
-.img-stack{display:flex;flex-direction:column;gap:12px;height:100%}
-.img-label{color:#fff;text-align:center;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:0.5px;margin-bottom:6px}
-.workflow-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;margin-top:15px;align-items:stretch}
-.workflow-step{
-  position:relative;min-height:140px;padding:16px 12px;border:1px solid rgba(82,140,180,.62);border-radius:9px;
-  background:rgba(3,17,29,.66);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
-.workflow-step:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;transform:translateY(-50%);z-index:3;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:18px solid var(--cyan);filter:drop-shadow(0 0 7px rgba(53,189,255,.48))}
-.workflow-step svg{width:52px;height:52px;color:#8fbaff;filter:drop-shadow(0 0 6px rgba(75,184,255,.3))}
-.workflow-step strong{display:block;margin-top:12px;color:#7fc0ff;text-transform:uppercase;font-size:21px;letter-spacing:.25px;line-height:1.05}
-.workflow-step span{display:block;margin-top:6px;font-size:15px;line-height:1.34;color:#e2eefc}
-@media (max-width:1450px){.hero-principles{grid-template-columns:repeat(2,1fr)}.card-copy h4{font-size:27px}.card-copy p{font-size:23px}}
-@media (max-width:800px){.page-content{width:min(100% - 24px,1600px)}.hero-principles{grid-template-columns:1fr;gap:12px}.card-copy p{font-size:17px}.card-copy h4{font-size:20px}.workflow-grid{grid-template-columns:1fr}.workflow-step:not(:last-child)::after{display:none}}
+.page-content{width:min(1880px,calc(100% - 28px));margin-inline:auto;padding-block:18px 42px;container-type:inline-size}
+.hero{padding:10px clamp(18px,4vw,72px) 28px;text-align:center}
+.hero h1{margin:0;color:var(--source-page-title,var(--title));font-size:clamp(44px,5vw,88px);font-weight:850;letter-spacing:.045em;line-height:1;text-transform:uppercase}
+.hero h2{max-width:1500px;margin:16px auto 10px;color:var(--source-subtitle,var(--accent));font-size:clamp(26px,2.6vw,48px);font-weight:650;line-height:1.12}
+.hero>p{max-width:1220px;margin:0 auto;color:var(--source-text,var(--text));font-size:clamp(17px,1.35vw,24px);line-height:1.58}
+.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1500px;margin:24px auto 0}
+.principle{min-width:0;padding:20px 18px;border:1px solid var(--source-line,var(--line));border-radius:12px;background:var(--panel,var(--surface));box-shadow:0 8px 22px rgba(0,0,0,.1)}
+.principle svg{width:62px;height:62px;margin:0 auto;color:var(--source-accent-bright,var(--accent));filter:drop-shadow(0 2px 5px rgba(30,145,230,.24))}
+.principle strong{display:block;margin-top:10px;color:var(--source-header,var(--accent-2));font-size:clamp(18px,1.3vw,22px);font-weight:750;line-height:1.2}
+.principle span{display:block;margin-top:7px;color:var(--source-text,var(--text));font-size:15px;line-height:1.5}
+.page-section{margin-top:18px;border:1px solid var(--source-line,var(--line));border-radius:12px;background:var(--panel,var(--surface));box-shadow:var(--shadow);overflow:hidden}
+.panel-title{margin:0;padding:14px 20px;background:var(--source-title-bg,var(--title-bg));color:var(--source-box-title,var(--title));font-size:clamp(24px,2.05vw,34px);font-weight:800;letter-spacing:.055em;line-height:1.16;text-align:center;text-transform:uppercase}
+.section-intro{max-width:1260px;margin:0 auto;padding:20px clamp(18px,3vw,44px) 0;color:var(--source-text,var(--text));font-size:clamp(16px,1.15vw,20px);line-height:1.6;text-align:center}
+.panel-body{padding:clamp(16px,2vw,28px);min-width:0}
+.systems-layout,.feature-split{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,.78fr);gap:clamp(18px,2vw,32px);align-items:center}
+.systems-figure,.feature-figure{margin:0;min-width:0}
+.media-frame{width:100%;aspect-ratio:var(--media-ratio);display:grid;place-items:center;overflow:hidden;border:1px solid var(--source-line,var(--line));border-radius:9px;background:#050d12}
+.media-frame img{width:100%;height:100%;object-fit:contain;object-position:center}
+.figure-note{margin:9px 0 0;color:var(--source-muted,var(--muted));font-size:13px;line-height:1.45;text-align:center}
+.systems-copy h3,.feature-copy h3,.evidence-copy h3{margin:0;color:var(--source-header,var(--accent-2));font-size:clamp(22px,1.65vw,29px);font-weight:780;line-height:1.2}
+.systems-copy p,.feature-copy p,.evidence-copy p{margin:11px 0 0;color:var(--source-text,var(--text));font-size:clamp(16px,1.1vw,19px);line-height:1.62}
+.capability-list{display:grid;gap:9px;margin:18px 0 0;padding:0;list-style:none}
+.capability-list li{position:relative;padding:10px 12px 10px 34px;border:1px solid var(--source-line,var(--line));border-radius:8px;background:var(--panel2,var(--surface-soft));color:var(--source-text,var(--text));font-size:15px;line-height:1.45}
+.capability-list li::before{content:"";position:absolute;left:13px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--source-accent-bright,var(--accent));box-shadow:0 0 0 4px color-mix(in srgb,var(--source-accent-bright,var(--accent)) 16%,transparent)}
+.architecture-callouts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0}
+.forecast-callouts{grid-template-columns:1fr}
+.compact-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:18px}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.evidence-card{min-width:0;border:1px solid var(--source-line,var(--line));border-radius:10px;background:var(--panel,var(--surface));box-shadow:0 8px 22px rgba(0,0,0,.09);overflow:hidden}
+.evidence-card .card-title{margin:0;padding:12px 14px;background:var(--source-subtitle-bg,var(--subtitle-bg));color:var(--source-subbox-title,var(--title));font-size:clamp(18px,1.35vw,23px);font-weight:760;line-height:1.22;text-align:center;text-transform:uppercase}
+.evidence-card .media-frame{border:0;border-radius:0;border-block:1px solid var(--source-line,var(--line))}
+.evidence-copy{padding:18px clamp(16px,1.7vw,24px) 20px}
+.evidence-copy h3{font-size:clamp(19px,1.35vw,24px)}
+.evidence-copy p{font-size:16px}
+.tag-list{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0 0;padding:0;list-style:none}
+.tag-list li{padding:6px 9px;border:1px solid var(--source-line,var(--line));border-radius:999px;background:var(--source-pill-bg,color-mix(in srgb,var(--accent) 13%,var(--surface)));color:var(--source-pill-text,var(--text));font-size:12px;font-weight:700;letter-spacing:.02em;line-height:1.2}
+.feature-split{grid-template-columns:minmax(0,1.45fr) minmax(320px,.85fr);padding:clamp(4px,1vw,12px)}
+.feature-copy{padding:8px clamp(8px,1.3vw,18px)}
+.feature-copy .capability-list{margin-top:16px}
+.predictive-layout{grid-template-columns:minmax(0,1.25fr) minmax(330px,.9fr)}
+.workflow-intro{max-width:1100px;margin:0 auto 20px;color:var(--source-text,var(--text));font-size:17px;line-height:1.6;text-align:center}
+.workflow-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px;margin:0;padding:0;list-style:none;counter-reset:workflow}
+.workflow-step{position:relative;counter-increment:workflow;min-width:0;padding:18px 14px;border:1px solid var(--source-line,var(--line));border-radius:10px;background:var(--panel2,var(--surface-soft));text-align:left}
+.workflow-step::before{content:counter(workflow,decimal-leading-zero);display:inline-grid;width:38px;height:38px;place-items:center;border:1px solid var(--source-line-strong,var(--line-strong));border-radius:50%;color:var(--source-header,var(--accent-2));font-size:14px;font-weight:800}
+.workflow-step:not(:last-child)::after{content:"";position:absolute;z-index:2;right:-21px;top:50%;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:13px solid var(--source-accent-bright,var(--accent));transform:translateY(-50%);filter:drop-shadow(0 0 4px color-mix(in srgb,var(--source-accent-bright,var(--accent)) 55%,transparent))}
+.workflow-icon{position:absolute;right:14px;top:18px;width:38px;height:38px;color:var(--source-accent-bright,var(--accent));filter:drop-shadow(0 2px 5px rgba(30,145,230,.22))}
+.workflow-step strong{display:block;margin-top:14px;color:var(--source-header,var(--accent-2));font-size:17px;font-weight:780;line-height:1.25;text-transform:uppercase}
+.workflow-step span{display:block;margin-top:8px;color:var(--source-text,var(--text));font-size:14px;line-height:1.5}
+@container (max-width:1450px){.hero-principles{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-grid .evidence-card:last-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr)}.evidence-grid .evidence-card:last-child .card-title{grid-column:1/-1}.evidence-grid .evidence-card:last-child .media-frame{border-right:1px solid var(--source-line,var(--line));border-bottom:0}.workflow-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.workflow-step:nth-child(3)::after{display:none}}
+@container (max-width:1080px){.systems-layout,.feature-split,.predictive-layout{grid-template-columns:1fr}.architecture-callouts{grid-template-columns:repeat(2,minmax(0,1fr))}.feature-copy{padding:8px 2px}.compact-evidence-grid{grid-template-columns:1fr}.evidence-grid{grid-template-columns:1fr}.evidence-grid .evidence-card:last-child{grid-column:auto;display:block}.evidence-grid .evidence-card:last-child .card-title{grid-column:auto}.evidence-grid .evidence-card:last-child .media-frame{border-right:0;border-bottom:1px solid var(--source-line,var(--line))}}
+@container (max-width:720px){.page-content{width:min(100% - 20px,1880px);padding-top:10px}.hero{padding-inline:10px}.hero-principles,.architecture-callouts{grid-template-columns:1fr}.panel-title{padding-inline:12px}.panel-body{padding:12px}.section-intro{padding:16px 14px 0;text-align:left}.workflow-grid{grid-template-columns:1fr;gap:28px}.workflow-step:not(:last-child)::after,.workflow-step:nth-child(3)::after{display:block;right:auto;left:50%;top:auto;bottom:-22px;border-top:13px solid var(--source-accent-bright,var(--accent));border-right:9px solid transparent;border-bottom:0;border-left:9px solid transparent;transform:translateX(-50%)}.evidence-copy,.feature-copy{padding:16px}.figure-note{text-align:left}}
 </style>
 </head>
 <body>
 <div class="page-content">
-  <div class="hero">
+  <header class="hero">
     <h1>AI &amp; Machine Learning</h1>
-    <h2>Advancing Capabilities through Intelligent Algorithms</h2>
-    <p>Designing, training, and deploying deep neural networks and machine learning models for complex prediction and automation tasks.</p>
-  </div>
-  
-  <div class="hero-principles">
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M20.5 9a3.49 3.49 0 0 0-3.45 3h-1.1a2.49 2.49 0 0 0-4.396-1.052L8.878 9.731l3.143-4.225a2.458 2.458 0 0 0 2.98-.019L17.339 8H16v1h3V6h-1v1.243l-2.336-2.512A2.473 2.473 0 0 0 16 3.5a2.5 2.5 0 0 0-5 0 2.474 2.474 0 0 0 .343 1.243L7.947 9.308 4.955 7.947a2.404 2.404 0 0 0-.161-1.438l3.704-1.385-.44 1.371.942.333L10 4 7.172 3l-.334.943 1.01.357-3.659 1.368a2.498 2.498 0 1 0-.682 4.117l2.085 2.688-2.053 2.76a2.5 2.5 0 1 0 .87 3.864l3.484 1.587-1.055.373.334.943L10 21l-1-2.828-.943.333.435 1.354-3.608-1.645A2.471 2.471 0 0 0 5 17.5a2.5 2.5 0 0 0-.058-.527l3.053-1.405 3.476 4.48a2.498 2.498 0 1 0 4.113.075L18 17.707V19h1v-3h-3v1h1.293l-2.416 2.416a2.466 2.466 0 0 0-2.667-.047l-3.283-4.23 2.554-1.176A2.494 2.494 0 0 0 15.95 13h1.1a3.493 3.493 0 1 0 3.45-4zm-7-7A1.5 1.5 0 1 1 12 3.5 1.502 1.502 0 0 1 13.5 2zm0 18a1.5 1.5 0 1 1-1.5 1.5 1.502 1.502 0 0 1 1.5-1.5zM1 7.5a1.5 1.5 0 1 1 2.457 1.145l-.144.112A1.496 1.496 0 0 1 1 7.5zm3.32 1.703a2.507 2.507 0 0 0 .264-.326l2.752 1.251-1.124 1.512zM2.5 19A1.5 1.5 0 1 1 4 17.5 1.502 1.502 0 0 1 2.5 19zm2.037-2.941a2.518 2.518 0 0 0-.193-.234l1.885-2.532 1.136 1.464zm3.76-1.731L6.849 12.46l1.42-1.908L11.1 11.84a2.29 2.29 0 0 0-.033 1.213zM13.5 14a1.5 1.5 0 1 1 1.5-1.5 1.502 1.502 0 0 1-1.5 1.5zm7 1a2.5 2.5 0 1 1 2.5-2.5 2.502 2.502 0 0 1-2.5 2.5zm1.5-2.5a1.5 1.5 0 1 1-1.5-1.5 1.502 1.502 0 0 1 1.5 1.5z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
-      <strong>Deep Architectures</strong>
-      <span>CNNs, Transformers, and custom network topologies.</span>
-    </div>
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21.1935 16.793C20.8437 19.2739 20.6689 20.5143 19.7717 21.2572C18.8745 22 17.5512 22 14.9046 22H9.09536C6.44881 22 5.12553 22 4.22834 21.2572C3.33115 20.5143 3.15626 19.2739 2.80648 16.793L2.38351 13.793C1.93748 10.6294 1.71447 9.04765 2.66232 8.02383C3.61017 7 5.29758 7 8.67239 7H15.3276C18.7024 7 20.3898 7 21.3377 8.02383C22.0865 8.83268 22.1045 9.98979 21.8592 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M19.5617 7C19.7904 5.69523 18.7863 4.5 17.4617 4.5H6.53788C5.21323 4.5 4.20922 5.69523 4.43784 7" stroke="currentColor" stroke-width="1.5"/>
-<path d="M17.4999 4.5C17.5283 4.24092 17.5425 4.11135 17.5427 4.00435C17.545 2.98072 16.7739 2.12064 15.7561 2.01142C15.6497 2 15.5194 2 15.2588 2H8.74099C8.48035 2 8.35002 2 8.24362 2.01142C7.22584 2.12064 6.45481 2.98072 6.45704 4.00434C6.45727 4.11135 6.47146 4.2409 6.49983 4.5" stroke="currentColor" stroke-width="1.5"/>
-<circle cx="16.5" cy="11.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
-<path d="M19.9999 20L17.1157 17.8514C16.1856 17.1586 14.8004 17.0896 13.7766 17.6851L13.5098 17.8403C12.7984 18.2542 11.8304 18.1848 11.2156 17.6758L7.37738 14.4989C6.6113 13.8648 5.38245 13.8309 4.5671 14.4214L3.24316 15.3803" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
-      <strong>Medical Imaging</strong>
-      <span>Automated landmark detection and volumetric segmentation.</span>
-    </div>
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 4.45962C9.91153 4.16968 10.9104 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C3.75612 8.07914 4.32973 7.43025 5 6.82137" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="1.5"/>
-</svg>
-      <strong>Computer Vision</strong>
-      <span>Object detection, classification, and directional optical tracking.</span>
-    </div>
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21 21H6.2C5.07989 21 4.51984 21 4.09202 20.782C3.71569 20.5903 3.40973 20.2843 3.21799 19.908C3 19.4802 3 18.9201 3 17.8V3M7 15L12 9L16 13L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-      <strong>Predictive Analytics</strong>
-      <span>Time series forecasting and multi-dimensional regressions.</span>
-    </div>
-  </div>
-
-  <section class="page-section">
-    <div class="panel">
-      <h2 class="panel-title">Diversified Applications</h2>
-      <div class="panel-body">
-        <div class="content-card" style="padding: 0; background: transparent; border: none; box-shadow: none">
-          <div class="card-media" style="border: none; background: transparent; padding: 0"><img src="../../images/deep-learning/deep-learning-workflow.png" alt="Deep learning architecture" style="object-fit: contain"></div>
-          <div class="card-copy"><h4>End-to-End AI Ecosystems</h4><p>Comprehensive machine learning workflows from data ingestion and model training to robust deployment and continuous evaluation.</p></div>
-        </div>
+    <h2>Engineering learning systems from data design to monitored deployment</h2>
+    <p>Building models that convert medical images, video, structured measurements, and time-series data into validated predictions, spatial measurements, and decision-ready outputs. The work spans dataset design, neural architecture development, quantitative evaluation, deployment, and continuous performance review.</p>
+    <div class="hero-principles" aria-label="AI and machine learning capabilities">
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10.7 4.4-4.3 2M13.3 4.4l4.3 2M5.5 9v6M18.5 9v6M6.4 17.6l4.3 2M17.6 17.6l-4.3 2M7 8l3.4 2.7M17 8l-3.4 2.7M7 16l3.4-2.7M17 16l-3.4-2.7M12 5v5M12 14v5"/><circle cx="12" cy="3.5" r="1.5"/><circle cx="5.5" cy="7.5" r="1.5"/><circle cx="18.5" cy="7.5" r="1.5"/><circle cx="12" cy="12" r="2"/><circle cx="5.5" cy="16.5" r="1.5"/><circle cx="18.5" cy="16.5" r="1.5"/><circle cx="12" cy="20.5" r="1.5"/></svg>
+        <strong>Model Architecture</strong>
+        <span>Encoder-decoder networks, convolutional models, recurrent systems, and task-specific objectives.</span>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21.2 16.8C20.8 19.3 20.7 20.5 19.8 21.3 18.9 22 17.6 22 14.9 22H9.1C6.4 22 5.1 22 4.2 21.3 3.3 20.5 3.2 19.3 2.8 16.8L2.4 13.8C1.9 10.6 1.7 9 2.7 8 3.6 7 5.3 7 8.7 7h6.6c3.4 0 5.1 0 6 1 .7.8.8 2 .6 4"/><path d="M19.6 7c.2-1.3-.8-2.5-2.1-2.5h-11C5.2 4.5 4.2 5.7 4.4 7M17.5 4.5C17.7 2.9 16.8 2 15.3 2H8.7C7.2 2 6.3 2.9 6.5 4.5"/><circle cx="16.5" cy="11.5" r="1.5"/><path d="m20 20-2.9-2.1c-.9-.7-2.3-.8-3.3-.2l-.3.1c-.7.5-1.7.4-2.3-.1l-3.8-3.2c-.8-.6-2-.7-2.8-.1l-1.4 1"/></svg>
+        <strong>Medical Imaging</strong>
+        <span>Landmark localization, multi-class anatomical segmentation, and learned image reconstruction.</span>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 4.5A11 11 0 0 1 12 4c4.2 0 7 2.5 8.7 4.7.9 1.1 1.3 1.7 1.3 3.3s-.4 2.2-1.3 3.3C19 17.5 16.2 20 12 20s-7-2.5-8.7-4.7C2.4 14.2 2 13.6 2 12s.4-2.2 1.3-3.3A14 14 0 0 1 5 6.8"/><circle cx="12" cy="12" r="3"/></svg>
+        <strong>Visual Perception</strong>
+        <span>Detection, semantic and instance segmentation, depth-aware labeling, and dense optical flow.</span>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 21H6.2C4 21 3 20 3 17.8V3M7 15l5-6 4 4 5-6"/></svg>
+        <strong>Predictive Modeling</strong>
+        <span>Sequence forecasting, held-out evaluation, error analysis, and monitored prediction pipelines.</span>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section class="page-section">
-    <div class="panel">
-      <h2 class="panel-title">Computer Vision & Sensing</h2>
-      <div class="panel-body grid-2">
-        <div class="content-card">
-          <h3 class="card-title">Automated Landmark Detection</h3>
-          <div class="grid-cols-3">
-            <div class="img-stack">
-              <div class="img-label">Ground Truth</div>
-              <div class="card-media"><img src="assets/crops/spine_1.png" alt="Ground-truth spine landmarks on a radiograph"></div>
+  <main>
+    <section class="page-section" aria-labelledby="systems-title">
+      <h2 class="panel-title" id="systems-title">Learning Systems &amp; Architecture</h2>
+      <div class="panel-body systems-layout">
+        <figure class="systems-figure">
+          <div class="media-frame" style="--media-ratio:1916 / 564"><img src="../../images/deep-learning/deep-learning-workflow.png" alt="Deep learning system connecting layered inputs to classification, segmentation, detection, prediction, and tracking outputs" fetchpriority="high"></div>
+          <figcaption class="figure-note">A shared representation can support multiple downstream tasks while task-specific heads preserve the objective and evaluation contract.</figcaption>
+        </figure>
+        <div class="systems-copy">
+          <h3>End-to-end systems, not isolated models</h3>
+          <p>Reliable machine learning begins before training and continues after deployment. Data provenance, label quality, preprocessing, objective selection, calibration, and monitoring determine whether a high-performing experiment becomes a dependable engineering capability.</p>
+        </div>
+        <ul class="capability-list architecture-callouts">
+          <li><strong>Problem formulation:</strong> translate a scientific or product need into measurable targets, constraints, and acceptance criteria.</li>
+          <li><strong>Data and labels:</strong> define cohorts, annotations, splits, augmentation, leakage controls, and reproducible preprocessing.</li>
+          <li><strong>Model and optimization:</strong> select representations, loss functions, regularization, and training strategies that fit the evidence.</li>
+          <li><strong>Evaluation and delivery:</strong> quantify error modes, robustness, inference behavior, and post-release drift.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="medical-title">
+      <h2 class="panel-title" id="medical-title">Medical Imaging &amp; Computational Anatomy</h2>
+      <p class="section-intro">Image-based models turn anatomical structure into measurable coordinates, region masks, and enhanced imagery. Each example keeps the source, target, and model output visible so performance can be inspected rather than inferred from a single summary metric.</p>
+      <div class="panel-body">
+        <div class="compact-evidence-grid">
+          <article class="evidence-card">
+            <h3 class="card-title">Automated Landmark Detection</h3>
+                    <div class="media-frame" style="--media-ratio:1798 / 831"><img src="../../images/deep-learning/landmark-detection.png" alt="Three-panel cervical spine radiograph comparing reference heatmaps, predicted heatmaps, and extracted landmark coordinates" loading="lazy"></div>
+            <div class="evidence-copy">
+              <h3>Heatmaps to anatomical coordinates</h3>
+              <p>Supervised confidence maps preserve spatial uncertainty during training. Peak locations are then converted into ordered coordinates that can drive measurement, alignment, registration, or downstream biomechanical analysis.</p>
+              <ul class="tag-list"><li>Heatmap regression</li><li>Coordinate extraction</li><li>Anatomical ordering</li></ul>
             </div>
-            <div class="img-stack">
-              <div class="img-label">Predictions</div>
-              <div class="card-media"><img src="assets/crops/spine_2.png" alt="Predicted spine landmarks on a radiograph"></div>
+          </article>
+          <article class="evidence-card">
+            <h3 class="card-title">Super-Resolution Reconstruction</h3>
+            <div class="media-frame" style="--media-ratio:1672 / 771"><img src="../../images/deep-learning/super-resolution.png" alt="Low-resolution chest CT input, neural super-resolution output, and target high-resolution reference" loading="lazy"></div>
+            <div class="evidence-copy">
+              <h3>Recovering structure from degraded inputs</h3>
+              <p>Paired comparisons expose the trade-off between smoothing, anatomical detail, and generated texture. Reconstruction quality is assessed against the high-resolution reference so visual sharpness does not substitute for structural fidelity.</p>
+              <ul class="tag-list"><li>Learned upscaling</li><li>Reference comparison</li><li>Detail preservation</li></ul>
             </div>
-            <div class="img-stack">
-              <div class="img-label">Coordinates</div>
-              <div class="card-media"><img src="assets/crops/spine_3.png" alt="Detected spine landmark coordinates"></div>
+          </article>
+        </div>
+        <article class="evidence-card">
+          <h3 class="card-title">Multi-class Medical Image Segmentation</h3>
+          <div class="feature-split">
+            <figure class="feature-figure">
+              <div class="media-frame" style="--media-ratio:1672 / 869"><img src="../../images/deep-learning/image-segmentation.png" alt="Five abdominal scans shown before and after automatic multi-organ segmentation" loading="lazy"></div>
+              <figcaption class="figure-note">Raw scans and automatic organ overlays are shown together across multiple anatomical levels.</figcaption>
+            </figure>
+            <div class="feature-copy">
+              <h3>Dense anatomical region mapping</h3>
+              <p>Dense prediction assigns an anatomical class to each pixel or voxel, converting scans into quantitative regions that can be measured, visualized, and propagated into analysis pipelines.</p>
+              <p>The sequence of slices demonstrates why validation must extend beyond one representative image: organ visibility, shape, contrast, and class balance change across the volume.</p>
+              <ul class="capability-list">
+                <li><strong>Label design:</strong> consistent class definitions and reviewable annotation protocols.</li>
+                <li><strong>Spatial validation:</strong> overlap, boundary, topology, and clinically meaningful measurement errors.</li>
+                <li><strong>Quality control:</strong> overlay inspection across anatomy, scanners, acquisition settings, and edge cases.</li>
+              </ul>
             </div>
           </div>
-          <div class="card-copy"><h4>Anatomical Recognition</h4><p>High-precision extraction of structural coordinates from complex radiographic scans.</p></div>
-        </div>
-        <div class="content-card">
-          <h3 class="card-title">Medical Images Auto-Segmentation</h3>
-          <div class="grid-cols-3">
-            <div class="img-stack">
-              <div class="img-label">Raw Images</div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/med_raw.png" alt="Raw medical image before segmentation"></div>
-            </div>
-            <div class="img-stack">
-              <div class="img-label">Labels</div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/med_label.png" alt="Reference segmentation label"></div>
-            </div>
-            <div class="img-stack">
-              <div class="img-label">Segmented</div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/med_seg.png" alt="Model-generated medical image segmentation"></div>
-            </div>
-          </div>
-          <div class="card-copy"><h4>Volumetric Separation</h4><p>Accurate partitioning of anatomical regions to assist in automated diagnostic procedures.</p></div>
-        </div>
-        <div class="content-card">
-          <h3 class="card-title">Predictive Sales Analytics</h3>
-          <div class="card-media">
-            <img src="assets/crops/predictive_sales.png" alt="Sales forecasting dashboard with predictive trends">
-          </div>
-          <div class="card-copy"><h4>Trend Forecasting</h4><p>Time-series models that anticipate market shifts to optimize strategic decision-making.</p></div>
-        </div>
-        <div class="content-card">
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="vision-title">
+      <h2 class="panel-title" id="vision-title">Visual Perception, Segmentation &amp; Motion</h2>
+      <p class="section-intro">Computer-vision systems answer different spatial questions: what is present, where it is, which pixels belong together, and how appearance moves between frames. The model output must match the decision the application actually needs.</p>
+      <div class="panel-body evidence-grid">
+        <article class="evidence-card">
           <h3 class="card-title">Object Detection &amp; Classification</h3>
-          <div class="card-media">
-            <img src="assets/object_detection.png" alt="Object detection and classification results with labeled bounding boxes">
+                    <div class="media-frame" style="--media-ratio:1402 / 1080"><img src="../../images/deep-learning/object-detection.png" alt="Everyday scene with labeled bounding boxes, class names, and confidence scores for books, a cup, a phone, and a table" loading="lazy"></div>
+          <div class="evidence-copy">
+            <h3>Localization with confidence</h3>
+            <p>Detection combines class prediction with spatial localization and confidence scoring. Thresholding, non-maximum suppression, small-object performance, and scene variation are evaluated together because a correct label with a poor box is still an incomplete result.</p>
+            <ul class="tag-list"><li>Bounding boxes</li><li>Confidence calibration</li><li>Multi-object scenes</li></ul>
           </div>
-          <div class="card-copy"><h4>Real-Time Localization</h4><p>Identifying and tracking distinct elements within diverse dynamic visual environments.</p></div>
-        </div>
-        <div class="content-card">
-          <h3 class="card-title">Depth Perception & Image Segmentation</h3>
-          <div class="grid-cols-2">
-            <div class="img-stack">
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/sem_bird_img.png" alt="Original bird image"></div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/sem_bird_seg.png" alt="Depth perception segmentation"></div>
-            </div>
-            <div class="img-stack">
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/inst_valley_img.png" alt="Original valley image"></div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/inst_valley_seg.png" alt="Instance segmentation"></div>
-            </div>
+        </article>
+        <article class="evidence-card">
+          <h3 class="card-title">Semantic &amp; Instance Segmentation</h3>
+          <div class="media-frame" style="--media-ratio:1536 / 1024"><img src="../../images/deep-learning/semantic-segmentation.png" alt="Bird and mountain-valley scenes paired with luminous pixel-level semantic segmentation outputs" loading="lazy"></div>
+          <div class="evidence-copy">
+            <h3>Pixel-level scene understanding</h3>
+            <p>Semantic masks group pixels by class, while instance-aware methods separate distinct objects within the same class. Boundary quality, occlusion, thin structures, and background confusion reveal more than aggregate accuracy alone.</p>
+            <ul class="tag-list"><li>Pixel classification</li><li>Boundary quality</li><li>Scene structure</li></ul>
           </div>
-          <div class="card-copy"><h4>Semantic Mapping</h4><p>Pixel-level spatial understanding for depth approximation and scene recreation.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section">
-    <div class="panel">
-      <h2 class="panel-title">Processing & Analytics</h2>
-      <div class="panel-body grid-2">
-        <div class="content-card">
-          <h3 class="card-title">Super-Resolution Image Enhancement</h3>
-          <div class="grid-cols-4">
-            <div class="img-stack">
-              <div class="img-label">LR</div>
-              <div class="card-media"><img src="assets/crops/sr_1.png" alt="Low-resolution source image"></div>
-            </div>
-            <div class="img-stack">
-              <div class="img-label">SRResNet</div>
-              <div class="card-media"><img src="assets/crops/sr_2.png" alt="Image enhanced with SRResNet"></div>
-            </div>
-            <div class="img-stack">
-              <div class="img-label">SRGANesNet</div>
-              <div class="card-media"><img src="assets/crops/sr_3.png" alt="Image enhanced with SRGANesNet"></div>
-            </div>
-            <div class="img-stack">
-              <div class="img-label">HR</div>
-              <div class="card-media"><img src="assets/crops/sr_4.png" alt="High-resolution reference image"></div>
-            </div>
-          </div>
-          <div class="card-copy"><h4>Detail Restoration</h4><p>Generative upscaling networks to reconstruct high-fidelity imagery from degraded inputs.</p></div>
-        </div>
-        <div class="content-card">
+        </article>
+        <article class="evidence-card">
           <h3 class="card-title">Directional Optical Tracking</h3>
-          <div class="grid-cols-2">
-            <div class="img-stack">
-              <div class="img-label">Original</div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_1.png" alt="Original video frame"></div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_2.png" alt="Dense optical flow map"></div>
-            </div>
-            <div class="img-stack">
-              <div class="img-label">Dense Optical Flow</div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_3.png" alt="Second video frame"></div>
-              <div class="card-media no-pad"><img style="object-fit: cover" src="assets/crops/flow_4.png" alt="Dense optical flow map"></div>
-            </div>
+          <div class="media-frame" style="--media-ratio:1390 / 1047"><img src="../../images/deep-learning/optical-flow.png" alt="Two aerial traffic scenes paired with color-coded dense optical-flow fields" loading="lazy"></div>
+          <div class="evidence-copy">
+            <h3>Dense motion estimation</h3>
+            <p>Optical flow estimates pixel displacement between frames and encodes direction and magnitude as a dense field. It supports motion-aware tracking, event detection, temporal stabilization, and quantitative analysis when appearance alone is insufficient.</p>
+            <ul class="tag-list"><li>Frame-to-frame motion</li><li>Direction and magnitude</li><li>Temporal analysis</li></ul>
           </div>
-          <div class="card-copy"><h4>Motion Estimation</h4><p>Calculating dense pixel displacements for video analysis and tracking systems.</p></div>
-        </div>
-        <div class="content-card" style="grid-column: 1 / -1">
-          <h3 class="card-title">Time Series Forecasting</h3>
-          <div class="card-media no-pad" style="height: 300px">
-            <img src="assets/stock_prediction.png" style="object-fit: cover" alt="Stock price time-series forecast">
-          </div>
-          <div class="card-copy"><h4>Financial Modeling</h4><p>Advanced recurrent architectures for predicting volatile market movements with quantifiable confidence.</p></div>
-        </div>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="page-section">
-    <div class="panel">
-      <h2 class="panel-title">Machine Learning Workflow</h2>
-      <div class="panel-body">
-        <div class="workflow-grid">
-          <div class="workflow-step">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-            <strong>Data Collection</strong>
-            <span>Images, Videos,<br>Time Series</span>
-          </div>
-          <div class="workflow-step">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            <strong>Processing</strong>
-            <span>Cleaning, Labeling,<br>Feature Engineering</span>
-          </div>
-          <div class="workflow-step">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-            <strong>Model Design</strong>
-            <span>Architecture, Hyperparams,<br>Loss Functions</span>
-          </div>
-          <div class="workflow-step">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            <strong>Training</strong>
-            <span>Gradient Descent,<br>Backpropagation</span>
-          </div>
-          <div class="workflow-step">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <strong>Deployment</strong>
-            <span>API, Inference,<br>Monitoring</span>
-          </div>
+    <section class="page-section" aria-labelledby="forecasting-title">
+      <h2 class="panel-title" id="forecasting-title">Forecasting &amp; Sequential Modeling</h2>
+      <div class="panel-body feature-split predictive-layout">
+        <figure class="feature-figure">
+          <div class="media-frame" style="--media-ratio:1688 / 932"><img src="../../images/deep-learning/stock-forecasting.png" alt="Stock-price history with separate training data, held-out ground truth, and model predictions" loading="lazy"></div>
+          <figcaption class="figure-note">Training history, held-out observations, and predictions remain visually distinct so drift and systematic underprediction are visible.</figcaption>
+        </figure>
+        <div class="feature-copy">
+          <h3>Sequence models with honest temporal validation</h3>
+          <p>Forecasting requires more than fitting historical curves. Time-respecting splits, walk-forward evaluation, appropriate baselines, horizon-specific errors, and sensitivity to regime change are necessary to understand whether a model generalizes.</p>
+          <p>This example makes the gap between predictions and later observations explicit, creating a useful diagnostic for lag, smoothing, underfitting, and changing market dynamics.</p>
+          <ul class="capability-list forecast-callouts">
+            <li><strong>Temporal features:</strong> lags, rolling statistics, trends, seasonality, and external covariates.</li>
+            <li><strong>Evaluation:</strong> held-out windows, baseline comparisons, residual analysis, and horizon-aware metrics.</li>
+            <li><strong>Monitoring:</strong> drift detection, recalibration, retraining triggers, and uncertainty-aware communication.</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="page-section" aria-labelledby="workflow-title">
+      <h2 class="panel-title" id="workflow-title">Machine Learning Delivery Workflow</h2>
+      <div class="panel-body">
+        <p class="workflow-intro">The delivery loop keeps scientific validity, software quality, and operational behavior connected from the first problem statement through production monitoring.</p>
+        <ol class="workflow-grid">
+          <li class="workflow-step"><svg class="workflow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/></svg><strong>Frame the problem</strong><span>Define the user decision, measurable target, constraints, risks, and acceptance criteria.</span></li>
+          <li class="workflow-step"><svg class="workflow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><strong>Curate the data</strong><span>Establish provenance, labels, cohorts, splits, preprocessing, and leakage controls.</span></li>
+          <li class="workflow-step"><svg class="workflow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="m7.5 10.5 3-4M13.5 6.5l3 4M16.5 13.5l-3 4M10.5 17.5l-3-4"/></svg><strong>Design and train</strong><span>Select representations, architecture, objectives, optimization, and experiment tracking.</span></li>
+          <li class="workflow-step"><svg class="workflow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg><strong>Validate robustness</strong><span>Test baselines, error modes, subgroups, calibration, perturbations, and edge cases.</span></li>
+          <li class="workflow-step"><svg class="workflow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18H6a4 4 0 0 1-.6-8A7 7 0 0 1 19 11a3.5 3.5 0 0 1-.5 7H17"/><path d="M12 20V10m0 0-3 3m3-3 3 3"/></svg><strong>Deploy inference</strong><span>Package reproducible artifacts, interfaces, performance budgets, and release evidence.</span></li>
+          <li class="workflow-step"><svg class="workflow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15m0 5v-5h5"/><path d="M8 12h2l1.2-3 2 6 1.2-3H17"/></svg><strong>Monitor and improve</strong><span>Track drift, failures, feedback, retraining criteria, and measurable downstream impact.</span></li>
+        </ol>
+      </div>
+    </section>
+  </main>
 </div>
 </body>
 </html>
-
-The above content shows the entire, complete file contents of the requested file.
