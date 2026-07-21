@@ -11,7 +11,7 @@ const sources = [
     { id: "deep-learning", label: "AI & Machine Learning", path: "content/skills/content/html/deep-learning_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
     { id: "agentic-engineering-devops", label: "Agentic Engineering & DevOps", path: "content/skills/content/html/agentic-engineering-devops_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
     { id: "writing-communication", label: "Writing & Communication", path: "content/skills/content/html/writing-communication_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
-    { id: "leadership-management", label: "Leadership & Management", path: "content/skills/content/html/leadership-management_html/index.html", layout: "fixed", responsive: true, mobileFluid: false, width: 1905, height: 0 }
+    { id: "leadership-management", label: "Leadership & Management", path: "content/skills/content/html/leadership-management_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 }
 ];
 
 function projectUrl(absolutePath) {
