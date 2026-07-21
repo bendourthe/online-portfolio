@@ -12,6 +12,7 @@
 - [x] Convert the last four skill detail pages to the same vertical page structure as the first three.
 - [x] Replace workflow arrows with CSS triangles.
 - [x] Correct the Software Engineering and Data Science subtitle copy and the Data Science unstructured-text label.
+- [x] Match the Leadership & Management title-card icon stroke thickness to the other skill pages.
 
 ## Verification
 
