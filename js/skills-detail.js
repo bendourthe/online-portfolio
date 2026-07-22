@@ -288,7 +288,7 @@ sourceIntegrationCss = [
         ":host([data-skill-source='leadership-management'][data-layout='vertical']) .cycle-frame-wrap{height:966px!important;width:835px!important}",
         ":host([data-skill-source='leadership-management'][data-layout='vertical']) .cycle-frame{transform:scale(2.3)!important;transform-origin:top left!important}",
         ":host([data-skill-source='leadership-management'][data-layout='vertical']) .best{height:auto!important}",
-        "@media(max-width:800px){:host([data-layout='vertical']) .source-body{--skill-page-title-responsive:clamp(2.35rem,10vw,4rem);--skill-subtitle-responsive:clamp(1.45rem,6vw,2.25rem);--skill-box-title-responsive:clamp(1.35rem,5.2vw,2rem);--skill-sub-box-title-responsive:clamp(1.15rem,4.6vw,1.625rem);--skill-text-header-responsive:clamp(1rem,4vw,1.35rem);--skill-body-responsive:clamp(.94rem,3.7vw,1.125rem);--skill-label-responsive:clamp(.75rem,3vw,.875rem)}}"
+        "@media(max-width:800px){:host([data-layout='vertical']) .source-body{--skill-page-title-responsive:clamp(2.35rem,10vw,4rem);--skill-subtitle-responsive:clamp(1.45rem,6vw,2.25rem);--skill-box-title-responsive:clamp(1.35rem,5.2vw,2rem);--skill-sub-box-title-responsive:clamp(1.15rem,4.6vw,1.625rem);--skill-text-header-responsive:clamp(1rem,4vw,1.35rem);--skill-body-responsive:clamp(.94rem,3.7vw,1.125rem);--skill-compact-header-responsive:clamp(.94rem,3.7vw,1.125rem);--skill-compact-body-responsive:clamp(.875rem,3.35vw,1rem);--skill-label-responsive:clamp(.8125rem,3.15vw,.9375rem)}}"
 ].join("\n");
 
     function applySourceDesignRoles(sourceBody, skillId) {
@@ -296,22 +296,34 @@ sourceIntegrationCss = [
         if (!config || !config.sourceTextRoles || !config.sourceTextRoles[skillId]) {
             return;
         }
+        function applyRole(element, role) {
+            var token = config.tokens && config.tokens[role];
+            var prefix = "--skill-" + role.replace(/[A-Z]/g, function (letter) { return "-" + letter.toLowerCase(); });
+            element.dataset.skillTextRole = role;
+            if (!token) {
+                return;
+            }
+            element.style.setProperty("font-family", token.fontFamily, "important");
+            element.style.setProperty("font-size", "var(" + prefix + "-responsive,var(" + prefix + "-size))", "important");
+            element.style.setProperty("font-weight", "var(" + prefix + "-weight)", "important");
+            element.style.setProperty("line-height", "var(" + prefix + "-line)", "important");
+            element.style.setProperty("color", token.color, "important");
+            element.style.setProperty("-webkit-text-fill-color", "currentColor", "important");
+            if (token.background) {
+                element.style.setProperty("background", token.background, "important");
+            }
+        }
+
         Object.keys(config.sourceTextRoles[skillId]).forEach(function (role) {
             sourceBody.querySelectorAll(config.sourceTextRoles[skillId][role]).forEach(function (element) {
-                var token = config.tokens && config.tokens[role];
-                var prefix = "--skill-" + role.replace(/[A-Z]/g, function (letter) { return "-" + letter.toLowerCase(); });
-                element.dataset.skillTextRole = role;
-                if (!token) {
-                    return;
-                }
-                element.style.setProperty("font-family", token.fontFamily, "important");
-                element.style.setProperty("font-size", "var(" + prefix + "-responsive,var(" + prefix + "-size))", "important");
-                element.style.setProperty("font-weight", "var(" + prefix + "-weight)", "important");
-                element.style.setProperty("line-height", "var(" + prefix + "-line)", "important");
-                element.style.setProperty("color", token.color, "important");
-                element.style.setProperty("-webkit-text-fill-color", "currentColor", "important");
-                if (token.background) {
-                    element.style.setProperty("background", token.background, "important");
+                applyRole(element, role);
+            });
+        });
+
+        Object.keys(config.fallbackTextRoles || {}).forEach(function (role) {
+            sourceBody.querySelectorAll(config.fallbackTextRoles[role]).forEach(function (element) {
+                if (!element.closest("[data-skill-text-role]") && !element.closest("svg")) {
+                    applyRole(element, role);
                 }
             });
         });
@@ -349,6 +361,7 @@ sourceIntegrationCss = [
                     if (!doc || !doc.head) {
                         return;
                     }
+                    doc.documentElement.dataset.theme = dark ? "dark" : "light";
                     var style = doc.getElementById("portfolio-frame-theme");
                     if (!style) {
                         style = doc.createElement("style");
@@ -356,6 +369,13 @@ sourceIntegrationCss = [
                         doc.head.appendChild(style);
                     }
                     style.textContent = embeddedThemeCss(dark);
+                    var config = window.SKILLS_DETAIL_DESIGN_CONFIG;
+                    Object.keys((config && config.tokens) || {}).forEach(function (role) {
+                        var prefix = "--skill-" + role.replace(/[A-Z]/g, function (letter) { return "-" + letter.toLowerCase(); });
+                        doc.documentElement.style.setProperty(prefix + "-size", config.tokens[role].fontSize);
+                        doc.documentElement.style.setProperty(prefix + "-line", config.tokens[role].lineHeight);
+                        doc.documentElement.style.setProperty(prefix + "-weight", config.tokens[role].fontWeight);
+                    });
                 } catch (error) {
                     return;
                 }

@@ -9,7 +9,24 @@
             subBoxTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "24px", lineHeight: "1.18", fontWeight: "800", color: "var(--source-subbox-title)", background: "var(--source-subtitle-bg)" },
             textHeader: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "22px", lineHeight: "1.22", fontWeight: "700", color: "var(--source-header)" },
             body: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "18px", lineHeight: "1.55", fontWeight: "400", color: "var(--source-text)" },
-            label: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "14px", lineHeight: "1.3", fontWeight: "600", color: "var(--source-text)" }
+            compactHeader: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "17px", lineHeight: "1.28", fontWeight: "700", color: "var(--source-header)" },
+            compactBody: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "15px", lineHeight: "1.45", fontWeight: "400", color: "var(--source-text)" },
+            label: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "15px", lineHeight: "1.35", fontWeight: "600", color: "var(--source-text)" },
+            graphicBadge: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "35px", lineHeight: "1", fontWeight: "700", color: "var(--source-text)" },
+            graphicTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "23px", lineHeight: "1.2", fontWeight: "750", color: "var(--source-text)" },
+            graphicSubTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "21px", lineHeight: "1.2", fontWeight: "750", color: "var(--source-text)" },
+            graphicSection: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "22px", lineHeight: "1.2", fontWeight: "800", color: "var(--source-text)" },
+            graphicBody: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "15px", lineHeight: "1.35", fontWeight: "400", color: "var(--source-text)" },
+            graphicLabel: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "13.5px", lineHeight: "1.2", fontWeight: "650", color: "var(--source-text)" }
+        },
+        fallbackTextRoles: {
+            pageTitle: "h1",
+            boxTitle: "h2",
+            subBoxTitle: "h3",
+            textHeader: "h4, h5, h6",
+            body: "p, li, figcaption, blockquote, dd",
+            compactHeader: "strong, b",
+            compactBody: "span, dt, small, th, td"
         },
         textRoles: {
             pageTitle: ".skill-document-hero h2",
@@ -71,9 +88,11 @@
                 subtitle: ".hero h2",
                 boxTitle: ".panel-title",
                 subBoxTitle: ".card-title, .os-title",
-                textHeader: ".card-copy h4, .text-box strong, .golden-command",
-                body: ".hero p, .card-copy p, .principle span, .desc, .text-bullets div, .golden-sub, .funnel-caption",
-                label: ".logo-tile span, .kbd, .cmd-line span"
+                textHeader: ".section-heading, .studio-core h4",
+                body: ".hero p, .section-intro, .body-copy, .studio-core p",
+                compactHeader: ".evidence-point strong, .speaking-practice strong, .audience-tier h4, .visual-list h4, .audience-lens strong, .format-card strong, .brief-step strong, .review-band strong",
+                compactBody: ".evidence-point span, .speaking-practice span, .audience-tier p, .audience-tier dl, .visual-list li, .audience-lens span, .format-card span, .design-step, .brief-step span, .review-band span",
+                label: ".eyebrow, .tag-list li, .brief-step>b"
             },
             "leadership-management": {
                 pageTitle: ".hero h1",

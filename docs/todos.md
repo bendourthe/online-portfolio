@@ -37,6 +37,45 @@
 - [x] Optically center the platform illustration, shorten the Antigravity label, and align the widened foundation copy with a compact square logo matrix.
 - [x] Shorten the Technology Foundation Google Cloud Platform label to GCP.
 
+## Writing & Communication Rebuild [DONE]
+
+- [x] Rebuild the page hierarchy and copy around technical documentation, scientific publishing, presentations, training, and audience adaptation.
+- [x] Replace the operating-system glyphs with the supplied macOS, Windows, and Ubuntu logos and remove highlighted OS labels.
+- [x] Rebuild the golden-path workflow and audience matrix as responsive, theme-aware HTML visuals.
+- [x] Display publication, poster, and public-defense media without cropping and reduce the speaking image footprint.
+- [x] Verify image loading, desktop and phone layouts, light and dark theme tokens, workflow alignment, and browser console integrity.
+
+## Writing & Communication Refinement [DONE]
+
+- [x] Reorder the page around scientific publishing, public speaking, and audience-first technical communication.
+- [x] Replace publication, poster, and public-speaking media with the revised uncropped assets and remove image captions.
+- [x] Replace the duplicated agentic workflow with a responsive communication-design studio for general, executive, technical, and scientific audiences.
+- [x] Verify section order, image loading, responsive overflow, compact card heights, both themes, and browser console integrity.
+
+## Writing & Communication Visual Integration [DONE]
+
+- [x] Refresh the latest publication and poster assets and size their frames to the revised source ratios without cropping.
+- [x] Recompose Public Speaking and Audience Engagement as full-width bands to remove the uneven two-column dead space.
+- [x] Integrate the scoped writing-communication HTML infographic beside an audience-first communication design brief.
+- [x] Verify the inlined artifact, revised media, desktop and mobile overflow, light and dark contrast, and browser console integrity.
+
+## Writing & Communication Theme and Density Refinement [DONE]
+
+- [x] Add host-controlled light and dark palettes to the integrated communication infographic and its surrounding frame.
+- [x] Refresh the latest publication asset ratio and proportion the publishing columns so both figures and cards align in height.
+- [x] Rebuild the Public Speaking feature around a smaller supporting photo, concise narrative, and compact delivery-practice matrix.
+- [x] Verify revised media dimensions, card-height parity, theme colors, responsive density, overflow, and browser console integrity.
+
+## Skills Typography and Voice Consistency [DONE]
+
+- [x] Replace the remaining fixed dark infographic icon panels with light/dark theme variables.
+- [x] Rename Research defense to Research presentation and strengthen the public-speaking narrative without first-person language.
+- [x] Add centrally configured compact heading, body, and infographic tokens and apply configuration-backed roles to every HTML text element across all seven skill pages and the integrated SVG labels.
+- [x] Verify all seven pages contain no first-person pronouns and no unconfigured HTML text elements.
+- [x] Verify the Writing page at desktop and phone widths in both themes with no overflow, clipped boxes, or broken images.
+- [x] Rename the communication-quality pills to Clear disclosures and Intuitive visuals.
+- [x] Replace the Audience Adaptation and Knowledge Transfer title-card icons with the supplied theme-aware SVG artwork.
+
 ## Verification
 
 - [x] Verify JavaScript syntax and whitespace integrity.
