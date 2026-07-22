@@ -1,225 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Agentic Engineering & DevOps</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Engineering &amp; DevOps</title>
 <style>
-:root{
-  --bg0:#010811;--bg1:#06131f;--panel:#071827;--panel2:#0a2237;
-  --line:#5b97c3;--lineSoft:#315b7a;--text:#f7fbff;--muted:#c3d4e7;
-  --cyan:#35bdff;--cyan2:#55e6ff;--blue:#8fbaff;--teal:#31e8df;
-  --violet:#9c88ff;--green:#8ee737;--yellow:#ffd85b;
-}
+:root{color-scheme:dark;--page-bg:#04171d;--surface:#07242c;--surface-soft:#0b3038;--line:rgba(52,221,208,.38);--line-strong:rgba(64,201,255,.64);--title:#f2fbfc;--accent:#34ddd0;--accent-2:#40c9ff;--text:#dcecef;--muted:#a9c2c8;--title-bg:linear-gradient(180deg,rgba(12,98,107,.98),rgba(5,52,62,.98));--subtitle-bg:linear-gradient(180deg,rgba(8,44,53,.98),rgba(4,29,38,.98));--shadow:0 12px 30px rgba(0,0,0,.18);--media-bg:#030d13;--diagram-bg:#0c2a32;--brand-well:#f4f8f9}
+body.light-mode{color-scheme:light;--page-bg:#eef8f9;--surface:#fff;--surface-soft:#f3fafb;--line:rgba(0,127,131,.28);--line-strong:rgba(0,127,131,.54);--title:#17343d;--accent:#007f83;--accent-2:#087ca7;--text:#294650;--muted:#58737a;--title-bg:linear-gradient(180deg,#e2f4f5,#cde7e9);--subtitle-bg:linear-gradient(180deg,#f6fbfc,#e4f2f3);--shadow:0 10px 28px rgba(28,84,93,.08);--media-bg:#06151b;--diagram-bg:#e9f5f6;--brand-well:#f4f8f9}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#000814;font-family:"Segoe UI",Arial,sans-serif;color:var(--text)}
-body{
-  overflow-x:hidden;overflow-y:auto;
-  background:radial-gradient(circle at 50% 5%,rgba(12,38,61,.98) 0,rgba(7,20,33,.96) 35%,rgba(2,8,18,.99) 80%),#000814;
-}
-body::before{
-  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.52;
-  background-image:linear-gradient(rgba(91,160,219,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(91,160,219,.045) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-body::after{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(circle at 50% 48%,transparent 0 55%,rgba(0,0,0,.38) 100%);
-}
+html,body{margin:0;min-height:100%}
+body{overflow-x:hidden;background:var(--bg,var(--page-bg));color:var(--source-text,var(--text));font-family:"Open Sans","Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 img,svg{display:block;max-width:100%}
-.page-content{width:min(1920px,calc(100% - 28px));margin:0 auto;padding:16px 0 38px}
-.hero{text-align:center;padding:4px 24px 26px;margin-bottom:5px}
-.hero h1{margin:0;font-size:96px;letter-spacing:3.6px;line-height:.96;font-weight:900;text-transform:uppercase;text-shadow:0 2px 0 #0b1118,0 0 24px rgba(255,255,255,.30)}
-.hero h2{margin:16px 0 12px;color:#36bfff;font-size:58px;letter-spacing:.45px;font-weight:650;line-height:1.08;text-shadow:0 0 16px rgba(54,191,255,.30)}
-.hero p{max-width:1180px;margin:0 auto;color:#eef7ff;font-size:34px;line-height:1.34;text-shadow:0 1px 2px rgba(0,0,0,.76)}
-.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px auto 0;max-width:1420px}
-.principle{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:14px 12px;
-  border:1px solid rgba(114,178,226,.38);border-radius:12px;background:rgba(3,13,22,.44);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 0 12px rgba(30,145,230,.09);
-}
-.principle svg{width:64px;height:64px;color:#39d8ff;filter:drop-shadow(0 0 12px rgba(30,145,230,.3))}
-.principle strong{display:block;color:#fff;margin-top:10px;font-size:clamp(21px,1.45vw,28px);line-height:1.12;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.74);text-align:center}
-.principle span{display:block;margin-top:8px;text-align:center;color:#c8d9eb;font-size:14.5px;line-height:1.4}
-
-.page-section{margin-top:18px}
-.panel{min-width:0;height:auto;border:1.5px solid rgba(114,178,226,.82);border-radius:9px;
-  background:linear-gradient(180deg,rgba(8,24,39,.89),rgba(3,10,18,.81));
-  box-shadow:0 0 0 1px rgba(0,14,25,.9) inset,0 0 20px rgba(30,145,230,.14);overflow:hidden;
-}
-.panel-title{
-  margin:0;min-height:64px;padding:12px 18px;display:flex;align-items:center;justify-content:center;text-align:center;
-  text-transform:uppercase;letter-spacing:1px;font-weight:900;font-size:var(--skill-box-title-responsive, 40px);line-height:1.04;
-  background:linear-gradient(180deg,rgba(10,34,57,.95),rgba(5,18,30,.95));border-bottom:1px solid rgba(114,178,226,.48);
-  text-shadow:0 1px 0 #001,0 0 10px rgba(255,255,255,.24);
-}
-.panel-body{padding:18px;min-width:0;overflow:visible}
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
-.content-card{min-width:0;height:100%;display:flex;flex-direction:column;padding:14px;border:1px solid rgba(86,135,169,.82);border-radius:9px;background:radial-gradient(circle at 50% 0,rgba(18,58,88,.32),rgba(1,13,22,.76) 54%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 0 12px rgba(30,145,230,.07);overflow:visible}
-.card-title{
-  margin:-14px -14px 12px -14px;
-  min-height:52px;padding:10px 14px;display:flex;align-items:center;justify-content:center;text-align:center;
-  color:#f7fbff;text-transform:uppercase;font-size:clamp(21px,1.42vw,29px);font-weight:900;letter-spacing:.62px;line-height:1.08;
-  background:linear-gradient(180deg,rgba(9,31,51,.82),rgba(4,18,30,.76));border-bottom:1px solid rgba(97,157,200,.36);
-  border-radius:8px 8px 0 0;text-shadow:0 1px 0 #001,0 0 8px rgba(255,255,255,.18);
-  text-wrap:balance;white-space:normal;
-}
-.card-copy{padding:16px 2px 2px;overflow:visible;min-width:0;text-align:center}
-.card-copy h4{margin:0 0 9px;color:#36bfff;text-transform:uppercase;font-size:32px;line-height:1.18;font-weight:900;letter-spacing:.25px;text-shadow:0 1px 2px rgba(0,0,0,.65)}
-.card-copy p{margin:0;color:#e8f4ff;font-size:26px;line-height:1.38;white-space:normal;overflow:visible;overflow-wrap:break-word;text-shadow:0 1px 2px rgba(0,0,0,.66)}
-.logo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.logo-tile{
-  min-height:125px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(84,132,166,.58);
-  border-radius:9px;background:rgba(2,14,24,.6);padding:10px;text-align:center;
-}
-.logo-tile img{width:74px;height:70px;object-fit:contain;filter:drop-shadow(0 0 7px rgba(70,170,255,.16))}
-.logo-tile.invert img{filter:invert(1) drop-shadow(0 0 8px rgba(255,255,255,.20))}
-.logo-tile.bright img{filter:brightness(1.5) drop-shadow(0 0 6px rgba(255,170,30,.13))}
-.logo-tile svg{width:55px;height:55px;color:#8fbaff}
-.logo-tile span{margin-top:10px;color:#f3f8ff;font-size:var(--skill-body-responsive, 18px);line-height:1.1}
-.agentic-tools-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
-.agentic-tool{
-  min-height:115px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(84,132,166,.48);
-  border-radius:9px;background:rgba(2,12,21,.5);padding:10px;text-align:center;
-}
-.agentic-tool img{width:65px;height:57px;object-fit:contain;filter:drop-shadow(0 0 7px rgba(80,178,255,.14))}
-.agentic-tool.invert img{filter:invert(1) drop-shadow(0 0 8px rgba(255,255,255,.20))}
-.agentic-tool span{margin-top:8px;color:#f3f8ff;font-size:var(--skill-label-responsive, 14px);line-height:1.1;font-weight:600}
-.text-box{color:#dce8f5;font-size:var(--skill-body-responsive, 18px);line-height:1.45;padding:12px;background:rgba(0,0,0,.2);border-radius:8px;border:1px solid rgba(83,128,162,.3)}
-.text-box strong{color:#42cbff}
-.agentic-workflow-img{width:100%;height:auto;object-fit:contain;border:1px solid rgba(83,128,162,.48);border-radius:10px;background:radial-gradient(circle at 50% 50%,rgba(13,58,93,.18),rgba(1,8,14,.62));padding:10px}
-@media (max-width:1450px){.hero h1{font-size:72px}.hero h2{font-size:42px}.hero p{font-size:26px}.card-copy h4{font-size:27px}.card-copy p{font-size:23px}.logo-tile span{font-size:16px}.text-box{font-size:16px}}
-@media (max-width:800px){.page-content{width:min(100% - 24px,1600px)}.hero h1{font-size:44px}.hero h2{font-size:28px}.hero p{font-size:20px}.hero-principles{grid-template-columns:1fr;gap:12px}.card-copy p{font-size:17px}.card-copy h4{font-size:20px}.panel-title{font-size:24px}.logo-grid{grid-template-columns:repeat(2,1fr)}.agentic-tools-grid{grid-template-columns:repeat(3,1fr)}}
+.page-content{width:min(1880px,calc(100% - 28px));margin-inline:auto;padding-block:18px 42px;container-type:inline-size}
+.hero{padding:10px clamp(18px,4vw,72px) 28px;text-align:center}
+.hero-copy{max-width:none;min-width:0}
+.hero h1{margin:0;color:var(--source-page-title,var(--title));font-size:clamp(44px,5vw,88px);font-weight:850;letter-spacing:.045em;line-height:1;text-transform:uppercase}
+.hero h2{max-width:1500px;margin:16px auto 10px;color:var(--source-subtitle,var(--accent));font-size:clamp(26px,2.6vw,48px);font-weight:650;line-height:1.12}
+.hero-copy>p{max-width:1220px;margin:0 auto;color:var(--source-text,var(--text));font-size:clamp(17px,1.35vw,24px);line-height:1.58}
+.hero-signals{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.hero-signals li,.tag-list li{padding:7px 10px;border:1px solid var(--source-line,var(--line));border-radius:999px;background:var(--source-pill-bg,color-mix(in srgb,var(--accent) 13%,var(--surface)));color:var(--source-pill-text,var(--text));font-size:12px;font-weight:750;letter-spacing:.025em;line-height:1.2}
+.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1500px;margin:24px auto 0}
+.principle{min-width:0;padding:20px 18px;border:1px solid var(--source-line,var(--line));border-radius:12px;background:var(--panel,var(--surface));box-shadow:0 8px 22px rgba(0,0,0,.1);text-align:center}
+.principle-icon{width:62px;height:62px;margin-inline:auto;color:var(--source-accent-bright,var(--accent));filter:drop-shadow(0 2px 5px rgba(30,145,230,.24))}
+.principle strong{display:block;margin-top:10px;color:var(--source-header,var(--accent-2));font-size:clamp(18px,1.3vw,22px);font-weight:750;line-height:1.2}
+.principle>span{display:block;margin-top:7px;color:var(--source-text,var(--text));font-size:15px;line-height:1.5}
+.page-section{margin-top:18px;border:1px solid var(--source-line,var(--line));border-radius:12px;background:var(--panel,var(--surface));box-shadow:var(--shadow);overflow:hidden}
+.panel-title{margin:0;padding:14px 20px;background:var(--source-title-bg,var(--title-bg));color:var(--source-box-title,var(--title));font-size:clamp(24px,2.05vw,34px);font-weight:800;letter-spacing:.055em;line-height:1.16;text-align:center;text-transform:uppercase}
+.section-intro{max-width:1420px;margin:0 auto;padding:14px clamp(18px,2vw,32px) 0;color:var(--source-text,var(--text));font-size:clamp(16px,1.1vw,19px);line-height:1.52;text-align:center}
+.panel-body{padding:clamp(14px,1.55vw,24px);min-width:0}
+.media-frame{width:100%;aspect-ratio:var(--media-ratio);display:grid;place-items:center;overflow:hidden;border:1px solid var(--source-line,var(--line));border-radius:10px;background:var(--media-bg)}
+.media-frame img{width:100%;height:100%;object-fit:contain;object-position:center}
+.figure-note{margin:9px 0 0;color:var(--source-muted,var(--muted));font-size:13px;line-height:1.45;text-align:center}
+.workflow-chart{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;margin:0;padding:0;list-style:none}
+.workflow-node{position:relative;min-width:0;padding:0;border:1px solid var(--source-line,var(--line));border-top:3px solid var(--source-accent-bright,var(--accent));border-radius:10px;background:var(--panel2,var(--surface-soft));box-shadow:0 8px 18px color-mix(in srgb,var(--source-page-title,var(--title)) 8%,transparent);overflow:visible}
+.workflow-node:not(:last-child)::after{content:"";position:absolute;z-index:2;top:50%;right:-17px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:11px solid var(--source-accent-bright,var(--accent));transform:translateY(-50%)}
+.workflow-stage{position:relative;min-height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px 12px;border-bottom:1px solid var(--source-line,var(--line));border-radius:8px 8px 0 0;background:color-mix(in srgb,var(--source-accent-bright,var(--accent)) 9%,var(--panel,var(--surface)))}
+.workflow-icon{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--source-line-strong,var(--line-strong));border-radius:50%;color:var(--source-accent-bright,var(--accent));background:var(--panel,var(--surface))}
+.workflow-icon svg{width:29px;height:29px}
+.workflow-stage strong{margin-top:10px;color:var(--source-header,var(--accent-2));font-size:clamp(20px,1.35vw,24px);font-weight:820;line-height:1.12;text-transform:uppercase}
+.workflow-stage>span:last-child{margin-top:6px;color:var(--source-muted,var(--muted));font-size:12px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+.workflow-node p{margin:0;padding:13px;color:var(--source-text,var(--text));font-size:13px;line-height:1.48}
+.workflow-note{margin:12px 0 0;color:var(--source-muted,var(--muted));font-size:13px;line-height:1.4;text-align:center}
+.platform-layout{display:block}
+.copy-block h3,.devops-copy h3,.foundation-copy h3{margin:0;color:var(--source-header,var(--accent-2));font-size:clamp(22px,1.65vw,29px);font-weight:780;line-height:1.22}
+.copy-block p,.devops-copy p,.foundation-copy p{margin:11px 0 0;color:var(--source-text,var(--text));font-size:clamp(16px,1.08vw,19px);line-height:1.62}
+.platform-overview{display:grid;grid-template-columns:minmax(0,4fr) minmax(170px,1fr);gap:clamp(16px,2vw,30px);align-items:stretch}
+.copy-block{max-width:none}
+.platform-figure{margin:0;display:grid;place-items:center;min-width:0;min-height:0;transform:translateX(clamp(-30px,-1.6vw,-18px))}
+.platform-figure img{width:100%;height:100%;max-height:200px;object-fit:contain;filter:drop-shadow(0 12px 20px rgba(0,0,0,.18))}
+.capability-list{display:grid;gap:8px;margin:17px 0 0;padding:0;list-style:none}
+.capability-list li{position:relative;padding:10px 12px 10px 32px;border:1px solid var(--source-line,var(--line));border-radius:8px;background:var(--panel2,var(--surface-soft));color:var(--source-text,var(--text));font-size:14px;line-height:1.48}
+.capability-list li::before{content:"";position:absolute;left:12px;top:17px;width:7px;height:7px;border-radius:50%;background:var(--source-accent-bright,var(--accent));box-shadow:0 0 0 4px color-mix(in srgb,var(--source-accent-bright,var(--accent)) 16%,transparent)}
+.platform-details{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:16px;align-items:center;margin-top:14px}
+.platform-callouts{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}
+.tool-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));justify-content:center;gap:10px;margin:0}
+.tool-card,.logo-card{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--source-line,var(--line));border-radius:9px;background:var(--panel,var(--surface));text-align:center}
+.tool-card{aspect-ratio:1;padding:12px}
+.brand-mark{width:96px;height:92px;display:grid;place-items:center;border:1px solid rgba(24,73,81,.12);border-radius:12px;background:var(--brand-well);overflow:hidden}
+.brand-mark img{width:82px;height:78px;object-fit:contain}
+.brand-mark.wide img{width:66px;height:48px}
+.tool-card strong,.logo-card strong{display:block;margin-top:10px;color:var(--source-text,var(--text));font-size:13px;font-weight:750;line-height:1.25}
+.devops-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.4vw,38px);align-items:center}
+.devops-visual{min-width:0}
+.devops-figure{margin:0;min-width:0}
+.devops-media{background:var(--diagram-bg)}
+.devops-copy h3{margin-bottom:12px;text-align:left}
+.devops-copy h3+p{margin-top:0}
+.devops-callouts{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:16px}
+.practice-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:14px}
+.practice-card{min-width:0;padding:12px 10px;border:1px solid var(--source-line,var(--line));border-radius:9px;background:var(--panel2,var(--surface-soft));text-align:center}
+.practice-card svg{width:32px;height:32px;margin-inline:auto;color:var(--source-accent-bright,var(--accent))}
+.practice-card strong{display:block;margin-top:7px;color:var(--source-header,var(--accent-2));font-size:15px;font-weight:800;line-height:1.2}
+.practice-card p{margin:5px 0 0;color:var(--source-text,var(--text));font-size:13px;line-height:1.42}
+.foundation-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,496px);gap:24px;align-items:center}
+.logo-grid{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;justify-self:end}
+.logo-card{aspect-ratio:1;padding:0}
+.logo-card .brand-mark{width:82px;height:76px}
+.logo-card .brand-mark img{width:70px;height:64px}
+.logo-card .brand-mark.wide img{width:64px;height:42px}
+.logo-card strong{margin-top:6px}
+.terminal-mark{width:56px;height:50px;color:#2574a9}
+.foundation-copy{max-width:none;padding:0;text-align:left}
+.foundation-description{text-align:left}
+.foundation-description p:first-child{margin-top:14px}
+.foundation-copy .hero-signals{justify-content:flex-start;margin-top:14px}
+.github-mark img{filter:brightness(0) saturate(100%)}
+@container (max-width:1360px){.hero-principles{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow-chart{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:20px}.workflow-node:nth-child(3)::after{display:none}.platform-details{grid-template-columns:1fr}.platform-callouts{grid-template-columns:repeat(2,minmax(0,1fr))}.practice-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.tool-grid{grid-template-columns:repeat(5,minmax(110px,145px))}}
+@container (max-width:980px){.platform-overview,.devops-layout,.foundation-layout{grid-template-columns:1fr}.platform-figure{transform:none}.platform-figure img{width:min(52%,260px);height:auto}.workflow-chart{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow-node:nth-child(3)::after{display:block}.workflow-node:nth-child(even)::after{display:none}.tool-grid{grid-template-columns:repeat(3,minmax(120px,150px))}.practice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foundation-copy{max-width:760px}.logo-grid{width:min(100%,496px);justify-self:center}}
+@container (max-width:720px){.page-content{width:min(100% - 20px,1880px);padding-top:10px}.hero{padding:12px 16px 22px}.hero h1{font-size:clamp(38px,12vw,56px)}.hero-principles,.workflow-chart,.practice-grid{grid-template-columns:1fr}.workflow-node:not(:last-child)::after{display:block;top:auto;right:50%;bottom:-18px;border-top:11px solid var(--source-accent-bright,var(--accent));border-right:8px solid transparent;border-bottom:0;border-left:8px solid transparent;transform:translateX(50%)}.platform-callouts,.devops-callouts{grid-template-columns:1fr}.section-intro{padding:12px 14px 0;text-align:left}.panel-title{padding-inline:12px}.panel-body{padding:12px}.tool-grid{grid-template-columns:repeat(2,minmax(110px,145px))}.tool-card:last-child{grid-column:1/-1;justify-self:center;width:145px}.logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.figure-note,.workflow-note{text-align:left}}
+@container (max-width:420px){.hero-signals{display:grid}.hero-signals li{text-align:center}.tool-grid{grid-template-columns:repeat(2,minmax(100px,132px))}.tool-card:last-child{width:132px}.logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <div class="page-content">
-  <div class="hero">
-    <h1>Agentic Engineering &amp; DevOps</h1>
-    <h2>Orchestrating Autonomous and Scalable Infrastructure</h2>
-    <p>Empowering software delivery through robust CI/CD, containerization, cloud-native deployments, and AI-driven automation.</p>
-  </div>
-  
-  <div class="hero-principles">
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 1024 1024" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M919.113143 325.485714H104.813714v-67.803428h814.299429v-133.12a36.571429 36.571429 0 0 0-36.571429-36.571429H141.385143a36.571429 36.571429 0 0 0-36.571429 36.571429L103.862857 865.645714a36.425143 36.425143 0 0 0 36.571429 36.571429h673.865143a33.938286 33.938286 0 1 1 0 67.876571h-705.097143-0.146286a73.142857 73.142857 0 0 1-73.069714-73.142857L36.937143 93.184a73.142857 73.142857 0 0 1 73.142857-73.142857h803.693714a73.142857 73.142857 0 0 1 73.142857 73.142857v703.268571a33.938286 33.938286 0 0 1-67.803428 0V325.485714zM206.628571 215.844571a33.938286 33.938286 0 1 1 0-67.803428 33.938286 33.938286 0 0 1 0 67.803428z m203.556572 0a33.938286 33.938286 0 1 1 0-67.803428 33.938286 33.938286 0 0 1 0 67.803428z m-101.814857 0a33.938286 33.938286 0 1 1 0-67.803428 33.938286 33.938286 0 0 1 0 67.803428z m34.889143 250.148572c7.168-7.094857 26.112-7.094857 33.28 0 7.168 7.094857 7.168 29.476571 0 37.156571L265.874286 610.742857 373.76 712.923429c7.168 7.094857 8.118857 27.355429 0 35.328-9.801143 9.728-29.842286 8.192-36.571429 1.609142l-126.025142-125.805714a18.432 18.432 0 0 1 0-25.965714l132.096-132.096z m343.478857 0l132.096 132.096a18.432 18.432 0 0 1 0 26.038857l-126.098286 125.732571c-6.656 6.582857-25.6 10.752-36.571429 0-10.313143-10.24-7.094857-31.305143 0-38.4l108.397715-100.717714-111.908572-108.690286c-7.168-7.68-9.508571-26.624 0-36.059428 9.289143-9.142857 26.916571-7.094857 34.084572 0z m-135.68-26.331429c3.657143-9.508571 21.430857-15.506286 32.768-11.264 10.825143 4.022857 17.188571 19.017143 14.189714 28.525715l-119.808 329.947428c-3.657143 9.508571-20.699429 13.238857-30.281143 9.728-10.166857-3.584-21.211429-17.554286-17.554286-27.062857l120.685715-329.874286z" fill="currentColor" /></svg>
-      <strong>Agentic Platforms</strong>
-      <span>Enterprise orchestration of AI-driven coding environments.</span>
+  <header class="hero">
+    <div class="hero-copy">
+      <h1>Agentic Engineering &amp; DevOps</h1>
+      <h2>Building governed AI workflows and the delivery systems that make them dependable</h2>
+      <p>Designing the complete operating environment around AI-assisted engineering: structured context, reusable skills, tool orchestration, evaluation gates, secure execution, reproducible infrastructure, and production feedback. The objective is not autonomous activity for its own sake, but faster delivery with traceable decisions and verifiable quality.</p>
     </div>
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg fill="currentColor" width="800px" height="800px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title>development</title><path d="M8,4V8H4V4H8M2,2v8h8V2Z"/><path d="M18,7v4H14V7h4M12,5v8h8V5Z"/><path d="M8,16v4H4V16H8M2,14v8h8V14Z"/><path d="M22,10v6H16v6H10v8H30V10Zm-4,8h4v4H18ZM16,28H12V24h4Zm6,0H18V24h4Zm6,0H24V24h4Zm0-6H24V18h4Zm-4-6V12h4v4Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>
-      <strong>Core DevOps</strong>
-      <span>Infrastructure as Code, CI/CD, and robust access governance.</span>
+    <div class="hero-principles" aria-label="Agentic engineering and DevOps capabilities">
+      <article class="principle">
+        <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M9 8l-2 2 2 2m6-4 2 2-2 2m-4 2 2-8"/></svg>
+        <strong>Agentic Systems</strong>
+        <span>Tool-using workflows built around scoped context, explicit plans, and reviewable outputs.</span>
+      </article>
+      <article class="principle">
+        <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4 8-4Z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg>
+        <strong>Controlled Execution</strong>
+        <span>Isolated runtimes, permission boundaries, evaluation gates, and reviewable evidence.</span>
+      </article>
+      <article class="principle">
+        <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="6" rx="1"/><rect x="14" y="14" width="7" height="6" rx="1"/><path d="M10 7h2a5 5 0 0 1 5 5v2M7 10v3a4 4 0 0 0 4 4h3"/></svg>
+        <strong>Delivery Automation</strong>
+        <span>Versioned pipelines that build, test, package, release, and recover predictably.</span>
+      </article>
+      <article class="principle">
+        <svg class="principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 18.5h11a4 4 0 0 0 .4-8A6 6 0 0 0 6.4 9.2a4.7 4.7 0 0 0 .1 9.3Z"/><path d="M9 15h6m-3-3v6"/></svg>
+        <strong>Cloud Operations</strong>
+        <span>Secure, observable infrastructure designed for reliability, scalability, and controlled cost.</span>
+      </article>
     </div>
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg fill="currentColor" width="800px" height="800px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16,14c6.3,0,13-1.93,13-5.5v-3C29,1.93,22.3,0,16,0S3,1.93,3,5.5v3C3,12.07,9.7,14,16,14ZM5,5.5C5,4.07,9.29,2,16,2S27,4.07,27,5.5v3C27,9.93,22.71,12,16,12S5,9.93,5,8.5Z"/>
-    <path d="M16,32c6.3,0,13-1.93,13-5.5v-3a1,1,0,0,0-2,0v3c0,1.43-4.29,3.5-11,3.5S5,27.93,5,26.5v-3a1,1,0,0,0-2,0v3C3,30.07,9.7,32,16,32Z"/>
-    <path d="M16,23c6.3,0,13-1.93,13-5.5v-3a1,1,0,0,0-2,0v3c0,1.43-4.29,3.5-11,3.5S5,18.93,5,17.5v-3a1,1,0,0,0-2,0v3C3,21.07,9.7,23,16,23Z"/>
-</svg>
-      <strong>Containerization</strong>
-      <span>Reproducible, isolated runtime environments spanning the lifecycle.</span>
-    </div>
-    <div class="principle">
-      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722M6.28571 19C3.91878 19 2 17.1038 2 14.7647C2 12.4256 3.91878 10.5294 6.28571 10.5294C6.56983 10.5294 6.8475 10.5567 7.11616 10.6089M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M7.11616 10.6089C7.68059 10.7184 8.20528 10.9374 8.66667 11.2426M18.1551 8.01498C18.8381 8.24853 19.4623 8.60648 20 9.06141" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M14 19H12L10 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
-      <strong>Cloud Infrastructure</strong>
-      <span>Scalable deployment architectures on AWS and Google Cloud Platform.</span>
-    </div>
-  </div>
+  </header>
 
-  <section class="page-section">
-    <div class="panel">
-      <h2 class="panel-title">Agentic Engineering Development</h2>
-      <div class="panel-body grid-2">
-        <div class="content-card">
-          <h3 class="card-title">AI Stack &amp; Tooling</h3>
-          <div class="agentic-tools-grid" style="margin-top: auto;">
-            <div class="agentic-tool">
-              <img src="assets/claudecode-color.png" alt="Claude Code & Skills">
-              <span>Claude Code</span>
-            </div>
-            <div class="agentic-tool">
-              <img src="assets/codex-2048x2048.png" alt="OpenAI Codex">
-              <span>OpenAI Codex</span>
-            </div>
-            <div class="agentic-tool invert">
-              <img src="assets/cursor-ai.png" alt="Cursor">
-              <span>Cursor</span>
-            </div>
-            <div class="agentic-tool invert">
-              <img src="assets/github-copilot-icon.webp" alt="GitHub Copilot">
-              <span>GitHub Copilot</span>
-            </div>
-            <div class="agentic-tool">
-              <img src="assets/google_antigravity-logo_brandlogos.net_qu4jc-512x472.png" alt="Google Antigravity">
-              <span>Google Antigravity</span>
-            </div>
-          </div>
-          <div class="card-copy"><h4>Enterprise Rollout</h4><p>Agentic-platform deployment, secure access governance, RAG, reusable skills, and Nexus-Hub quality harnesses.</p></div>
-        </div>
-        <div class="content-card">
-          <h3 class="card-title">Agentic Workflow Loop</h3>
-          <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-            <img class="agentic-workflow-img" src="assets/agentic-workflow.png" alt="Agentic workflow loop: Context, Plan, Act, Observe, Reflect">
-          </div>
-          <div class="card-copy"><h4>Governed Execution</h4><p>Translating ambiguous engineering requirements into verified outputs with measurable reliability.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section">
-    <div class="panel">
-      <h2 class="panel-title">Core Development Tools</h2>
+  <main>
+    <section class="page-section" aria-labelledby="workflow-title">
+      <h2 class="panel-title" id="workflow-title">Governed Agentic Workflow</h2>
+      <p class="section-intro">A useful engineering agent operates as a closed-loop system. Each stage narrows ambiguity, produces an inspectable artifact, and creates evidence for the next decision instead of treating code generation as the entire workflow.</p>
       <div class="panel-body">
-        <div class="card-copy" style="max-width: 1200px; margin: 0 auto 24px; padding: 0;"><h4>Cross-Platform Foundations</h4><p>Production-grade Python, Git, command-line automation, cloud services, and internal tooling ecosystems.</p></div>
-        <div class="logo-grid">
-          <div class="logo-tile">
-            <img src="assets/Linux-Logo.png" alt="Linux">
-            <span>Linux</span>
+        <ol class="workflow-chart">
+          <li class="workflow-node"><div class="workflow-stage"><span class="workflow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v13H9l-4 3V4Z"/><path d="M8 8h8M8 12h5"/></svg></span><strong>Describe</strong><span>Understand</span></div><p>Frame the user decision, constraints, risk boundaries, target environment, and measurable definition of done.</p></li>
+          <li class="workflow-node"><div class="workflow-stage"><span class="workflow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="5"/><path d="m14 14 5 5m-11-9 1.5 1.5L12 8.8"/></svg></span><strong>Review</strong><span>Evaluate</span></div><p>Inspect the repository, dependencies, current behavior, prior decisions, and conflicting requirements before selecting an approach.</p></li>
+          <li class="workflow-node"><div class="workflow-stage"><span class="workflow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8m7-8-5 8"/></svg></span><strong>Plan</strong><span>Decompose</span></div><p>Break the change into bounded steps, identify irreversible actions, and choose verification proportional to technical risk.</p></li>
+          <li class="workflow-node"><div class="workflow-stage"><span class="workflow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-5 2 3-14"/></svg></span><strong>Implement</strong><span>Build</span></div><p>Use scoped tools and reusable skills to make minimal, traceable changes while preserving unrelated user work.</p></li>
+          <li class="workflow-node"><div class="workflow-stage"><span class="workflow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v5c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><strong>Test</strong><span>Harden</span></div><p>Combine static checks, targeted tests, browser evidence, and adversarial review to challenge the result before release.</p></li>
+          <li class="workflow-node"><div class="workflow-stage"><span class="workflow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 8A7 7 0 0 1 18 6l2 2M17.9 16A7 7 0 0 1 6 18l-2-2"/></svg></span><strong>Update</strong><span>Improve</span></div><p>Regenerate derived artifacts, record progress and known gaps, and leave stronger context for the next contributor.</p></li>
+        </ol>
+        <p class="workflow-note">The loop connects intent, implementation, verification, and retained project context so each iteration starts from a stronger evidence base.</p>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="platform-title">
+      <h2 class="panel-title" id="platform-title">Agentic Platforms &amp; Engineering Governance</h2>
+      <div class="panel-body platform-layout">
+        <div class="platform-overview">
+          <div class="copy-block">
+            <h3>One operating model across multiple assistants</h3>
+            <p>Different coding agents excel at different interaction patterns, but production adoption depends on a shared control model: trusted context, explicit access policy, repeatable skills, bounded tool use, and comparable evaluation.</p>
+            <p>Platform engineering turns individual productivity tools into an organizational capability by standardizing how agents discover instructions, interact with repositories, request authority, and prove completion.</p>
           </div>
-          <div class="logo-tile">
-            <img src="assets/git-icon-logo-png-transparent.png" alt="Git">
-            <span>Git</span>
-          </div>
-          <div class="logo-tile">
-            <img src="assets/docker-logo-png-transparent.png" alt="Docker">
-            <span>Docker</span>
-          </div>
-          <div class="logo-tile invert">
-            <img src="assets/github-icon-9.png" alt="GitHub">
-            <span>GitHub</span>
-          </div>
-          <div class="logo-tile bright">
-            <img src="assets/Amazon_Web_Services_Logo.svg.webp" alt="AWS">
-            <span>AWS</span>
-          </div>
-          <div class="logo-tile">
-            <img src="assets/GCP.png" alt="Google Cloud">
-            <span>Google Cloud</span>
-          </div>
-          <div class="logo-tile">
-            <img src="assets/atlassian.png" alt="Atlassian">
-            <span>Atlassian</span>
-          </div>
-          <div class="logo-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-            <span>CLI & Scripting</span>
+          <figure class="platform-figure">
+            <img src="../../images/agentic-devops/agentic-engineering.png" alt="Agentic engineering assistant representing governed coding-agent operations" loading="lazy">
+          </figure>
+        </div>
+        <div class="platform-details">
+          <ul class="capability-list platform-callouts">
+            <li><strong>Context architecture:</strong> repository instructions, progressive disclosure, reusable skills, and compact task handoffs.</li>
+            <li><strong>Access governance:</strong> least-privilege tools, approval boundaries, secret protection, and auditable external actions.</li>
+            <li><strong>Quality systems:</strong> acceptance criteria, deterministic checks, browser evidence, and adversarial verification.</li>
+            <li><strong>Adoption:</strong> common workflows, templates, usage guidance, and measurable reliability across teams.</li>
+          </ul>
+          <div class="tool-grid" aria-label="Agentic engineering platforms">
+            <article class="tool-card"><div class="brand-mark"><img src="../../images/agentic-devops/claudecode-color.png" alt="Claude Code logo" loading="lazy"></div><strong>Claude Code</strong></article>
+            <article class="tool-card"><div class="brand-mark"><img src="../../images/agentic-devops/codex-2048x2048.png" alt="ChatGPT Codex logo" loading="lazy"></div><strong>ChatGPT Codex</strong></article>
+            <article class="tool-card"><div class="brand-mark"><img src="../../images/agentic-devops/cursor-ai.png" alt="Cursor logo" loading="lazy"></div><strong>Cursor</strong></article>
+            <article class="tool-card"><div class="brand-mark"><img src="../../images/agentic-devops/github-copilot-icon.webp" alt="GitHub Copilot logo" loading="lazy"></div><strong>GitHub Copilot</strong></article>
+            <article class="tool-card"><div class="brand-mark"><img src="../../images/agentic-devops/google_antigravity-logo_brandlogos.net_qu4jc-512x472.png" alt="Antigravity logo" loading="lazy"></div><strong>Antigravity</strong></article>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="page-section" aria-labelledby="devops-title">
+      <h2 class="panel-title" id="devops-title">DevOps Delivery &amp; Cloud Operations</h2>
+      <div class="panel-body">
+        <div class="devops-layout">
+          <div class="devops-visual">
+            <figure class="devops-figure">
+              <div class="media-frame devops-media" style="--media-ratio:1517 / 400"><img src="../../images/agentic-devops/devops.png" alt="Infrastructure as code flowing through continuous DevOps automation into cloud infrastructure" loading="lazy"></div>
+              <figcaption class="figure-note">Versioned infrastructure and delivery automation connect repository changes to observable cloud services.</figcaption>
+            </figure>
+          </div>
+          <div class="devops-copy">
+            <h3>From repository state to operating system</h3>
+            <p>Agentic development only creates durable value when changes move through a reliable software-delivery system. Infrastructure definitions, automated validation, release controls, and operational feedback make generated work reproducible and safe to evolve.</p>
+            <p>The delivery path is treated as a product: declarative configuration, isolated builds, policy-aware promotion, health checks, rollback paths, and telemetry are designed together rather than added after deployment.</p>
+          </div>
+        </div>
+        <ul class="capability-list devops-callouts">
+          <li><strong>Infrastructure as code:</strong> reviewable environments, repeatable provisioning, and controlled configuration change.</li>
+          <li><strong>Continuous delivery:</strong> automated build, test, security, packaging, and release gates.</li>
+          <li><strong>Runtime assurance:</strong> container isolation, observability, incident response, and recovery evidence.</li>
+        </ul>
+        <div class="practice-grid">
+          <article class="practice-card"><svg viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="129" cy="96" r="48"/><circle cx="129" cy="416" r="48"/><line x1="129" y1="144" x2="129" y2="368"/><circle cx="385" cy="288" r="48"/><path d="M129 144c0 96 112 144 208 144"/></svg><strong>Source &amp; Change Control</strong><p>Branching, review, traceability, and reproducible commits preserve intent from request through release.</p></article>
+          <article class="practice-card"><svg viewBox="0 0 36 36" fill="currentColor" aria-hidden="true"><path d="M23.53 19.81a7.45 7.45 0 0 1-1.65-.18 10.48 10.48 0 0 1 .72 2.13c.3 0 .61 0 .93 0a9.52 9.52 0 0 0 3-.49l-.93-1.81a7.67 7.67 0 0 1-2.07.35Z"/><path d="m18.36 17.87-.36-.38a7.4 7.4 0 0 1-2.2-5.92 7.31 7.31 0 0 1 1.54-4L17.26 9a1 1 0 0 0 .91 1h.09a1 1 0 0 0 1-.91L19.6 5a1 1 0 0 0-.29-.79 1 1 0 0 0-.79-.21l-4.09.35a1 1 0 0 0 .17 2l1.29-.11a9.45 9.45 0 0 0-2.05 5.32 9.28 9.28 0 0 0 2.67 7.26l.31.37a7.33 7.33 0 0 1 2.06 4.91 7.39 7.39 0 0 1-.26 2.47l1.8.91a8.76 8.76 0 0 0 .45-3.51 9.28 9.28 0 0 0-2.51-6.1Z"/><path d="M32.4 17.91 31.19 18a9.65 9.65 0 0 0-7.66-15.55 9.33 9.33 0 0 0-3 .49l.91 1.8a7.67 7.67 0 0 1 9.76 7.39 7.58 7.58 0 0 1-1.65 4.72l.1-1.54a1 1 0 1 0-2-.13l-.28 4.08a1 1 0 0 0 .31.78.94.94 0 0 0 .69.28h.1l4.08-.42a1 1 0 0 0 .9-1.1 1 1 0 0 0-1.05-.89Z"/><path d="M4.07 20.44h.08l4.09-.35a1 1 0 1 0-.17-2l-1.39.12a7.63 7.63 0 0 1 4.52-1.49 7.9 7.9 0 0 1 1.63.18 10.23 10.23 0 0 1-.71-2.13c-.3 0-.61 0-.92 0a9.66 9.66 0 0 0-5.9 2l.12-1.31a1 1 0 0 0-.92-1.08 1 1 0 0 0-1.08.91l-.35 4.08a1 1 0 0 0 1 1.08Z"/><path d="m18.42 28.23-4.09.27a1 1 0 0 0 .13 2l1.54-.11a7.71 7.71 0 0 1-12.54-6 7.6 7.6 0 0 1 .29-2L2 21.46a9.59 9.59 0 0 0-.47 2.95A9.7 9.7 0 0 0 17.19 32l-.12 1.18a1 1 0 0 0 .89 1.1h.11a1 1 0 0 0 1-.9l.42-4.06a1 1 0 0 0-1.06-1.1Z"/></svg><strong>CI/CD Orchestration</strong><p>Fast feedback, layered quality gates, artifact promotion, and automated rollback reduce release risk.</p></article>
+          <article class="practice-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg><strong>Containers &amp; Environments</strong><p>Immutable images and environment parity make local, CI, and production behavior easier to compare.</p></article>
+          <article class="practice-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5m0 14h16"/><path d="m7 15 4-4 3 2 5-6"/></svg><strong>Observability &amp; SRE</strong><p>Metrics, logs, traces, SLOs, and incident learning connect runtime behavior to engineering priorities.</p></article>
+          <article class="practice-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v5c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"/><path d="M9 12h6M12 9v6"/></svg><strong>Security &amp; Policy</strong><p>Identity, secrets, dependency controls, scanning, and deployment policy are integrated into the path to production.</p></article>
+          <article class="practice-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 6.5C17 4.6 15 3 12.5 3S8 4.3 8 6.5 10 10 12.5 10 17 11.6 17 14s-2 4-4.5 4S8 16.4 8 14.5"/></svg><strong>Reliability &amp; Cost</strong><p>Capacity, scaling, failure modes, and spending constraints are evaluated as part of architecture rather than after launch.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="foundation-title">
+      <h2 class="panel-title" id="foundation-title">Technology Foundation</h2>
+      <div class="panel-body foundation-layout">
+        <div class="foundation-copy">
+          <h3>Cross-platform foundations for repeatable engineering</h3>
+          <div class="foundation-description">
+            <p>Production delivery depends on fluency below the agent interface. Linux operations, version control, shell automation, containers, cloud services, collaborative planning, and repository hosting provide the substrate agents act upon.</p>
+            <p>These tools are connected through conventions and automation so local development, continuous integration, and production operations share the same assumptions wherever possible.</p>
+          </div>
+          <ul class="tag-list hero-signals" aria-label="Foundation practices"><li>Python automation</li><li>Shell workflows</li><li>Cloud-native delivery</li><li>Platform enablement</li></ul>
+        </div>
+        <div class="logo-grid" aria-label="Core development and infrastructure tools">
+          <article class="logo-card"><div class="brand-mark"><img src="../../images/agentic-devops/Linux-Logo.png" alt="Linux logo" loading="lazy"></div><strong>Linux</strong></article>
+          <article class="logo-card"><div class="brand-mark"><img src="../../images/agentic-devops/git-icon-logo-png-transparent.png" alt="Git logo" loading="lazy"></div><strong>Git</strong></article>
+          <article class="logo-card"><div class="brand-mark github-mark"><img src="../../images/agentic-devops/github-icon-9.png" alt="GitHub logo" loading="lazy"></div><strong>GitHub</strong></article>
+          <article class="logo-card"><div class="brand-mark"><img src="../../images/agentic-devops/atlassian.png" alt="Atlassian logo" loading="lazy"></div><strong>Atlassian</strong></article>
+          <article class="logo-card"><div class="brand-mark"><svg class="terminal-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 7 5 5-5 5M12 17h7"/></svg></div><strong>CLI &amp; Scripting</strong></article>
+          <article class="logo-card"><div class="brand-mark wide"><img src="../../images/agentic-devops/docker-logo-png-transparent.png" alt="Docker logo" loading="lazy"></div><strong>Docker</strong></article>
+          <article class="logo-card"><div class="brand-mark wide"><img src="../../images/agentic-devops/Amazon_Web_Services_Logo.svg.webp" alt="Amazon Web Services logo" loading="lazy"></div><strong>AWS</strong></article>
+          <article class="logo-card"><div class="brand-mark wide"><img src="../../images/agentic-devops/GCP.png" alt="Google Cloud Platform logo" loading="lazy"></div><strong>GCP</strong></article>
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
 </body>
 </html>
-
-The above content shows the entire, complete file contents of the requested file.

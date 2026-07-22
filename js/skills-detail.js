@@ -396,6 +396,7 @@ sourceIntegrationCss = [
         host.dataset.theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
         applySourceDesignTokens(host);
         var defaultPageTitleSize = host.style.getPropertyValue("--skill-page-title-size");
+        var defaultSubtitleSize = host.style.getPropertyValue("--skill-subtitle-size");
         host.setAttribute("aria-label", source.label + " detailed portfolio");
         var shadow = host.attachShadow({ mode: "open" });
         var style = document.createElement("style");
@@ -437,6 +438,10 @@ sourceIntegrationCss = [
                 }
                 if (host.dataset.skillSource === "deep-learning") {
                     host.style.setProperty("--skill-page-title-size", availableWidth <= 520 ? "34px" : defaultPageTitleSize);
+                }
+                if (host.dataset.skillSource === "agentic-engineering-devops") {
+                    host.style.setProperty("--skill-page-title-size", availableWidth <= 520 ? "32px" : defaultPageTitleSize);
+                    host.style.setProperty("--skill-subtitle-size", availableWidth <= 520 ? "26px" : defaultSubtitleSize);
                 }
                 var documentHeight = measureSourceHeight();
                 if (source.responsive && source.mobileFluid !== false && availableWidth <= 800) {
