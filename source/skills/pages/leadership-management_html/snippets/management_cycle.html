@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Management Cycle</title>
+<style>
+  :root{--cyan:#58dfff;--white:#effaff}
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;background:transparent;display:grid;place-items:center;font-family:"Segoe UI",Arial,sans-serif;color:var(--white)}
+  .artboard{width:363px;height:420px;position:relative;overflow:visible;background:transparent}
+  .box{position:absolute;border:1.25px solid rgba(106,224,255,.84);border-radius:9px;background:linear-gradient(180deg,rgba(12,37,58,.74),rgba(4,21,34,.72)),radial-gradient(circle at 50% 0%,rgba(84,226,255,.23),transparent 72%);box-shadow:0 0 2px rgba(150,240,255,.95) inset,0 0 12px rgba(49,204,255,.75),0 0 29px rgba(11,139,211,.37);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5;overflow:hidden}
+  .box img{object-fit:contain;filter:drop-shadow(0 0 6px rgba(77,226,255,.65));flex:none}
+  .title{font-weight:850;font-size:20px;letter-spacing:0;line-height:1.02;color:#fff;text-shadow:0 1px 3px #000;margin-top:4px}
+  .sub{color:#fff;font-size:10px;line-height:1.08;margin-top:3px;font-weight:500;text-shadow:0 1px 2px #000}
+  .listen{left:105px;top:38px;width:152px;height:92px}.listen .row{display:flex;align-items:center;gap:10px;transform:translateY(-2px)}.listen img{width:50px;height:50px}.listen .title{font-size:23px;margin:0;text-align:left}.listen .sub{text-align:left;margin-top:4px}
+  .reflect{left:7px;top:150px;width:109px;height:121px}.reflect img{width:49px;height:49px}
+  .plan{right:7px;top:150px;width:109px;height:121px}.plan img{width:50px;height:50px}
+  .deliver{left:54px;top:293px;width:105px;height:116px}.deliver img{width:50px;height:50px}
+  .enable{right:54px;top:293px;width:105px;height:116px}.enable img{width:48px;height:48px}
+  .cycle{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+  .bottom-arrow-foreground{position:absolute;left:159px;top:339px;width:46px;height:28px;z-index:200;pointer-events:none;overflow:visible;filter:drop-shadow(0 0 3px rgba(150,240,255,.95)) drop-shadow(0 0 8px rgba(49,204,255,.85)) drop-shadow(0 0 16px rgba(11,139,211,.45))}
+  .cycle-compass{position:absolute;left:50%;top:50%;width:118px;height:118px;transform:translate(-50%,-40%);z-index:4;overflow:visible;filter:drop-shadow(0 0 5px rgba(149,235,255,.95)) drop-shadow(0 0 12px rgba(49,204,255,.72)) drop-shadow(0 0 24px rgba(0,157,255,.35))}
+  .cycle-compass .ring-outer{fill:none;stroke:#d7f8ff;stroke-width:1.25;opacity:.98}
+  .cycle-compass .ring-main{fill:none;stroke:#49d9ff;stroke-width:2.45}
+  .cycle-compass .ring-inner{fill:none;stroke:#87efff;stroke-width:1.35;opacity:.92}
+  .cycle-compass .ring-soft{fill:rgba(25,170,255,.11);stroke:#2ccaff;stroke-width:.75;opacity:.55}
+  .cycle-compass .node{fill:#0d5d83;stroke:#e4fbff;stroke-width:1.4}
+  .cycle-compass .star-long{fill:rgba(14,213,255,.42);stroke:#eafcff;stroke-width:1.45;stroke-linejoin:round}
+  .cycle-compass .star-short{fill:rgba(255,255,255,.82);stroke:#76eeff;stroke-width:1.05;stroke-linejoin:round}
+  .cycle-compass .axis{stroke:#74eaff;stroke-width:.7;opacity:.65}
+  .cycle-compass .core{fill:#08cfff;stroke:#f6fdff;stroke-width:1.45}
+  svg{overflow:visible}
+</style>
+</head>
+<body>
+<main class="artboard" role="img" aria-label="Management cycle diagram">
+  <svg class="cycle" viewBox="0 0 363 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><marker id="arrow" markerWidth="9" markerHeight="9" refX="5.6" refY="4.5" orient="auto" markerUnits="strokeWidth"><path d="M1 1 L8 4.5 L1 8" stroke="#59E0FF" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" fill="none" /></marker></defs>
+    <path d="M55 135 C58 114 71 99 90 91" stroke="#57DFFF" stroke-width="1.65" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)" opacity=".95"/>
+    <path d="M273 91 C292 99 305 114 308 135" stroke="#57DFFF" stroke-width="1.65" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)" opacity=".95"/>
+    <path d="M345 281 C342 297 334 311 321 321" stroke="#57DFFF" stroke-width="1.65" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)" opacity=".95"/>
+    <path d="M42 321 C29 311 21 297 18 281" stroke="#57DFFF" stroke-width="1.65" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)" opacity=".95"/>
+  </svg>
+  <section class="box listen"><div class="row"><img src="../assets/bp_culture.png" alt=""><div><div class="title">Listen</div><div class="sub">Gather input</div></div></div></section>
+  <section class="box reflect"><img src="../assets/bp_knowledge.png" alt=""><div class="title">Reflect</div><div class="sub">Learn &amp; improve</div></section>
+  <section class="box plan"><img src="../assets/bp_exec.png" alt=""><div class="title">Plan</div><div class="sub">Set direction</div></section>
+  <section class="box deliver"><img src="../assets/bp_vision.png" alt=""><div class="title">Deliver</div><div class="sub">Coordinate execution</div></section>
+  <section class="box enable"><img src="../assets/bp_owner.png" alt=""><div class="title">Enable</div><div class="sub">Remove blockers</div></section>
+  <svg class="bottom-arrow-foreground" viewBox="0 0 46 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><marker id="bottom-arrowhead" markerWidth="8" markerHeight="8" refX="4.8" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1 1 L7 4 L1 7" stroke="#59E0FF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" fill="none"/></marker></defs><path d="M35 14 H11" stroke="#57DFFF" stroke-width="2.1" stroke-linecap="round" marker-end="url(#bottom-arrowhead)" opacity=".98"/></svg>
+  <svg class="cycle-compass" viewBox="0 0 118 118" aria-hidden="true">
+    <defs>
+      <radialGradient id="compassGlow" cx="50%" cy="50%" r="54%">
+        <stop offset="0" stop-color="#36d9ff" stop-opacity=".38"/>
+        <stop offset=".55" stop-color="#0b6fa8" stop-opacity=".16"/>
+        <stop offset="1" stop-color="#031625" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle cx="59" cy="59" r="55" fill="url(#compassGlow)"/>
+    <circle class="ring-outer" cx="59" cy="59" r="49"/>
+    <circle class="ring-main" cx="59" cy="59" r="42"/>
+    <circle class="ring-inner" cx="59" cy="59" r="36"/>
+    <circle class="ring-soft" cx="59" cy="59" r="27"/>
+    <line class="axis" x1="59" y1="9" x2="59" y2="109"/>
+    <line class="axis" x1="9" y1="59" x2="109" y2="59"/>
+    <circle class="node" cx="59" cy="9" r="4.4"/>
+    <circle class="node" cx="109" cy="59" r="4.4"/>
+    <circle class="node" cx="59" cy="109" r="4.4"/>
+    <circle class="node" cx="9" cy="59" r="4.4"/>
+    <path class="star-long" d="M59 16 L66 49 L102 59 L66 69 L59 102 L52 69 L16 59 L52 49 Z"/>
+    <path class="star-short" d="M59 32 L63.5 54.5 L86 59 L63.5 63.5 L59 86 L54.5 63.5 L32 59 L54.5 54.5 Z"/>
+    <circle class="core" cx="59" cy="59" r="7"/>
+  </svg>
+</main>
+</body>
+</html>

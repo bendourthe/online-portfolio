@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Path Workflow</title>
+  <style>
+    :root{
+      --bg:#03131c;
+      --panel:#0a1e28;
+      --border:#1a4555;
+      --cyan:#56f2ea;
+      --arrow:#39eaf3;
+      --text:#eaf4f6;
+      --muted:#8fa4ad;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #020d14;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 12px;
+    }
+
+    .canvas {
+      width: 1099px;
+      height: 166px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 17% 22%, rgba(43, 160, 166, 0.075) 0, transparent 28%),
+        radial-gradient(circle at 82% 24%, rgba(43, 160, 166, 0.06) 0, transparent 24%),
+        linear-gradient(180deg, #03131b 0%, #041720 100%);
+      padding: 18px 14px 20px 14px;
+    }
+
+    .canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.40;
+      background-image:
+        radial-gradient(circle at 27.2% 52%, rgba(69,240,244,.27) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 54.0% 61%, rgba(69,240,244,.22) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 63.5% 77%, rgba(69,240,244,.18) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 82.7% 24%, rgba(69,240,244,.26) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 87.8% 93%, rgba(69,240,244,.18) 0 1px, transparent 1.6px);
+    }
+
+    .title {
+      position: relative;
+      margin: 0 0 17px 0;
+      font-size: 34px;
+      line-height: 1.05;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.035em;
+    }
+
+    .workflow {
+      position: relative;
+      display: grid;
+      grid-template-columns:
+        148px 23px
+        148px 23px
+        148px 23px
+        148px 23px
+        148px 23px
+        148px;
+      align-items: center;
+      column-gap: 12px;
+      width: fit-content;
+    }
+
+    .step {
+      height: 76px;
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(12, 31, 40, 0.96), rgba(7, 25, 33, 0.98));
+      border: 1.35px solid rgba(29, 78, 94, 0.92);
+      box-shadow:
+        inset 0 0 0 1px rgba(92, 230, 232, 0.035),
+        0 0 0 1px rgba(0, 10, 16, 0.28);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5px 8px 5px;
+    }
+
+    .command {
+      margin: 0 0 2px 0;
+      color: var(--cyan);
+      font-size: 30px;
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      transform: scaleX(0.86);
+      transform-origin: center center;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 0.95;
+      font-weight: 500;
+      white-space: nowrap;
+      transform: scaleX(0.9);
+      transform-origin: center center;
+      display: inline-block;
+    }
+
+    .arrow {
+      width: 0;
+      height: 0;
+      border-top: 5.5px solid transparent;
+      border-bottom: 5.5px solid transparent;
+      border-left: 10px solid var(--arrow);
+      justify-self: center;
+      filter: drop-shadow(0 0 4px rgba(57,234,243,.22));
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas" role="img" aria-label="Workflow titled The golden path, end to end. Steps: describe map it, review verdict, plan plus compare, implement phase x N, test plus review, update release.">
+    <h1 class="title">The golden path, end to end</h1>
+
+    <div class="workflow">
+      <div class="step">
+        <div class="command">/describe</div>
+        <div class="sub">map it</div>
+      </div>
+      <div class="arrow"></div>
+
+      <div class="step">
+        <div class="command">/review</div>
+        <div class="sub">verdict</div>
+      </div>
+      <div class="arrow"></div>
+
+      <div class="step">
+        <div class="command">/plan</div>
+        <div class="sub">+/compare</div>
+      </div>
+      <div class="arrow"></div>
+
+      <div class="step">
+        <div class="command">/implement</div>
+        <div class="sub">phase x N</div>
+      </div>
+      <div class="arrow"></div>
+
+      <div class="step">
+        <div class="command">/test</div>
+        <div class="sub">+/review</div>
+      </div>
+      <div class="arrow"></div>
+
+      <div class="step">
+        <div class="command">/update</div>
+        <div class="sub">release</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -51,14 +51,10 @@
 <body>
     <canvas id="constellation"></canvas>
     <script>
-        // Immediate Theme Check to prevent flicker
         (function () {
+            var savedTheme = window.localStorage.getItem("portfolio-theme");
             var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
-                document.body.classList.add("dark-mode");
-            } else {
-                document.body.classList.remove("dark-mode");
-            }
+            document.body.classList.toggle("dark-mode", savedTheme ? savedTheme === "dark" : prefersDark);
         })();
     </script>
 
@@ -113,13 +109,10 @@
                     <a class="nav-link" href="#about">About <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#career">Career</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="#skills">Skills</a>
                 </li>
                 <li class="nav-item nav-projects">
                     <a class="nav-link" href="#featured-projects" id="projectsMenu" aria-haspopup="true">Projects</a>
@@ -129,6 +122,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
             <div class="theme-switch-wrapper ml-auto d-flex align-items-center">
@@ -155,7 +151,7 @@
 
                 <div class="col-md-7">
 
-                    <h4>About me</h4>
+                    <h4 class="section-title">ABOUT</h4>
 
                     <p>I am an AI Strategist and Machine Learning Leader with over 10 years of expertise navigating the
                         complexities of digital health, MedTech, and regulated environments. I specialize in building
@@ -201,159 +197,13 @@
 
     </div>
 
-    <div id="skills" class="skillsSection section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2>SKILL SET & EXPERTISE</h2>
-                    <p>A comprehensive overview of my leadership & technical expertise, domain knowledge, and management
-                        capabilities
-                        across artificial intelligence, engineering, and product development.</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-
-                <!-- Engineering & Domains -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category-card">
-                        <h4>Engineering & Domains</h4>
-                        <p class="skill-expertise-text">Extensive background in regulated MedTech environments with a
-                            focus on digital health, medical imaging, biomechanical engineering, and patient-specific
-                            modeling.</p>
-                        <ul>
-                            <li>MedTech</li>
-                            <li>Digital Health</li>
-                            <li>Biomechanics</li>
-                            <li>Medical Imaging</li>
-                            <li>Orthopedics</li>
-                            <li>Heart Failure</li>
-                            <li>Patient Specific Modeling</li>
-                            <li>Remote Monitoring</li>
-                            <li>Sensing</li>
-                            <li>Cross-Platform Harness Engineering</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- AI & Machine Learning -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category-card">
-                        <h4>AI & Machine Learning</h4>
-                        <p class="skill-expertise-text">Extensive research and implementation expertise ranging from
-                            traditional machine & deep learning to cutting-edge agentic AI systems.</p>
-                        <ul>
-                            <li>Deep Learning</li>
-                            <li>Computer Vision</li>
-                            <li>Signal Processing</li>
-                            <li>Generative AI</li>
-                            <li>LLMs & RAG</li>
-                            <li>Agentic Systems (Autonomous & Multi-Agent)</li>
-                            <li>Prompt & Context Engineering</li>
-                            <li>Customized Agentic Skills Development</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Data Science -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category-card">
-                        <h4>Data Science</h4>
-                        <p class="skill-expertise-text">Specialized in robust data management, processing & analysis,
-                            statistical modeling, and handling complex multimodal datasets.</p>
-                        <ul>
-                            <li>Feature Engineering</li>
-                            <li>Statistical Analysis</li>
-                            <li>Data Interpolation</li>
-                            <li>Database Management</li>
-                            <li>Semantic Search</li>
-                            <li>Big Data Analytics</li>
-                            <li>Data Platform Development & Maintenance</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Programming Languages -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category-card">
-                        <h4>Programming Languages</h4>
-                        <p class="skill-expertise-text">Expert-level proficiency in core coding languages, with
-                            extensive production deployment experience.</p>
-                        <ul>
-                            <li>Python</li>
-                            <li>Javascript</li>
-                            <li>Java</li>
-                            <li>C++</li>
-                            <li>MATLAB</li>
-                            <li>SQL</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Tools & DevOps -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category-card">
-                        <h4>Tools & DevOps</h4>
-                        <p class="skill-expertise-text">Mastery of modern development stacks, cloud infrastructure, and
-                            advanced AI-assisted development workflows.</p>
-                        <ul>
-                            <li>Linux</li>
-                            <li>Git</li>
-                            <li>Claude Code & Claude Skills</li>
-                            <li>Google Antigravity</li>
-                            <li>GitHub Copilot</li>
-                            <li>Cursor & Windsurf</li>
-                            <li>Docker</li>
-                            <li>Cloud (AWS/GCP)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Communication & Writing -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category-card">
-                        <h4>Writing & Communication</h4>
-                        <p class="skill-expertise-text">Proven ability to translate complex technical concepts into
-                            clear documentation, presentations, and training for diverse audiences.</p>
-                        <ul>
-                            <li>Technical Documentation</li>
-                            <li>Scientific Reports & Articles</li>
-                            <li>Presentations (General to Technical)</li>
-                            <li>Training Programs</li>
-                            <li>Public Speaking</li>
-                            <li>Workshop Development</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Leadership & Management Skills -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category-card">
-                        <h4>Leadership & Management Skills</h4>
-                        <p class="skill-expertise-text">Experienced leader capable of driving R&D strategy, mentoring
-                            engineering teams, and fostering cross-functional collaboration.</p>
-                        <ul>
-                            <li>Team Leading</li>
-                            <li>Project Management</li>
-                            <li>Product Development</li>
-                            <li>R&D Strategy</li>
-                            <li>Technical Mentoring</li>
-                            <li>Cross-functional Collaboration</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
     <div id="career" class="statsSection section">
 
         <div class="container">
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2>CAREER HIGHLIGHTS</h2>
+                    <h2 class="section-title">CAREER HIGHLIGHTS</h2>
                     <p>A quantitative look at my professional journey, highlighting key milestones in research,
                         collaboration, and recognition.</p>
                 </div>
@@ -428,33 +278,193 @@
 
     </div>
 
-    <div id="contact" class="contactSection section">
-        <div class="col-md-12 text-center">
-            <h2 class="contactHeading">LET'S BUILD SOMETHING EXTRAORDINARY TOGETHER</h2>
-            <p class="contact-subtext">I am always open to discussing new projects, creative ideas, or opportunities to
-                be part of your vision.</p>
-
-            <div class="d-flex justify-content-center flex-wrap mt-4" style="gap: 20px;">
-                <a href="mailTo:benjamin.dourthe@gmail.com" class="modern-pill-btn">
-                    <i class="fas fa-envelope"></i> Get In Touch
-                </a>
-                <a href="https://www.linkedin.com/in/benjamin-dourthe/" target="_blank" class="modern-pill-btn">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/bendourthe" target="_blank" class="modern-pill-btn">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+    <div id="skills" class="skillsSection section">
+        <div class="container skills-container">
+            <div class="row">
+                <div class="col-md-12 text-center skills-section-intro">
+                    <h2 class="section-title">SKILLS &amp; EXPERTISE</h2>
+                    <p>Explore seven connected disciplines spanning engineering, intelligent systems, communication, and leadership.</p>
+                </div>
             </div>
+
+            <div class="skills-explorer" data-skills-explorer>
+                <nav class="skills-explorer-nav" aria-label="Skills and expertise categories">
+                    <p class="skills-nav-label">Choose an area</p>
+                    <div class="skills-tab-list" role="tablist" aria-orientation="vertical">
+                        <button class="skills-tab is-active" id="skills-tab-engineering-expertise" type="button" role="tab" aria-selected="true" aria-controls="skills-panel-engineering-expertise" tabindex="0" data-skill-id="engineering-expertise">
+                            <span class="skills-tab-number">01</span>
+                            <span><strong>Engineering Expertise</strong><small>Multidisciplinary systems, research, and technical leadership</small></span>
+                        </button>
+                        <button class="skills-tab" id="skills-tab-software-engineering" type="button" role="tab" aria-selected="false" aria-controls="skills-panel-software-engineering" tabindex="-1" data-skill-id="software-engineering">
+                            <span class="skills-tab-number">02</span>
+                            <span><strong>Software Engineering</strong><small>Expert coding and production deployment</small></span>
+                        </button>
+                        <button class="skills-tab" id="skills-tab-data-science" type="button" role="tab" aria-selected="false" aria-controls="skills-panel-data-science" tabindex="-1" data-skill-id="data-science">
+                            <span class="skills-tab-number">03</span>
+                            <span><strong>Data Science</strong><small>Multimodal data, statistics, and platforms</small></span>
+                        </button>
+                        <button class="skills-tab" id="skills-tab-deep-learning" type="button" role="tab" aria-selected="false" aria-controls="skills-panel-deep-learning" tabindex="-1" data-skill-id="deep-learning">
+                            <span class="skills-tab-number">04</span>
+                            <span><strong>AI &amp; Machine Learning</strong><small>Computer vision, deep learning, LLMs, and applied AI</small></span>
+                        </button>
+                        <button class="skills-tab" id="skills-tab-agentic-engineering-devops" type="button" role="tab" aria-selected="false" aria-controls="skills-panel-agentic-engineering-devops" tabindex="-1" data-skill-id="agentic-engineering-devops">
+                            <span class="skills-tab-number">05</span>
+                            <span><strong>Agentic Engineering &amp; DevOps</strong><small>AI-native development, delivery, cloud, and operations</small></span>
+                        </button>
+                        <button class="skills-tab" id="skills-tab-writing-communication" type="button" role="tab" aria-selected="false" aria-controls="skills-panel-writing-communication" tabindex="-1" data-skill-id="writing-communication">
+                            <span class="skills-tab-number">06</span>
+                            <span><strong>Writing &amp; Communication</strong><small>Documentation, presentations, training, and speaking</small></span>
+                        </button>
+                        <button class="skills-tab" id="skills-tab-leadership-management" type="button" role="tab" aria-selected="false" aria-controls="skills-panel-leadership-management" tabindex="-1" data-skill-id="leadership-management">
+                            <span class="skills-tab-number">07</span>
+                            <span><strong>Leadership &amp; Management</strong><small>R&amp;D strategy, teams, products, and collaboration</small></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="skills-summary-stage">
+                    <article class="skills-summary-panel skills-panel-engineering" id="skills-panel-engineering-expertise" role="tabpanel" tabindex="0" aria-labelledby="skills-tab-engineering-expertise" data-skill-panel="engineering-expertise">
+                        <div class="skills-summary-copy">
+                            <div class="skills-summary-heading"><div><span class="skills-panel-count">01 / 07</span><h3>Engineering Expertise</h3></div><a class="skills-detail-link" href="skills.html#engineering-expertise">See more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                            <p>Multidisciplinary engineering expertise connecting physical systems, software, intelligent algorithms, experimental research, and technical leadership across product and research environments.</p>
+                            <ul class="skills-summary-list"><li><strong>Physical &amp; biomedical systems:</strong> mechanical engineering, biomechanics, MedTech, sensing, and patient-specific modeling</li><li><strong>Computational &amp; intelligent systems:</strong> software engineering, machine learning, data science, computer vision, and signal processing</li><li><strong>Research &amp; leadership:</strong> experimentation, validation, product development, and cross-functional technical direction</li></ul>
+                        </div>
+                        <div class="skills-summary-visual skills-preview-engineering" aria-label="Engineering Expertise overview">
+                            <figure class="skills-visual-dominant"><img src="content/skills/assets/images/engineering-expertise/engineering-expertise.png?v=20260715" alt="Engineering expertise spanning biomedical engineering, biomechanics, software, data science, artificial intelligence, signal processing, computer vision, sensing, orthopedics, and medical research" loading="lazy"></figure>
+                            <figure class="skills-visual-software"><img src="content/skills/assets/images/engineering-expertise/software-engineering.png?v=20260715" alt="Computational software workflow for processing ECG and EIT signals into pulmonary artery pressure estimates" loading="lazy"></figure>
+                        </div>
+                    </article>
+
+                    <article class="skills-summary-panel skills-panel-software" id="skills-panel-software-engineering" role="tabpanel" tabindex="0" aria-labelledby="skills-tab-software-engineering" data-skill-panel="software-engineering" hidden>
+                        <div class="skills-summary-heading"><div><span class="skills-panel-count">02 / 07</span><h3>Software Engineering</h3></div><a class="skills-detail-link" href="skills.html#software-engineering">See more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                        <div class="skills-summary-copy">
+                            <p>Expert-level software development across scientific, product, and production environments, combining broad language proficiency with extensive experience deploying reliable, maintainable systems.</p>
+                            <ul class="skills-summary-list"><li><strong>Languages:</strong> Python, JavaScript, Java, C++, and MATLAB</li><li><strong>Data &amp; integration:</strong> SQL, data-intensive applications, and platform integration</li><li><strong>Production engineering:</strong> deployment, automation, testing, and quality engineering</li></ul>
+                        </div>
+                        <div class="skills-summary-visual skills-preview-software" aria-label="Software Engineering examples">
+                            <figure class="skills-visual-wide"><img src="content/skills/assets/images/software-engineering/software-engineering.png?v=20260715" alt="Connected software, data, automation, and cloud systems" loading="lazy"></figure>
+                        </div>
+                        <div class="skills-preview-logo-row" aria-label="Software engineering toolchain">
+                            <span><img src="content/skills/assets/images/software-engineering/Python-Emblem.png" alt="Python" loading="lazy"></span>
+                            <span><img src="content/skills/assets/images/software-engineering/Matlab_Logo.png" alt="MATLAB" loading="lazy"></span>
+                            <span><img src="content/skills/assets/images/software-engineering/ISO_C++_Logo.svg.webp" alt="C++" loading="lazy"></span>
+                            <span><img src="content/skills/assets/images/software-engineering/javascript-logo-javascript-icon-transparent-free-png.webp" alt="JavaScript" loading="lazy"></span>
+                            <span><img src="content/skills/assets/images/software-engineering/Postgresql_elephant.svg.webp" alt="PostgreSQL" loading="lazy"></span>
+                            <span><img src="content/skills/assets/images/software-engineering/git-icon-logo-png-transparent.png" alt="Git" loading="lazy"></span>
+                            <span><img src="content/skills/assets/images/software-engineering/github-icon-9.png" alt="GitHub" loading="lazy"></span>
+                            <span><img src="content/skills/assets/images/software-engineering/powershell-logo.webp" alt="PowerShell" loading="lazy"></span>
+                        </div>
+                    </article>
+
+                    <article class="skills-summary-panel skills-panel-data" id="skills-panel-data-science" role="tabpanel" tabindex="0" aria-labelledby="skills-tab-data-science" data-skill-panel="data-science" hidden>
+                        <div class="skills-summary-copy">
+                            <div class="skills-summary-heading"><div><span class="skills-panel-count">03 / 07</span><h3>Data Science</h3></div><a class="skills-detail-link" href="skills.html#data-science">See more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                            <p>Specialized in robust data management, processing, analysis, and statistical modeling for complex multimodal and large-scale datasets, from raw-data foundations through maintained analytical platforms.</p>
+                            <ul class="skills-summary-list"><li><strong>Analytics:</strong> feature engineering, interpolation, and statistical modeling</li><li><strong>Data systems:</strong> database management, semantic search, and large-scale analytics</li><li><strong>Platforms:</strong> data architecture, development, governance, and maintenance</li></ul>
+                        </div>
+                        <div class="skills-summary-visual skills-preview-data" aria-label="Data Science examples">
+                            <figure class="skills-data-correlation"><img src="content/skills/assets/images/data-science/cross-correlations.png" alt="Multivariate cross-correlation analysis across seven variables" loading="lazy"></figure>
+                            <figure class="skills-data-classification"><img src="content/skills/assets/images/data-science/classification-report.png" alt="Confusion matrix and classification performance report" loading="lazy"></figure>
+                            <figure class="skills-data-table"><img src="content/skills/assets/images/data-science/table-data.png" alt="Structured tabular dataset with demographic, behavioral, and clinical features" loading="lazy"></figure>
+                            <figure class="skills-data-grouping"><img src="content/skills/assets/images/data-science/grouping.png" alt="Statistical group comparison using clinical distributions" loading="lazy"></figure>
+                        </div>
+                    </article>
+
+                    <article class="skills-summary-panel skills-panel-ai" id="skills-panel-deep-learning" role="tabpanel" tabindex="0" aria-labelledby="skills-tab-deep-learning" data-skill-panel="deep-learning" hidden>
+                        <div class="skills-summary-heading"><div><span class="skills-panel-count">04 / 07</span><h3>AI &amp; Machine Learning</h3></div><a class="skills-detail-link" href="skills.html#deep-learning">See more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                        <div class="skills-summary-copy">
+                            <p>Research and implementation expertise spanning classical machine learning, computer vision, deep learning, generative AI, and knowledge-grounded language-model applications.</p>
+                            <ul class="skills-summary-list"><li><strong>Applied models:</strong> machine learning, computer vision, and deep learning for imaging, prediction, perception, and enhancement</li><li><strong>Language &amp; generative AI:</strong> large language models, retrieval-augmented generation, and semantic search</li><li><strong>Model lifecycle:</strong> architecture, training, evaluation, interpretation, deployment, and continuous improvement</li></ul>
+                        </div>
+                        <div class="skills-summary-visual skills-preview-deep-learning" aria-label="AI and Machine Learning workflow">
+                            <figure class="skills-visual-dominant skills-theme-visual">
+                                <img class="skills-theme-image-light" src="content/skills/assets/images/deep-learning/ai-machine-learning-light.png?v=20260723" alt="AI and machine learning system connecting data, learned representations, model development, and applied intelligence" loading="lazy" width="1172" height="1086">
+                                <img class="skills-theme-image-dark" src="content/skills/assets/images/deep-learning/ai-machine-learning-dark.png?v=20260723" alt="AI and machine learning system connecting data, learned representations, model development, and applied intelligence" loading="lazy" width="1177" height="1101">
+                            </figure>
+                        </div>
+                    </article>
+
+                    <article class="skills-summary-panel skills-panel-agentic" id="skills-panel-agentic-engineering-devops" role="tabpanel" tabindex="0" aria-labelledby="skills-tab-agentic-engineering-devops" data-skill-panel="agentic-engineering-devops" hidden>
+                        <div class="skills-summary-copy">
+                            <div class="skills-summary-heading"><div><span class="skills-panel-count">05 / 07</span><h3>Agentic Engineering &amp; DevOps</h3></div><a class="skills-detail-link" href="skills.html#agentic-engineering-devops">See more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                            <p>AI-native engineering practice that combines agentic development environments with disciplined software delivery, reproducible infrastructure, and dependable cloud operations.</p>
+                            <ul class="skills-summary-list"><li><strong>Agentic development:</strong> Claude Code, Codex, Cursor, and Antigravity for context-aware execution</li><li><strong>AI engineering:</strong> prompt, context, tool, skill, and cross-platform harness engineering</li><li><strong>DevOps:</strong> Git, CI/CD, containers, cloud infrastructure, automation, observability, and reliability</li></ul>
+                        </div>
+                        <div class="skills-summary-visual skills-preview-agentic" aria-label="Agentic Engineering and DevOps platforms">
+                            <section class="skills-agentic-graph" aria-labelledby="skills-agentic-workflow-title">
+                                <h4 id="skills-agentic-workflow-title">Agentic Development Workflow</h4>
+                                <ol class="skills-agentic-workflow" aria-label="Workflow from understanding through delivery">
+                                    <li><span class="skills-workflow-number">01</span><strong>describe</strong><span class="skills-workflow-outcome">understand</span></li>
+                                    <li><span class="skills-workflow-number">02</span><strong>review</strong><span class="skills-workflow-outcome">evaluate</span></li>
+                                    <li><span class="skills-workflow-number">03</span><strong>plan</strong><span class="skills-workflow-outcome">decompose</span></li>
+                                    <li><span class="skills-workflow-number">04</span><strong>implement</strong><span class="skills-workflow-outcome">build</span></li>
+                                    <li><span class="skills-workflow-number">05</span><strong>test</strong><span class="skills-workflow-outcome">harden</span></li>
+                                    <li><span class="skills-workflow-number">06</span><strong>update</strong><span class="skills-workflow-outcome">ship</span></li>
+                                    <li><span class="skills-workflow-number">07</span><strong>share</strong><span class="skills-workflow-outcome">communicate</span></li>
+                                </ol>
+                            </section>
+                            <div class="skills-preview-logo-grid" aria-label="Agentic development, delivery, container, and cloud platforms">
+                                <span><img src="content/skills/assets/images/agentic-devops/claudecode-color.png" alt="Claude Code" loading="lazy"><small>Claude Code</small></span>
+                                <span><img src="content/skills/assets/images/agentic-devops/codex-2048x2048.png" alt="Codex" loading="lazy"><small>Codex</small></span>
+                                <span><img src="content/skills/assets/images/agentic-devops/cursor-ai.png" alt="Cursor" loading="lazy"><small>Cursor</small></span>
+                                <span><img src="content/skills/assets/images/agentic-devops/google_antigravity-logo_brandlogos.net_qu4jc-512x472.png" alt="Antigravity" loading="lazy"><small>Antigravity</small></span>
+                                <span><img src="content/skills/assets/images/agentic-devops/atlassian.png" alt="Atlassian" loading="lazy"><small>Atlassian</small></span>
+                                <span><img src="content/skills/assets/images/agentic-devops/docker-logo-png-transparent.png" alt="Docker" loading="lazy"><small>Docker</small></span>
+                                <span><img src="content/skills/assets/images/agentic-devops/Amazon_Web_Services_Logo.svg.webp" alt="Amazon Web Services" loading="lazy"><small>AWS</small></span>
+                                <span><img src="content/skills/assets/images/agentic-devops/Linux-Logo.png" alt="Linux" loading="lazy"><small>Linux</small></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="skills-summary-panel skills-panel-writing" id="skills-panel-writing-communication" role="tabpanel" tabindex="0" aria-labelledby="skills-tab-writing-communication" data-skill-panel="writing-communication" hidden>
+                        <div class="skills-summary-heading"><div><span class="skills-panel-count">06 / 07</span><h3>Writing &amp; Communication</h3></div><a class="skills-detail-link" href="skills.html#writing-communication">See more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                        <div class="skills-summary-copy">
+                            <p>Proven ability to translate complex technical concepts into clear documentation, presentations, and training for audiences ranging from general stakeholders to technical specialists.</p>
+                            <ul class="skills-summary-list"><li><strong>Technical writing:</strong> documentation, scientific reports, and peer-reviewed articles</li><li><strong>Presentation:</strong> general-to-technical communication and public speaking</li><li><strong>Knowledge transfer:</strong> training programs, workshops, and audience-centered learning</li></ul>
+                        </div>
+                        <div class="skills-summary-visual skills-preview-writing" aria-label="Writing and communication capability network">
+                            <div class="skills-source-svg skills-writing-source-main" data-skills-svg-source="content/skills/assets/images/writing-communication/technical_communication_workflow.html" data-skills-svg-view-box="0 0 1248 892" data-skills-svg-label="Technical communication capabilities connected through a central content development practice"></div>
+                        </div>
+                        <div class="skills-source-svg skills-writing-source-workflow" data-skills-svg-source="content/skills/assets/images/writing-communication/technical_communication_workflow.html" data-skills-svg-view-box="48 892 1152 136" data-skills-svg-label="Agentic engineering workflow from definition through publication"></div>
+                        <div class="skills-source-svg skills-writing-source-principles" data-skills-svg-source="content/skills/assets/images/writing-communication/technical_communication_workflow.html" data-skills-svg-view-box="48 1029 1152 178" data-skills-svg-label="Communication principles covering clarity, technical depth, audience adaptation, and knowledge transfer"></div>
+                    </article>
+
+                    <article class="skills-summary-panel skills-panel-leadership" id="skills-panel-leadership-management" role="tabpanel" tabindex="0" aria-labelledby="skills-tab-leadership-management" data-skill-panel="leadership-management" hidden>
+                        <div class="skills-summary-copy">
+                            <div class="skills-summary-heading"><div><span class="skills-panel-count">07 / 07</span><h3>Leadership &amp; Management</h3></div><a class="skills-detail-link" href="skills.html#leadership-management">See more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                            <p>Experienced technical leader driving R&amp;D strategy, product and project delivery, engineering-team development, and coordinated execution across disciplines and organizational boundaries.</p>
+                            <ul class="skills-summary-list"><li><strong>People leadership:</strong> team development, technical mentoring, and capability building</li><li><strong>Strategy &amp; delivery:</strong> project management, product development, and R&amp;D direction</li><li><strong>Collaboration:</strong> cross-functional alignment, decision-making, and coordinated execution</li></ul>
+                        </div>
+                        <div class="skills-summary-visual skills-preview-leadership" aria-label="Leadership and Management cycle">
+                            <div class="skills-source-svg skills-leadership-source" data-skills-svg-source="content/skills/assets/images/leadership-management/leadership_cycle.html" data-skills-svg-view-box="0 0 1169 1124" data-skills-svg-label="Five-stage leadership cycle moving through listening, planning, enabling, delivery, and reflection"></div>
+                        </div>
+                    </article>
+
+                    <p class="sr-only" data-skills-status aria-live="polite"></p>
+
+                    <footer class="skills-panel-footer">
+                        <button class="skills-step-button" data-skills-previous type="button" disabled>
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            <span><small>Previous</small><strong>Engineering Expertise</strong></span>
+                        </button>
+                        <button class="skills-step-button skills-step-next" data-skills-next type="button">
+                            <span><small>Next</small><strong>Software Engineering</strong></span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </footer>
+                </div>
+            </div>
+
+
         </div>
     </div>
-
 
     <div id="featured-projects" class="section featuredProjectsSection nexusFeatureSection">
 
         <div class="container">
             <div class="row">
                 <div class="heading text-center col-12 mb-5">
-                    <h2>FEATURED PROJECTS</h2>
+                    <h2 class="section-title">FEATURED PROJECTS</h2>
                     <p class="mt-3 section-intro-text">A selected collection of featured projects, providing structured documentation and intuitive walkthroughs to help you explore and master each platform.</p>
                 </div>
             </div>
@@ -522,7 +532,7 @@
             <div class="row">
 
                 <div class="heading text-center col-12 mb-5">
-                    <h2>PORTFOLIO</h2>
+                    <h2 class="section-title">DETAILED PORTFOLIO</h2>
                     <p class="mt-3 section-intro-text">A curated collection of projects illustrating my expertise in Generative AI, Machine Learning, Data Science, Software Engineering, Computer Vision & Biomechanical Engineering.</p>
                     <p class="mt-3 section-intro-text">Filter by domain to explore specific expertise.</p>
                 </div>
@@ -1034,6 +1044,27 @@
 
     </div>
 
+    <div id="contact" class="contactSection section">
+        <div class="col-md-12 text-center">
+            <h2 class="contactHeading section-title">LET'S BUILD SOMETHING EXTRAORDINARY TOGETHER</h2>
+            <p class="contact-subtext">I am always open to discussing new projects, creative ideas, or opportunities to
+                be part of your vision.</p>
+
+            <div class="d-flex justify-content-center flex-wrap mt-4" style="gap: 20px;">
+                <a href="mailTo:benjamin.dourthe@gmail.com" class="modern-pill-btn">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+                <a href="https://www.linkedin.com/in/benjamin-dourthe/" target="_blank" class="modern-pill-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/bendourthe" target="_blank" class="modern-pill-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+
     <div class="copyrightSection">
 
         <div class="col-md-12 text-center">
@@ -1059,6 +1090,7 @@
     <!-- <script type="text/javascript" src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
+    <script src="js/skills-source-artwork.js"></script>
     <script src="js/script.js"></script>
 
 </body>
