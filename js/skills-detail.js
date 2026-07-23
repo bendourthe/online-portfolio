@@ -272,22 +272,6 @@ sourceIntegrationCss = [
         ":host([data-skill-source='writing-communication'][data-layout='vertical']) #training{height:747px!important}",
         ":host([data-skill-source='writing-communication'][data-layout='vertical']) #impact{height:164px!important}",
 
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .source-body>.page{display:flex!important;flex-direction:column!important;gap:12px!important;padding:12px 10px 16px!important;position:relative!important;width:1448px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .page>.layout,:host([data-skill-source='leadership-management'][data-layout='vertical']) .layout>.middle{display:contents!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .foundations,:host([data-skill-source='leadership-management'][data-layout='vertical']) .strategy-panel,:host([data-skill-source='leadership-management'][data-layout='vertical']) .delivery-panel,:host([data-skill-source='leadership-management'][data-layout='vertical']) .cycle-panel,:host([data-skill-source='leadership-management'][data-layout='vertical']) .best{margin:0!important;min-height:0!important;width:1418px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .foundations{height:1185px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .foundations-embed{height:1147px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .skills-frame-wrap{height:1140px!important;width:780px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .skills-frame{transform:scale(2.5)!important;transform-origin:top left!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .strategy-panel{height:540px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .strategy-body{margin:0 auto!important;transform:scale(1.7)!important;transform-origin:top center!important;width:58.8235%!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .delivery-panel{height:430px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .delivery-body{margin:0 auto!important;transform:scale(1.7)!important;transform-origin:top center!important;width:58.8235%!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .cycle-panel{height:1100px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .cycle-wrap{height:1062px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .cycle-frame-wrap{height:966px!important;width:835px!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .cycle-frame{transform:scale(2.3)!important;transform-origin:top left!important}",
-        ":host([data-skill-source='leadership-management'][data-layout='vertical']) .best{height:auto!important}",
         "@media(max-width:800px){:host([data-layout='vertical']) .source-body{--skill-page-title-responsive:clamp(2.35rem,10vw,4rem);--skill-subtitle-responsive:clamp(1.45rem,6vw,2.25rem);--skill-box-title-responsive:clamp(1.35rem,5.2vw,2rem);--skill-sub-box-title-responsive:clamp(1.15rem,4.6vw,1.625rem);--skill-text-header-responsive:clamp(1rem,4vw,1.35rem);--skill-body-responsive:clamp(.94rem,3.7vw,1.125rem);--skill-compact-header-responsive:clamp(.94rem,3.7vw,1.125rem);--skill-compact-body-responsive:clamp(.875rem,3.35vw,1rem);--skill-label-responsive:clamp(.8125rem,3.15vw,.9375rem)}}"
 ].join("\n");
 
@@ -307,6 +291,9 @@ sourceIntegrationCss = [
             element.style.setProperty("font-size", "var(" + prefix + "-responsive,var(" + prefix + "-size))", "important");
             element.style.setProperty("font-weight", "var(" + prefix + "-weight)", "important");
             element.style.setProperty("line-height", "var(" + prefix + "-line)", "important");
+            if (token.letterSpacing) {
+                element.style.setProperty("letter-spacing", "var(" + prefix + "-letter-spacing)", "important");
+            }
             element.style.setProperty("color", token.color, "important");
             element.style.setProperty("-webkit-text-fill-color", "currentColor", "important");
             if (token.background) {
@@ -340,6 +327,9 @@ sourceIntegrationCss = [
             host.style.setProperty(prefix + "-size", token.fontSize);
             host.style.setProperty(prefix + "-line", token.lineHeight);
             host.style.setProperty(prefix + "-weight", token.fontWeight);
+            if (token.letterSpacing) {
+                host.style.setProperty(prefix + "-letter-spacing", token.letterSpacing);
+            }
         });
     }
 
@@ -375,6 +365,9 @@ sourceIntegrationCss = [
                         doc.documentElement.style.setProperty(prefix + "-size", config.tokens[role].fontSize);
                         doc.documentElement.style.setProperty(prefix + "-line", config.tokens[role].lineHeight);
                         doc.documentElement.style.setProperty(prefix + "-weight", config.tokens[role].fontWeight);
+                        if (config.tokens[role].letterSpacing) {
+                            doc.documentElement.style.setProperty(prefix + "-letter-spacing", config.tokens[role].letterSpacing);
+                        }
                     });
                 } catch (error) {
                     return;
@@ -415,6 +408,9 @@ sourceIntegrationCss = [
         host.dataset.layout = source.vertical ? "vertical" : source.layout;
         host.dataset.theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
         applySourceDesignTokens(host);
+        var designConfig = window.SKILLS_DETAIL_DESIGN_CONFIG || {};
+        var mobileTokenConfig = designConfig.mobileTokens || {};
+        var sourceMobileTokens = (mobileTokenConfig.sources || {})[host.dataset.skillSource] || {};
         var defaultPageTitleSize = host.style.getPropertyValue("--skill-page-title-size");
         var defaultSubtitleSize = host.style.getPropertyValue("--skill-subtitle-size");
         host.setAttribute("aria-label", source.label + " detailed portfolio");
@@ -456,13 +452,9 @@ sourceIntegrationCss = [
                 if (!availableWidth) {
                     return;
                 }
-                if (host.dataset.skillSource === "deep-learning") {
-                    host.style.setProperty("--skill-page-title-size", availableWidth <= 520 ? "34px" : defaultPageTitleSize);
-                }
-                if (host.dataset.skillSource === "agentic-engineering-devops") {
-                    host.style.setProperty("--skill-page-title-size", availableWidth <= 520 ? "32px" : defaultPageTitleSize);
-                    host.style.setProperty("--skill-subtitle-size", availableWidth <= 520 ? "26px" : defaultSubtitleSize);
-                }
+                var useMobileTokens = availableWidth <= (mobileTokenConfig.maxWidth || 520);
+                host.style.setProperty("--skill-page-title-size", useMobileTokens && sourceMobileTokens.pageTitle ? sourceMobileTokens.pageTitle : defaultPageTitleSize);
+                host.style.setProperty("--skill-subtitle-size", useMobileTokens && sourceMobileTokens.subtitle ? sourceMobileTokens.subtitle : defaultSubtitleSize);
                 var documentHeight = measureSourceHeight();
                 if (source.responsive && source.mobileFluid !== false && availableWidth <= 800) {
                     holder.classList.add("is-fluid-source-holder");

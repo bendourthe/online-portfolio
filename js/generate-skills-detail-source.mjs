@@ -5,17 +5,24 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 const sources = [
-    { id: "engineering-expertise", label: "Engineering Expertise", path: "content/skills/content/html/engineering-expertise_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
-    { id: "software-engineering", label: "Software Engineering", path: "content/skills/content/html/software-engineering_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
-    { id: "data-science", label: "Data Science", path: "content/skills/content/html/data-science_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
-    { id: "deep-learning", label: "AI & Machine Learning", path: "content/skills/content/html/deep-learning_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
-    { id: "agentic-engineering-devops", label: "Agentic Engineering & DevOps", path: "content/skills/content/html/agentic-engineering-devops_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
-    { id: "writing-communication", label: "Writing & Communication", path: "content/skills/content/html/writing-communication_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
-    { id: "leadership-management", label: "Leadership & Management", path: "content/skills/content/html/leadership-management_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 }
+    { id: "engineering-expertise", label: "Engineering Expertise", path: "source/skills/pages/engineering-expertise_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
+    { id: "software-engineering", label: "Software Engineering", path: "source/skills/pages/software-engineering_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
+    { id: "data-science", label: "Data Science", path: "source/skills/pages/data-science_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
+    { id: "deep-learning", label: "AI & Machine Learning", path: "source/skills/pages/deep-learning_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
+    { id: "agentic-engineering-devops", label: "Agentic Engineering & DevOps", path: "source/skills/pages/agentic-engineering-devops_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
+    { id: "writing-communication", label: "Writing & Communication", path: "source/skills/pages/writing-communication_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 },
+    { id: "leadership-management", label: "Leadership & Management", path: "source/skills/pages/leadership-management_html/index.html", layout: "fixed", responsive: true, width: 1905, height: 0 }
 ];
 
 function projectUrl(absolutePath) {
-    return relative(projectRoot, absolutePath).split("\\").join("/");
+    const projectPath = relative(projectRoot, absolutePath).split("\\").join("/");
+    if (projectPath.startsWith("source/skills/pages/")) {
+        return projectPath.replace(/^source\/skills\/pages\//, "content/skills/assets/html/");
+    }
+    if (projectPath.startsWith("source/skills/artwork/")) {
+        return projectPath.replace(/^source\/skills\/artwork\//, "content/skills/assets/images/");
+    }
+    return projectPath;
 }
 
 function isExternalUrl(value) {

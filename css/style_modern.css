@@ -365,6 +365,11 @@ body.dark-mode .nexusFeatureSection {
     border-color: rgba(45, 212, 191, 0.16);
 }
 
+body:not(.dark-mode) .nexusFeatureSection .heading p {
+    color: var(--section-accent-text);
+    opacity: 1;
+}
+
 .nexus-eyebrow,
 .nexus-guide-kicker {
     color: var(--primary-color);
@@ -475,6 +480,24 @@ body.dark-mode .nexus-cta-secondary:focus-visible {
     border-radius: 8px;
     box-shadow: 0 18px 38px rgba(4, 20, 26, 0.1);
     padding: 24px;
+}
+
+body:not(.dark-mode) .nexusGuideCard {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 38px rgba(4, 20, 26, 0.16);
+}
+
+body:not(.dark-mode) .nexusGuideCard h3,
+body:not(.dark-mode) .nexusGuideCard .nexus-guide-kicker,
+body:not(.dark-mode) .nexusGuideCard .nexus-path strong,
+body:not(.dark-mode) .nexusGuideCard .nexus-path small {
+    color: var(--section-accent-text);
+    opacity: 1;
+}
+
+body:not(.dark-mode) .nexusGuideCard .nexus-path li {
+    border-top-color: rgba(255, 255, 255, 0.18);
 }
 
 body.dark-mode .nexusGuideCard {
@@ -1958,6 +1981,18 @@ body.dark-mode .skills-summary-visual figure {
 
 .skills-summary-visual figure:hover img {
     transform: scale(1.012);
+}
+
+.skills-theme-image-dark {
+    display: none !important;
+}
+
+body.dark-mode .skills-theme-image-light {
+    display: none !important;
+}
+
+body.dark-mode .skills-theme-image-dark {
+    display: block !important;
 }
 
 .skills-preview-deep-learning,

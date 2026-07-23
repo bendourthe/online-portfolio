@@ -5,8 +5,8 @@
         tokens: {
             pageTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "72px", lineHeight: "1.02", fontWeight: "800", color: "var(--source-page-title)" },
             subtitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "36px", lineHeight: "1.14", fontWeight: "700", color: "var(--source-subtitle)" },
-            boxTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "32px", lineHeight: "1.15", fontWeight: "800", color: "var(--source-box-title)", background: "var(--source-title-bg)" },
-            subBoxTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "24px", lineHeight: "1.18", fontWeight: "800", color: "var(--source-subbox-title)", background: "var(--source-subtitle-bg)" },
+            boxTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "32px", lineHeight: "1.15", fontWeight: "800", letterSpacing: "0.055em", color: "var(--source-box-title)", background: "var(--source-title-bg)" },
+            subBoxTitle: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "24px", lineHeight: "1.18", fontWeight: "800", letterSpacing: "normal", color: "var(--source-subbox-title)", background: "var(--source-subtitle-bg)" },
             textHeader: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "22px", lineHeight: "1.22", fontWeight: "700", color: "var(--source-header)" },
             body: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "18px", lineHeight: "1.55", fontWeight: "400", color: "var(--source-text)" },
             compactHeader: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "17px", lineHeight: "1.28", fontWeight: "700", color: "var(--source-header)" },
@@ -18,6 +18,14 @@
             graphicSection: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "22px", lineHeight: "1.2", fontWeight: "800", color: "var(--source-text)" },
             graphicBody: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "15px", lineHeight: "1.35", fontWeight: "400", color: "var(--source-text)" },
             graphicLabel: { fontFamily: "'Open Sans','Segoe UI',Arial,sans-serif", fontSize: "13.5px", lineHeight: "1.2", fontWeight: "650", color: "var(--source-text)" }
+        },
+        mobileTokens: {
+            maxWidth: 520,
+            sources: {
+                "deep-learning": { pageTitle: "34px" },
+                "agentic-engineering-devops": { pageTitle: "32px", subtitle: "26px" },
+                "leadership-management": { pageTitle: "36px", subtitle: "26px" }
+            }
         },
         fallbackTextRoles: {
             pageTitle: "h1",
@@ -99,9 +107,11 @@
                 subtitle: ".hero h2",
                 boxTitle: ".panel-title",
                 subBoxTitle: ".card-title",
-                textHeader: ".card-copy h4",
-                body: ".hero p, .card-copy p, .principle span",
-                label: ".logo-tile span"
+                textHeader: ".section-heading",
+                body: ".hero>p, .section-intro, .body-copy, .workflow-header p",
+                compactHeader: ".principle strong, .capability-card strong, .cycle-detail strong, .process-step strong, .practice-card h3, .cycle-node strong, .cycle-core strong",
+                compactBody: ".principle span, .capability-card p, .cycle-detail span, .process-step span, .practice-card p, .cycle-node span, .cycle-core span",
+                label: ".eyebrow, .workflow-footer li"
             }
         },
         sectionRoles: {

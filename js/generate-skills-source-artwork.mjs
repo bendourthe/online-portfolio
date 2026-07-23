@@ -3,16 +3,22 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const sourcePaths = [
-    "content/skills/content/images/writing-communication/technical_communication_workflow.html",
-    "content/skills/content/images/leadership-management/leadership_cycle.html"
+const sources = [
+    {
+        sourcePath: "source/skills/artwork/writing-communication/technical_communication_workflow.html",
+        publicPath: "content/skills/assets/images/writing-communication/technical_communication_workflow.html"
+    },
+    {
+        sourcePath: "source/skills/artwork/leadership-management/leadership_cycle.html",
+        publicPath: "content/skills/assets/images/leadership-management/leadership_cycle.html"
+    }
 ];
 
 const embeddedSources = {};
 
-for (const sourcePath of sourcePaths) {
+for (const { sourcePath, publicPath } of sources) {
     const source = await readFile(resolve(projectRoot, sourcePath));
-    embeddedSources[sourcePath] = source.toString("base64");
+    embeddedSources[publicPath] = source.toString("base64");
 }
 
 const generatedFile = [

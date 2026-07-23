@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leadership &amp; Management</title>
+<style>
+:root{--surface:var(--panel,#07242c);--surface-soft:var(--panel2,#0b3038);--line:var(--source-line,rgba(52,221,208,.38));--line-strong:var(--source-line-strong,rgba(52,221,208,.62));--text:var(--source-text,#dcecef);--muted:var(--source-muted,#a9c2c8);--accent:var(--source-accent-bright,#34ddd0);--accent-2:var(--source-header,#40c9ff);--title-bg:var(--source-title-bg,linear-gradient(180deg,rgba(12,98,107,.98),rgba(5,52,62,.98)));--subtitle-bg:var(--source-subtitle-bg,linear-gradient(180deg,rgba(8,44,53,.98),rgba(4,29,38,.98)))}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:transparent;color:var(--text);font-family:"Open Sans","Segoe UI",Arial,sans-serif}
+body{overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+.page-content{container-type:inline-size;width:min(1905px,calc(100% - 28px));margin:0 auto;padding:16px 0 36px}
+.hero{text-align:center;padding:8px 28px 26px}
+.hero h1{margin:0;color:var(--source-page-title,var(--text));font-size:clamp(48px,5vw,76px);font-weight:800;letter-spacing:.065em;line-height:1.02;text-transform:uppercase}
+.hero h2{max-width:1560px;margin:15px auto 9px;color:var(--source-subtitle,var(--accent));font-size:clamp(25px,2.35vw,39px);font-weight:700;line-height:1.16}
+.hero>p{max-width:1280px;margin:0 auto;color:var(--text);font-size:clamp(16px,1.1vw,19px);line-height:1.58}
+.hero-principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1440px;margin:24px auto 0}
+.principle{display:grid;grid-template-rows:74px auto 1fr;place-items:center;min-width:0;padding:19px 17px;border:1px solid var(--line);border-radius:11px;background:var(--surface);text-align:center}
+.principle-icon{display:block;width:66px;height:66px;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.principle strong{margin-top:5px;color:var(--accent-2);font-size:21px;font-weight:750;line-height:1.22}
+.principle span{margin-top:7px;color:var(--text);font-size:15px;line-height:1.43}
+.page-section{margin-top:18px;border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:0 8px 24px rgba(0,0,0,.08);overflow:hidden}
+.panel-title{margin:0;padding:14px 20px;background:var(--title-bg);color:var(--source-box-title,var(--text));font-size:clamp(24px,2vw,34px);font-weight:800;line-height:1.16;text-align:center;text-transform:uppercase}
+.section-intro{max-width:1330px;margin:0 auto;padding:18px clamp(18px,3vw,42px) 0;color:var(--text);font-size:clamp(16px,1.1vw,19px);line-height:1.58;text-align:center}
+.panel-body{min-width:0;padding:clamp(15px,2vw,27px)}
+.content-card{min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:0 7px 20px rgba(0,0,0,.08);overflow:hidden}
+.card-title{margin:0;padding:12px 14px;background:var(--subtitle-bg);color:var(--source-subbox-title,var(--text));font-size:clamp(19px,1.35vw,24px);font-weight:780;line-height:1.2;text-align:center;text-transform:uppercase}
+.section-heading{margin:0;color:var(--accent-2);font-size:clamp(21px,1.55vw,28px);font-weight:780;line-height:1.2}
+.body-copy{margin:9px 0 0;color:var(--text);font-size:clamp(15px,1.02vw,18px);line-height:1.55}
+.eyebrow{display:block;margin-bottom:6px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.operating-grid{display:grid;grid-template-columns:minmax(560px,.94fr) minmax(620px,1.06fr);gap:18px;align-items:stretch}
+.foundation-copy{padding:18px 18px 13px}
+.foundation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:0 15px 15px}
+.capability-card{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;align-items:start;min-width:0;padding:13px;border:1px solid var(--line);border-radius:8px;background:var(--surface-soft)}
+.capability-icon{display:grid;place-items:center;width:50px;height:50px;border:1px solid var(--line-strong);border-radius:9px;color:var(--accent)}
+.capability-icon svg{width:31px;height:31px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.capability-icon svg.icon-fill{fill:currentColor;stroke:none}
+.capability-card strong{display:block;color:var(--accent-2);font-size:16px;line-height:1.25}
+.capability-card p{margin:4px 0 0;color:var(--text);font-size:13px;line-height:1.42}
+.management-card{display:grid;grid-template-rows:auto 1fr}
+.management-layout{display:grid;grid-template-columns:minmax(0,1.72fr) minmax(230px,.72fr);gap:10px;min-height:0;padding:12px}
+.cycle-shell{display:grid;place-items:center;min-height:0;background:var(--surface-soft)}
+.management-cycle-visual{display:block;width:100%;height:100%;min-height:500px;border:0;border-radius:8px;background:#00101b;overflow:hidden}
+.cycle-details{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:8px;min-width:0}
+.cycle-detail{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:13px;border-left:3px solid var(--accent);border-radius:0 7px 7px 0;background:var(--surface-soft)}
+.cycle-detail strong{display:block;color:var(--accent-2);font-size:14px;line-height:1.25}
+.cycle-detail span{display:block;margin-top:3px;color:var(--text);font-size:12.5px;line-height:1.4}
+.delivery-stack{display:grid;gap:16px}
+.workflow-card{padding-bottom:15px}
+.workflow-header{display:grid;grid-template-columns:minmax(230px,.36fr) minmax(0,.64fr);gap:20px;align-items:center;padding:17px 18px 12px}
+.workflow-header p{margin:0;color:var(--text);font-size:15px;line-height:1.5}
+.process-rail{--process-gap:16px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--process-gap);padding:4px 16px 0}
+.process-step{position:relative;display:grid;grid-template-rows:52px auto 1fr;justify-items:center;min-width:0;padding:12px 10px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft);text-align:center}
+.process-step:not(:last-child)::after{content:"";position:absolute;z-index:2;top:50%;left:calc(100% + 8px);width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:10px solid var(--accent);transform:translate(-50%,-50%)}
+.process-step svg{width:42px;height:42px;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.process-step svg.icon-fill{fill:currentColor;stroke:none}
+.process-step svg.icon-heavy{stroke-width:4}
+.process-step strong{display:block;color:var(--accent-2);font-size:15px;line-height:1.24}
+.process-step span{display:block;margin-top:5px;color:var(--text);font-size:12px;line-height:1.38;overflow-wrap:anywhere}
+.workflow-footer{display:flex;flex-wrap:wrap;gap:7px;margin:12px 16px 0;padding:0;list-style:none}
+.workflow-footer li{padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--text);font-size:12px;font-weight:700;line-height:1.2}
+.practice-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.practice-card{display:grid;grid-template-columns:48px minmax(0,1fr);gap:11px;align-items:start;min-width:0;padding:14px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft)}
+.practice-card svg{width:42px;height:42px;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.practice-card svg.icon-fill{fill:currentColor;stroke:none}
+.practice-card h3{margin:0;color:var(--accent-2);font-size:16px;line-height:1.25}
+.practice-card p{margin:5px 0 0;color:var(--text);font-size:13px;line-height:1.42}
+@container (max-width:1320px){.operating-grid{grid-template-columns:minmax(460px,.9fr) minmax(520px,1.1fr)}.practice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-rail{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}.process-step:nth-child(3)::after{display:none}}
+@container (max-width:980px){.hero-principles{grid-template-columns:repeat(2,minmax(0,1fr))}.operating-grid{grid-template-columns:1fr}.workflow-header{grid-template-columns:1fr;gap:7px}.management-cycle-visual{min-height:500px}.management-layout{grid-template-columns:minmax(0,1.7fr) minmax(220px,.7fr)}}
+@container (max-width:680px){.page-content{width:min(100% - 20px,1905px);padding-top:10px}.hero{padding-inline:8px}.hero h1{letter-spacing:.035em}.hero-principles,.foundation-grid,.practice-grid{grid-template-columns:1fr}.panel-title{padding-inline:12px}.section-intro{text-align:left}.panel-body{padding:12px}.management-layout{grid-template-columns:1fr}.management-cycle-visual{height:min(96vw,430px);min-height:0}.cycle-details{grid-template-rows:none;grid-template-columns:1fr}.process-rail{grid-template-columns:1fr;gap:17px;padding-inline:12px}.process-step:not(:last-child)::after{display:block;top:calc(100% + 8.5px);left:50%;border-top:10px solid var(--accent);border-right:7px solid transparent;border-bottom:0;border-left:7px solid transparent;transform:translate(-50%,-50%)}.workflow-footer{margin-inline:12px}.capability-card,.practice-card{grid-template-columns:46px minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div class="page-content">
+  <header class="hero">
+    <h1>Leadership &amp; Management</h1>
+    <h2>Aligning people, evidence, and delivery systems around outcomes that matter</h2>
+    <p>Technical leadership turns complex scientific and engineering work into clear priorities, accountable execution, and durable organizational capability. The operating model combines strategic direction, empowered teams, disciplined delivery, and continuous learning without separating technical quality from business impact.</p>
+    <div class="hero-principles" aria-label="Leadership and management capabilities">
+      <div class="principle"><svg class="principle-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="3.41" r="1.91"/><path d="M9.14 8.18A2.86 2.86 0 0 1 12 5.32a2.86 2.86 0 0 1 2.86 2.86"/><circle cx="19.64" cy="14.86" r="1.91"/><path d="M16.77 19.64a2.86 2.86 0 0 1 2.87-2.87 2.86 2.86 0 0 1 2.86 2.87"/><circle cx="4.36" cy="14.86" r="1.91"/><path d="M1.5 19.64a2.86 2.86 0 0 1 2.86-2.87 2.86 2.86 0 0 1 2.87 2.87M2.47 11.37a9.53 9.53 0 0 1 4.91-7.72M16.62 3.65a9.53 9.53 0 0 1 4.91 7.72M8.39 21.79a9.53 9.53 0 0 0 7.22 0"/></svg><strong>Team Leadership</strong><span>Build trust, clarify ownership, and create the conditions for specialists to make strong decisions together.</span></div>
+      <div class="principle"><svg class="principle-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 16h3.8c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C21 14.48 21 13.92 21 12.8V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C19.48 3 18.92 3 17.8 3H9.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C6.013 4.494 6.001 5.012 6 6M18 6l-5 5-3-3m8-2v3m0-3h-3M9 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-2 5c.93 0 1.395 0 1.776.102a3 3 0 0 1 2.122 2.122C11 19.605 11 20.07 11 21H3c0-.93 0-1.395.102-1.776a3 3 0 0 1 2.122-2.122C5.605 17 6.07 17 7 17Z"/></svg><strong>Strategy &amp; Alignment</strong><span>Translate mission, evidence, constraints, and opportunity into shared priorities and measurable outcomes.</span></div>
+      <div class="principle"><svg class="principle-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.929 2 7.286 2 12 2s7.071 0 8.536 1.464C22 4.929 22 7.286 22 12s0 7.071-1.464 8.536C19.071 22 16.714 22 12 22s-7.071 0-8.536-1.464C2 19.071 2 16.714 2 12Z"/><path d="m6 15.8 1.143 1.2L10 14M6 8.8 7.143 10 10 7M13 9h5M13 16h5"/></svg><strong>Delivery Systems</strong><span>Use explicit decision gates, feedback loops, and operating rhythms to make execution predictable and adaptable.</span></div>
+      <div class="principle"><svg class="principle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.25 9.25V6L8 2.75 1.75 6 8 9.25l3.25-1.5v3.5c0 1-1.5 2-3.25 2s-3.25-1-3.25-2v-3.5"/></svg><strong>Mentorship &amp; Growth</strong><span>Turn individual expertise into coaching, learning pathways, reusable knowledge, and stronger future leaders.</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-section" aria-labelledby="operating-title">
+      <h2 class="panel-title" id="operating-title">Leadership Foundations &amp; Management Cycle</h2>
+      <p class="section-intro">Leadership establishes the decision environment; management keeps that environment responsive. The two disciplines connect direction, listening, coordination, blocker removal, and reflection into one repeatable system.</p>
+      <div class="panel-body operating-grid">
+        <article class="content-card">
+          <h3 class="card-title">Leadership Foundations</h3>
+          <div class="foundation-copy"><span class="eyebrow">Technical organizations</span><h4 class="section-heading">Credibility translated into collective capability</h4><p class="body-copy">Effective leaders retain enough technical depth to test assumptions and recognize risk while creating space for domain experts to own the solution. Context, decision rights, and success criteria remain explicit so autonomy increases without losing accountability.</p></div>
+          <div class="foundation-grid">
+            <div class="capability-card"><div class="capability-icon"><svg class="icon-fill" viewBox="0 0 128 128" aria-hidden="true"><path d="M64 42c-13.2 0-24 10.8-24 24s10.8 24 24 24 24-10.8 24-24-10.8-24-24-24Zm0 40c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16ZM64 100.8c-14.9 0-29.2 6.2-39.4 17.1l-2.7 2.9 5.8 5.5 2.7-2.9c8.8-9.4 20.7-14.6 33.6-14.6s24.8 5.2 33.6 14.6l2.7 2.9 5.8-5.5-2.7-2.9c-10.2-10.8-24.5-17.1-39.4-17.1ZM97 47.9v8c9.4 0 18.1 3.8 24.6 10.7l5.8-5.5C119.6 52.7 108.5 47.9 97 47.9ZM116.1 20C116.1 9.5 107.5.9 97 .9S77.9 9.5 77.9 20 86.5 39.1 97 39.1s19.1-8.6 19.1-19.1ZM85.9 20c0-6.1 5-11.1 11.1-11.1s11.1 5 11.1 11.1-5 11.1-11.1 11.1S85.9 26.1 85.9 20ZM31 47.9c-11.5 0-22.6 4.8-30.4 13.2l5.8 5.5C12.8 59.7 21.6 55.9 31 55.9v-8ZM50.1 20C50.1 9.5 41.5.9 31 .9S11.9 9.5 11.9 20 20.5 39.1 31 39.1 50.1 30.5 50.1 20ZM31 31.1c-6.1 0-11.1-5-11.1-11.1S24.9 8.9 31 8.9s11.1 5 11.1 11.1-5 11.1-11.1 11.1Z"/></svg></div><div><strong>Team Leadership</strong><p>Set expectations, build psychological safety, and match ownership to capability and growth goals.</p></div></div>
+            <div class="capability-card"><div class="capability-icon"><svg class="icon-fill" viewBox="0 0 100 100" aria-hidden="true"><path d="M77.4 78.1H40.5a2.3 2.3 0 0 1-2.3-2.3v-4.6a2.3 2.3 0 0 1 2.3-2.3h36.9a2.3 2.3 0 0 1 2.3 2.3v4.6a2.3 2.3 0 0 1-2.3 2.3ZM26.6 78.1H22a2.3 2.3 0 0 1-2.3-2.3v-4.6a2.3 2.3 0 0 1 2.3-2.3h4.6a2.3 2.3 0 0 1 2.3 2.3v4.6a2.3 2.3 0 0 1-2.3 2.3ZM53.8 57.6a2.3 2.3 0 0 1-2.3-2.3v-4.6a2.3 2.3 0 0 1 2.3-2.3h23.6a2.3 2.3 0 0 1 2.3 2.3v4.6a2.3 2.3 0 0 1-2.3 2.3H53.8ZM62.6 37.1a2.3 2.3 0 0 1-2.3-2.3v-4.6a2.3 2.3 0 0 1 2.3-2.3h14.8a2.3 2.3 0 0 1 2.3 2.3v4.6a2.3 2.3 0 0 1-2.3 2.3H62.6ZM20.8 58.2C19.6 47.5 28 36.4 38 34.5l2.7-.6a1 1 0 0 0 .4-1.8l-6.7-4.5a1.46 1.46 0 0 1-.3-2.1l1.7-2.5a1.46 1.46 0 0 1 2.1-.4L54 33.5a1.46 1.46 0 0 1 .4 2.1l-11 16.2a1.46 1.46 0 0 1-2.1.4l-2.5-1.7a1.46 1.46 0 0 1-.4-2.1l4.4-6.7a1 1 0 0 0-1-1.6l-1.6.3c-7.8 1.5-14.4 10.3-13.7 17.9 0 .7-1.1 1.7-1.9 1.9h-1.9c-.9.1-1.9-1.1-1.9-2Z"/></svg></div><div><strong>Product &amp; R&amp;D Strategy</strong><p>Balance user value, scientific evidence, technical feasibility, regulatory constraints, and portfolio risk.</p></div></div>
+            <div class="capability-card"><div class="capability-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 9h16"/><rect x="3" y="5" width="18" height="16" rx="2"/><path d="m8 14 2 2 5-5"/></svg></div><div><strong>Project &amp; Portfolio Management</strong><p>Sequence work, expose dependencies, protect critical paths, and maintain evidence for investment decisions.</p></div></div>
+            <div class="capability-card"><div class="capability-icon"><svg class="icon-fill" viewBox="0 0 100 100" aria-hidden="true"><path fill-rule="evenodd" d="M36 20H26a6 6 0 0 0-6 6v8a6 6 0 0 0 6 6h10a6 6 0 0 0 6-6v-8a6 6 0 0 0-6-6Zm-4 14h-2a4 4 0 0 1 0-8h2a4 4 0 0 1 0 8ZM54 40h10a6 6 0 0 0 6-6v-8a6 6 0 0 0-6-6H54a6 6 0 0 0-6 6v8a6 6 0 0 0 6 6Zm4-14h2a4 4 0 0 1 0 8h-2a4 4 0 0 1 0-8ZM36 46H26a6 6 0 0 0-6 6v8a6 6 0 0 0 6 6h10a6 6 0 0 0 6-6v-8a6 6 0 0 0-6-6Zm-4 14h-2a4 4 0 0 1 0-8h2a4 4 0 0 1 0 8ZM77 67H67v-3.52a9 9 0 1 0-6 0V67H51a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0v-4h7v4a3 3 0 0 0 6 0v-4h7v4a3 3 0 0 0 6 0v-7a3 3 0 0 0-3-3ZM64 52a3 3 0 1 1-3 3 3 3 0 0 1 3-3Z"/></svg></div><div><strong>Technical Mentoring</strong><p>Develop reasoning, communication, and decision quality through coaching, review, and deliberate practice.</p></div></div>
+            <div class="capability-card"><div class="capability-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v3M12 22v-3M12 14v-4M5 7.5c0-.935 0-1.402.201-1.75a1.5 1.5 0 0 1 .549-.549C6.098 5 6.565 5 7.5 5h9c.935 0 1.402 0 1.75.201.228.132.417.321.549.549C19 6.098 19 6.565 19 7.5s0 1.402-.201 1.75a1.5 1.5 0 0 1-.549.549C17.902 10 17.435 10 16.5 10h-9c-.935 0-1.402 0-1.75-.201a1.5 1.5 0 0 1-.549-.549C5 8.902 5 8.435 5 7.5ZM7 16.5c0-.935 0-1.402.201-1.75a1.5 1.5 0 0 1 .549-.549C8.098 14 8.565 14 9.5 14h5c.935 0 1.402 0 1.75.201.228.132.417.321.549.549C17 15.098 17 15.565 17 16.5s0 1.402-.201 1.75a1.5 1.5 0 0 1-.549.549C15.902 19 15.435 19 14.5 19h-5c-.935 0-1.402 0-1.75-.201a1.5 1.5 0 0 1-.549-.549C7 17.902 7 17.435 7 16.5Z"/></svg></div><div><strong>Cross-functional Alignment</strong><p>Connect engineering, science, clinical, product, quality, and commercial perspectives around one decision frame.</p></div></div>
+            <div class="capability-card"><div class="capability-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v7m16 2v3a2 2 0 0 1-2 2H11m-7-7v5a2 2 0 0 0 2 2h5m-7-7h7v7M20 4l-6.5 6.5M20 4h-4M20 4v4"/></svg></div><div><strong>Organizational Scaling</strong><p>Convert successful local practices into reusable standards, operating rhythms, metrics, and leadership capacity.</p></div></div>
+          </div>
+        </article>
+
+        <article class="content-card management-card">
+          <h3 class="card-title">Management Cycle</h3>
+          <div class="management-layout">
+            <div class="cycle-shell"><iframe class="management-cycle-visual" src="../../artwork/leadership-management/leadership_cycle.html" title="Continuous management cycle from listening and planning through enabling, delivery, and reflection"></iframe></div>
+            <div class="cycle-details">
+              <div class="cycle-detail"><strong>Evidence before direction</strong><span>Signals from people, users, performance, and risk shape the plan before commitments are made.</span></div>
+              <div class="cycle-detail"><strong>Enable accountable delivery</strong><span>Leaders remove systemic blockers while teams retain ownership of implementation and evidence.</span></div>
+              <div class="cycle-detail"><strong>Learning closes the loop</strong><span>Outcomes, misses, and changing conditions feed the next decision rather than becoming retrospective notes.</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="delivery-title">
+      <h2 class="panel-title" id="delivery-title">Strategy &amp; Delivery</h2>
+      <p class="section-intro">Strategy becomes useful only when it changes priorities, ownership, and resource allocation. Delivery remains reliable when each stage produces inspectable evidence for the next decision.</p>
+      <div class="panel-body delivery-stack">
+        <article class="content-card workflow-card">
+          <h3 class="card-title">Strategy to Execution</h3>
+          <div class="workflow-header"><div><span class="eyebrow">Continuous feedback</span><h4 class="section-heading">A visible line from intent to adaptation</h4></div><p>Strategic work begins with the environment and ends with evidence about whether the chosen direction is working. Assumptions, measures, and decision owners remain visible throughout the cycle.</p></div>
+          <div class="process-rail" aria-label="Strategy to execution workflow">
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.5"/></svg><strong>Discover</strong><span>Read the environment, stakeholders, evidence, and constraints.</span></div>
+            <div class="process-step"><svg class="icon-fill" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 3.5H1c-.552 0-1 .448-1 1v6a1 1 0 0 0 2 0v-5h5a1 1 0 0 0 0-2ZM31 20.5a1 1 0 0 0-1 1v5h-5a1 1 0 0 0 0 2h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1ZM7 26.5H2v-5a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1h6a1 1 0 0 0 0-2ZM31 3.5h-6a1 1 0 0 0 0 2h5v5a1 1 0 0 0 2 0v-6a1 1 0 0 0-1-1Z"/></svg><strong>Frame</strong><span>Define the problem, value, boundaries, and measures of success.</span></div>
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 14h18M17 10H7M17 18H7"/></svg><strong>Align</strong><span>Clarify priorities, trade-offs, decision rights, and shared commitments.</span></div>
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2 2 5-5"/></svg><strong>Execute</strong><span>Coordinate bounded work with transparent ownership and dependencies.</span></div>
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.269 16.269 1.731 1.731M13 3H8.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C5 4.52 5 5.08 5 6.2v11.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C6.52 21 7.08 21 8.2 21h7.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C19 19.48 19 18.92 19 17.8V9M13 3l6 6M13 3v4.4c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C13.76 9 14.04 9 14.6 9H19M14 14.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/></svg><strong>Review</strong><span>Compare outcomes with expectations, baselines, risks, and leading signals.</span></div>
+            <div class="process-step"><svg class="icon-heavy" viewBox="0 0 48 48" aria-hidden="true"><path d="M13 35H7v6M41 41h-6v-6M35 13h6V7M7 7h6v6M13 7.294A19.98 19.98 0 0 0 4 24c0 1.02.076 2.021.224 3M27 43.777c-.979.147-1.98.223-3 .223A19.98 19.98 0 0 1 7.294 35M43.777 21c.147.979.223 1.98.223 3a19.98 19.98 0 0 1-9 16.706M21 4.224A20.1 20.1 0 0 1 24 4a19.98 19.98 0 0 1 16.706 9"/></svg><strong>Adapt</strong><span>Update the direction, operating model, or investment based on evidence.</span></div>
+          </div>
+          <ul class="workflow-footer"><li>Explicit assumptions</li><li>Measurable outcomes</li><li>Named decision owners</li><li>Review cadence</li><li>Change signals</li></ul>
+        </article>
+
+        <article class="content-card workflow-card">
+          <h3 class="card-title">Project &amp; Product Delivery</h3>
+          <div class="workflow-header"><div><span class="eyebrow">Lifecycle management</span><h4 class="section-heading">Decision gates that protect quality and momentum</h4></div><p>Delivery systems surface uncertainty early, preserve traceability, and make readiness testable. Gates are proportional to technical, clinical, regulatory, and operational risk rather than applied as administrative ceremony.</p></div>
+          <div class="process-rail" aria-label="Project and product delivery workflow">
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/></svg><strong>Scope</strong><span>Bound the outcome, acceptance criteria, risk, and evidence required.</span></div>
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 12h8M13 8h8M13 16h8M6 7v10M6 7l-3 3M6 7l3 3"/></svg><strong>Prioritize</strong><span>Sequence work by value, uncertainty, dependency, and critical path.</span></div>
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg><strong>Build</strong><span>Create reviewable increments with clear interfaces and reproducible evidence.</span></div>
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg><strong>Validate</strong><span>Challenge behavior, usability, safety, robustness, and release readiness.</span></div>
+            <div class="process-step"><svg class="icon-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.67 10.73a3.52 3.52 0 0 0-.94 1.93 5 5 0 0 0-.07 1.1v.58h.8a5.05 5.05 0 0 0 .88-.08 3.46 3.46 0 0 0 1.93-.94 1.76 1.76 0 0 0-.14-2.48 1.76 1.76 0 0 0-2.46-.11Zm1.74 1.73a2.26 2.26 0 0 1-1.26.6h-.22v-.22a2.26 2.26 0 0 1 .6-1.26.36.36 0 0 1 .24-.08.67.67 0 0 1 .47.22.54.54 0 0 1 .17.74ZM14.65 2.24a.91.91 0 0 0-.89-.89A8.75 8.75 0 0 0 7.27 3.5L5.64 5.4l-2.4-.5a1 1 0 0 0-.92.27l-.68.68a1 1 0 0 0 .17 1.55l2.06 1.32.13.08 3.2 3.25.08.08 1.32 2.06a1 1 0 0 0 1.55.16l.68-.68a1 1 0 0 0 .27-.92l-.5-2.39 1.84-1.58a8.79 8.79 0 0 0 2.21-6.54ZM3.11 6.15l1.32.28-.64.75-1-.67.32-.36Zm6.38 7.1-.67-1 .75-.64.28 1.32-.36.32Zm2.11-5.39L7.92 11 5 8.08 8.14 4.4a7.44 7.44 0 0 1 5.26-1.8 7.48 7.48 0 0 1-1.8 5.26Z"/><path d="M11.13 6.63a1.19 1.19 0 0 0-.06-1.7 1.16 1.16 0 1 0-1.64 1.63 1.2 1.2 0 0 0 1.7.07Z"/></svg><strong>Launch</strong><span>Promote with training, observability, ownership, and recovery paths.</span></div>
+            <div class="process-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17V7M4 17h16"/><path d="m7 14 4-4 3 2 5-6"/><path d="M16 6h3v3"/></svg><strong>Optimize</strong><span>Use operating data and feedback to improve value, reliability, and cost.</span></div>
+          </div>
+          <ul class="workflow-footer"><li>Risk-proportionate controls</li><li>Release evidence</li><li>Operational ownership</li><li>Rollback readiness</li><li>Outcome monitoring</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="practice-title">
+      <h2 class="panel-title" id="practice-title">People, Culture &amp; Operational Excellence</h2>
+      <p class="section-intro">Sustainable performance depends on behaviors that make good decisions repeatable: visible direction, credible ownership, disciplined execution, technical standards, collaborative learning, and systems designed to scale.</p>
+      <div class="panel-body practice-grid">
+        <article class="practice-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 7V1h6M17 1h6v6M1 17v6h6M17 23h6v-6M22 12A11.54 11.54 0 0 1 2 12a11.54 11.54 0 0 1 20 0Z"/><circle cx="12" cy="12" r="3"/></svg><div><h3>Vision &amp; Alignment</h3><p>Connect daily choices to a shared outcome and revisit priorities when evidence or constraints change.</p></div></article>
+        <article class="practice-card"><svg class="icon-fill" viewBox="0 0 1920 1920" aria-hidden="true"><path fill-rule="evenodd" d="M276.941 440.584v565.722c0 422.4 374.174 625.468 674.71 788.668l8.02 4.292 8.131-4.292c300.537-163.2 674.71-366.268 674.71-788.668V440.584l-682.84-321.657-682.731 321.657Zm682.73 1479.529c-9.262 0-18.523-2.372-26.993-6.89l-34.9-18.974C588.095 1726.08 164 1495.906 164 1006.306V404.78c0-21.91 12.65-41.788 32.414-51.162L935.727 5.42c15.134-7.228 32.866-7.228 48 0l739.313 348.2c19.765 9.374 32.414 29.252 32.414 51.162v601.525c0 489.6-424.207 719.774-733.779 887.943l-34.899 18.975c-8.47 4.517-17.731 6.889-27.105 6.889Zm467.158-547.652h-313.412l-91.595-91.482v-83.803H905.041v-116.78h-83.69l-58.503-58.504c-1.92.113-3.84.113-5.76.113-176.075 0-319.285-143.21-319.285-319.285 0-176.075 143.21-319.398 319.285-319.398 176.075 0 319.285 143.323 319.285 319.398 0 1.92 0 3.84-.113 5.647l350.57 350.682v313.412Zm-266.654-112.941h153.713v-153.713L958.462 750.155l3.953-37.27c1.017-123.897-91.595-216.621-205.327-216.621S550.744 588.988 550.744 702.72c0 113.845 92.612 206.344 206.344 206.344l47.21-5.309 63.811 63.7h149.873v116.78h116.781v149.986l25.412 25.299Zm-313.4-553.57c0 46.758-37.949 84.706-84.706 84.706-46.758 0-84.706-37.948-84.706-84.706s37.948-84.706 84.706-84.706c46.757 0 84.706 37.948 84.706 84.706Z"/></svg><div><h3>Ownership &amp; Accountability</h3><p>Define decision rights, expected evidence, escalation paths, and follow-through without creating approval bottlenecks.</p></div></article>
+        <article class="practice-card"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="m7 8 1.5 1.5L11 7M14 8h3M7 14l1.5 1.5L11 13M14 14h3"/></svg><div><h3>Structured Execution</h3><p>Use clear interfaces, milestones, decision gates, and feedback cadences to keep complex work inspectable.</p></div></article>
+        <article class="practice-card"><svg class="icon-fill" viewBox="0 0 299.594 299.594" aria-hidden="true"><path d="M242.974 139.731H43.02a7.35 7.35 0 0 0 0 14.7h199.954a7.35 7.35 0 0 0 0-14.7ZM197.45 173.151H43.02a7.35 7.35 0 0 0 0 14.7h154.43a7.35 7.35 0 0 0 0-14.7ZM94.881 116.246h96.231a7.35 7.35 0 0 0 7.35-7.35V59.073a7.35 7.35 0 0 0-7.35-7.35H94.881a7.35 7.35 0 0 0-7.35 7.35v49.822a7.35 7.35 0 0 0 7.35 7.351Zm7.35-49.823h81.531v35.122h-81.531V66.423ZM285.993 170.54V23.24a7.35 7.35 0 0 0-7.35-7.35H7.35A7.35 7.35 0 0 0 0 23.24v194.839a7.35 7.35 0 0 0 7.35 7.35h217.81a41.7 41.7 0 0 0 3.406 4.061v46.86c0 6.552 7.948 9.794 12.548 5.197l17.275-17.276 17.276 17.276c4.613 4.611 12.548 1.347 12.548-5.197v-46.86c15.964-16.765 15.051-43.336-2.22-58.95Zm-67.667 40.188H14.7V30.59h256.593v131.36c-30.505-10.042-60.534 17.387-52.967 48.778Zm55.186 47.876-9.926-9.926a7.35 7.35 0 0 0-10.395 0l-9.925 9.925v-19.172a41.3 41.3 0 0 0 30.247 0v19.173Zm-15.123-30.997c-14.688 0-26.504-11.985-26.504-26.505a26.505 26.505 0 1 1 26.504 26.505Z"/></svg><div><h3>Technical Excellence</h3><p>Protect scientific validity, engineering quality, maintainability, and evidence even under delivery pressure.</p></div></article>
+        <article class="practice-card"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="3.41" r="1.91"/><path d="M9.14 8.18A2.86 2.86 0 0 1 12 5.32a2.86 2.86 0 0 1 2.86 2.86"/><circle cx="19.64" cy="14.86" r="1.91"/><path d="M16.77 19.64a2.86 2.86 0 0 1 2.87-2.87 2.86 2.86 0 0 1 2.86 2.87"/><circle cx="4.36" cy="14.86" r="1.91"/><path d="M1.5 19.64a2.86 2.86 0 0 1 2.86-2.87 2.86 2.86 0 0 1 2.87 2.87M2.47 11.37a9.53 9.53 0 0 1 4.91-7.72M16.62 3.65a9.53 9.53 0 0 1 4.91 7.72M8.39 21.79a9.53 9.53 0 0 0 7.22 0"/></svg><div><h3>Collaborative Culture</h3><p>Make disagreement productive, invite relevant expertise early, and separate critique of ideas from status or hierarchy.</p></div></article>
+        <article class="practice-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM20 5.5A2.5 2.5 0 0 0 17.5 3H12v17h5.5A2.5 2.5 0 0 1 20 22V5.5Z"/></svg><div><h3>Knowledge Sharing</h3><p>Capture decisions, examples, standards, and lessons in forms that teams can retrieve, review, and reuse.</p></div></article>
+        <article class="practice-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M12 21V7m0 0a2 2 0 0 0 2-2m-2 2a2 2 0 0 1-2-2m4 0a2 2 0 1 0-4 0m4 0h6m-10 0H4M6 17c1.513 0 2.764-.842 2.969-2.249.013-.089.02-.134.015-.232a2.4 2.4 0 0 0-.048-.259 2.2 2.2 0 0 0-.142-.292L6 9l-2.795 4.968c-.069.123-.104.184-.136.29a2.5 2.5 0 0 0-.042.291c0 .112.008.141.021.2C3.303 15.86 4.527 17 6 17Zm12 0c1.513 0 2.764-.842 2.969-2.249.013-.089.02-.134.015-.232a2.4 2.4 0 0 0-.048-.259 2.2 2.2 0 0 0-.142-.292L18 9l-2.795 4.968c-.069.123-.104.184-.136.29a2.5 2.5 0 0 0-.042.291c0 .112.008.141.021.2C15.303 15.86 16.527 17 18 17Z"/></svg><div><h3>Scalability &amp; Reliability</h3><p>Design processes, roles, and platforms that preserve quality as scope, team size, and operational load grow.</p></div></article>
+        <article class="practice-card"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M23 24v5M10 21V10a3 3 0 0 0-3-3H1v11h6a3 3 0 0 1 3 3Zm0 0V10a3 3 0 0 1 3-3h6v11h-6a3 3 0 0 0-3 3Zm2.2-2.9c.3.3.5.6.8.9v8M22 24h4a2 2 0 0 0 2-2v-4h3l-3-6a9 9 0 0 0-16.9-4.3"/></svg><div><h3>Continuous Learning</h3><p>Turn reviews, incidents, experiments, and coaching into changed behavior and stronger future decisions.</p></div></article>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

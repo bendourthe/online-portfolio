@@ -4,6 +4,24 @@
 
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
+- Leadership & Management rebuild: complete
+- Release content refactor: implemented and browser verified
+- Branching model: develop + main
+- Initial release: v1.0.0 ready
+
+## Release Content Refactor [READY]
+
+- [x] Inventory browser-referenced and unreferenced files under `content/skills`.
+- [x] Measure duplicate files and the current deployment payload.
+- [x] Document the proposed runtime, source, reference, and archive boundaries.
+- [x] Confirm the move, archive, duplicate-removal, and deployment-build scope.
+- [x] Move authoring-only material to `source/skills` with copy, hash verification, and source deletion.
+- [x] Consolidate runtime duplicates and regenerate the skills bundles.
+- [x] Add the deterministic `dist/` site build and GitHub Pages deployment workflow.
+- [x] Verify the generated site, local references, themes, and responsive layouts.
+- [x] Prepare and review the initial `v1.0.0` changelog, devlog, README, and known-gaps record.
+- [x] Replace the temporary agent-prefixed branch model with `refactor/`, `develop`, and `main`.
+- [x] Confirm the release commit, tag, push, and GitHub Release sequence.
 
 ## Completed
 
@@ -75,6 +93,49 @@
 - [x] Verify the Writing page at desktop and phone widths in both themes with no overflow, clipped boxes, or broken images.
 - [x] Rename the communication-quality pills to Clear disclosures and Intuitive visuals.
 - [x] Replace the Audience Adaptation and Knowledge Transfer title-card icons with the supplied theme-aware SVG artwork.
+
+## Leadership & Management Rebuild [DONE]
+
+- [x] Rebuild the Leadership page hierarchy, copy, spacing, and responsive card alignment.
+- [x] Rebuild `leadership_cycle.html` as a theme-aware management-cycle graphic with readable configured labels.
+- [x] Replace bitmap workflow and best-practice icons with native theme-aware SVG illustrations.
+- [x] Regenerate the skills bundle and verify desktop, tablet, and phone layouts in light and dark themes.
+
+## Leadership & Management Refinement
+
+- [DONE] Restore and compact the supplied `leadership_cycle.html` graphic so the two leadership sub-boxes align in height.
+- [DONE] Mount the four supplied Leadership title-card icons with the shared theme color and original stroke geometry.
+- [DONE] Center every Strategy & Delivery connector triangle between adjacent boxes.
+- [DONE] Replace the Collaborative Culture, Technical Excellence, and Continuous Learning symbols and verify both themes responsively.
+
+## Leadership & Management Layout and Icon Refinement
+
+- [x] Recompose Management Cycle with the supplied chart on the left and three vertically stacked explanations on the right while preserving desktop height parity.
+- [x] Replace the requested Strategy & Delivery workflow icons with the supplied SVG designs.
+- [x] Replace the requested People, Culture & Operational Excellence icons with the supplied SVG designs.
+- [x] Regenerate the skills bundle and verify layout density, theme inheritance, responsive behavior, and browser integrity.
+
+## Leadership Title Icon Regression
+
+- [x] Replace the cache-sensitive title-card SVG masks with the supplied inline icon geometry.
+- [x] Regenerate the skills bundle and verify all four icons in light, dark, desktop, and phone layouts.
+
+## Leadership Typography and Capability Icon Refinement
+
+- [x] Move box-title and sub-box-title letter spacing into the shared design configuration.
+- [x] Replace the requested Leadership Foundations and Launch icons with the supplied theme-aware SVG geometry.
+- [x] Regenerate the skills bundle and verify title spacing, icon visibility, themes, and responsive layouts.
+
+## Theme-Aware AI and Machine Learning Preview
+
+- [x] Replace the AI & Machine Learning overview artwork with the supplied light-theme image.
+- [x] Use the supplied dark-theme image when dark mode is active.
+- [x] Verify the correct image renders without cropping in both themes and at desktop and mobile widths.
+
+## Featured Projects Light-Theme Readability
+
+- [x] Match the Featured Projects introduction and guide-card text hierarchy to the Career Highlights light theme.
+- [x] Verify light-theme contrast, responsive rendering, and dark-theme preservation.
 
 ## Verification
 

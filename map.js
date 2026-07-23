@@ -1,8 +1,8 @@
 ﻿const fs = require('fs');
 const path = require('path');
 
-const iconsDir = path.join(__dirname, 'content/skills/content/icons');
-const htmlDir = path.join(__dirname, 'content/skills/content/html');
+const iconsDir = path.join(__dirname, 'source/skills/references/icons');
+const htmlDir = path.join(__dirname, 'source/skills/pages');
 
 const folders = fs.readdirSync(iconsDir).filter(f => fs.statSync(path.join(iconsDir, f)).isDirectory());
 
