@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Technical Communication Workflow</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg:#020f18;
+    --panel:#041923;
+    --cyan:#28d3d7;
+    --teal:#12aeb3;
+    --blue:#3aa8df;
+    --purple:#7256bd;
+    --orange:#ed8a22;
+    --white:#f4f7f8;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:#020b11;font-family:Inter,"Segoe UI",Arial,sans-serif}
+  body{display:grid;place-items:center;padding:18px}
+  .artboard{width:min(96vw,1248px);aspect-ratio:1/1;filter:drop-shadow(0 18px 45px rgba(0,0,0,.55))}
+  svg{display:block;width:100%;height:100%;overflow:visible}
+  .label{fill:#f5f7f8;font-weight:750;letter-spacing:-.4px}
+  .small{fill:#eef3f5;font-weight:650}
+  .muted{fill:#d4dde1;font-weight:500}
+  .outline{fill:url(#panelFill);stroke-width:1.7}
+  .icon-stroke{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .glow-stroke{filter:url(#softGlow)}
+</style>
+</head>
+<body>
+<main class="artboard" aria-label="Technical communication infographic reconstructed in SVG and HTML">
+<svg viewBox="0 0 1248 1248" role="img" aria-labelledby="title desc" font-family="Inter, Segoe UI, Arial, sans-serif">
+<title id="title">Technical Communication Workflow</title>
+<desc id="desc">Five technical communication capabilities connected to a central content-creation hub, followed by an agentic engineering workflow and four communication principles.</desc>
+<style type="text/css"><![CDATA[
+  .label{fill:#f5f7f8;font-weight:750;letter-spacing:-.4px}
+  .small{fill:#eef3f5;font-weight:650}
+  .muted{fill:#d4dde1;font-weight:500}
+  .outline{fill:url(#panelFill);stroke-width:1.7}
+  .icon-stroke{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .glow-stroke{filter:url(#softGlow)}
+]]></style>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="43%" r="75%">
+    <stop offset="0" stop-color="#082936"/>
+    <stop offset=".42" stop-color="#041b27"/>
+    <stop offset="1" stop-color="#010b12"/>
+  </radialGradient>
+  <linearGradient id="panelFill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#071e29" stop-opacity=".93"/>
+    <stop offset="1" stop-color="#03131c" stop-opacity=".97"/>
+  </linearGradient>
+  <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#5ee8d5"/>
+    <stop offset=".5" stop-color="#149e9f"/>
+    <stop offset="1" stop-color="#075a68"/>
+  </linearGradient>
+  <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#56d9e7"/>
+    <stop offset=".55" stop-color="#2389c7"/>
+    <stop offset="1" stop-color="#104a8f"/>
+  </linearGradient>
+  <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ad91eb"/>
+    <stop offset=".54" stop-color="#7050ae"/>
+    <stop offset="1" stop-color="#382d74"/>
+  </linearGradient>
+  <linearGradient id="orangeGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffc75d"/>
+    <stop offset=".56" stop-color="#ec8b21"/>
+    <stop offset="1" stop-color="#9d4612"/>
+  </linearGradient>
+  <linearGradient id="paperGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".55" stop-color="#e4edf2"/>
+    <stop offset="1" stop-color="#9fb9c7"/>
+  </linearGradient>
+  <linearGradient id="silverGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f8fbfd"/>
+    <stop offset=".43" stop-color="#b8cad4"/>
+    <stop offset="1" stop-color="#486b7e"/>
+  </linearGradient>
+  <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0e2632"/>
+    <stop offset="1" stop-color="#020d13"/>
+  </linearGradient>
+  <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="cardShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#000" flood-opacity=".55"/>
+  </filter>
+  <filter id="iconShadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity=".56"/>
+  </filter>
+  <filter id="tinyGlow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="2.2" result="g"/>
+    <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <!-- reusable person icon -->
+  <g id="person">
+    <circle cx="0" cy="-12" r="8" fill="url(#silverGrad)" stroke="#9cd7df" stroke-width="1.3"/>
+    <path d="M-13 13c0-12 5-19 13-19s13 7 13 19z" fill="url(#silverGrad)" stroke="#6c9aaa" stroke-width="1.3"/>
+  </g>
+  <g id="personTeal">
+    <circle cx="0" cy="-12" r="8" fill="url(#tealGrad)" stroke="#57e4d7" stroke-width="1.3"/>
+    <path d="M-13 13c0-12 5-19 13-19s13 7 13 19z" fill="url(#tealGrad)" stroke="#1cbcb5" stroke-width="1.3"/>
+  </g>
+  <g id="personPurple">
+    <circle cx="0" cy="-12" r="8" fill="url(#purpleGrad)" stroke="#b89fff" stroke-width="1.3"/>
+    <path d="M-13 13c0-12 5-19 13-19s13 7 13 19z" fill="url(#purpleGrad)" stroke="#7b67c4" stroke-width="1.3"/>
+  </g>
+  <g id="personOrange">
+    <circle cx="0" cy="-12" r="8" fill="url(#orangeGrad)" stroke="#ffd473" stroke-width="1.3"/>
+    <path d="M-13 13c0-12 5-19 13-19s13 7 13 19z" fill="url(#orangeGrad)" stroke="#f2a139" stroke-width="1.3"/>
+  </g>
+
+  <g id="arrowRight" stroke="#6aa4ba" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h19"/><path d="M12-8l8 8-8 8"/>
+  </g>
+</defs>
+
+<!-- Background -->
+<rect class="source-canvas" width="1248" height="1248" rx="0" fill="none"/>
+<circle class="source-main-backdrop" cx="616" cy="555" r="430" fill="none" stroke="#13c3c8" stroke-opacity=".05" stroke-width="110"/>
+<circle class="source-main-backdrop" cx="616" cy="555" r="495" fill="none" stroke="#0d7f89" stroke-opacity=".03" stroke-width="4"/>
+
+<!-- Curved network connectors behind cards -->
+<g fill="none" stroke="#20c5c9" stroke-width="1.8" opacity=".88">
+  <path d="M492 171 C395 188 322 245 277 315"/>
+  <path d="M756 171 C850 188 927 242 970 314"/>
+  <path d="M357 382 C399 392 427 405 450 430"/>
+  <path d="M891 382 C850 392 819 405 794 430"/>
+  <path d="M375 716 C402 708 419 696 430 684"/>
+  <path d="M861 716 C838 708 824 698 813 684"/>
+  <path d="M624 311v37"/>
+</g>
+
+<!-- Card 1 -->
+<g class="source-capability-card" filter="url(#cardShadow)">
+  <rect x="492" y="42" width="260" height="268" rx="30" fill="url(#panelFill)" stroke-width="1.7" stroke="#19b8c0"/>
+  <circle cx="623" cy="42" r="28" fill="url(#tealGrad)" stroke="#55e3d7" stroke-width="1.2"/>
+  <text x="623" y="55" text-anchor="middle" font-size="36" font-weight="800" fill="#fff">1</text>
+
+  <!-- technical documentation icon -->
+  <g filter="url(#iconShadow)">
+    <path d="M545 81h98l30 31v110H545z" fill="url(#paperGrad)" stroke="#b8d3df" stroke-width="2"/>
+    <path d="M643 81v31h30" fill="#b8dcea" stroke="#79aac0" stroke-width="2"/>
+    <g stroke="#2d7ea0" stroke-width="4" stroke-linecap="round">
+      <path d="M558 101h62"/><path d="M558 114h48"/><path d="M558 128h68"/>
+      <path d="M558 143h35"/><path d="M558 157h39"/><path d="M558 174h30"/><path d="M558 192h44"/><path d="M558 207h34"/>
+    </g>
+    <rect x="602" y="143" width="105" height="78" rx="12" fill="url(#screenGrad)" stroke="#78b5cb" stroke-width="4"/>
+    <path d="M624 164l15 13-15 13M646 191h20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="622" y="261" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="25">Technical</text>
+  <text x="622" y="291" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="25">Documentation</text>
+</g>
+
+<!-- Card 2 -->
+<g class="source-capability-card" filter="url(#cardShadow)">
+  <rect x="103" y="250" width="259" height="287" rx="30" fill="url(#panelFill)" stroke-width="1.7" stroke="#20aec1"/>
+  <circle cx="219" cy="250" r="28" fill="url(#tealGrad)" stroke="#62e6d6" stroke-width="1.2"/>
+  <text x="219" y="263" text-anchor="middle" font-size="36" font-weight="800" fill="#fff">2</text>
+  <g filter="url(#iconShadow)">
+    <path d="M153 290h97l29 30v122H153z" fill="url(#paperGrad)" stroke="#b7d5df" stroke-width="2"/>
+    <path d="M250 290v30h29" fill="#b8dcea" stroke="#7da8bd" stroke-width="2"/>
+    <g stroke="#397f9e" stroke-width="4" stroke-linecap="round">
+      <path d="M168 315h61"/><path d="M168 331h82"/><path d="M168 347h69"/><path d="M168 364h34"/>
+    </g>
+    <line x1="170" y1="422" x2="247" y2="422" stroke="#4b8294" stroke-width="2"/>
+    <line x1="170" y1="422" x2="170" y2="392" stroke="#4b8294" stroke-width="2"/>
+    <rect x="179" y="409" width="13" height="13" fill="url(#tealGrad)"/>
+    <rect x="199" y="399" width="13" height="23" fill="url(#tealGrad)"/>
+    <rect x="219" y="385" width="13" height="37" fill="url(#blueGrad)"/>
+    <rect x="239" y="369" width="13" height="53" fill="url(#blueGrad)"/>
+    <circle cx="286" cy="399" r="31" fill="url(#blueGrad)" stroke="#35b5c9" stroke-width="1.5"/>
+    <path d="M286 368v31h31" fill="url(#tealGrad)" stroke="#2ae0cd" stroke-width="1.5"/>
+  </g>
+  <text x="232" y="487" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Scientific</text>
+  <text x="232" y="517" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Reports &amp; Articles</text>
+</g>
+
+<!-- Card 3 -->
+<g class="source-capability-card" filter="url(#cardShadow)">
+  <rect x="879" y="250" width="264" height="287" rx="30" fill="url(#panelFill)" stroke-width="1.7" stroke="#8359bc"/>
+  <circle cx="1006" cy="250" r="28" fill="url(#purpleGrad)" stroke="#b79ce4" stroke-width="1.2"/>
+  <text x="1006" y="263" text-anchor="middle" font-size="36" font-weight="800" fill="#fff">3</text>
+  <g filter="url(#iconShadow)">
+    <rect x="915" y="289" width="165" height="101" fill="url(#paperGrad)" stroke="#7ea6b7" stroke-width="2"/>
+    <rect x="912" y="287" width="171" height="9" rx="3" fill="#476a7a"/>
+    <path d="M997 390v25M977 420h40" stroke="#4a6e7f" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="961" cy="337" r="25" fill="url(#blueGrad)" stroke="#276c98"/>
+    <path d="M961 312v25h25" fill="url(#tealGrad)" stroke="#c8e9eb" stroke-width="1"/>
+    <g stroke="#477d98" stroke-width="4" stroke-linecap="round"><path d="M1002 317h50"/><path d="M1002 332h38"/><path d="M1002 347h43"/></g>
+    <use href="#person" transform="translate(936 438) scale(.95)"/>
+    <use href="#person" transform="translate(975 438) scale(.95)"/>
+    <use href="#person" transform="translate(1014 438) scale(.95)"/>
+    <!-- presenter -->
+    <circle cx="1070" cy="347" r="15" fill="url(#purpleGrad)" stroke="#bca8f1" stroke-width="2"/>
+    <path d="M1045 394c0-26 9-38 26-38 17 0 27 12 27 38z" fill="url(#purpleGrad)" stroke="#7f69be" stroke-width="2"/>
+    <path d="M1051 366l-22-18-9 10 27 27" fill="none" stroke="#8e78d3" stroke-width="8" stroke-linecap="round"/>
+    <path d="M1047 398h59v9h-59M1057 407v44h41v-44" fill="url(#purpleGrad)" stroke="#67549b" stroke-width="2"/>
+  </g>
+  <text x="1011" y="490" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Presentations &amp;</text>
+  <text x="1011" y="520" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Public Speaking</text>
+</g>
+
+<!-- Central circle and nodes -->
+<g>
+  <circle cx="622" cy="572" r="223" fill="#071a24" fill-opacity=".73" stroke="#45dfe4" stroke-width="2.2" filter="url(#softGlow)"/>
+  <circle cx="622" cy="572" r="215" fill="none" stroke="#0e5968" stroke-width="1" opacity=".6"/>
+  <!-- connector nodes -->
+  <g fill="#b8f7f3" stroke="#23c9cf" stroke-width="3" filter="url(#tinyGlow)">
+    <circle cx="622" cy="349" r="8"/><circle cx="450" cy="430" r="8"/><circle cx="794" cy="430" r="8"/>
+    <circle cx="430" cy="685" r="8"/><circle cx="815" cy="685" r="8"/>
+  </g>
+  <!-- orbit -->
+  <path d="M482 556c0-73 61-132 136-132" fill="none" stroke="#51cfe1" stroke-width="4" stroke-dasharray="8 9" opacity=".85"/>
+  <path d="M760 612c0 69-58 126-131 126" fill="none" stroke="#4f65a8" stroke-width="4" stroke-dasharray="8 9" opacity=".78"/>
+
+  <!-- Light bulb -->
+  <g transform="translate(615 434)" filter="url(#iconShadow)">
+    <circle cx="0" cy="0" r="39" fill="#071b24" stroke="#32d5dc" stroke-width="4"/>
+    <path d="M-14-3c0-12 7-21 18-21 12 0 20 9 20 21 0 7-4 13-10 17v11h-19V14c-6-4-9-10-9-17z" fill="none" stroke="#7fcaef" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M-5 30h19M-2 36h13" stroke="#336c8c" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- node graph top-right -->
+  <g transform="translate(708 463)" stroke="#34cbd3" stroke-width="5" fill="#071c26" stroke-linecap="round">
+    <path d="M-24-19l27 4 26 27M28 13L2 47M2 47l-16-5"/>
+    <circle cx="-28" cy="-20" r="7"/><circle cx="30" cy="13" r="11"/><circle cx="2" cy="47" r="6"/>
+  </g>
+
+  <!-- central document -->
+  <g filter="url(#iconShadow)">
+    <path d="M526 495h121l42 42v162H526z" fill="#0a2430" stroke="#84e3ec" stroke-width="5"/>
+    <path d="M647 495v42h42" fill="#2a6176" stroke="#8ee9ed" stroke-width="4"/>
+    <g stroke="#8fd7e9" stroke-width="4" stroke-linecap="round">
+      <path d="M554 529h61"/><path d="M554 551h31"/><path d="M554 574h107"/><path d="M554 596h90"/><path d="M554 618h112"/><path d="M554 641h72"/><path d="M554 663h96"/>
+    </g>
+  </g>
+  <!-- speech bubble -->
+  <g filter="url(#iconShadow)">
+    <path d="M447 585c0-24 18-42 42-42h45c24 0 42 18 42 42v25c0 24-18 42-42 42h-24l-22 22v-22h-1c-22 0-40-18-40-40z" fill="#0a2632" stroke="#8be9ef" stroke-width="5"/>
+    <circle cx="484" cy="612" r="7" fill="#f1f4f5"/><circle cx="512" cy="612" r="7" fill="#f1f4f5"/><circle cx="540" cy="612" r="7" fill="#f1f4f5"/>
+  </g>
+  <!-- pencil -->
+  <g transform="rotate(32 718 602)" filter="url(#iconShadow)">
+    <rect x="699" y="528" width="35" height="146" rx="17" fill="#0d2530" stroke="#96e9ef" stroke-width="5"/>
+    <path d="M699 641h35l-17 42z" fill="#4b859b" stroke="#94e7ed" stroke-width="4"/>
+    <path d="M708 538h17M706 557h21" stroke="#4d91a8" stroke-width="5"/>
+    <path d="M707 528v-8c0-7 5-12 12-12s12 5 12 12v8" fill="#b6d7e2" stroke="#8fe4ea" stroke-width="4"/>
+  </g>
+  <!-- person bottom -->
+  <g transform="translate(620 728) scale(1.18)" filter="url(#iconShadow)">
+    <circle cx="0" cy="0" r="31" fill="#071d27" stroke="#38d5da" stroke-width="4"/>
+    <use href="#personTeal" transform="translate(0 4) scale(.75)"/>
+  </g>
+</g>
+
+<!-- Card 4 -->
+<g class="source-capability-card" filter="url(#cardShadow)">
+  <rect x="112" y="609" width="264" height="259" rx="30" fill="url(#panelFill)" stroke-width="1.7" stroke="#289a8d"/>
+  <circle cx="232" cy="609" r="28" fill="url(#tealGrad)" stroke="#8bd4a7" stroke-width="1.2"/>
+  <text x="232" y="622" text-anchor="middle" font-size="36" font-weight="800" fill="#fff">4</text>
+  <g filter="url(#iconShadow)">
+    <path d="M143 675l55-25 55 25-55 26z" fill="url(#tealGrad)" stroke="#5de1d2" stroke-width="1.8"/>
+    <path d="M161 685v34c20 14 56 14 75 0v-34" fill="#0f716f" stroke="#48cbbf" stroke-width="2"/>
+    <path d="M143 675v38M143 713c-5 7-5 13 0 18 5-5 5-11 0-18z" fill="url(#tealGrad)" stroke="#4fd6cb" stroke-width="2"/>
+    <rect x="269" y="656" width="75" height="63" rx="4" fill="#06222c" stroke="#1fc1ca" stroke-width="3"/>
+    <g stroke="#377e91" stroke-width="3" stroke-linecap="round"><path d="M282 672h45"/><path d="M282 684h32"/><path d="M282 696h40"/></g>
+    <use href="#person" transform="translate(173 770) scale(1.05)"/>
+    <use href="#person" transform="translate(222 770) scale(1.05)"/>
+    <use href="#person" transform="translate(270 770) scale(1.05)"/>
+    <use href="#person" transform="translate(319 770) scale(1.05)"/>
+  </g>
+  <text x="244" y="821" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Training &amp;</text>
+  <text x="244" y="850" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Workshops</text>
+</g>
+
+<!-- Card 5 -->
+<g class="source-capability-card" filter="url(#cardShadow)">
+  <rect x="861" y="609" width="254" height="259" rx="30" fill="url(#panelFill)" stroke-width="1.7" stroke="#ef8a1a"/>
+  <circle cx="989" cy="609" r="28" fill="url(#orangeGrad)" stroke="#ffc46a" stroke-width="1.2"/>
+  <text x="989" y="622" text-anchor="middle" font-size="36" font-weight="800" fill="#fff">5</text>
+  <g filter="url(#iconShadow)">
+    <path d="M885 672c17-10 38-16 64-18v113c-27 5-48 13-64 23z" fill="url(#tealGrad)" stroke="#56dfe3" stroke-width="1.5"/>
+    <path d="M949 654c23-3 47-3 72 0v113c-23-4-47-4-72 0z" fill="url(#purpleGrad)" stroke="#a793ef" stroke-width="1.5"/>
+    <path d="M1021 654c27 3 50 10 69 20v116c-18-10-41-18-69-23z" fill="url(#orangeGrad)" stroke="#ffc75d" stroke-width="1.5"/>
+    <path d="M885 790c58-28 145-27 205 0v10c-59-25-148-25-205 0z" fill="#0b4d79" stroke="#4b93cf" stroke-width="2"/>
+    <use href="#personTeal" transform="translate(922 735) scale(1.2)"/>
+    <use href="#personPurple" transform="translate(985 735) scale(1.2)"/>
+    <use href="#personOrange" transform="translate(1053 735) scale(1.2)"/>
+  </g>
+  <text x="988" y="821" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Audience</text>
+  <text x="988" y="850" text-anchor="middle" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="24">Adaptation</text>
+</g>
+
+<!-- Workflow heading -->
+<g>
+  <line x1="132" y1="907" x2="399" y2="907" stroke="#1aaeb6" stroke-width="1.6"/>
+  <line x1="846" y1="907" x2="1113" y2="907" stroke="#1aaeb6" stroke-width="1.6"/>
+  <text x="622" y="917" text-anchor="middle" fill="#1abac0" font-size="24" font-weight="800">AGENTIC ENGINEERING WORKFLOW</text>
+</g>
+
+<!-- Workflow boxes -->
+<g class="source-workflow-row">
+  <g transform="translate(84 936)">
+    <rect class="source-workflow-card" width="150" height="76" rx="12" fill="#041720" stroke="#127f91" stroke-width="1.4"/>
+    <g class="source-workflow-icon" transform="translate(44 38) scale(.72)" stroke="#59a9cf" fill="none" stroke-width="4">
+      <circle r="16"/><circle r="5"/><path d="M0-25v9M0 16v9M-25 0h9M16 0h9"/><path d="M-14-14l6 6M14-14l-6 6M-14 14l6-6M14 14l-6-6"/>
+    </g>
+    <text class="source-workflow-title" x="71" y="44" fill="#eef3f5" font-weight="650" font-size="15">Define</text>
+  </g>
+  <use href="#arrowRight" transform="translate(246 974)"/>
+
+  <g transform="translate(276 936)">
+    <rect class="source-workflow-card" width="151" height="76" rx="12" fill="#041720" stroke="#127f91" stroke-width="1.4"/>
+    <g class="source-workflow-icon" transform="translate(38 36) scale(.72)" fill="none" stroke="#5caad0" stroke-width="4"><circle r="15"/><path d="M12 12l18 18"/></g>
+    <text class="source-workflow-title" x="65" y="44" fill="#eef3f5" font-weight="650" font-size="15">Research</text>
+  </g>
+  <use href="#arrowRight" transform="translate(438 974)"/>
+
+  <g transform="translate(465 936)">
+    <rect class="source-workflow-card" width="123" height="76" rx="12" fill="#041720" stroke="#127f91" stroke-width="1.4"/>
+    <g class="source-workflow-icon" transform="translate(39 39) rotate(-45) scale(.74)" filter="url(#iconShadow)">
+      <rect x="-8" y="-22" width="16" height="36" rx="2" fill="url(#blueGrad)" stroke="#8bd9e8" stroke-width="2"/>
+      <path d="M-8 14h16L0 25z" fill="#b6d6e1" stroke="#76c8d8" stroke-width="2"/>
+    </g>
+    <text class="source-workflow-title" x="65" y="44" fill="#eef3f5" font-weight="650" font-size="15">Plan</text>
+  </g>
+  <use href="#arrowRight" transform="translate(600 974)"/>
+
+  <g transform="translate(628 936)">
+    <rect class="source-workflow-card" width="162" height="76" rx="12" fill="#041720" stroke="#127f91" stroke-width="1.4"/>
+    <g class="source-workflow-icon" transform="translate(38 38) scale(.72)" fill="url(#blueGrad)" stroke="#67b8dc" stroke-width="2">
+      <path d="M-8-22h16l3 8 9-2 8 14-7 7 5 8-12 10-8-5-7 8-15-6v-10l-9-5 5-16 10-1z"/>
+      <circle r="8" fill="#061720"/>
+    </g>
+    <text class="source-workflow-title" x="67" y="44" fill="#eef3f5" font-weight="650" font-size="14.5">Implement</text>
+  </g>
+  <use href="#arrowRight" transform="translate(802 974)"/>
+
+  <g transform="translate(829 936)">
+    <rect class="source-workflow-card" width="146" height="76" rx="12" fill="#041720" stroke="#127f91" stroke-width="1.4"/>
+    <g class="source-workflow-icon" transform="translate(36 38) scale(.72)">
+      <circle r="17" fill="none" stroke="#0dd1b2" stroke-width="4"/>
+      <path d="M-9 0l8 8 19-22" fill="none" stroke="#1ee0c7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text class="source-workflow-title" x="63" y="35" fill="#eef3f5" font-weight="650" font-size="14.5">Test</text>
+    <text class="source-workflow-title" x="63" y="54" fill="#eef3f5" font-weight="650" font-size="14.5">&amp; Review</text>
+  </g>
+  <use href="#arrowRight" transform="translate(987 974)"/>
+
+  <g transform="translate(1017 936)">
+    <rect class="source-workflow-card" width="143" height="76" rx="12" fill="#041720" stroke="#127f91" stroke-width="1.4"/>
+    <g class="source-workflow-icon" transform="translate(39 37) scale(.72) translate(-39 -37)">
+      <path d="M18 36l42-20-14 43-10-15-18-8z" fill="url(#blueGrad)" stroke="#79d3df" stroke-width="2"/>
+      <path d="M36 44l10-10" stroke="#c2edf2" stroke-width="2"/>
+    </g>
+    <text class="source-workflow-title" x="62" y="44" fill="#eef3f5" font-weight="650" font-size="15">Publish</text>
+  </g>
+</g>
+
+<!-- Bottom principles panel -->
+<g class="source-principles-panel" filter="url(#cardShadow)">
+  <rect class="source-principles-card" x="60" y="1041" width="1124" height="154" rx="24" fill="#051822" stroke="#1293a0" stroke-width="1.4"/>
+  <line class="source-principles-divider" x1="344" y1="1067" x2="344" y2="1171" stroke="#177487" stroke-width="1.4"/>
+  <line class="source-principles-divider" x1="621" y1="1067" x2="621" y2="1171" stroke="#177487" stroke-width="1.4"/>
+  <line class="source-principles-divider" x1="886" y1="1067" x2="886" y2="1171" stroke="#177487" stroke-width="1.4"/>
+
+  <!-- Clarity target -->
+  <g class="source-principles-icon" transform="translate(133 1117) scale(.68)" filter="url(#iconShadow)">
+    <circle r="42" fill="#0f5376" stroke="#4aa7d9" stroke-width="2"/>
+    <circle r="31" fill="#07151d" stroke="#72c0e5" stroke-width="7"/>
+    <circle r="20" fill="#4f9fc4" stroke="#b1def0" stroke-width="5"/>
+    <circle r="8" fill="#07151d" stroke="#dcecf2" stroke-width="4"/>
+    <path d="M5-5l37-37M27-43h16v16" stroke="#f3f7f8" stroke-width="9" fill="none" stroke-linecap="square"/>
+  </g>
+  <text class="source-principles-title" x="186" y="1099" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="19">Clarity</text>
+  <text class="source-principles-copy" x="186" y="1127" fill="#d4dde1" font-weight="500" font-size="14">Clear ideas,</text>
+  <text class="source-principles-copy" x="186" y="1149" fill="#d4dde1" font-weight="500" font-size="14">precise messages.</text>
+
+  <!-- Technical depth layers -->
+  <g class="source-principles-icon" transform="translate(407 1115) scale(.66)" filter="url(#iconShadow)">
+    <path d="M-38-23L0-46l38 23L0 0z" fill="#103f66" stroke="#5ac7e8" stroke-width="2"/>
+    <path d="M-38 0L0-23 38 0 0 23z" fill="#0b5c84" stroke="#3da8dc" stroke-width="2"/>
+    <path d="M-38 23L0 0l38 23L0 46z" fill="#0c6d8f" stroke="#32b7df" stroke-width="2"/>
+  </g>
+  <text class="source-principles-title" x="453" y="1094" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="19">Technical</text>
+  <text class="source-principles-title" x="453" y="1118" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="19">Depth</text>
+  <text class="source-principles-copy" x="453" y="1146" fill="#d4dde1" font-weight="500" font-size="13.5">Accurate content,</text>
+  <text class="source-principles-copy" x="453" y="1167" fill="#d4dde1" font-weight="500" font-size="13.5">backed by expertise.</text>
+
+  <!-- Audience adaptation cluster -->
+  <g class="source-principles-icon" transform="translate(694 1119) scale(.62)" filter="url(#iconShadow)">
+    <use href="#personPurple" transform="translate(-35 15) scale(1.2)"/>
+    <use href="#personPurple" transform="translate(35 15) scale(1.2)"/>
+    <use href="#personTeal" transform="translate(0 0) scale(1.65)"/>
+  </g>
+  <text class="source-principles-title" x="740" y="1094" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="19">Audience</text>
+  <text class="source-principles-title" x="740" y="1118" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="19">Adaptation</text>
+  <text class="source-principles-copy" x="740" y="1146" fill="#d4dde1" font-weight="500" font-size="13.5">Tailored to diverse</text>
+  <text class="source-principles-copy" x="740" y="1167" fill="#d4dde1" font-weight="500" font-size="13.5">audiences.</text>
+
+  <!-- Knowledge transfer cap -->
+  <g class="source-principles-icon" transform="translate(965 1111) scale(.60)" filter="url(#iconShadow)">
+    <path d="M-52-15L0-43l52 28L0 12z" fill="url(#orangeGrad)" stroke="#ffd06d" stroke-width="2"/>
+    <path d="M-31 1v32c19 13 44 13 63 0V1" fill="#bd5c13" stroke="#f7a033" stroke-width="2"/>
+    <path d="M52-15v37M52 22c-5 8-5 15 0 21 5-6 5-13 0-21z" fill="url(#orangeGrad)" stroke="#ffc05c" stroke-width="2"/>
+  </g>
+  <text class="source-principles-title" x="1011" y="1094" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="18.5">Knowledge</text>
+  <text class="source-principles-title" x="1011" y="1118" fill="#f5f7f8" font-weight="750" letter-spacing="-.4px" font-size="18.5">Transfer</text>
+  <text class="source-principles-copy" x="1011" y="1146" fill="#d4dde1" font-weight="500" font-size="13">Enable learning and</text>
+  <text class="source-principles-copy" x="1011" y="1167" fill="#d4dde1" font-weight="500" font-size="13">real-world impact.</text>
+</g>
+</svg>
+</main>
+</body>
+</html>

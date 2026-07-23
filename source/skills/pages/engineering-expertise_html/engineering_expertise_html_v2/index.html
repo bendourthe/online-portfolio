@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Engineering Expertise</title>
+<style>
+:root{
+  --bg0:#010811;--bg1:#06131f;--panel:#071827;--panel2:#0a2237;
+  --line:#5b97c3;--lineSoft:#315b7a;--text:#f7fbff;--muted:#b9cbe2;
+  --cyan:#35bdff;--blue:#8fbaff;--glow:#1e91e6;--cyan2:#60e7ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#000814;font-family:"Segoe UI",Arial,sans-serif;color:var(--text)}
+body{
+  overflow-x:hidden;overflow-y:auto;
+  background:
+    radial-gradient(circle at 50% 7%,rgba(12,38,61,.98) 0,rgba(7,20,33,.94) 34%,rgba(2,8,18,.98) 78%),
+    #000814;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background-image:linear-gradient(rgba(91,160,219,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(91,160,219,.045) 1px,transparent 1px);
+  background-size:48px 48px;opacity:.55;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 50% 47%,transparent 0 54%,rgba(0,0,0,.36) 100%);
+}
+img,svg{display:block;max-width:100%}
+.page-content{width:min(1920px,calc(100% - 28px));margin:0 auto;padding:16px 0 40px}
+.hero{text-align:center;padding:4px 24px 30px;margin-bottom:8px}
+.hero h1{
+  margin:0;font-size:clamp(54px,5vw,96px);letter-spacing:3.5px;line-height:.96;font-weight:900;
+  text-transform:uppercase;text-shadow:0 2px 0 #0b1118,0 0 24px rgba(255,255,255,.30);
+}
+.hero h2{
+  max-width:1500px;margin:16px auto 12px;color:#36bfff;font-size:clamp(27px,2.3vw,44px);
+  letter-spacing:.45px;font-weight:650;line-height:1.12;text-shadow:0 0 16px rgba(54,191,255,.30);
+}
+.hero p{
+  max-width:1320px;margin:0 auto;color:#eef7ff;font-size:clamp(20px,1.55vw,30px);line-height:1.4;
+  text-shadow:0 1px 2px rgba(0,0,0,.76);
+}
+.hero-principles{
+  display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));max-width:1360px;margin:28px auto 0;gap:32px;
+}
+.principle{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:14px 12px;
+  border:1px solid rgba(114,178,226,.38);border-radius:12px;background:rgba(3,13,22,.44);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 0 12px rgba(30,145,230,.06);
+}
+.principle svg{width:78px;height:78px;color:#8bbaff;filter:drop-shadow(0 0 8px rgba(74,184,255,.52))}
+.principle span{display:block;margin-top:10px;font-size:clamp(21px,1.45vw,28px);line-height:1.12;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.74)}
+.page-section{margin-top:18px}
+.panel{
+  min-width:0;height:auto;border:1.5px solid rgba(114,178,226,.82);border-radius:9px;
+  background:linear-gradient(180deg,rgba(8,24,39,.88),rgba(3,10,18,.80));
+  box-shadow:0 0 0 1px rgba(0,14,25,.9) inset,0 0 20px rgba(30,145,230,.14);overflow:hidden;
+}
+.panel-title{
+  margin:0;min-height:66px;padding:12px 18px;display:flex;align-items:center;justify-content:center;text-align:center;
+  text-transform:uppercase;letter-spacing:1px;font-weight:900;font-size:clamp(28px,2.2vw,43px);line-height:1.04;
+  background:linear-gradient(180deg,rgba(10,34,57,.94),rgba(5,18,30,.94));
+  border-bottom:1px solid rgba(114,178,226,.48);text-shadow:0 1px 0 #001,0 0 10px rgba(255,255,255,.25);
+}
+.panel-body{padding:18px;min-width:0;overflow:visible}
+.expertise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+.content-card{
+  min-width:0;height:100%;display:flex;flex-direction:column;padding:16px;border:1px solid rgba(86,135,169,.82);
+  border-radius:10px;background:radial-gradient(circle at 50% 0,rgba(18,58,88,.32),rgba(1,13,22,.76) 54%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.018),0 0 12px rgba(30,145,230,.07);overflow:visible;
+}
+.card-title{
+  min-height:64px;margin:0 0 14px;display:flex;align-items:center;justify-content:center;text-align:center;text-wrap:balance;
+  white-space:normal;font-size:clamp(25px,1.7vw,34px);line-height:1.12;font-weight:900;letter-spacing:.35px;
+  text-transform:uppercase;color:#f4fbff;text-shadow:0 1px 2px rgba(0,0,0,.74),0 0 9px rgba(255,255,255,.24);
+}
+.card-media{
+  width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#02080d;
+  border:1px solid rgba(83,128,162,.56);border-radius:9px;min-width:0;
+}
+.card-media img{width:100%;height:auto;object-fit:contain;object-position:center;border-radius:8px}
+.card-copy{padding:16px 4px 2px;overflow:visible;min-width:0;flex:1}
+.card-copy h4{
+  margin:0 0 9px;color:#36bfff;text-transform:uppercase;font-size:clamp(23px,1.45vw,29px);line-height:1.18;
+  font-weight:900;letter-spacing:.25px;text-shadow:0 1px 2px rgba(0,0,0,.65);
+}
+.card-copy p{
+  margin:0;color:#e8f4ff;font-size:clamp(20px,1.22vw,24px);line-height:1.42;white-space:normal;overflow:visible;
+  overflow-wrap:break-word;text-shadow:0 1px 2px rgba(0,0,0,.66);
+}
+.capability-line{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.capability-line span{
+  border:1px solid rgba(114,178,226,.43);border-radius:999px;padding:7px 11px;background:rgba(2,12,22,.48);
+  color:#dff2ff;font-size:clamp(16px,1vw,19px);line-height:1.1;
+}
+.impact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch}
+.section-note{margin:0 0 16px;color:#cfe5f7;font-size:clamp(20px,1.25vw,24px);line-height:1.42;text-align:center}
+.impact-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;height:100%;align-items:stretch}
+.impact-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border:1px solid rgba(86,135,169,.62);border-radius:8px;background:rgba(2,12,22,.46);padding:15px 12px;min-height:190px;
+}
+.impact-item svg{width:72px;height:72px;color:#8bbaff;filter:drop-shadow(0 0 7px rgba(74,184,255,.44));margin-bottom:12px}
+.impact-item strong{font-size:clamp(18px,1.1vw,22px);line-height:1.18;color:#eaf6ff;text-shadow:0 1px 2px rgba(0,0,0,.75)}
+.delivery-card{justify-content:flex-start}
+.delivery-card .card-copy{flex:0 0 auto;padding-bottom:8px}
+.delivery-principles{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px;flex:1;align-content:center;
+}
+.delivery-principles span{
+  min-height:86px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px 10px;
+  border:1.5px solid rgba(114,178,226,.66);border-radius:11px;background:linear-gradient(180deg,rgba(10,34,57,.72),rgba(3,14,24,.72));
+  color:#f2f9ff;font-size:clamp(24px,1.65vw,34px);line-height:1.08;font-weight:800;letter-spacing:.2px;
+  text-shadow:0 1px 2px rgba(0,0,0,.72),0 0 10px rgba(54,191,255,.13);
+}
+.workflow-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;align-items:stretch}
+.wf-step{
+  display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:center;min-height:122px;
+  border:1px solid rgba(86,135,169,.48);border-radius:8px;background:rgba(2,12,22,.42);padding:16px;
+}
+.wf-step svg{width:68px;height:68px;color:#8bbaff;filter:drop-shadow(0 0 7px rgba(74,184,255,.44))}
+.wf-step b{display:block;color:#36bfff;text-transform:uppercase;font-size:clamp(18px,1.15vw,22px);line-height:1.1;letter-spacing:.25px}
+.wf-step span{display:block;margin-top:5px;font-size:clamp(16px,1vw,19px);line-height:1.3;color:#c9dcf1}
+@media (max-width:1450px){
+  .hero-principles{grid-template-columns:repeat(2,1fr)}
+  .expertise-grid{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:1fr}
+  .workflow-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:900px){
+  .page-content{width:calc(100% - 22px)}
+  .hero{padding-left:8px;padding-right:8px}
+  .hero-principles{grid-template-columns:1fr;gap:12px}
+  .expertise-grid,.impact-grid,.workflow-grid{grid-template-columns:1fr}
+  .impact-list{grid-template-columns:1fr 1fr}
+  .delivery-principles{grid-template-columns:1fr 1fr}
+  .wf-step{grid-template-columns:58px 1fr}.wf-step svg{width:54px;height:54px}
+}
+@media (max-width:540px){
+  .impact-list,.delivery-principles{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="page-content">
+  <header class="hero" aria-label="Engineering Expertise overview">
+    <h1>Engineering Expertise</h1>
+    <h2>Biomedical systems, computational modeling, clinical AI, signal intelligence, and production engineering</h2>
+    <p>More than a decade translating medical images, physiological signals, biomechanics, and regulated MedTech requirements into validated algorithms, software, and product-ready systems.</p>
+    <div class="hero-principles" aria-label="Engineering principles">
+      <div class="principle">
+        <svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="29" cy="29" r="21"/><path d="M29 8v42M8 29h42M14 14l30 30M44 14 14 44"/><circle cx="29" cy="29" r="5" fill="currentColor" stroke="none"/></svg>
+        <span>Multimodal Systems</span>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 43 20 31l8 8 21-25"/><path d="M39 14h10v10"/><path d="M9 49h40"/></svg>
+        <span>Patient-Specific Modeling</span>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M29 5c8 7 16 8 21 10v13c0 14-9 22-21 27C17 50 8 42 8 28V15c5-2 13-3 21-10Z"/><path d="m19 30 7 7 14-16"/></svg>
+        <span>Verification &amp; Validation</span>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 47h42M13 47V34h8v13M26 47V25h8v22M39 47V15h8v32"/><path d="M12 22l9-8 9 7 14-15"/><path d="M40 6h7v7"/></svg>
+        <span>Clinical Translation</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel page-section">
+      <h2 class="panel-title">Biomedical Systems &amp; Biomechanical Modeling</h2>
+      <div class="panel-body expertise-grid">
+        <article class="content-card">
+          <h3 class="card-title">Patient-Specific Biomedical Engineering</h3>
+          <div class="card-media"><img src="assets/biomedical_engineering.png" alt="Three-dimensional hand anatomy and finite-element stress maps"></div>
+          <div class="card-copy">
+            <h4>Anatomy-to-mechanics translation</h4>
+            <p>CT-derived anatomy, three-dimensional morphology, finite-element modeling, and stress mapping support quantitative joint mechanics, implant design, and patient-specific planning.</p>
+            <div class="capability-line"><span>3D anatomy</span><span>FEM</span><span>Stress mapping</span><span>Patient-specific models</span></div>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <h3 class="card-title">Sports Biomechanics &amp; Human Performance</h3>
+          <div class="card-media"><img src="assets/sports_biomechanics.png" alt="Instrumented exercise, rehabilitation, cycling, and ergometer platforms"></div>
+          <div class="card-copy">
+            <h4>Instrumented experimentation</h4>
+            <p>Motion, electromyography, pressure, footwear, orthotics, fatigue, comfort, and performance studies connect controlled laboratory protocols with real-world human movement.</p>
+            <div class="capability-line"><span>Motion analysis</span><span>EMG</span><span>Pressure sensing</span><span>Human performance</span></div>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <h3 class="card-title">Orthopedic Kinematics &amp; Joint Mechanics</h3>
+          <div class="card-media"><img src="assets/orthopedics_kinematics.png" alt="Thumb and wrist anatomy with anatomical coordinate systems"></div>
+          <div class="card-copy">
+            <h4>Dynamic motion and contact biomechanics</h4>
+            <p>Coordinate-system definition, dynamic CT analysis, joint kinematics, contact mechanics, and osteoarthritis characterization enable interpretable models of native, pathological, and reconstructed joints.</p>
+            <div class="capability-line"><span>Dynamic CT</span><span>Kinematics</span><span>Contact mechanics</span><span>Osteoarthritis</span></div>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <h3 class="card-title">MedTech Sensing &amp; Biomechanical Load Mapping</h3>
+          <div class="card-media"><img src="assets/medtech_sensing.png" alt="Spatial pressure and biomechanical load maps"></div>
+          <div class="card-copy">
+            <h4>Wearables, pressure sensing, and device analytics</h4>
+            <p>Spatial load distributions, digital biomarkers, wearables, implantables, and sensor-derived measurements connect human physiology and mechanics to actionable device and clinical insights.</p>
+            <div class="capability-line"><span>Wearables</span><span>Implantables</span><span>Digital biomarkers</span><span>Load mapping</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel page-section">
+      <h2 class="panel-title">Clinical AI, Signal Intelligence &amp; Software Systems</h2>
+      <div class="panel-body expertise-grid">
+        <article class="content-card">
+          <h3 class="card-title">Computer Vision &amp; Image-Based Modeling</h3>
+          <div class="card-media"><img src="assets/computer_vision.png" alt="Raw CT scan, annotated anatomy, and patient-specific finite-element model"></div>
+          <div class="card-copy">
+            <h4>From images to computable anatomy</h4>
+            <p>Two- and three-dimensional image-processing pipelines support annotation, segmentation, reconstruction, geometry extraction, quality optimization, and generation of patient-specific computational models.</p>
+            <div class="capability-line"><span>2D/3D imaging</span><span>Reconstruction</span><span>Annotation</span><span>Geometry extraction</span></div>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <h3 class="card-title">Physiological Signal Processing &amp; Digital Biomarkers</h3>
+          <div class="card-media"><img src="assets/signal_processing.png" alt="Time-domain respiratory signals and corresponding frequency-domain power spectra"></div>
+          <div class="card-copy">
+            <h4>Time- and frequency-domain analytics</h4>
+            <p>Denoising, event detection, feature engineering, spectral analysis, robustness testing, and physiological estimation support ECG, EIT, cardiac pressure, video, and multimodal sensor data.</p>
+            <div class="capability-line"><span>Time series</span><span>Denoising</span><span>Spectral analysis</span><span>Robustness</span></div>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <h3 class="card-title">Computational Software &amp; Algorithm Pipelines</h3>
+          <div class="card-media"><img src="assets/software_engineering.png" alt="Computational software workflow for cardiopulmonary signal processing and pressure estimation"></div>
+          <div class="card-copy">
+            <h4>Validated algorithms in production-grade code</h4>
+            <p>Python-based processing pipelines, reproducible experiments, automated quality checks, APIs, testing, CI/CD, and workflow tooling turn research algorithms into maintainable systems for regulated teams.</p>
+            <div class="capability-line"><span>Python</span><span>Automation</span><span>Testing</span><span>CI/CD</span><span>APIs</span></div>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <h3 class="card-title">Deep Learning for Medical Imaging</h3>
+          <div class="card-media"><img src="assets/deep_learning.png" alt="Medical CT images and automated lung segmentation outputs across quality conditions"></div>
+          <div class="card-copy">
+            <h4>Segmentation, reconstruction, and enhancement</h4>
+            <p>CNN, RNN, and multi-scale architectures support automated segmentation, super-resolution, image-quality control, model robustness, and clinically grounded validation across heterogeneous imaging inputs.</p>
+            <div class="capability-line"><span>Segmentation</span><span>Super-resolution</span><span>CNN/RNN</span><span>Model validation</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel page-section">
+      <h2 class="panel-title">Real-World Impact</h2>
+      <div class="panel-body impact-grid">
+        <article class="content-card">
+          <h3 class="card-title">Clinical, Device, and Performance Applications</h3>
+          <p class="section-note">Engineering expertise translates technical systems into tools that improve diagnosis, monitoring, treatment planning, device design, and performance optimization.</p>
+          <div class="impact-list">
+            <div class="impact-item"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 36c0-14 8-24 17-24s17 10 17 24"/><path d="M29 12v34M18 29h22M14 40h30"/></svg><strong>Improved Diagnosis<br>&amp; Monitoring</strong></div>
+            <div class="impact-item"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="14" y="10" width="30" height="40" rx="4"/><path d="M22 20h14M22 30h14M22 40h10"/><path d="M29 6v8"/></svg><strong>Personalized<br>Treatment Planning</strong></div>
+            <div class="impact-item"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="22" cy="12" r="6"/><path d="M19 20l10 9 12 1M29 29l-6 12M27 36l11 12M16 28l-8 12"/></svg><strong>Performance<br>Optimization</strong></div>
+            <div class="impact-item"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M29 6v16M19 16c0 8 4 12 10 12s10-4 10-12"/><path d="M16 29c-3 10 3 20 13 20s16-10 13-20"/><path d="M20 44h18"/></svg><strong>Better Implants<br>&amp; Devices</strong></div>
+            <div class="impact-item"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 31h10l4-10 9 25 7-18h18"/><path d="M29 13c7-9 22-4 22 8 0 13-22 26-22 26S7 34 7 21c0-12 15-17 22-8Z" opacity=".72"/></svg><strong>Stronger Critical<br>Outcomes</strong></div>
+          </div>
+        </article>
+
+        <article class="content-card delivery-card">
+          <h3 class="card-title">Engineering Delivery Principles</h3>
+          <div class="card-copy"><h4>Reliable, interpretable, deployable systems</h4><p>Successful engineering work combines precise experimental design, validated computational models, reproducible data pipelines, explainable outputs, and integration into practical clinical or research workflows.</p></div>
+          <div class="delivery-principles" aria-label="Engineering delivery principles">
+            <span>Validation</span><span>Automation</span><span>Quantification</span><span>Modeling</span><span>Monitoring</span><span>Translation</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel page-section">
+      <h2 class="panel-title">Engineering Workflow</h2>
+      <div class="panel-body workflow-grid">
+        <div class="wf-step"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="29" cy="12" rx="17" ry="7"/><path d="M12 12v32c0 4 8 7 17 7s17-3 17-7V12"/><path d="M12 28c0 4 8 7 17 7s17-3 17-7"/></svg><div><b>Data Collection</b><span>Imaging, sensors, signals, and clinical records</span></div></div>
+        <div class="wf-step"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="40" height="40" rx="4"/><path d="M18 19h8M32 19h8M18 29h8M32 29h8M18 39h8M32 39h8"/></svg><div><b>Preprocessing</b><span>Cleaning, annotation, normalization, and alignment</span></div></div>
+        <div class="wf-step"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="29" cy="29" r="21"/><path d="M29 8v42M8 29h42M14 14l30 30M44 14 14 44"/><circle cx="29" cy="29" r="5" fill="currentColor" stroke="none"/></svg><div><b>Model Development</b><span>Deep learning, physics-informed models, and simulations</span></div></div>
+        <div class="wf-step"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="10" y="10" width="38" height="38" rx="4"/><path d="m18 31 8 8 15-20"/></svg><div><b>Validation</b><span>Cross-validation, testing, uncertainty, and metrics</span></div></div>
+        <div class="wf-step"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M29 5 52 18v25L29 56 6 43V18z"/><path d="M6 18 29 31 52 18M29 31v25"/></svg><div><b>Deployment</b><span>Software, devices, clinical integration, and monitoring</span></div></div>
+        <div class="wf-step"><svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="20" cy="19" r="8"/><circle cx="39" cy="19" r="8"/><path d="M7 48c2-12 9-18 21-18s19 6 23 18"/><path d="M15 45h28"/></svg><div><b>Impact</b><span>Better decisions, better devices, and better health</span></div></div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

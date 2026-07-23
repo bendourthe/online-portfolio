@@ -1,0 +1,60 @@
+name: Build and deploy portfolio
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate skill detail bundles
+        run: |
+          node js/generate-skills-detail-source.mjs
+          node js/generate-skills-source-artwork.mjs
+
+      - name: Validate JavaScript
+        run: |
+          node --check js/script.js
+          node --check js/skills-detail.js
+          node --check js/skills-detail-config.js
+          node --check js/skills-detail-source.js
+          node --check js/skills-source-artwork.js
+
+      - name: Build deployment package
+        run: node scripts/build-site.mjs
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

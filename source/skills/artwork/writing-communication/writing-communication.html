@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Technical Communication</title>
+<style>
+  .communication-artifact,.communication-artifact *{box-sizing:border-box}
+  .communication-artifact{display:grid;place-items:center;width:100%;min-height:100%;padding:0;background:var(--artifact-bg);font-family:"Segoe UI",Arial,sans-serif}
+  .communication-artifact .artboard{width:min(100%,1200px);aspect-ratio:1/1;background:var(--artifact-bg)}
+  .communication-artifact svg{display:block;width:100%;height:100%;overflow:visible}
+  .communication-artifact text{font-family:"Segoe UI",Arial,sans-serif;fill:var(--artifact-title)}
+  .communication-artifact .badgeText{font-size:var(--skill-graphic-badge-size);font-weight:var(--skill-graphic-badge-weight)}
+  .communication-artifact .title{font-weight:var(--skill-graphic-title-weight);font-size:var(--skill-graphic-title-size);text-anchor:middle}
+  .communication-artifact .smallTitle{font-weight:var(--skill-graphic-sub-title-weight);font-size:var(--skill-graphic-sub-title-size)}
+  .communication-artifact .workflowTitle{font-size:var(--skill-graphic-section-size);font-weight:var(--skill-graphic-section-weight)}
+  .communication-artifact .body{font-size:var(--skill-graphic-body-size);fill:var(--artifact-body)}
+  .communication-artifact .stepText{font-size:var(--skill-graphic-label-size);font-weight:var(--skill-graphic-label-weight);fill:var(--workflow-text);letter-spacing:.1px}
+  .communication-artifact .workflowCard{fill:var(--workflow-bg);stroke:var(--workflow-border);stroke-width:1.5}
+  .communication-artifact .workflowArrow{fill:var(--workflow-arrow)}
+  .communication-artifact{
+    --artifact-bg:#eef8fa;
+    --artifact-title:#123844;
+    --artifact-body:#365965;
+    --surface-top:#ffffff;
+    --surface-bottom:#e6f3f6;
+    --surface-solid:#f7fcfd;
+    --surface-stroke:#168d9a;
+    --workflow-bg:#f7fcfd;
+    --workflow-border:#2399a5;
+    --workflow-text:#173d48;
+    --workflow-arrow:#168d9a;
+    --workflow-title:#087782;
+    --icon-panel:#d9eef2;
+    --icon-mark:#0b6773;
+  }
+  @media (prefers-color-scheme:dark){
+    .communication-artifact{
+      --artifact-bg:#04171d;
+      --artifact-title:#ffffff;
+      --artifact-body:#d9e3e7;
+      --surface-top:rgba(21,48,59,.80);
+      --surface-bottom:rgba(7,28,37,.78);
+      --surface-solid:rgba(12,38,48,.82);
+      --surface-stroke:#48d0da;
+      --workflow-bg:rgba(18,47,58,.82);
+      --workflow-border:#55d5de;
+      --workflow-text:#f8fcfd;
+      --workflow-arrow:#71d5dc;
+      --workflow-title:#4bd1da;
+      --icon-panel:#061b24;
+      --icon-mark:#ffffff;
+    }
+  }
+  :host([data-theme='light']) .communication-artifact,
+  html[data-theme='light'] .communication-artifact{
+    --artifact-bg:#eef8fa;
+    --artifact-title:#123844;
+    --artifact-body:#365965;
+    --surface-top:#ffffff;
+    --surface-bottom:#e6f3f6;
+    --surface-solid:#f7fcfd;
+    --workflow-bg:#f7fcfd;
+    --workflow-border:#2399a5;
+    --workflow-text:#173d48;
+    --workflow-arrow:#168d9a;
+    --workflow-title:#087782;
+    --icon-panel:#d9eef2;
+    --icon-mark:#0b6773;
+  }
+  :host([data-theme='dark']) .communication-artifact,
+  html[data-theme='dark'] .communication-artifact{
+    --artifact-bg:#04171d;
+    --artifact-title:#ffffff;
+    --artifact-body:#d9e3e7;
+    --surface-top:rgba(21,48,59,.80);
+    --surface-bottom:rgba(7,28,37,.78);
+    --surface-solid:rgba(12,38,48,.82);
+    --workflow-bg:rgba(18,47,58,.82);
+    --workflow-border:#55d5de;
+    --workflow-text:#f8fcfd;
+    --workflow-arrow:#71d5dc;
+    --workflow-title:#4bd1da;
+    --icon-panel:#061b24;
+    --icon-mark:#ffffff;
+  }
+  .communication-artifact .outline{fill:url(#cardFill);stroke:#1db4c4;stroke-width:1.6}
+  .communication-artifact .outlinePurple{fill:url(#cardFill);stroke:#7b63c7;stroke-width:1.6}
+  .communication-artifact .outlineGreen{fill:url(#cardFill);stroke:#2aa98f;stroke-width:1.6}
+  .communication-artifact .outlineOrange{fill:url(#cardFill);stroke:#ec891d;stroke-width:1.6}
+  .communication-artifact .cyanStroke{fill:none;stroke:#39cbd5;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .communication-artifact .thinCyan{fill:none;stroke:#2dbac5;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .communication-artifact .paper{fill:url(#paper);stroke:#bfeaf5;stroke-width:2}
+  .communication-artifact .theme-icon-panel{fill:var(--icon-panel)}
+  .communication-artifact .theme-icon-mark-stroke{stroke:var(--icon-mark)}
+  .communication-artifact .theme-icon-mark-fill{fill:var(--icon-mark)}
+</style>
+</head>
+<body>
+<div class="communication-artifact">
+<div class="artboard">
+<svg viewBox="0 0 1200 1200" role="img" aria-labelledby="t d">
+<title id="t">Technical Communication infographic</title>
+<desc id="d">Five technical communication capability cards surrounding a central communication graphic, followed by an agentic engineering workflow and four outcomes.</desc>
+<defs>
+  <linearGradient id="cardFill" x1="0" y1="0" x2="0" y2="1"><stop style="stop-color:var(--surface-top)"/><stop offset="1" style="stop-color:var(--surface-bottom)"/></linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9fbfc"/><stop offset=".55" stop-color="#dce7ec"/><stop offset="1" stop-color="#a9bdc8"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#45c3ed"/><stop offset="1" stop-color="#14579d"/></linearGradient>
+  <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#50ded0"/><stop offset="1" stop-color="#087b80"/></linearGradient>
+  <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a692ef"/><stop offset="1" stop-color="#4a398e"/></linearGradient>
+  <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc25f"/><stop offset="1" stop-color="#c15b0b"/></linearGradient>
+  <radialGradient id="badgeTeal" cx="35%" cy="25%"><stop stop-color="#50e1d4"/><stop offset=".58" stop-color="#108b87"/><stop offset="1" stop-color="#05525d"/></radialGradient>
+  <radialGradient id="badgePurple" cx="35%" cy="25%"><stop stop-color="#b6a3f5"/><stop offset=".6" stop-color="#6453a8"/><stop offset="1" stop-color="#35295f"/></radialGradient>
+  <radialGradient id="badgeGreen" cx="35%" cy="25%"><stop stop-color="#81dcb8"/><stop offset=".6" stop-color="#2c8b72"/><stop offset="1" stop-color="#164f47"/></radialGradient>
+  <radialGradient id="badgeOrange" cx="35%" cy="25%"><stop stop-color="#ffca67"/><stop offset=".62" stop-color="#dd7219"/><stop offset="1" stop-color="#8b3508"/></radialGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity=".55"/></filter>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<!-- connectors -->
+<g opacity=".9" fill="none" stroke="#22aeba" stroke-width="1.7">
+  <path d="M324 258 Q440 146 510 145"/>
+  <path d="M690 145 Q776 163 882 258"/>
+  <path d="M330 402 Q399 424 430 450"/>
+  <path d="M870 402 Q801 424 770 450"/>
+  <path d="M340 666 Q391 644 424 615"/>
+  <path d="M860 666 Q809 644 776 615"/>
+  <path d="M600 288 L600 335"/>
+</g>
+
+<!-- cards -->
+<g filter="url(#shadow)">
+  <rect x="480" y="38" width="240" height="260" rx="30" class="outline"/>
+  <circle cx="600" cy="38" r="28" fill="url(#badgeTeal)" stroke="#64ece2"/><text class="badgeText" x="600" y="51" text-anchor="middle">1</text>
+  <rect x="100" y="240" width="250" height="278" rx="30" class="outline"/>
+  <circle cx="210" cy="240" r="28" fill="url(#badgeTeal)" stroke="#64ece2"/><text class="badgeText" x="210" y="253" text-anchor="middle">2</text>
+  <rect x="850" y="240" width="250" height="278" rx="30" class="outlinePurple"/>
+  <circle cx="960" cy="240" r="28" fill="url(#badgePurple)" stroke="#c1b1ff"/><text class="badgeText" x="960" y="253" text-anchor="middle">3</text>
+  <rect x="108" y="585" width="250" height="250" rx="30" class="outlineGreen"/>
+  <circle cx="220" cy="585" r="28" fill="url(#badgeGreen)" stroke="#9ce6ca"/><text class="badgeText" x="220" y="598" text-anchor="middle">4</text>
+  <rect x="842" y="585" width="250" height="250" rx="30" class="outlineOrange"/>
+  <circle cx="965" cy="585" r="28" fill="url(#badgeOrange)" stroke="#ffd17a"/><text class="badgeText" x="965" y="598" text-anchor="middle">5</text>
+</g>
+
+<!-- card 1 icon -->
+<g transform="translate(512 72)" filter="url(#shadow)">
+  <path class="paper" d="M14 0h94l28 28v112H14z"/><path fill="#b8d6e5" stroke="#82cfe4" stroke-width="2" d="M108 0v28h28"/>
+  <g stroke="#2d87aa" stroke-width="4" stroke-linecap="round"><path d="M28 25h59"/><path d="M28 40h46"/><path d="M28 55h68"/><path d="M28 70h34"/><path d="M28 87h40"/><path d="M28 104h55"/></g>
+  <rect class="theme-icon-panel" x="72" y="63" width="96" height="70" rx="10" stroke="#7fc4de" stroke-width="3"/>
+  <path class="theme-icon-mark-stroke" d="M93 82l15 14-15 14M118 110h20" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text class="title" x="600" y="250"><tspan x="600">Technical</tspan><tspan x="600" dy="29">Documentation</tspan></text>
+
+<!-- card 2 icon -->
+<g transform="translate(142 278)" filter="url(#shadow)">
+  <path class="paper" d="M8 0h92l28 28v126H8z"/><path fill="#b8d6e5" stroke="#82cfe4" stroke-width="2" d="M100 0v28h28"/>
+  <g stroke="#2d87aa" stroke-width="4" stroke-linecap="round"><path d="M25 30h52"/><path d="M25 46h66"/><path d="M25 62h50"/><path d="M25 78h34"/></g>
+  <rect x="25" y="112" width="16" height="29" fill="#2cb8ad"/><rect x="49" y="96" width="16" height="45" fill="#248dc2"/><rect x="73" y="79" width="16" height="62" fill="#1e64a8"/>
+  <circle cx="137" cy="105" r="31" fill="url(#blue)"/><path d="M137 74v31h31" fill="#15a397" stroke="#d9ffff" stroke-width="2"/>
+</g>
+<text class="title" x="225" y="472"><tspan x="225">Scientific</tspan><tspan x="225" dy="29">Reports &amp; Articles</tspan></text>
+
+<!-- card 3 icon -->
+<g transform="translate(879 277)" filter="url(#shadow)">
+  <rect x="0" y="9" width="150" height="92" rx="3" fill="#e8edf0" stroke="#6a8894" stroke-width="3"/><rect x="-5" y="4" width="160" height="8" rx="2" fill="#405c68"/>
+  <circle cx="42" cy="54" r="25" fill="url(#blue)"/><path d="M42 29v25h25" fill="#12a295" stroke="#e5ffff" stroke-width="2"/>
+  <g stroke="#397b9d" stroke-width="4" stroke-linecap="round"><path d="M83 36h34"/><path d="M83 51h28"/><path d="M83 66h36"/></g>
+  <path d="M88 79l22 20 21-25" fill="none" stroke="#6a5cc5" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="151" cy="59" r="14" fill="url(#purple)" stroke="#c8bcff" stroke-width="2"/><path d="M136 84q15-16 30 0v26h-30z" fill="#6254ae"/><rect x="136" y="102" width="50" height="43" fill="#524495"/>
+  <g fill="#9fb5be"><circle cx="22" cy="124" r="9"/><circle cx="59" cy="124" r="9"/><circle cx="96" cy="124" r="9"/><path d="M10 148q12-20 24 0M47 148q12-20 24 0M84 148q12-20 24 0" stroke="#9fb5be" stroke-width="8"/></g>
+</g>
+<text class="title" x="975" y="472"><tspan x="975">Presentations &amp;</tspan><tspan x="975" dy="29">Public Speaking</tspan></text>
+
+<!-- card 4 icon -->
+<g transform="translate(140 615)" filter="url(#shadow)">
+  <path d="M0 40l52-26 52 26-52 27z" fill="url(#teal)" stroke="#72e3d9" stroke-width="2"/><path d="M17 50v27q35 24 70 0V50" fill="#12676b" stroke="#45c8c1" stroke-width="2"/><path d="M0 40v35" class="thinCyan"/><circle cx="0" cy="79" r="4" fill="#25bbae"/>
+  <rect class="theme-icon-panel" x="122" y="20" width="60" height="54" rx="3" stroke="#29a4b0" stroke-width="2"/><g stroke="#218895" stroke-width="4" stroke-linecap="round"><path d="M136 35h31"/><path d="M136 49h25"/><path d="M136 63h34"/></g>
+  <g fill="#95b8c5"><circle cx="27" cy="99" r="11"/><circle cx="70" cy="99" r="11"/><circle cx="113" cy="99" r="11"/><circle cx="156" cy="99" r="11"/><path d="M12 137q15-28 30 0M55 137q15-28 30 0M98 137q15-28 30 0M141 137q15-28 30 0" stroke="#95b8c5" stroke-width="10"/></g>
+</g>
+<text class="title" x="233" y="787"><tspan x="233">Training &amp;</tspan><tspan x="233" dy="29">Workshops</tspan></text>
+
+<!-- card 5 icon -->
+<g transform="translate(870 620)" filter="url(#shadow)">
+  <!-- Equal-width audience panels -->
+  <path d="M0 36q30-15 60-12v94q-30-8-60 14z" fill="#128995" stroke="#54dfe0" stroke-width="2"/>
+  <path d="M60 24q30-6 60 0v94q-30-8-60 0z" fill="#5447a1" stroke="#9e90ed" stroke-width="2"/>
+  <path d="M120 24q30 3 60 18v90q-30-14-60-14z" fill="#d77518" stroke="#ffc65e" stroke-width="2"/>
+  <!-- Equal-size audience figures -->
+  <g>
+    <circle cx="30" cy="69" r="11" fill="#49d0d0"/><path d="M13 108q17-30 34 0" stroke="#25b5bd" stroke-width="13"/>
+    <circle cx="90" cy="69" r="11" fill="#a28fea"/><path d="M73 108q17-30 34 0" stroke="#7f70d2" stroke-width="13"/>
+    <circle cx="150" cy="69" r="11" fill="#ffc45f"/><path d="M133 108q17-30 34 0" stroke="#ec9b2f" stroke-width="13"/>
+  </g>
+  <path d="M0 132q90-39 180 0" fill="none" stroke="#244f7b" stroke-width="8"/>
+</g>
+<text class="title" x="967" y="787"><tspan x="967">Audience</tspan><tspan x="967" dy="29">Adaptation</tspan></text>
+
+<!-- central hub -->
+<g filter="url(#shadow)">
+  <circle cx="600" cy="545" r="215" fill="var(--surface-solid)" stroke="#37ccd6" stroke-width="2.2"/>
+  <circle cx="600" cy="545" r="168" fill="none" stroke="#53c5df" stroke-width="4" stroke-dasharray="8 10" opacity=".9"/>
+</g>
+<g transform="translate(437 378)" filter="url(#shadow)">
+  <circle class="theme-icon-panel" cx="163" cy="30" r="38" stroke="#45d3da" stroke-width="4"/>
+  <path d="M149 42q-17-28 14-35q31 7 15 35l-5 14h-20zM151 66h24" class="cyanStroke"/>
+  <path class="paper" d="M80 86h118l40 40v150H80z"/><path fill="#b8d6e5" stroke="#82cfe4" stroke-width="3" d="M198 86v40h40"/>
+  <g stroke="#3ca8be" stroke-width="5" stroke-linecap="round"><path d="M105 120h57"/><path d="M105 144h95"/><path d="M105 168h75"/><path d="M105 192h99"/><path d="M105 216h62"/></g>
+  <path class="theme-icon-panel" d="M15 146h70q25 0 25 25v34q0 25-25 25H60l-28 22v-22H15q-25 0-25-25v-34q0-25 25-25z" stroke="#8fe7ec" stroke-width="4"/>
+  <circle class="theme-icon-mark-fill" cx="30" cy="188" r="7"/><circle class="theme-icon-mark-fill" cx="56" cy="188" r="7"/><circle class="theme-icon-mark-fill" cx="82" cy="188" r="7"/>
+  <g transform="rotate(35 242 185)"><rect x="229" y="118" width="29" height="133" rx="14" fill="url(#blue)" stroke="#c0f4f7" stroke-width="4"/><path d="M229 226h29l-14.5 32z" fill="#2d7495" stroke="#b6eef1" stroke-width="3"/><path d="M232 141h23" stroke="#062634" stroke-width="9"/></g>
+  <circle class="theme-icon-panel" cx="163" cy="298" r="34" stroke="#42d1d8" stroke-width="4"/><circle cx="163" cy="285" r="10" fill="#31c1c9"/><path d="M145 315q18-30 36 0" stroke="#20a7b0" stroke-width="13"/>
+  <g class="cyanStroke"><circle cx="241" cy="87" r="9"/><circle cx="286" cy="111" r="12"/><circle cx="258" cy="152" r="7"/><path d="M249 93l26 13M279 122l-17 23"/></g>
+</g>
+<g fill="url(#teal)" stroke="#c6ffff" stroke-width="1.5" filter="url(#glow)"><circle cx="600" cy="334" r="8"/><circle cx="432" cy="414" r="8"/><circle cx="768" cy="414" r="8"/><circle cx="412" cy="660" r="8"/><circle cx="788" cy="660" r="8"/></g>
+
+<!-- workflow -->
+<g transform="translate(58 846)">
+  <text class="workflowTitle" x="542" y="14" text-anchor="middle" fill="var(--workflow-title)">AGENTIC ENGINEERING WORKFLOW</text>
+  <g transform="translate(0 32)">
+    <g class="workflowCard">
+      <rect x="0" y="0" width="164" height="92" rx="14"/>
+      <rect x="184" y="0" width="164" height="92" rx="14"/>
+      <rect x="368" y="0" width="164" height="92" rx="14"/>
+      <rect x="552" y="0" width="164" height="92" rx="14"/>
+      <rect x="736" y="0" width="164" height="92" rx="14"/>
+      <rect x="920" y="0" width="164" height="92" rx="14"/>
+    </g>
+    <g class="cyanStroke" transform="translate(0 2)">
+      <circle cx="82" cy="29" r="19"/><circle cx="82" cy="29" r="7"/><path d="M82 4v8M82 46v8M57 29h8M99 29h8"/>
+      <circle cx="266" cy="27" r="18"/><path d="M279 40l15 15"/>
+      <path d="M432 51l8-21 23-19 12 12-21 23z"/><path d="M440 30l14 16M432 51l22-5"/>
+      <path d="M634 6l5 7 9-2 2 9 8 4-5 8 5 8-8 4-2 9-9-2-5 7-5-7-9 2-2-9-8-4 5-8-5-8 8-4 2-9 9 2z"/><circle cx="634" cy="32" r="9"/>
+      <circle cx="818" cy="29" r="20"/><path d="M807 29l8 8 20-24" stroke="#1fcbb6" stroke-width="5"/>
+      <path d="M976 28l50-19-16 47-10-17-16 11 5-18z"/>
+    </g>
+    <g class="stepText" text-anchor="middle">
+      <text x="82" y="76">Define</text>
+      <text x="266" y="76">Research</text>
+      <text x="450" y="76">Plan</text>
+      <text x="634" y="76">Implement</text>
+      <text x="818" y="68"><tspan x="818">Test</tspan><tspan x="818" dy="17">&amp; Review</tspan></text>
+      <text x="1002" y="76">Publish</text>
+    </g>
+    <g class="workflowArrow">
+      <path d="M169 39l10 7-10 7z"/>
+      <path d="M353 39l10 7-10 7z"/>
+      <path d="M537 39l10 7-10 7z"/>
+      <path d="M721 39l10 7-10 7z"/>
+      <path d="M905 39l10 7-10 7z"/>
+    </g>
+  </g>
+</g>
+
+<!-- outcomes -->
+<g transform="translate(58 1010)" filter="url(#shadow)">
+  <rect x="0" y="0" width="1084" height="145" rx="24" fill="url(#cardFill)" stroke="#188e9a" stroke-width="1.5"/>
+  <line x1="272" y1="24" x2="272" y2="122" stroke="#1d6975"/><line x1="540" y1="24" x2="540" y2="122" stroke="#1d6975"/><line x1="809" y1="24" x2="809" y2="122" stroke="#1d6975"/>
+  <g transform="translate(25 28)"><circle cx="50" cy="44" r="33" fill="none" stroke="#2d86b8" stroke-width="9"/><circle cx="50" cy="44" r="21" fill="none" stroke="#56bde6" stroke-width="6"/><circle cx="50" cy="44" r="7" fill="#eef9ff"/><path d="M52 42L83 12" stroke="#eef9ff" stroke-width="8"/><path d="M75 5h17v17" fill="#eef9ff"/></g>
+  <text class="smallTitle" x="138" y="52">Clarity</text><text class="body" x="138" y="78"><tspan x="138">Clear ideas,</tspan><tspan x="138" dy="21">precise messages.</tspan></text>
+  <g transform="translate(292 24)"><path d="M15 65l38-22 40 22-40 22z" fill="#14659a" stroke="#73d9ef" stroke-width="2"/><path d="M15 47l38-22 40 22-40 22z" fill="#1d78a9" stroke="#75def0" stroke-width="2"/><path d="M15 29L53 7l40 22-40 22z" fill="#2c8abb" stroke="#8deaf3" stroke-width="2"/></g>
+  <text class="smallTitle" x="395" y="44"><tspan x="395">Technical</tspan><tspan x="395" dy="25">Depth</tspan></text><text class="body" x="395" y="94"><tspan x="395">Accurate content,</tspan><tspan x="395" dy="21">backed by expertise.</tspan></text>
+  <g transform="translate(558 22)"><circle cx="52" cy="27" r="17" fill="#34c1c4"/><circle cx="26" cy="43" r="11" fill="#6d61c6"/><circle cx="78" cy="43" r="11" fill="#6d61c6"/><path d="M32 88q20-40 40 0" fill="#22a7ae"/><path d="M5 78q21-35 42 0M57 78q21-35 42 0" fill="#51479f"/></g>
+  <text class="smallTitle" x="665" y="44"><tspan x="665">Audience</tspan><tspan x="665" dy="25">Adaptation</tspan></text><text class="body" x="665" y="94"><tspan x="665">Tailored to diverse</tspan><tspan x="665" dy="21">audiences.</tspan></text>
+  <g transform="translate(828 23)"><path d="M5 36l44-25 44 25-44 25z" fill="#ee9f27" stroke="#ffe08a" stroke-width="2"/><path d="M27 50v21q22 17 44 0V50" fill="#cf731a"/><path d="M83 43v34" stroke="#f2a632" stroke-width="4"/><circle cx="83" cy="82" r="4" fill="#f2a632"/></g>
+  <text class="smallTitle" x="931" y="44"><tspan x="931">Knowledge</tspan><tspan x="931" dy="25">Transfer</tspan></text><text class="body" x="931" y="94"><tspan x="931">Enable learning and</tspan><tspan x="931" dy="21">real-world impact.</tspan></text>
+</g>
+</svg>
+</div>
+</div>
+</body>
+</html>
