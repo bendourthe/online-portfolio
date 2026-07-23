@@ -7,7 +7,7 @@
 - Leadership & Management rebuild: complete
 - Release content refactor: implemented and browser verified
 - Branching model: develop + main
-- Initial release: v1.0.0 ready
+- Current release: v1.0.1
 
 ## Release Content Refactor [READY]
 
@@ -136,6 +136,13 @@
 
 - [x] Match the Featured Projects introduction and guide-card text hierarchy to the Career Highlights light theme.
 - [x] Verify light-theme contrast, responsive rendering, and dark-theme preservation.
+
+## Contact Light-Theme Readability [DONE]
+
+- [x] Move site-wide text and icon color values into a dedicated light/dark theme configuration.
+- [x] Remove direct text and SVG fill colors from the home-page component stylesheet.
+- [x] Restore the final contact subtitle to full-opacity configured text colors in both themes.
+- [x] Rebuild the deployment package and verify rendered contrast in light and dark mode.
 
 ## Verification
 

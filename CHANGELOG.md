@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-07-23
+
+### Changed
+
+- Centralized home-page text and icon colors in a dedicated light/dark theme configuration.
+
+### Fixed
+
+- Restored readable, full-opacity contact-section text in light mode.
+- Corrected theme aliases so dark-mode values propagate consistently.
+
 ## [1.0.0] - 2026-07-23
 
 ### Added
@@ -32,4 +43,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Removed obsolete page revisions, design mockups, rebuild inputs, and duplicate media from the hosted website payload.
 - Excluded authoring-only HTML, reference icons, and source artwork from production deployment.
 
+[1.0.1]: https://github.com/bendourthe/online-portfolio/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/bendourthe/online-portfolio/releases/tag/v1.0.0
