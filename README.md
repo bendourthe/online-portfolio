@@ -2,6 +2,16 @@
 
 [Dourthe Technologies](https://www.dourthe.tech) is a responsive, theme-aware portfolio presenting engineering, software, data science, artificial intelligence, agentic DevOps, communication, and leadership work. The site is built as static HTML, CSS, and JavaScript with generated skill-detail bundles and an explicit deployment boundary.
 
+Current release: `v1.0.1`
+
+## What's new in v1.0.1
+
+- Centralized home-page text and icon colors in an explicit light/dark theme configuration.
+- Restored accessible contact-section text contrast in light mode.
+- Corrected theme alias propagation so component colors consistently follow the active theme.
+
+See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
+
 ## Repository layout
 
 - `index.html`, `skills.html`: browser entry points.
