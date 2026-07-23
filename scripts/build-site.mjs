@@ -8,6 +8,7 @@ const publicFiles = [
     "index.html",
     "skills.html",
     "css/owl.carousel.min.css",
+    "css/site_theme_tokens.css",
     "css/skills_detail.css",
     "css/skills_detail_tokens.css",
     "css/style_modern.css",
