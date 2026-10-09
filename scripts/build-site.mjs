@@ -54,8 +54,8 @@ function normalizeReference(value) {
 
 function localReferences(text) {
     const values = [];
-    for (const match of text.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)) values.push(match[1]);
-    for (const match of text.matchAll(/url\(\s*["']?([^"')\s]+)["']?\s*\)/gi)) values.push(match[1]);
+    for (const match of text.matchAll(/(?<![\w-])(?:src|href)\s*=\s*["']([^"']+)["']/gi)) values.push(match[1]);
+    for (const match of text.matchAll(/(?<![\w.])url\(\s*["']?([^"')\s]+)["']?\s*\)/gi)) values.push(match[1]);
     for (const match of text.matchAll(/["'`]((?:assets|content|css|favicon|js|nexus-hub)\/[^"'`]+?\.(?:avif|css|gif|html|ico|jpe?g|js|json|png|svg|webmanifest|webp)(?:\?[^"'`]*)?)["'`]/gi)) values.push(match[1]);
     return values
         .map(normalizeReference)
@@ -83,9 +83,13 @@ const missing = new Set();
 for (const textFile of textFiles) {
     const text = await readFile(textFile, "utf8");
     for (const reference of localReferences(text)) {
+        // The Nexus Hub guide is a self-contained folder: its relative references resolve from the page, as in a browser.
+        const inGuide = relative(outputRoot, textFile).split(sep)[0] === "nexus-hub";
         const target = reference.startsWith("/")
             ? resolve(outputRoot, reference.slice(1))
-            : reference.startsWith("assets/") || reference.startsWith("content/") || reference.startsWith("css/") || reference.startsWith("favicon/") || reference.startsWith("js/") || reference.startsWith("nexus-hub/")
+            : inGuide
+                ? resolve(dirname(textFile), reference)
+                : reference.startsWith("assets/") || reference.startsWith("content/") || reference.startsWith("css/") || reference.startsWith("favicon/") || reference.startsWith("js/") || reference.startsWith("nexus-hub/")
                 ? resolve(outputRoot, reference)
                 : resolve(dirname(textFile), reference);
         try {
