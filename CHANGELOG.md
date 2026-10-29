@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2026-10-29
+
+### Added
+
+- `deploy/dourthe-technologies.com/.htaccess`: a permanent redirect from dourthe-technologies.com to benjamindourthe.com.
+
+### Changed
+
+- Refreshed the Nexus Hub v4.13.10 guide and Training page: a skip-to-content link, a figure status label that wraps instead of overlapping, and a two-by-two phone layout for the context window figure. The site favicons and the Training page's links to the guide are kept.
+- The README documents the production hosting on benjamindourthe.com.
+
 ## [1.0.3] - 2026-10-29
 
 ### Added

@@ -1,6 +1,6 @@
 # Version 1.0 Known Gaps
 
-Status: finalized for `v1.0.3`
+Status: finalized for `v1.0.4`
 
 ## Release blockers
 

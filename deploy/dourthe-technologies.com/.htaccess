@@ -1,0 +1,6 @@
+# Upload this file to the root folder of dourthe-technologies.com (next to index.html).
+# It sends every request to the same address on benjamindourthe.com with a permanent (301) redirect,
+# so visitors and search engines treat benjamindourthe.com as the one home of the site.
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?dourthe-technologies\.com$ [NC]
+RewriteRule ^(.*)$ https://benjamindourthe.com/$1 [R=301,L]
