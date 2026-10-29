@@ -2,13 +2,13 @@
 
 [Dourthe Technologies](https://www.dourthe.tech) is a responsive, theme-aware portfolio presenting engineering, software, data science, artificial intelligence, agentic DevOps, communication, and leadership work. The site is built as static HTML, CSS, and JavaScript with generated skill-detail bundles and an explicit deployment boundary.
 
-Current release: `v1.0.1`
+Current release: `v1.0.2`
 
-## What's new in v1.0.1
+## What's new in v1.0.2
 
-- Centralized home-page text and icon colors in an explicit light/dark theme configuration.
-- Restored accessible contact-section text contrast in light mode.
-- Corrected theme alias propagation so component colors consistently follow the active theme.
+- Added a Lumifold card to the Detailed Portfolio: a hinge-driven live wallpaper app for book-style Android foldables.
+- Published the Nexus Hub v4.13.10 guide (Home, Foundations, Cheatsheets) and a new Training page with the Nexus Defenders game.
+- The deployment build resolves the Nexus Hub guide's references from the guide's own folder, as a browser does.
 
 See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
 
