@@ -147,7 +147,7 @@
 ## Lumifold Portfolio Item
 
 - [x] Add a Lumifold card at the top of the Detailed Portfolio, linked to the GitHub repository, with the original 1024 px icon artwork as its thumbnail.
-- [ ] Verify the card in light and dark themes and in the Software Engineering filter, then rebuild the deployment package.
+- [x] Verify the card in light and dark themes and in the Software Engineering filter, then rebuild the deployment package.
 
 ## Verification
 
