@@ -7,6 +7,8 @@ const outputRoot = resolve(projectRoot, "dist");
 const publicFiles = [
     "index.html",
     "skills.html",
+    "robots.txt",
+    "sitemap.xml",
     "css/owl.carousel.min.css",
     "css/site_theme_tokens.css",
     "css/skills_detail.css",

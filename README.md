@@ -1,14 +1,14 @@
 # Online Portfolio
 
-[Dourthe Technologies](https://www.dourthe.tech) is a responsive, theme-aware portfolio presenting engineering, software, data science, artificial intelligence, agentic DevOps, communication, and leadership work. The site is built as static HTML, CSS, and JavaScript with generated skill-detail bundles and an explicit deployment boundary.
+[Dourthe Technologies](https://benjamindourthe.com) is a responsive, theme-aware portfolio presenting engineering, software, data science, artificial intelligence, agentic DevOps, communication, and leadership work. The site is built as static HTML, CSS, and JavaScript with generated skill-detail bundles and an explicit deployment boundary.
 
-Current release: `v1.0.2`
+Current release: `v1.0.3`
 
-## What's new in v1.0.2
+## What's new in v1.0.3
 
-- Added a Lumifold card to the Detailed Portfolio: a hinge-driven live wallpaper app for book-style Android foldables.
-- Published the Nexus Hub v4.13.10 guide (Home, Foundations, Cheatsheets) and a new Training page with the Nexus Defenders game.
-- The deployment build resolves the Nexus Hub guide's references from the guide's own folder, as a browser does.
+- Search and sharing metadata for benjamindourthe.com: canonical addresses, complete Open Graph and X/Twitter tags, and structured data describing the site and its author.
+- A `robots.txt` and `sitemap.xml` at the site root.
+- Removed the retired dourthe.tech domain.
 
 See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
 
