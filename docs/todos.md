@@ -7,7 +7,7 @@
 - Leadership & Management rebuild: complete
 - Release content refactor: implemented and browser verified
 - Branching model: develop + main
-- Current release: v1.0.3
+- Current release: v1.0.4
 
 ## Release Content Refactor [READY]
 
@@ -156,6 +156,12 @@
 - [x] Add canonical, Open Graph, X/Twitter and structured data metadata to the home and skills pages.
 - [x] Add `robots.txt` and `sitemap.xml` and include them in the deployment package.
 - [x] Release v1.0.3.
+
+## Nexus Hub Refresh and Domain Redirect [DONE]
+
+- [x] Commit the refreshed Nexus Hub guide and Training page with the site favicons and guide links kept.
+- [x] Add the dourthe-technologies.com redirect file and document the production hosting.
+- [x] Release v1.0.4.
 
 ## Verification
 

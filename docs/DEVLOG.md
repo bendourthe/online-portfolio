@@ -1,5 +1,15 @@
 # Development Log
 
+## 2026-10-29 - Nexus Hub guide refresh and domain redirect
+
+Version `1.0.4` published a refreshed Nexus Hub guide and Training page and added the redirect that makes benjamindourthe.com the single home of the site.
+
+### Delivered
+
+- Committed the refreshed v4.13.10 guide and Training page, keeping the site favicons in the guide and pointing the Training page's guide links at `index.html`.
+- Added a permanent `.htaccess` redirect from dourthe-technologies.com to benjamindourthe.com.
+- Documented the production hosting in the README.
+
 ## 2026-10-29 - Search metadata for the current domains
 
 Version `1.0.3` pointed the site's search and sharing metadata at benjamindourthe.com, which now serves the portfolio together with dourthe-technologies.com, and removed the retired dourthe.tech domain.
