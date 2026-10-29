@@ -1,5 +1,16 @@
 # Development Log
 
+## 2026-10-29 - Lumifold card and Nexus Hub guide
+
+Version `1.0.2` added the Lumifold project to the Detailed Portfolio and published the Nexus Hub v4.13.10 guide with its Training page.
+
+### Delivered
+
+- Added a Lumifold card at the top of the Detailed Portfolio, linked to its GitHub repository, with the original icon artwork as its thumbnail and a Software Engineering filter.
+- Published the Nexus Hub v4.13.10 guide (Home, Foundations, Cheatsheets) and the Training page with the Nexus Defenders game.
+- Resolved the guide's relative references from its own folder in the deployment build.
+- Verified the card in light and dark themes and in the Software Engineering filter on a clean build of the release candidate.
+
 ## 2026-07-23 - Theme configuration patch
 
 Version `1.0.1` moved home-page text and icon color roles into a dedicated light/dark theme configuration and corrected the contact-section cascade so the subtitle remains readable in light mode.

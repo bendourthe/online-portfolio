@@ -7,7 +7,7 @@
 - Leadership & Management rebuild: complete
 - Release content refactor: implemented and browser verified
 - Branching model: develop + main
-- Current release: v1.0.1
+- Current release: v1.0.2
 
 ## Release Content Refactor [READY]
 
@@ -144,10 +144,11 @@
 - [x] Restore the final contact subtitle to full-opacity configured text colors in both themes.
 - [x] Rebuild the deployment package and verify rendered contrast in light and dark mode.
 
-## Lumifold Portfolio Item
+## Lumifold Portfolio Item [DONE]
 
 - [x] Add a Lumifold card at the top of the Detailed Portfolio, linked to the GitHub repository, with the original 1024 px icon artwork as its thumbnail.
 - [x] Verify the card in light and dark themes and in the Software Engineering filter, then rebuild the deployment package.
+- [x] Release v1.0.2 with the Lumifold card and the October 9 Nexus Hub guide work.
 
 ## Verification
 

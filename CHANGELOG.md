@@ -4,11 +4,20 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.2] - 2026-10-29
 
 ### Added
 
 - Lumifold portfolio card: a hinge-driven live wallpaper app for book-style Android foldables, linked to its GitHub repository and filed under Software Engineering.
+- Nexus Hub v4.13.10 guide (Home, Foundations, Cheatsheets) and a new Training page with the Nexus Defenders game.
+
+### Changed
+
+- The deployment build resolves the Nexus Hub guide's relative references from the guide's own folder and no longer treats `data-src=` or `toDataURL(` as file references.
+
+### Removed
+
+- The Nexus Hub trivia quiz zip file.
 
 ## [1.0.1] - 2026-07-23
 
