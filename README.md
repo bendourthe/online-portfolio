@@ -2,13 +2,12 @@
 
 [Dourthe Technologies](https://benjamindourthe.com) is a responsive, theme-aware portfolio presenting engineering, software, data science, artificial intelligence, agentic DevOps, communication, and leadership work. The site is built as static HTML, CSS, and JavaScript with generated skill-detail bundles and an explicit deployment boundary.
 
-Current release: `v1.0.3`
+Current release: `v1.0.4`
 
-## What's new in v1.0.3
+## What's new in v1.0.4
 
-- Search and sharing metadata for benjamindourthe.com: canonical addresses, complete Open Graph and X/Twitter tags, and structured data describing the site and its author.
-- A `robots.txt` and `sitemap.xml` at the site root.
-- Removed the retired dourthe.tech domain.
+- Refreshed the Nexus Hub v4.13.10 guide and Training page: a skip-to-content link, a figure status label that no longer overlaps its text, and a two-by-two phone layout for the context window figure.
+- A redirect file that sends dourthe-technologies.com to benjamindourthe.com.
 
 See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
 
@@ -45,6 +44,10 @@ node scripts/build-site.mjs
 ```
 
 Only `dist/` is intended for upload to a static host. GitHub Pages builds this package automatically from `main`.
+
+## Production hosting
+
+The production site is [benjamindourthe.com](https://benjamindourthe.com), served over HTTPS with and without `www`. It is updated by uploading the changed files from `dist/` with WinSCP. dourthe-technologies.com redirects every address to benjamindourthe.com with the `.htaccess` file in `deploy/dourthe-technologies.com/`, placed in that domain's root folder. GitHub Pages publishes the same package at [bendourthe.github.io/online-portfolio](https://bendourthe.github.io/online-portfolio/).
 
 ## Branching and releases
 

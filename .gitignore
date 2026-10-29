@@ -5,6 +5,7 @@
 .codex/
 .cursor/
 .nexus-hub/
+.nexus/
 
 # IDEs and Editors
 .vscode/
