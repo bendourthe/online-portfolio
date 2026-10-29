@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Lumifold portfolio card: a hinge-driven live wallpaper app for book-style Android foldables, linked to its GitHub repository and filed under Software Engineering.
+
 ## [1.0.1] - 2026-07-23
 
 ### Changed

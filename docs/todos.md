@@ -144,6 +144,11 @@
 - [x] Restore the final contact subtitle to full-opacity configured text colors in both themes.
 - [x] Rebuild the deployment package and verify rendered contrast in light and dark mode.
 
+## Lumifold Portfolio Item
+
+- [x] Add a Lumifold card at the top of the Detailed Portfolio, linked to the GitHub repository, with the original 1024 px icon artwork as its thumbnail.
+- [ ] Verify the card in light and dark themes and in the Software Engineering filter, then rebuild the deployment package.
+
 ## Verification
 
 - [x] Verify JavaScript syntax and whitespace integrity.
