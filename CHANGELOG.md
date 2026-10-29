@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2026-10-29
+
+### Added
+
+- Canonical addresses on benjamindourthe.com, complete Open Graph and X/Twitter tags with absolute image URLs, and schema.org structured data for the author and the website on the home and skills pages.
+- `robots.txt` and `sitemap.xml` at the site root, included in the deployment package.
+
+### Changed
+
+- The home page declares its language and character set, mentions agentic AI and Android apps in its description, and replaces the obsolete `noodp` robots value.
+- The README links to benjamindourthe.com instead of the retired dourthe.tech domain.
+
 ## [1.0.2] - 2026-10-29
 
 ### Added

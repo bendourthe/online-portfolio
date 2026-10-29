@@ -7,7 +7,7 @@
 - Leadership & Management rebuild: complete
 - Release content refactor: implemented and browser verified
 - Branching model: develop + main
-- Current release: v1.0.2
+- Current release: v1.0.3
 
 ## Release Content Refactor [READY]
 
@@ -149,6 +149,13 @@
 - [x] Add a Lumifold card at the top of the Detailed Portfolio, linked to the GitHub repository, with the original 1024 px icon artwork as its thumbnail.
 - [x] Verify the card in light and dark themes and in the Software Engineering filter, then rebuild the deployment package.
 - [x] Release v1.0.2 with the Lumifold card and the October 9 Nexus Hub guide work.
+
+## Search Metadata [DONE]
+
+- [x] Replace the retired dourthe.tech domain with benjamindourthe.com in the README.
+- [x] Add canonical, Open Graph, X/Twitter and structured data metadata to the home and skills pages.
+- [x] Add `robots.txt` and `sitemap.xml` and include them in the deployment package.
+- [x] Release v1.0.3.
 
 ## Verification
 

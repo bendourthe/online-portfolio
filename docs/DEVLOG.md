@@ -1,5 +1,16 @@
 # Development Log
 
+## 2026-10-29 - Search metadata for the current domains
+
+Version `1.0.3` pointed the site's search and sharing metadata at benjamindourthe.com, which now serves the portfolio together with dourthe-technologies.com, and removed the retired dourthe.tech domain.
+
+### Delivered
+
+- Added canonical addresses so both domains consolidate search ranking on benjamindourthe.com.
+- Completed Open Graph and X/Twitter tags with absolute image URLs, and added schema.org Person and WebSite structured data.
+- Added `robots.txt` and `sitemap.xml` and included them in the deployment package.
+- Declared the home page's language and character set and refreshed its description.
+
 ## 2026-10-29 - Lumifold card and Nexus Hub guide
 
 Version `1.0.2` added the Lumifold project to the Detailed Portfolio and published the Nexus Hub v4.13.10 guide with its Training page.
