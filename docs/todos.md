@@ -7,7 +7,7 @@
 - Leadership & Management rebuild: complete
 - Release content refactor: implemented and browser verified
 - Branching model: develop + main
-- Current release: v1.0.4
+- Current release: v1.0.5
 - Nexus TV Launcher portfolio item: implemented and browser verified
 
 ## Nexus TV Launcher Portfolio [DONE]
@@ -16,6 +16,11 @@
 - [x] Create a square launcher illustration showing the home screen rather than the project logo.
 - [x] Verify the deployment build, thumbnail rendering, responsive layouts, and category filters at 390, 768, and 1440 pixels in light and dark themes.
 - [x] Compare the full-page visual detector against the unchanged page: 17 existing findings, zero new findings.
+
+## Nexus TV Launcher Release Preparation [DONE]
+
+- [x] Prepare v1.0.5 release metadata and document the approved integration CI exception.
+- [x] Reconcile the existing visual findings and release-process improvements in the known-gaps record.
 
 ## Release Content Refactor [READY]
 
