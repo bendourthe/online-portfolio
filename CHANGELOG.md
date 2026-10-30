@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2026-10-29
+
+### Added
+
+- Nexus TV Launcher portfolio card under Software Engineering, with a feature summary and a link to its GitHub repository.
+- Square launcher illustration showing the purple wave home screen, app dock, and Continue Watching shelf instead of the project logo.
+
+This release changes no opt-in capability, installer flag, or host surface.
+
 ## [1.0.4] - 2026-10-29
 
 ### Added
@@ -81,5 +90,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Removed obsolete page revisions, design mockups, rebuild inputs, and duplicate media from the hosted website payload.
 - Excluded authoring-only HTML, reference icons, and source artwork from production deployment.
 
+[1.0.5]: https://github.com/bendourthe/online-portfolio/compare/v1.0.4...v1.0.5
 [1.0.1]: https://github.com/bendourthe/online-portfolio/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/bendourthe/online-portfolio/releases/tag/v1.0.0
