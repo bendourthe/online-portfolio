@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] - 2026-11-10
+
+### Changed
+
+- The Nexus Hub interactive guide follows the README order: Installation, The Development Workflow, Centralized IDE Settings, Usage Monitors, Handoffs, Platform Coverage, and Why Nexus Hub.
+- The guide shows the Nexus Hub workflow, settings, usage, handoff, and platform animations as each section scrolls into view, with still images for reduced motion.
+- The guide's installer terminal is shorter, and repeated sections were removed.
+
+This release changes no opt-in capability, installer flag, or host surface.
+
 ## [1.0.5] - 2026-10-29
 
 ### Added
@@ -90,6 +100,7 @@ This release changes no opt-in capability, installer flag, or host surface.
 - Removed obsolete page revisions, design mockups, rebuild inputs, and duplicate media from the hosted website payload.
 - Excluded authoring-only HTML, reference icons, and source artwork from production deployment.
 
+[1.0.6]: https://github.com/bendourthe/online-portfolio/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/bendourthe/online-portfolio/compare/v1.0.4...v1.0.5
 [1.0.1]: https://github.com/bendourthe/online-portfolio/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/bendourthe/online-portfolio/releases/tag/v1.0.0

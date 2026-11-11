@@ -2,12 +2,12 @@
 
 [Dourthe Technologies](https://benjamindourthe.com) is a responsive, theme-aware portfolio presenting engineering, software, data science, artificial intelligence, agentic DevOps, communication, and leadership work. The site is built as static HTML, CSS, and JavaScript with generated skill-detail bundles and an explicit deployment boundary.
 
-Current release: `v1.0.5`
+Current release: `v1.0.6`
 
-## What's new in v1.0.5
+## What's new in v1.0.6
 
-- Added Nexus TV Launcher to the Detailed Portfolio under Software Engineering, linked to its GitHub repository.
-- Added a square illustration of the launcher's purple wave home screen, app dock, and Continue Watching shelf.
+- Refreshed the Nexus Hub interactive guide: Home follows the README and shows its workflow, settings, usage, handoff, and platform animations as each section scrolls into view.
+- Shortened the guide's installer terminal and removed repeated sections.
 
 See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
 

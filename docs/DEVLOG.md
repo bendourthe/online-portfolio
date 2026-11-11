@@ -2,6 +2,7 @@
 
 | Date | Version | Summary | Plan | History | Gaps |
 |---|---|---|---|---|---|
+| 2026-11-10 | v1.0.6 | Nexus Hub guide refresh with README animations | - | [release record](v1/v1.0/development/history/2026-11-10_v1.0.6-release.md) | [known gaps](v1/v1.0/known-gaps.md) |
 | 2026-10-29 | v1.0.5 | Nexus TV Launcher portfolio item | - | [release record](v1/v1.0/development/history/2026-10-29_v1.0.5-release.md) | [known gaps](v1/v1.0/known-gaps.md) |
 
 ## 2026-10-29 - Nexus Hub guide refresh and domain redirect
