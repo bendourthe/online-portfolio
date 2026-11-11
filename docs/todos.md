@@ -17,6 +17,11 @@
 - [x] Verify the deployment build, thumbnail rendering, responsive layouts, and category filters at 390, 768, and 1440 pixels in light and dark themes.
 - [x] Compare the full-page visual detector against the unchanged page: 17 existing findings, zero new findings.
 
+## Nexus Hub Guide Home Reorder Release [DONE]
+
+- [x] Sync nexus-hub/index.html with the reordered Nexus-Hub guide and its Why Nexus Hub benefit cards, keeping the site favicon links.
+- [x] Prepare v1.0.7 release metadata.
+
 ## Nexus Hub Guide Refresh Release [DONE]
 
 - [x] Sync nexus-hub/ with the Nexus-Hub guide that follows the README, including its animation assets and the site favicon links.
