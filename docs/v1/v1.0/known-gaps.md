@@ -1,8 +1,10 @@
 # Version 1.0 Known Gaps
 
-Status: finalized for `v1.0.6`
+Status: finalized for `v1.0.7`
 
 ## Release blockers
+
+No unresolved blockers for v1.0.7. This release went through a release branch and an integration pull request; the repository still has no pull-request CI (see Deferred improvements), so the local deployment build and browser checks are its validation.
 
 No unresolved blockers for v1.0.6. This release went through a release branch and an integration pull request; the repository still has no pull-request CI (see Deferred improvements), so the local deployment build and browser checks are its validation.
 

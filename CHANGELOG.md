@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.7] - 2026-11-11
+
+### Changed
+
+- The Nexus Hub interactive guide's Home runs Installation, Platform Coverage, The Development Workflow, Centralized IDE Settings, Handoffs, Usage Monitors, and Why Nexus Hub.
+- Why Nexus Hub closes the page with six benefit cards (Multiplatform Intelligence, Expert Skills, Repeatable Workflow, Enforced Guardrails, Centralized Settings, Monitoring & Continuity), each with the problem it removes, and buttons to install Nexus Hub or start the Training.
+- The guardrail ring figure and the before-and-after rows left the guide's Home.
+
+This release changes no opt-in capability, installer flag, or host surface.
+
 ## [1.0.6] - 2026-11-10
 
 ### Changed
@@ -100,6 +110,7 @@ This release changes no opt-in capability, installer flag, or host surface.
 - Removed obsolete page revisions, design mockups, rebuild inputs, and duplicate media from the hosted website payload.
 - Excluded authoring-only HTML, reference icons, and source artwork from production deployment.
 
+[1.0.7]: https://github.com/bendourthe/online-portfolio/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/bendourthe/online-portfolio/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/bendourthe/online-portfolio/compare/v1.0.4...v1.0.5
 [1.0.1]: https://github.com/bendourthe/online-portfolio/compare/v1.0.0...v1.0.1

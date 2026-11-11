@@ -2,12 +2,12 @@
 
 [Dourthe Technologies](https://benjamindourthe.com) is a responsive, theme-aware portfolio presenting engineering, software, data science, artificial intelligence, agentic DevOps, communication, and leadership work. The site is built as static HTML, CSS, and JavaScript with generated skill-detail bundles and an explicit deployment boundary.
 
-Current release: `v1.0.6`
+Current release: `v1.0.7`
 
-## What's new in v1.0.6
+## What's new in v1.0.7
 
-- Refreshed the Nexus Hub interactive guide: Home follows the README and shows its workflow, settings, usage, handoff, and platform animations as each section scrolls into view.
-- Shortened the guide's installer terminal and removed repeated sections.
+- Reordered the Nexus Hub interactive guide's Home: Installation and Platform Coverage come first, and Why Nexus Hub closes the page.
+- Rebuilt Why Nexus Hub as six benefit cards, each with the problem it removes, followed by buttons to install Nexus Hub or start the Training.
 
 See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
 
