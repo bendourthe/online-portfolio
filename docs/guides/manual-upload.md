@@ -37,3 +37,16 @@ The ten obsolete files were removed after confirming their only remaining refere
 ## Nexus Verification
 
 The canonical section address is `https://www.benjamindourthe.com/#nexus`. Existing `#featured-projects` bookmarks are converted to `#nexus` by the home-page script. After uploading, verify the two product buttons, normal feature-list wrapping, and the Studio logo. For a browser that still shows an older page, press `Ctrl+F5` once to reload its HTML and linked files.
+
+## Nexus Upload Set
+
+Upload these four files from the freshly built `dist/` folder together. Their destination paths are relative to `/benjamindourthe.com/htdocs/`.
+
+| Local path under `dist/` | Hosted path |
+| --- | --- |
+| `index.html` | `index.html` |
+| `skills.html` | `skills.html` |
+| `css/style_modern.css` | `css/style_modern.css` |
+| `js/script.js` | `js/script.js` |
+
+The November 19 live check still returned an older home page containing `href="#featured-projects"`, `id="featured-projects"`, and unversioned browser files, including on a fresh HTML request. The local upload page contains `href="#nexus"`, `id="nexus"`, two introduction columns on desktop, the Studio label "Desktop App · Local AI", and a new-tab Nexus Hub button. After uploading, viewing the home-page source should show `href="#nexus"` and a `?v=` value on the stylesheet and script links. If the source still contains the old address, the server is returning the older HTML; changing browser layout settings will not replace that file.
