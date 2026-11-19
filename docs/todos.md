@@ -8,6 +8,7 @@
 - Nexus introduction refinement: two desktop columns, new-tab Hub link, and revised Studio label verified
 - Nexus introduction copy and density: modern desktop app wording, 24 px lead, 20 px descriptions, and 24 px card gap verified
 - Nexus Hub capabilities: combined workflows and conventions, cross-platform compatibility, and robust handoffs verified
+- Nexus AI Studio capabilities: local text, image, video, and audio generation plus revised agentic workflow and harness descriptions verified
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -74,6 +75,13 @@
 - [x] Combine repeatable workflows and shared project conventions into one compact segment.
 - [x] Use the third Hub segment for cross-platform compatibility and robust handoffs preserving task context, progress, and next steps.
 - [x] Verify exact segment text, wrapping, overlap, desktop button alignment, and browser integrity on desktop and phones in both themes.
+- CI impact: no pipeline changes; existing build and local browser checks.
+
+## Nexus AI Studio Capability Copy [DONE]
+
+- [x] Highlight local models for text, image, video, and audio generation in the Local AI segment.
+- [x] Apply the requested expert-level agentic workflow sentence and advanced Nexus Hub skills, guardrails, and standardized workflow description.
+- [x] Verify exact descriptions, bold generation types, wrapping, text overlap, desktop button alignment, and browser integrity on desktop and phones in both themes.
 - CI impact: no pipeline changes; existing build and local browser checks.
 
 ## Nexus TV Launcher Portfolio [DONE]
