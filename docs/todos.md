@@ -8,6 +8,7 @@
 - Nexus introduction refinement: two desktop columns, new-tab Hub link, and revised Studio label verified
 - Nexus introduction copy and density: modern desktop app wording, 24 px lead, 20 px descriptions, and 24 px card gap verified
 - Nexus Hub capabilities: combined workflows and conventions, cross-platform compatibility, and robust handoffs verified
+- Nexus Hub product label: Agentic Harness
 - Nexus AI Studio capabilities: local text, image, video, and audio generation plus revised agentic workflow and harness descriptions verified
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
