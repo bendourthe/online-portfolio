@@ -275,18 +275,23 @@ body:not(.dark-mode) .nexusFeatureSection .heading p {
     letter-spacing: 0;
 }
 
-.nexus-intro .nexus-intro-lead {
+.nexusFeatureSection .nexus-intro .nexus-intro-lead {
     font-size: 24px;
     font-weight: 600;
     line-height: 1.4;
     margin: 20px auto 12px;
 }
 
-.nexus-intro .nexus-intro-detail {
+.nexus-intro-descriptions {
+    margin-top: 20px;
+    row-gap: 16px;
+}
+
+.nexusFeatureSection .nexus-intro .nexus-intro-detail {
     font-size: 17px;
     line-height: 1.7;
     margin: 0 auto;
-    max-width: 760px;
+    max-width: 460px;
 }
 
 .nexus-eyebrow,

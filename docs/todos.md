@@ -5,6 +5,7 @@
 - Nexus product section and updated profile assets: implemented and browser verified; production publication pending
 - Nexus deployment repair: canonical section address, content-versioned browser files, and upload-file audit implemented
 - Repository root cleanup: ten obsolete files removed; all 247 deployment files verified byte-identical
+- Nexus introduction refinement: two desktop columns, new-tab Hub link, and revised Studio label verified
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -50,6 +51,14 @@
 - [x] Preserve active runtime assets, authoring sources, generators, project metadata, and historical documentation.
 - [x] Verify all 247 rebuilt deployment files are byte-identical to the pre-cleanup package, with all local references resolved.
 - CI impact: no pipeline or deployed behavior changes.
+
+## Nexus Introduction and Link Refinement [DONE]
+
+- [x] Put the Hub and Studio introduction descriptions in two desktop columns aligned with their product cards and stack them on smaller screens.
+- [x] Open Explore Nexus Hub in a new tab and change the Studio label to "Desktop App · Local AI".
+- [x] Confirm the live server still returns older HTML and document the four-file upload set for the canonical `#nexus` address and versioned browser files.
+- [x] Verify eight viewport/theme layouts, legacy-address conversion, the new-tab flow, the unchanged original-page address, and browser integrity.
+- CI impact: no pipeline changes; existing build and local browser checks.
 
 ## Nexus TV Launcher Portfolio [DONE]
 
