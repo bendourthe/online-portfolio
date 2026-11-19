@@ -1,4 +1,5 @@
-import { cp, mkdir, readFile, readdir, rm, stat } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { dirname, extname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -27,7 +28,7 @@ const publicFiles = [
     "js/skills-source-artwork.js",
     "js/typed.min.js",
 ];
-const publicDirectories = ["assets", "content", "favicon", "nexus-hub"];
+const publicDirectories = ["content", "favicon", "nexus-hub"];
 const optionalReferences = new Set([
     "css/owl.carousel.min.css -> owl.video.play.png",
     "js/owl.carousel.min.js -> +c+",
@@ -75,6 +76,17 @@ for (const publicFile of publicFiles) {
 }
 for (const directory of publicDirectories) {
     await cp(resolve(projectRoot, directory), resolve(outputRoot, directory), { recursive: true });
+}
+
+// A changed stylesheet or script gets a new URL so browser caches cannot reuse the previous version.
+for (const page of ["index.html", "skills.html"]) {
+    const outputPage = resolve(outputRoot, page);
+    let html = await readFile(outputPage, "utf8");
+    for (const reference of html.matchAll(/(["'])((?:css|js)\/[^"'?]+\.(?:css|js))(?:\?[^"']*)?\1/g)) {
+        const digest = createHash("sha256").update(await readFile(resolve(outputRoot, reference[2]))).digest("hex").slice(0, 12);
+        html = html.replaceAll(reference[0], `${reference[1]}${reference[2]}?v=${digest}${reference[1]}`);
+    }
+    await writeFile(outputPage, html);
 }
 
 const embeddedArtwork = await readFile(resolve(projectRoot, "js/skills-source-artwork.js"), "utf8");

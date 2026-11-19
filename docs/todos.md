@@ -3,6 +3,7 @@
 ## Dashboard
 
 - Nexus product section and updated profile assets: implemented and browser verified; production publication pending
+- Nexus deployment repair: canonical section address, content-versioned browser files, and upload-file audit implemented
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -30,6 +31,16 @@
 - [x] Structure the Nexus introduction as a lead sentence followed by a separate explanation of Hub and Studio.
 - [x] Verify button count, destinations, centering, desktop alignment, logo loading, guide navigation, and overflow at 1440, 768, and 390 pixels in both themes.
 - CI impact: no pipeline changes; local build and browser verification only.
+
+## Nexus Deployment and Root File Audit [DONE]
+
+- [x] Inspect the live site and distinguish the current server stylesheet from the cached layout shown in the screenshot.
+- [x] Use `#nexus` in navigation and preserve old `#featured-projects` bookmarks.
+- [x] Add content-based CSS and JavaScript version queries to generated upload pages.
+- [x] Exclude the unused top-level `assets/` folder from the build without deleting local or hosted files.
+- [x] Document required hosted paths and local cleanup candidates in `docs/guides/manual-upload.md`.
+- [x] Verify legacy bookmarks, the skills backlink, mobile navigation, eight viewport/theme layouts, stale stylesheet bypass, exact asset version hashes, and the rebuilt upload package with no browser errors or failed requests.
+- CI impact: no pipeline changes; the existing build emits content-versioned references.
 
 ## Nexus TV Launcher Portfolio [DONE]
 
