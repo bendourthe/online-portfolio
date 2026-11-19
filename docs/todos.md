@@ -7,6 +7,7 @@
 - Repository root cleanup: ten obsolete files removed; all 247 deployment files verified byte-identical
 - Nexus introduction refinement: two desktop columns, new-tab Hub link, and revised Studio label verified
 - Nexus introduction copy and density: modern desktop app wording, 24 px lead, 20 px descriptions, and 24 px card gap verified
+- Nexus Hub capabilities: combined workflows and conventions, cross-platform compatibility, and robust handoffs verified
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -66,6 +67,13 @@
 - [x] Apply the requested agentic development and creativity lead and updated Hub and Studio descriptions exactly.
 - [x] Use "modern desktop app" in the Studio description and set both descriptions to 20 px, between the 24 px lead and 17 px card text, retaining the 24 px card gap.
 - [x] Verify the 24/20/17 px hierarchy, measured gap, overflow, and browser integrity at desktop and phone widths in both themes.
+- CI impact: no pipeline changes; existing build and local browser checks.
+
+## Nexus Hub Workflow and Handoff Copy [DONE]
+
+- [x] Combine repeatable workflows and shared project conventions into one compact segment.
+- [x] Use the third Hub segment for cross-platform compatibility and robust handoffs preserving task context, progress, and next steps.
+- [x] Verify exact segment text, wrapping, overlap, desktop button alignment, and browser integrity on desktop and phones in both themes.
 - CI impact: no pipeline changes; existing build and local browser checks.
 
 ## Nexus TV Launcher Portfolio [DONE]
