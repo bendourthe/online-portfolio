@@ -23,6 +23,14 @@
 - Delivery: local integration into develop; production release and upload remain separate.
 - CI impact: no pipeline changes; local static-site build and browser verification only.
 
+## Nexus Section Layout Refinement [DONE]
+
+- [x] Keep exactly one centered button per product, linking to the Nexus Hub page and Nexus AI GitHub repository, with equal desktop button sizes and bottom alignment.
+- [x] Replace the Studio placeholder with the supplied full-resolution logo, matched to the original Nexus AI repository asset.
+- [x] Structure the Nexus introduction as a lead sentence followed by a separate explanation of Hub and Studio.
+- [x] Verify button count, destinations, centering, desktop alignment, logo loading, guide navigation, and overflow at 1440, 768, and 390 pixels in both themes.
+- CI impact: no pipeline changes; local build and browser verification only.
+
 ## Nexus TV Launcher Portfolio [DONE]
 
 - [x] Add the Nexus TV Launcher card to Software Engineering with a repository link and feature summary.
