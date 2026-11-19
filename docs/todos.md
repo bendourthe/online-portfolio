@@ -4,6 +4,7 @@
 
 - Nexus product section and updated profile assets: implemented and browser verified; production publication pending
 - Nexus deployment repair: canonical section address, content-versioned browser files, and upload-file audit implemented
+- Repository root cleanup: ten obsolete files removed; all 247 deployment files verified byte-identical
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -41,6 +42,14 @@
 - [x] Document required hosted paths and local cleanup candidates in `docs/guides/manual-upload.md`.
 - [x] Verify legacy bookmarks, the skills backlink, mobile navigation, eight viewport/theme layouts, stale stylesheet bypass, exact asset version hashes, and the rebuilt upload package with no browser errors or failed requests.
 - CI impact: no pipeline changes; the existing build emits content-versioned references.
+
+## Obsolete Root File Cleanup [DONE]
+
+- [x] Confirm the ten audited files have no references outside the cleanup documentation.
+- [x] Delete both obsolete header images, three extracted-text files, two retired extraction helpers, the unused icon mapper, obsolete SVG preview, and legacy skills configuration.
+- [x] Preserve active runtime assets, authoring sources, generators, project metadata, and historical documentation.
+- [x] Verify all 247 rebuilt deployment files are byte-identical to the pre-cleanup package, with all local references resolved.
+- CI impact: no pipeline or deployed behavior changes.
 
 ## Nexus TV Launcher Portfolio [DONE]
 
