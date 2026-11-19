@@ -289,7 +289,7 @@ body:not(.dark-mode) .nexusFeatureSection .heading p {
 }
 
 .nexusFeatureSection .nexus-intro .nexus-intro-detail {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.4;
     margin: 0 auto;
     max-width: 100%;
