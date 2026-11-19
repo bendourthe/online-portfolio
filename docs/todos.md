@@ -2,6 +2,7 @@
 
 ## Dashboard
 
+- Nexus product section and updated profile assets: implemented and browser verified; production publication pending
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -9,6 +10,18 @@
 - Branching model: develop + main
 - Current release: v1.0.5
 - Nexus TV Launcher portfolio item: implemented and browser verified
+
+## Nexus Product Section and Profile Assets [DONE]
+
+- [x] Include the updated About photo and CV without altering either supplied file.
+- [x] Rename Projects to Nexus in the home and skills navigation and remove the hover selector.
+- [x] Present Nexus Hub and Nexus AI Studio in matching responsive cards, explain their shared foundation, and label Studio as in development.
+- [x] Preserve the Nexus Hub guide, training, existing section address, and Nexus TV Launcher portfolio card.
+- [x] Improve light-theme action contrast and verify desktop, tablet, and phone layouts in both themes.
+- [x] Verify the rendered photo, exact CV download hash, navigation behavior, repository links, build references, and browser errors.
+- [x] Correct the mobile navigation destination by closing the menu before scrolling and measuring the settled fixed header.
+- Delivery: local integration into develop; production release and upload remain separate.
+- CI impact: no pipeline changes; local static-site build and browser verification only.
 
 ## Nexus TV Launcher Portfolio [DONE]
 

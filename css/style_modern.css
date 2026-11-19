@@ -58,74 +58,6 @@ body {
     color: var(--accent-color) !important;
 }
 
-.nav-projects {
-    position: relative;
-}
-
-.projects-dropdown {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    min-width: 180px;
-    padding: 8px 0;
-    background: var(--nav-bg);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 4px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
-    z-index: 1001;
-}
-
-.projects-dropdown a {
-    display: block;
-    padding: 10px 16px;
-    color: var(--nav-text);
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    white-space: nowrap;
-}
-
-.projects-dropdown a:hover,
-.projects-dropdown a:focus {
-    color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.08);
-    text-decoration: none;
-}
-
-.nav-projects:hover .projects-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-@media (max-width: 991px) {
-    .nav-projects {
-        width: 100%;
-    }
-
-    .projects-dropdown {
-        display: none;
-        position: static;
-        min-width: 0;
-        margin: 4px 0 8px 12px;
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-    }
-
-    .nav-projects:hover .projects-dropdown {
-        display: block;
-        transform: none;
-    }
-}
-
 /* --- Hero Overlay --- */
 .titleMessage {
     position: absolute;
@@ -320,7 +252,7 @@ input:checked+.slider:before {
     padding-top: 100px;
 }
 
-/* --- Featured Projects / Nexus-Hub Feature --- */
+/* --- Nexus Products --- */
 .nexusFeatureSection {
     background: var(--section-accent-bg);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -349,7 +281,7 @@ body:not(.dark-mode) .nexusFeatureSection .heading p {
     text-transform: uppercase;
 }
 
-.nexus-main-header h2 {
+.nexus-main-header .nexus-product-title {
     color: var(--section-accent-text);
     font-size: 36px;
     font-weight: 700;
@@ -443,7 +375,44 @@ body.dark-mode .nexus-cta-secondary:focus-visible {
     color: var(--site-text-control-ink);
 }
 
+body:not(.dark-mode) .nexusFeatureSection .nexus-cta {
+    border-color: var(--section-accent-text);
+    color: var(--section-accent-text);
+}
+
+body:not(.dark-mode) .nexusFeatureSection .nexus-cta-primary,
+body:not(.dark-mode) .nexusFeatureSection .nexus-cta-secondary:hover,
+body:not(.dark-mode) .nexusFeatureSection .nexus-cta-secondary:focus-visible {
+    background: var(--section-accent-text);
+    color: var(--site-text-control-ink);
+}
+
+body:not(.dark-mode) .nexusFeatureSection .nexus-cta-primary:hover,
+body:not(.dark-mode) .nexusFeatureSection .nexus-cta-primary:focus-visible {
+    background: transparent;
+    color: var(--section-accent-text);
+}
+
+.nexus-products > div {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.nexus-studio-mark {
+    background: var(--nav-bg);
+    color: var(--accent-color);
+}
+
+.nexus-products .nexus-actions {
+    margin-top: auto;
+    padding-top: 26px;
+}
+
 .nexusGuideCard {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0;
+    width: 100%;
     background: rgba(255, 255, 255, 0.78);
     border: 1px solid rgba(37, 116, 169, 0.18);
     border-radius: 8px;
@@ -491,7 +460,7 @@ body.dark-mode .nexusGuideCard {
     width: 96px;
 }
 
-.nexus-main-header h2 {
+.nexus-main-header .nexus-product-title {
     margin-bottom: 0;
 }
 
@@ -515,9 +484,6 @@ body.dark-mode .nexusGuideCard {
 
 .nexus-path li {
     border-top: 1px solid rgba(37, 116, 169, 0.16);
-    display: grid;
-    gap: 12px;
-    grid-template-columns: 34px 1fr;
     padding: 15px 0;
 }
 
@@ -527,18 +493,6 @@ body.dark-mode .nexus-path li {
 
 .nexus-path li:last-child {
     padding-bottom: 0;
-}
-
-.nexus-step {
-    align-items: center;
-    background-color: #d9a441;
-    border-radius: 50%;
-    color: var(--site-text-control-ink);
-    display: inline-flex;
-    font-weight: 700;
-    height: 34px;
-    justify-content: center;
-    width: 34px;
 }
 
 .nexus-path strong {
@@ -551,14 +505,14 @@ body.dark-mode .nexus-path li {
 .nexus-path small {
     color: var(--text-color);
     display: block;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.55;
-    opacity: 0.76;
+    opacity: 0.92;
 }
 
 @media (max-width: 991px) {
     .nexusGuideCard {
-        margin-top: 36px;
+        margin-top: 0;
     }
 }
 
@@ -567,7 +521,7 @@ body.dark-mode .nexus-path li {
         padding: 60px 0;
     }
 
-    .nexus-main-header h2 {
+    .nexus-main-header .nexus-product-title {
         font-size: 30px;
     }
 

@@ -82,8 +82,25 @@ $(window).on("load", function () {
         }
 
         e.preventDefault();
-        var targetPosition = $target.offset().top;
-        $("html, body").animate({ scrollTop: targetPosition - 50 }, "slow")
+        function scrollToTarget() {
+            $(document.scrollingElement).stop(true).animate({
+                scrollTop: $target.offset().top - $("#navigation").outerHeight()
+            }, "slow", function () {
+                // Sticky navigation changes page geometry during the scroll.
+                window.scrollTo(0, $target.offset().top - $("#navigation").outerHeight());
+            });
+        }
+
+        var $menu = $("#navbarNav");
+        if ($menu.hasClass("show")) {
+            $menu.one("hidden.bs.collapse", scrollToTarget).collapse("hide");
+        } else if ($menu.hasClass("collapsing")) {
+            $menu.one("shown.bs.collapse", function () {
+                $menu.one("hidden.bs.collapse", scrollToTarget).collapse("hide");
+            });
+        } else {
+            scrollToTarget();
+        }
     });
 
     const nav = $("#navigation");
