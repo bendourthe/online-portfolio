@@ -82,6 +82,9 @@ $(window).on("load", function () {
         }
 
         e.preventDefault();
+        if (targetElement === "#nexus") {
+            window.history.replaceState(null, "", "#nexus");
+        }
         function scrollToTarget() {
             $(document.scrollingElement).stop(true).animate({
                 scrollTop: $target.offset().top - $("#navigation").outerHeight()
@@ -118,6 +121,11 @@ $(window).on("load", function () {
             body.css("padding-top", 0 + "px");
             body.removeClass("fixedNav")
         }
+    }
+
+    if (window.location.hash === "#featured-projects") {
+        window.history.replaceState(null, "", "#nexus");
+        $("#navigation a[href='#nexus']").trigger("click");
     }
 
     // Dark Mode Toggle Switch
