@@ -271,6 +271,24 @@ body:not(.dark-mode) .nexusFeatureSection .heading p {
     opacity: 1;
 }
 
+.nexus-intro {
+    letter-spacing: 0;
+}
+
+.nexus-intro .nexus-intro-lead {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 20px auto 12px;
+}
+
+.nexus-intro .nexus-intro-detail {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 760px;
+}
+
 .nexus-eyebrow,
 .nexus-guide-kicker {
     color: var(--primary-color);
@@ -398,14 +416,16 @@ body:not(.dark-mode) .nexusFeatureSection .nexus-cta-primary:focus-visible {
     margin-bottom: 24px;
 }
 
-.nexus-studio-mark {
-    background: var(--nav-bg);
-    color: var(--accent-color);
-}
-
 .nexus-products .nexus-actions {
+    align-items: center;
+    justify-content: center;
     margin-top: auto;
     padding-top: 26px;
+}
+
+.nexus-products .nexus-cta {
+    max-width: 100%;
+    width: 280px;
 }
 
 .nexusGuideCard {
