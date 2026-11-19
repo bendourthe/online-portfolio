@@ -6,6 +6,7 @@
 - Nexus deployment repair: canonical section address, content-versioned browser files, and upload-file audit implemented
 - Repository root cleanup: ten obsolete files removed; all 247 deployment files verified byte-identical
 - Nexus introduction refinement: two desktop columns, new-tab Hub link, and revised Studio label verified
+- Nexus introduction copy and density: requested wording, matching 24 px text, and 24 px card gap verified
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -58,6 +59,13 @@
 - [x] Open Explore Nexus Hub in a new tab and change the Studio label to "Desktop App · Local AI".
 - [x] Confirm the live server still returns older HTML and document the four-file upload set for the canonical `#nexus` address and versioned browser files.
 - [x] Verify eight viewport/theme layouts, legacy-address conversion, the new-tab flow, the unchanged original-page address, and browser integrity.
+- CI impact: no pipeline changes; existing build and local browser checks.
+
+## Nexus Introduction Copy and Spacing [DONE]
+
+- [x] Apply the requested agentic development and creativity lead and updated Hub and Studio descriptions exactly.
+- [x] Match both introduction descriptions to the 24 px lead text and reduce the gap above the product cards from 88 px to 24 px.
+- [x] Verify exact copy, computed font sizes, measured gap, column stacking, overflow, and browser integrity at four widths in both themes.
 - CI impact: no pipeline changes; existing build and local browser checks.
 
 ## Nexus TV Launcher Portfolio [DONE]
