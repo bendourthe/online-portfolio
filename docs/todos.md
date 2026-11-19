@@ -6,7 +6,7 @@
 - Nexus deployment repair: canonical section address, content-versioned browser files, and upload-file audit implemented
 - Repository root cleanup: ten obsolete files removed; all 247 deployment files verified byte-identical
 - Nexus introduction refinement: two desktop columns, new-tab Hub link, and revised Studio label verified
-- Nexus introduction copy and density: requested wording, matching 24 px text, and 24 px card gap verified
+- Nexus introduction copy and density: modern desktop app wording, 24 px lead, 20 px descriptions, and 24 px card gap verified
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -64,8 +64,8 @@
 ## Nexus Introduction Copy and Spacing [DONE]
 
 - [x] Apply the requested agentic development and creativity lead and updated Hub and Studio descriptions exactly.
-- [x] Match both introduction descriptions to the 24 px lead text and reduce the gap above the product cards from 88 px to 24 px.
-- [x] Verify exact copy, computed font sizes, measured gap, column stacking, overflow, and browser integrity at four widths in both themes.
+- [x] Use "modern desktop app" in the Studio description and set both descriptions to 20 px, between the 24 px lead and 17 px card text, retaining the 24 px card gap.
+- [x] Verify the 24/20/17 px hierarchy, measured gap, overflow, and browser integrity at desktop and phone widths in both themes.
 - CI impact: no pipeline changes; existing build and local browser checks.
 
 ## Nexus TV Launcher Portfolio [DONE]
