@@ -2,6 +2,7 @@
 
 ## Dashboard
 
+- Nexus product section and updated profile assets: implemented and browser verified; production publication pending
 - Skills detail design consistency: implemented
 - Responsive and theme verification: complete
 - Leadership & Management rebuild: complete
@@ -9,6 +10,26 @@
 - Branching model: develop + main
 - Current release: v1.0.5
 - Nexus TV Launcher portfolio item: implemented and browser verified
+
+## Nexus Product Section and Profile Assets [DONE]
+
+- [x] Include the updated About photo and CV without altering either supplied file.
+- [x] Rename Projects to Nexus in the home and skills navigation and remove the hover selector.
+- [x] Present Nexus Hub and Nexus AI Studio in matching responsive cards, explain their shared foundation, and label Studio as in development.
+- [x] Preserve the Nexus Hub guide, training, existing section address, and Nexus TV Launcher portfolio card.
+- [x] Improve light-theme action contrast and verify desktop, tablet, and phone layouts in both themes.
+- [x] Verify the rendered photo, exact CV download hash, navigation behavior, repository links, build references, and browser errors.
+- [x] Correct the mobile navigation destination by closing the menu before scrolling and measuring the settled fixed header.
+- Delivery: local integration into develop; production release and upload remain separate.
+- CI impact: no pipeline changes; local static-site build and browser verification only.
+
+## Nexus Section Layout Refinement [DONE]
+
+- [x] Keep exactly one centered button per product, linking to the Nexus Hub page and Nexus AI GitHub repository, with equal desktop button sizes and bottom alignment.
+- [x] Replace the Studio placeholder with the supplied full-resolution logo, matched to the original Nexus AI repository asset.
+- [x] Structure the Nexus introduction as a lead sentence followed by a separate explanation of Hub and Studio.
+- [x] Verify button count, destinations, centering, desktop alignment, logo loading, guide navigation, and overflow at 1440, 768, and 390 pixels in both themes.
+- CI impact: no pipeline changes; local build and browser verification only.
 
 ## Nexus TV Launcher Portfolio [DONE]
 
