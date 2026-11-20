@@ -542,7 +542,7 @@
                 <div class="col-lg-6">
                     <div class="nexusGuideCard">
                         <div class="nexus-main-header">
-                            <img src="content/portfolio/thumbnails/nexus-ai-studio.png" alt="Nexus AI Studio logo" class="nexus-main-logo">
+                            <img src="content/portfolio/thumbnails/nexus-ai-studio.png?v=55332f1243ef" alt="Nexus AI Studio logo" class="nexus-main-logo">
                             <div>
                                 <p class="nexus-eyebrow">Desktop App &middot; Local AI</p>
                                 <h3 class="nexus-product-title">Nexus AI Studio</h3>
@@ -587,32 +587,28 @@
 
             <div class="row">
 
-                <div class="heading text-center col-12 mb-5">
-                    <h2 class="section-title">DETAILED PORTFOLIO</h2>
-                    <p class="mt-3 section-intro-text">A curated collection of projects illustrating my expertise in Generative AI, Machine Learning, Data Science, Software Engineering, Computer Vision & Biomechanical Engineering.</p>
-                    <p class="mt-3 section-intro-text">Filter by domain to explore specific expertise.</p>
+                <div class="heading text-center col-12 portfolio-heading">
+                    <h2 class="section-title">PORTFOLIO</h2>
+                    <p class="mt-3 section-intro-text">A curated collection of projects illustrating my expertise in <strong>Generative AI</strong>, <strong>Machine Learning</strong>, <strong>Data Science</strong>, <strong>Software Engineering</strong>, <strong>Computer Vision</strong> &amp; <strong>Biomechanical Engineering</strong>.</p>
+                    <p class="portfolio-filter-hint">Filter by domain to explore specific expertise.</p>
                 </div>
 
-                <div class="filter col-12">
+                <div class="filter col-12" role="group" aria-label="Filter projects by expertise">
                     <ul class="filters">
-                        <li><a href="#" data-filter="*" class="current">ALL PROJECTS</a></li>
-                    </ul>
-                    <ul class="filters">
-                        <li><a href="#" data-filter=".gen-ai">GENERATIVE AI</a></li>
-                        <li><a href="#" data-filter=".dl">DEEP LEARNING</a></li>
-                        <li><a href="#" data-filter=".ml">MACHINE LEARNING</a></li>
-                        <li><a href="#" data-filter=".cv">COMPUTER VISION</a></li>
-                        <li><a href="#" data-filter=".ds">DATA SCIENCE</a></li>
-                        <li><a href="#" data-filter=".se">SOFTWARE ENGINEERING</a></li>
-                    </ul>
-                    <ul class="filters">
-                        <li><a href="#" data-filter=".bio-eng">BIOMECHANICAL ENGINEERING</a></li>
-                        <li><a href="#" data-filter=".pubs">PUBLICATIONS</a></li>
+                        <li><button type="button" data-filter="*" class="current" aria-pressed="true" aria-controls="portfolio-items">All projects</button></li>
+                        <li><button type="button" data-filter=".gen-ai" aria-pressed="false" aria-controls="portfolio-items">Generative AI</button></li>
+                        <li><button type="button" data-filter=".dl" aria-pressed="false" aria-controls="portfolio-items">Deep learning</button></li>
+                        <li><button type="button" data-filter=".ml" aria-pressed="false" aria-controls="portfolio-items">Machine learning</button></li>
+                        <li><button type="button" data-filter=".cv" aria-pressed="false" aria-controls="portfolio-items">Computer vision</button></li>
+                        <li><button type="button" data-filter=".ds" aria-pressed="false" aria-controls="portfolio-items">Data science</button></li>
+                        <li><button type="button" data-filter=".se" aria-pressed="false" aria-controls="portfolio-items">Software engineering</button></li>
+                        <li><button type="button" data-filter=".bio-eng" aria-pressed="false" aria-controls="portfolio-items">Biomechanical engineering</button></li>
+                        <li><button type="button" data-filter=".pubs" aria-pressed="false" aria-controls="portfolio-items">Publications</button></li>
                     </ul>
                 </div>
 
                 <div class="itemsContainer col-12">
-                    <ul class="items">
+                    <ul class="items" id="portfolio-items">
 
                         <!-- 2026: Nexus TV Launcher -->
                         <li class="se content-card">
