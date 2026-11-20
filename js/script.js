@@ -23,29 +23,30 @@ $(window).on("load", function () {
     });
 
     // Simple Filtering for CSS Grid Portfolio
-    $(".filters a").click(function (e) {
-        e.preventDefault();
+    $(".filters button").click(function () {
 
-        $(".filters .current").removeClass("current");
-        $(this).addClass("current");
+        $(".filters button").removeClass("current").attr("aria-pressed", "false");
+        $(this).addClass("current").attr("aria-pressed", "true");
 
         var selector = $(this).attr("data-filter");
         var $itemsContainer = $(".items");
+        var duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 200;
+        $itemsContainer.children("li").stop(true, true);
 
         // Lock the height to prevent scroll jumping
         $itemsContainer.css("min-height", $itemsContainer.height());
 
         if (selector === '*') {
-            $itemsContainer.children("li").show(300);
+            $itemsContainer.children("li").show(duration);
         } else {
-            $itemsContainer.children("li").not(selector).hide(300);
-            $itemsContainer.children("li").filter(selector).show(300);
+            $itemsContainer.children("li").not(selector).hide(duration);
+            $itemsContainer.children("li").filter(selector).show(duration);
         }
 
         // Release the height lock after animation
         setTimeout(function () {
             $itemsContainer.css("min-height", "0");
-        }, 350);
+        }, duration + 50);
 
         return false;
     });
