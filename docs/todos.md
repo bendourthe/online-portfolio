@@ -2,7 +2,8 @@
 
 ## Dashboard
 
-- Portfolio overview: shortened title, highlighted domains, compact accessible filters, and 20 px filter gap verified
+- Main-page readability: 84 viewport/theme/tab states reviewed; five findings and native zoom verification remain open
+- Portfolio overview: shortened title, bold-only domain emphasis, compact accessible filters, and 20 px filter gap verified
 - Studio logo: supplied pale-blue original copied unchanged and linked with a content-based cache version
 - Nexus product section and updated profile assets: implemented and browser verified; production publication pending
 - Nexus deployment repair: canonical section address, content-versioned browser files, and upload-file audit implemented
@@ -95,6 +96,17 @@
 - [x] Preserve all nine category mappings and verify keyboard Tab/Space/Enter, pressed state, visible focus, reduced-motion behavior, and rapid animated switching.
 - [x] Verify layouts at 320, 390, 768, and 1440 px in both themes with no overflow, page errors, or HTTP failures; selected-button text contrast is at least 5.06:1.
 - CI impact: no pipeline changes; existing build and local browser checks.
+
+## Main-Page Readability Audit
+
+- [x] Change Portfolio domain emphasis to bold text using the surrounding subtitle color and verify both themes on desktop and phones.
+- [x] Audit all seven Skills tabs at six viewport widths in both themes; record five findings in `docs/releases/v1/v1.0/validation/2026-11-19-main-page-readability-audit.md`.
+- [ ] Define shared readable type roles for 10-14 px text and normal body tracking.
+- [ ] Correct the measured light-theme text contrast failures on Career, Skills, and Nexus surfaces.
+- [ ] Honor reduced motion for background and hero effects and provide control over retained automatic motion.
+- [ ] Add intentional portrait text alternatives, hero-link names, and a coherent page heading outline.
+- [ ] Verify real 200% browser zoom, text-spacing enlargement, and representative physical devices after implementation.
+- CI impact: no pipeline changes; the audit does not apply broader UI fixes.
 
 ## Nexus TV Launcher Portfolio [DONE]
 

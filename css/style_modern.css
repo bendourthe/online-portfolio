@@ -671,7 +671,7 @@ body.dark-mode .card-image-container {
 }
 
 #portfolio .portfolio-heading .section-intro-text strong {
-    color: var(--primary-color);
+    color: inherit;
     font-weight: 700;
 }
 
