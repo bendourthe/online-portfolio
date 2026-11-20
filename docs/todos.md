@@ -2,6 +2,8 @@
 
 ## Dashboard
 
+- Portfolio overview: shortened title, highlighted domains, compact accessible filters, and 20 px filter gap verified
+- Studio logo: supplied pale-blue original copied unchanged and linked with a content-based cache version
 - Nexus product section and updated profile assets: implemented and browser verified; production publication pending
 - Nexus deployment repair: canonical section address, content-versioned browser files, and upload-file audit implemented
 - Repository root cleanup: ten obsolete files removed; all 247 deployment files verified byte-identical
@@ -83,6 +85,15 @@
 - [x] Highlight local models for text, image, video, and audio generation in the Local AI segment.
 - [x] Apply the requested expert-level agentic workflow sentence and advanced Nexus Hub skills, guardrails, and standardized workflow description.
 - [x] Verify exact descriptions, bold generation types, wrapping, text overlap, desktop button alignment, and browser integrity on desktop and phones in both themes.
+- CI impact: no pipeline changes; existing build and local browser checks.
+
+## Portfolio Controls and Studio Logo [DONE]
+
+- [x] Replace the Studio image with the supplied pale-blue original, verify exact source/build/served hashes, and version its URL to refresh cached images.
+- [x] Rename Detailed Portfolio to Portfolio and highlight all six expertise domains in the first subtitle sentence.
+- [x] Use one wrapping group of native filter buttons with the existing typography and theme colors, 8 px gaps and corners, a selected checkmark, 44 px targets, and 20 px between the hint and filters.
+- [x] Preserve all nine category mappings and verify keyboard Tab/Space/Enter, pressed state, visible focus, reduced-motion behavior, and rapid animated switching.
+- [x] Verify layouts at 320, 390, 768, and 1440 px in both themes with no overflow, page errors, or HTTP failures; selected-button text contrast is at least 5.06:1.
 - CI impact: no pipeline changes; existing build and local browser checks.
 
 ## Nexus TV Launcher Portfolio [DONE]
